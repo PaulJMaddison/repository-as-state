@@ -3,7 +3,7 @@
 Working title: **Repository-as-State: Externalising Agent Continuity for Stateless High-Capability Reasoning**
 
 Author: Paul Maddison  
-Affiliation: KynticAI  
+Affiliation: Independent Researcher  
 Location: Liverpool, United Kingdom
 
 ## Evidence status
