@@ -2,11 +2,21 @@
 
 **Repository-as-State: Externalising Agent Continuity for Stateless High-Capability Reasoning**
 
+**Independent research by Paul Maddison**
+
 Repository-as-State (RaS) is a software-engineering research project investigating whether durable engineering continuity can live primarily in the repository rather than inside a long-lived high-capability reasoning session.
 
 The central proposition is not that “Git can store agent memory”. It is that **durable engineering continuity does not necessarily need to live inside the expensive high-capability reasoning process**. RaS asks whether high-capability reasoning can be invoked transactionally, allowed to disappear, and later reconstructed from authoritative repository state plus the current task.
 
 > **Core systems principle:** Persist authoritative state. Reconstruct computation.
+
+## Author
+
+**Paul Maddison**  
+Independent Researcher  
+Liverpool, United Kingdom
+
+This research is published under Paul Maddison's name and is not presented as research produced by, sponsored by, or affiliated with a company or employer.
 
 ## Status
 
@@ -84,7 +94,7 @@ See [docs/](docs/), [paper/](paper/), and [experiments/P0/](experiments/P0/).
 
 ## Public/private boundary
 
-This repository is public. Proprietary KynticAI code, private diffs, hidden verifier source, private traces containing proprietary source, credentials, customer data, Very Group material, and unnecessary personal filesystem paths must never be committed. Private experiment subjects must cross an explicit sanitisation boundary before any aggregate evidence is published.
+This repository is public. Proprietary source code, private diffs, hidden verifier source, private traces containing proprietary source, credentials, customer or employer data, and unnecessary personal filesystem paths must never be committed. Private experiment subjects must cross an explicit sanitisation boundary before any aggregate evidence is published.
 
 ## Licence and citation
 
