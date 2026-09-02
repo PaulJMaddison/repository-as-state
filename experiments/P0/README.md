@@ -1,62 +1,76 @@
 # P0 — Forced-State-Reset Methodology Pilot
 
-**Status: NOT EXECUTED.**  
-**Ready to execute: NO.**  
-**Audit decision: GO_WITH_REQUIRED_PROTOCOL_CHANGES.**
+**Status: CORPUS SELECTED; PROTOCOL PREPARED; MODEL/RUNTIME FREEZE PENDING.**  
+**P0 executed: NO.**  
+**Experimental agent runs: 0.**
 
-P0 evaluates whether dependent software-engineering work can continue after predecessor high-capability reasoning-session history is removed **at validated accepted engineering boundaries**.
+P0 tests one narrow causal question:
 
-P0 is a methodology pilot / initial case study. It cannot establish general superiority or population-level non-inferiority.
+> After a validated accepted engineering transition, how much continuity is lost when predecessor high-capability reasoning-session state is destroyed?
 
-## Primary comparison
+## Corpus status
 
-### A — Persistent-history control
-- same canonical accepted project state;
-- same current task;
-- predecessor reasoning-session history available.
+A privileged curator inspected a private historical software repository under a strict public/private boundary.
 
-### B — Forced reset
-- same canonical accepted project state;
-- same current task;
-- fresh reasoning session;
-- no predecessor conversation/summary/resume/copied reconstruction/account-session memory.
+Public subject identifier: **PRIVATE_SUBJECT_A**
 
-The model/configuration, tools, executor, environment, network policy and hidden verifier must otherwise be matched.
+The candidate window was frozen before individual task selection. It contained 38 historical transitions. Applying the preregistered selection rule produced five pseudonymous, genuinely sequential task units comprising 17 transitions; 21 later transitions were excluded by the fixed five-task pilot budget rule.
 
-Condition C is optional exploratory semantic-state ablation.
+The public corpus manifest contains only pseudonymous IDs, broad categories, hashes, dependency structure, and acceptance status. Exact private repository identity, commits, paths, task text, historical solutions, verifier details, and curation notes are committed only by cryptographic hash.
 
-Tiered execution D is deferred because it would change executor capability while P0 is trying to isolate reasoning-history persistence.
+## Conditions
 
-## Mandatory readiness gate
+**A — PERSISTENT_HISTORY_CONTROL**
 
-Before P0, complete:
+At every accepted boundary the workspace is destroyed and canonically rematerialised. Predecessor reasoning-session history is retained.
 
-[readiness-checklist.md](readiness-checklist.md)
+**B — FORCED_RESET_RAS**
 
-The critical gates are:
+At the same accepted boundary the workspace is identically destroyed/rematerialised and the reasoning session is destroyed. The fresh session receives stable experiment instructions, the exact same neutral task bytes, the same accepted repository state, and the same permitted tools/environment.
 
-1. canonical workspace rematerialisation for both A and B;
-2. controllable provider/session memory;
-3. FUTURE_HISTORY_LEAK_GATE;
-4. post-cutoff task-leakage audit;
-5. frozen corpus and task hashes;
-6. frozen hidden-verifier versions/hashes outside workspace;
-7. frozen reconstruction-probe rubric;
-8. frozen timeout/retry/failure/rerun rules;
-9. no human rescue;
-10. preregistration committed before outcomes.
+The intended treatment difference is predecessor reasoning-session history.
 
-## Public/private boundary
+**C — SEMANTIC_STATE_ABLATION**
 
-The likely subject is a private proprietary software system. This public repository contains no proprietary subject source, private diff, hidden verifier implementation or source-bearing model trace.
+Not enabled for P0.
 
-Raw private evidence remains outside this repository. Public outputs may contain sanitised protocol metadata, task identifiers, aggregate outcomes, resource telemetry and publication-safe hashes.
+`C_NOT_RUN_REASON=NO_DEFENSIBLE_ABLATION`
 
-## Allowed P0 conclusions
+**D — TIERED_EXECUTION**
 
-- METHODOLOGY FAILURE
-- EVIDENCE AGAINST RaS
-- MIXED / CONDITIONAL PILOT EVIDENCE
-- SUPPORTIVE PILOT EVIDENCE
+Not part of primary P0. Deferred.
 
-P0 may not conclude **PROVEN**.
+## Current blockers before execution
+
+P0 remains **NOT RUN-READY** until the exact model/runtime is frozen, including:
+
+- visible model/configuration;
+- stable system instructions;
+- tool surface and permissions;
+- per-task resource limits;
+- telemetry availability;
+- account/cross-session memory control;
+- cache policy;
+- network policy.
+
+The private hidden verifier implementation and isolated task workspaces also remain to be prepared outside both this public repository and the subject workspace.
+
+## Harness status
+
+The generic FUTURE_HISTORY_LEAK_GATE and canonicalisation/preregistration helpers are implemented in `src/ras/`.
+
+Current deterministic synthetic harness validation: **50 tests passed**, including **21 Git isolation/leakage tests**.
+
+**HARNESS TEST DATA — NOT RESEARCH EVIDENCE.**
+
+## Freeze status
+
+`MODEL_RUNTIME_FREEZE_PENDING=true`  
+`P0_PREREGISTRATION_FROZEN=false`  
+`P0_PROTOCOL_READY_FOR_MODEL_FREEZE=true`
+
+No `PREREGISTRATION_LOCK.json` is created yet because unresolved runtime fields are causal requirements, not optional metadata.
+
+## Curator separation
+
+The curator who selected this corpus has seen future history and is permanently disqualified from acting as Condition A, B, C, execution worker, or result judge.

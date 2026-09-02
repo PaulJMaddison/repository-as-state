@@ -94,3 +94,17 @@ P0 is a methodology pilot/initial case study. Allowed interpretations:
 - SUPPORTIVE PILOT EVIDENCE.
 
 Never PROVEN.
+
+## Corpus-preparation state
+
+The P0 corpus has now been selected privately under the preregistered historical-window and task-selection rules.
+
+The public experiment uses five pseudonymous dependent task units, `P0-T1` through `P0-T5`, with byte-canonical neutral task specifications committed by SHA-256. Exact subject/commit/path/solution information remains behind the private-lock commitment.
+
+Both A and B will use the same generic independent-workspace materialiser and fail-closed future-history gate. The public gate rejects remotes, Git alternates, linked worktrees, unexpected refs, reflog leakage, resolvable forbidden future commits, unreachable extra Git objects, future-state sidecars, symlink escapes, dirty workspaces, and absent network-isolation assertion.
+
+Condition C is not enabled because no clean semantic-only ablation was identified for this pilot. Condition D remains deferred.
+
+The corpus is selected but the experiment is not run-ready until the exact model/runtime, stable system instructions, tools/permissions, resource budget, telemetry, cache/network policy, account-memory controls, and private verifier implementation are frozen.
+
+No P0 result exists.

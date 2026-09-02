@@ -1,0 +1,332 @@
+{
+  "experiment": {
+    "id": "P0",
+    "version": "0.3-corpus-selected",
+    "name": "Forced-State-Reset Methodology Pilot",
+    "status": "NOT_EXECUTED",
+    "p0_preregistration_frozen": false,
+    "p0_protocol_ready_for_model_freeze": true
+  },
+  "research_question": {
+    "primary": "After a validated accepted engineering transition, how much continuity is lost when predecessor high-capability reasoning-session state is destroyed?",
+    "reconstruction": "What rediscovery burden does forced reset impose at accepted boundaries?",
+    "pilot_objective": "Test treatment isolation, leakage prevention, behavioural adjudication and reconstruction measurement; do not infer general superiority."
+  },
+  "audit_base_sha": "02b7bc3b8751fcff85ea6f3987a201e340ccfc2d",
+  "public_protocol_version": "P0-0.3-corpus-selected",
+  "subject": {
+    "identifier": "PRIVATE_SUBJECT_A",
+    "private": true,
+    "raw_subject_data_public": false
+  },
+  "corpus": {
+    "public_manifest_sha256": "05b10fc6ddad29e962eaa0ca7e7551c6c9dc6e57eb09918917d5a64a28f21b8c",
+    "private_lock_sha256": "f18860982a56fb639399ff5c004d681e65d49c91d563dd05296ea27917e2fd0e",
+    "selection_rule_sha256": "c5d2c4d4346152b58ae85513997a404eea08896e6a1af02ce33ab8f9315b49be",
+    "task_count": 5,
+    "candidate_transitions_considered": 38,
+    "excluded_transitions": 21,
+    "task_spec_sha256": {
+      "P0-T1": "13fba4797b1564d10c05ea0fc370de45b5bc907d0976682044131b810309eccf",
+      "P0-T2": "e6a4f4619fad9c57b35fc3077f0bcd0142dd789ecb3709c3d87b202d209d977a",
+      "P0-T3": "8ca8145ffdfb3ed7245d17d7b70b654f96dffdf1baf93dfe4ba90c1cd867b0cc",
+      "P0-T4": "f8049a3f9d120c98114d3a1764651964205b2730a3aa208599ed01e3e97276e4",
+      "P0-T5": "b65ddf2304f2d7b3f55b8b4b0d238bed494cf9f3f457ed895e6215c3474fc663"
+    },
+    "genuinely_sequential": true,
+    "accepted_boundaries_verified": true,
+    "boundary_reproduction_limitation": "Exact historical CI/check runs are not attached to the five boundary commits; current private-source build reproduction was not possible in the connector-only curator runtime. Boundaries are accepted on committed state plus deterministic local behavioural test/proof contracts and coherent programme progression."
+  },
+  "selection": {
+    "window_rule_public": "bounded contiguous local engineering programme frozen before individual task selection",
+    "inclusion_criteria": [
+      "real historical requirement",
+      "behaviour/contract/architecture/invariant change",
+      "non-trivial",
+      "neutral specification possible",
+      "credible pre-state",
+      "credible accepted post-state",
+      "behavioural verifier possible",
+      "deterministic/local verification",
+      "no paid cloud",
+      "no unavailable secret/private service",
+      "no live-model nondeterminism",
+      "not mechanical/generated",
+      "focused transition",
+      "within future pilot budget",
+      "natural dependency on accumulated state",
+      "requirement does not disclose solution",
+      "no unavailable private human-only knowledge",
+      "equivalent implementations acceptable"
+    ],
+    "exclusion_criteria": [
+      "cloud-only",
+      "credential-dependent",
+      "external-service incident",
+      "pure documentation",
+      "trivial formatting/typo",
+      "mass dependency bump",
+      "generated artefact",
+      "unverifiable behaviour",
+      "unrelated-change dominated",
+      "pre-state solution leakage",
+      "unpreventable future-history leakage",
+      "no credible accepted boundary",
+      "time/network dependent",
+      "not deterministic local",
+      "subjective human pass/fail",
+      "after first five qualifying clusters under pilot budget"
+    ]
+  },
+  "accepted_boundary": {
+    "definition": "Committed coherent post-state with deterministic local behavioural contract tests or proof appropriate to the requirement, usable/compile-safe at the boundary, and no known intentionally incomplete work merely required to make the selected requirement valid.",
+    "historical_acceptance_vs_current_reproduction_are_distinct": true
+  },
+  "conditions": {
+    "A": {
+      "name": "PERSISTENT_HISTORY_CONTROL",
+      "predecessor_reasoning_session_history": true,
+      "canonical_workspace_rematerialized_each_task": true
+    },
+    "B": {
+      "name": "FORCED_RESET_RAS",
+      "predecessor_reasoning_session_history": false,
+      "canonical_workspace_rematerialized_each_task": true
+    },
+    "C": {
+      "name": "SEMANTIC_STATE_ABLATION",
+      "enabled_for_p0": false,
+      "reason": "NO_DEFENSIBLE_ABLATION"
+    },
+    "D": {
+      "name": "TIERED_EXECUTION",
+      "enabled_for_p0": false,
+      "reason": "DEFERRED_TO_AVOID_CONFOUNDING_PRIMARY_CONTINUITY_TREATMENT"
+    },
+    "matched_state": [
+      "accepted repository state",
+      "current task bytes",
+      "visible model/configuration",
+      "stable system instructions",
+      "tools and permissions",
+      "executor implementation",
+      "dependency/toolchain image",
+      "CPU/memory where controllable",
+      "network policy",
+      "per-task resource budget",
+      "hidden verifier"
+    ]
+  },
+  "endpoints": {
+    "primary": [
+      "hidden_verifier_pass_fail_per_task",
+      "complete_sequence_success",
+      "accepted_sequential_transitions_completed"
+    ],
+    "secondary": [
+      "input_tokens_if_exposed",
+      "output_tokens_if_exposed",
+      "cached_tokens_if_exposed",
+      "reasoning_tokens_if_exposed",
+      "high_capability_model_calls",
+      "repository_searches",
+      "files_read",
+      "tool_calls",
+      "elapsed_reconstruction_time",
+      "total_task_wall_time",
+      "retries",
+      "failure_category",
+      "RRI_descriptive",
+      "RTF_descriptive"
+    ],
+    "rri": "successful_correct_continuations_after_reset / eligible_forced_resets",
+    "rtf": "reconstruction_input_tokens / total_RaS_input_tokens",
+    "no_statistical_power_claim_from_p0": true
+  },
+  "reconstruction_probe": {
+    "required_before_edit_in_B": true,
+    "required_in_C_if_ever_enabled": true,
+    "chain_of_thought_requested": false,
+    "stored_outside_subject_workspace": true,
+    "available_to_later_tasks": false,
+    "fields": [
+      "relevant_architecture",
+      "current_observable_behaviour",
+      "relevant_components",
+      "constraints_and_invariants",
+      "tests_and_build_evidence",
+      "earlier_work_already_completed",
+      "work_now_required",
+      "evidence_paths",
+      "uncertainties",
+      "unknowns"
+    ],
+    "scoring": "hidden objective facts where possible; blinded scoring where feasible"
+  },
+  "hidden_verifier": {
+    "contract_sha256": "60f2226cd8a34bfecdd52602fc81361b24554d0bffbd19ccddd5a1449f458103",
+    "task_specific_requirements_committed_by_private_lock": true,
+    "implementation_status": "NOT_BUILT",
+    "stored_outside_workspace": true,
+    "inaccessible_to_agent": true,
+    "behavioural_not_patch_similarity": true,
+    "equivalent_correct_implementations_allowed": true,
+    "deterministic_local_offline_required": true,
+    "iterative_hidden_failure_detail_to_agent": false
+  },
+  "leakage": {
+    "gate_name": "FUTURE_HISTORY_LEAK_GATE",
+    "gate_version": "0.1.0",
+    "implementation_sha256": "9f9e9d76c63338c7b4a7b98a208c94b5663bfb4e0f759b5ddba09c91c06f836b",
+    "fail_closed_before_model_invocation": true,
+    "checks": [
+      "no_remotes",
+      "no_git_alternates",
+      "no_linked_worktree",
+      "allowed_refs_only",
+      "reflog_within_reachable_closure",
+      "forbidden_future_oids_unresolvable",
+      "no_unreachable_extra_git_objects",
+      "no_future_state_sidecars",
+      "no_symlink_escape",
+      "clean_workspace",
+      "network_isolation_asserted"
+    ],
+    "synthetic_validation": "21 HARNESS TESTS PASS; NOT RESEARCH EVIDENCE"
+  },
+  "workspace": {
+    "materialisation_method": "fresh Git repository via direct no-tag fetch of only the allowed commit ancestry, then allowed ref creation and hard reset; source repository is never modified",
+    "both_A_and_B_rematerialize_each_boundary": true,
+    "filesystem_residue_removed": [
+      "untracked files",
+      "build residue under declared cache policy",
+      "shell history",
+      "IDE state",
+      "scratch files",
+      "previous process state"
+    ],
+    "cache_policy": "PENDING_MODEL_RUNTIME_FREEZE: reset or identically prewarm; must be identical across A/B"
+  },
+  "condition_order": {
+    "algorithm": "At final preregistration lock, compute SHA256(UTF8(PREREGISTRATION_LOCK_SHA256 + 'P0-CONDITION-ORDER')); use least-significant bit of final digest: 0 => A then B, 1 => B then A. C, if a future amendment enables it, runs after A/B.",
+    "status": "PENDING_FINAL_PREREGISTRATION_LOCK",
+    "runtime_randomness_prohibited": true
+  },
+  "run_control": {
+    "no_human_rescue": true,
+    "prohibited": [
+      "hints",
+      "file pointers",
+      "cross-condition information",
+      "manual code fixes",
+      "prompt improvement after failure",
+      "selective extra context",
+      "hidden verifier failure detail",
+      "reconstruction report transfer",
+      "restart because answer looked poor"
+    ],
+    "failure_taxonomy": [
+      "AGENT_TASK_FAILURE",
+      "HIDDEN_VERIFIER_FAILURE",
+      "TIME_BUDGET_EXHAUSTED",
+      "TOOL_FAILURE",
+      "MODEL_PROVIDER_FAILURE",
+      "HARNESS_FAILURE",
+      "ENVIRONMENT_FAILURE",
+      "FUTURE_HISTORY_LEAK",
+      "TASK_SPEC_INVALID",
+      "VERIFIER_INVALID",
+      "RUN_CONTAMINATED"
+    ],
+    "rerun_rule": "Only objectively classified HARNESS_FAILURE, MODEL_PROVIDER_FAILURE or ENVIRONMENT_FAILURE may be eligible for rerun under the final frozen rule; agent/task/verifier failure is never rerun merely because the outcome is poor.",
+    "per_task_wall_clock_limit": null,
+    "per_task_model_call_limit": null,
+    "per_task_token_limit": null,
+    "model_runtime_freeze_pending": true
+  },
+  "interpretation": {
+    "allowed": [
+      "METHODOLOGY_FAILURE",
+      "EVIDENCE_AGAINST_RAS",
+      "MIXED_OR_CONDITIONAL_EVIDENCE",
+      "SUPPORTIVE_PILOT_EVIDENCE"
+    ],
+    "prohibited": [
+      "PROVEN",
+      "VALIDATED_GENERALLY",
+      "SUPERIOR"
+    ],
+    "dimensions": {
+      "continuity": [
+        "supportive",
+        "mixed",
+        "adverse"
+      ],
+      "economic_reconstruction_proxy": [
+        "favourable",
+        "mixed",
+        "adverse",
+        "unobservable"
+      ]
+    }
+  },
+  "falsification": {
+    "continuity": [
+      "B fails tasks A passes",
+      "B sequence collapses with reset depth",
+      "fresh reasoner repeatedly misunderstands prior accepted architecture"
+    ],
+    "reconstruction_economics": [
+      "reconstruction dominates time/context",
+      "B total outcome-normalised resource use is no better or worse than A",
+      "required durable documentation becomes excessive"
+    ],
+    "repository_state": [
+      "accepted repository state proves insufficient",
+      "success depends on unusually tailored state files"
+    ]
+  },
+  "public_private_boundary": {
+    "public_forbidden": [
+      "private repository identifier",
+      "private commit SHAs",
+      "private source paths/excerpts",
+      "historical patches",
+      "private task text if sensitive",
+      "hidden verifier logic",
+      "future-solution metadata",
+      "credentials/customer/employer data"
+    ],
+    "public_allowed": [
+      "pseudonymous task IDs",
+      "task-spec hashes",
+      "broad categories",
+      "broad complexity",
+      "verifier type",
+      "accepted-boundary status",
+      "cryptographic commitments",
+      "harness validation results labelled non-research-evidence"
+    ]
+  },
+  "model_runtime": {
+    "freeze_pending": true,
+    "p0_causal_runtime_eligible": null,
+    "must_freeze": [
+      "exact visible model/configuration",
+      "stable system instructions",
+      "tool surface/permissions",
+      "resource limits",
+      "telemetry availability",
+      "account/cross-session memory control proof",
+      "cache policy",
+      "network policy"
+    ],
+    "rule": "If account-level or cross-session memory cannot be disabled or audited, set P0_CAUSAL_RUNTIME_ELIGIBLE=false and do not run."
+  },
+  "preregistration_freeze_sha256": null,
+  "results": {
+    "experimental_agent_runs": 0,
+    "p0_executed": false,
+    "positive_empirical_ras_results": false
+  }
+}

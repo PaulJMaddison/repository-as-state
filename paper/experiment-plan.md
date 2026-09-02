@@ -230,3 +230,29 @@ Do not make behavioural continuity claims if A/B treatment isolation is not demo
 Do not make economic claims without reconstruction/retry costs.
 
 Do not make security, serving or generalisation claims from P0.
+
+## P0 corpus-selection status — 2026-09-02
+
+Corpus curation is complete under the hostile-audit controls.
+
+- public subject: `PRIVATE_SUBJECT_A`;
+- 38 candidate transitions considered in a bounded programme frozen before task selection;
+- five genuinely sequential task units selected;
+- neutral task specifications canonicalised and committed by SHA-256 only;
+- five credible accepted boundaries identified;
+- all selected tasks are designed for deterministic local verification and exclude cloud/live-model/credential dependencies;
+- Condition C disabled with `NO_DEFENSIBLE_ABLATION`;
+- tiered execution remains deferred;
+- FUTURE_HISTORY_LEAK_GATE v0.1.0 implemented and synthetically validated;
+- task-specific hidden-verifier behavioural requirements frozen privately; implementation not yet built;
+- model/runtime freeze still pending.
+
+The private repository identity, exact historical commits, private paths, task text, solution history, curation notes, and task-specific verifier details are not stored in this public repository.
+
+Because model/runtime identity, resource limits, telemetry, cache/network policy, and cross-session-memory controls remain unresolved:
+
+`P0_PREREGISTRATION_FROZEN=false`
+
+`P0_PROTOCOL_READY_FOR_MODEL_FREEZE=true`
+
+No experimental agent has been run.

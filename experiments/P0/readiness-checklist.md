@@ -2,104 +2,102 @@
 
 **Current status: NOT READY TO EXECUTE.**
 
-This checklist is a hard gate, not a planning suggestion. Every mandatory item must be frozen and auditable before P0 begins.
+This is a hard gate.
 
-## Corpus
+## Corpus — complete
 
-- [ ] Candidate historical window/frame defined.
-- [ ] Inclusion criteria frozen.
-- [ ] Exclusion criteria frozen.
-- [ ] Candidate set frozen before outcomes.
-- [ ] Sequential-dependence criterion satisfied and documented.
-- [ ] Task hashes frozen.
-- [ ] Sampling/randomisation rule and seed frozen where used.
-- [ ] Subjective complexity labels frozen before outcomes.
-- [ ] Historical survivor bias documented.
+- [x] Bounded candidate programme fixed before task selection.
+- [x] Inclusion criteria frozen.
+- [x] Exclusion criteria frozen.
+- [x] Complete private considered-candidate record frozen.
+- [x] Genuine sequential-dependence rule applied.
+- [x] Five task units selected without cherry-picking later candidates.
+- [x] Neutral task specifications canonicalised and hashed.
+- [x] Private corpus lock payload canonicalised and committed publicly by SHA-256 only.
+- [x] Historical survivor/author-subject bias explicitly documented.
 
-## Causal treatment
+## Accepted boundaries — complete with frozen limitation
 
-- [ ] Canonical workspace materialiser implemented.
-- [ ] A and B rematerialise identical accepted project state per task.
-- [ ] Untracked/shell/IDE/scratch/worktree residue removed.
-- [ ] Stable experiment instructions hashed.
-- [ ] Current task text identical across A/B.
-- [ ] Model/configuration/sampling manifest frozen.
-- [ ] Tool schema/executor manifest frozen.
-- [ ] Base image/toolchain/dependency manifest frozen.
+- [x] Five committed coherent accepted post-states identified.
+- [x] Deterministic local behavioural test/proof contracts identified for every selected task.
+- [x] No selected implementation surface contains unfinished TODO/FIXME/unimplemented markers observed by curation.
+- [x] Historical acceptance evidence distinguished from current reproduction evidence.
+- [x] Missing exact per-boundary CI/current historical rerun recorded as a limitation.
+
+## Isolation harness — implemented and synthetically validated
+
+- [x] Fresh independent Git workspace materialiser implemented.
+- [x] No-remotes check.
+- [x] Forbidden future OID non-resolution check.
+- [x] Allowed-refs-only check.
+- [x] Reflog closure check.
+- [x] Unreachable-extra-object check.
+- [x] Git alternates check.
+- [x] Linked-worktree/source-link check.
+- [x] Sidecar patch/bundle/archive check.
+- [x] Symlink escape check.
+- [x] Clean workspace check.
+- [x] Network-isolation assertion required.
+- [x] Fail-closed behaviour tested.
+- [x] Synthetic tests labelled non-research evidence.
+
+## Task leakage — curation complete; execution proof pending
+
+- [x] Private selected pre-states reviewed for legitimate durable state versus future-solution information.
+- [x] Private leakage notes frozen in the lock payload.
+- [ ] Re-run leakage checks on each finally materialised private execution workspace.
+
+## Hidden verifier — requirements frozen; implementation pending
+
+- [x] Generic public contract frozen.
+- [x] Task-specific behavioural requirements frozen privately.
+- [x] Patch similarity rejected as success criterion.
+- [x] Equivalent correct implementations required.
+- [ ] Private verifier source built outside both public repo and subject workspace.
+- [ ] Final verifier versions/hashes frozen after implementation.
+- [ ] Verifier builder validates deterministic local/offline execution.
+
+## Reconstruction probe — schema frozen
+
+- [x] Reportable state schema frozen.
+- [x] No chain-of-thought requested.
+- [x] Probe remains outside subject workspace.
+- [x] Probe is not available to later tasks.
+- [ ] Final task-specific objective scoring keys built with the private verifier package.
+
+## Model/runtime — BLOCKING
+
+- [ ] Exact visible high-capability model/configuration frozen.
+- [ ] Stable system instructions hashed.
+- [ ] Tool schema/permissions frozen.
+- [ ] Executor/runtime implementation frozen.
+- [ ] Base toolchain/dependency image frozen.
+- [ ] CPU/memory policy frozen where controllable.
 - [ ] Cache policy frozen.
-- [ ] Network policy frozen.
-- [ ] Provider account/session memory disabled or auditable.
-- [ ] If hidden cross-session memory cannot be controlled, runtime rejected.
+- [ ] Network policy enforced and frozen.
+- [ ] Account/cross-session memory disabled or auditable.
+- [ ] `P0_CAUSAL_RUNTIME_ELIGIBLE` resolved true.
+- [ ] Telemetry capability frozen.
+- [ ] Per-task wall-clock/model-call/token budgets frozen.
 
-## FUTURE_HISTORY_LEAK_GATE
+## Run control — logic frozen; numeric runtime limits pending
 
-- [ ] No remotes.
-- [ ] Known future solution SHAs cannot resolve.
-- [ ] No future refs/tags/reflogs.
-- [ ] No packed future objects.
-- [ ] No Git alternates.
-- [ ] No source-repository worktree/filesystem links.
-- [ ] No future patch/generated/CI artefacts.
-- [ ] Network cannot retrieve private future source.
-- [ ] Gate fails closed before model invocation.
-- [ ] Gate version/evidence format frozen.
-
-## Task leakage
-
-- [ ] Post-cutoff commit messages audited.
-- [ ] Issue edits audited.
-- [ ] Branch/tag names audited.
-- [ ] Changelog/TODO/comment/generated-doc channels audited.
-- [ ] Future tests unavailable.
-- [ ] Task-generation files unavailable.
-- [ ] Historical solution patches unavailable.
-
-## Hidden verifier
-
-- [ ] Stored outside experimental workspace.
-- [ ] Inaccessible to agent.
-- [ ] Behaviour-oriented.
-- [ ] Same across conditions.
-- [ ] Equivalent correct solutions accepted.
-- [ ] Historical future patch not used as textual oracle.
-- [ ] Verifier version/hash frozen.
-
-## Reconstruction probe
-
-- [ ] Reportable-state schema frozen.
-- [ ] No chain-of-thought requested.
-- [ ] Objective hidden-ground-truth rubric frozen.
-- [ ] Scoring blinding plan defined where feasible.
-- [ ] Probe stored outside subject workspace.
-- [ ] Probe never supplied to later agents.
-
-## Run control
-
-- [ ] Timeout/stopping rule frozen.
-- [ ] Retry rule frozen.
-- [ ] Cancellation rule frozen.
-- [ ] AGENT_FAILURE defined.
-- [ ] INFRASTRUCTURE_FAILURE defined.
-- [ ] Rerun rule frozen.
-- [ ] Selective reruns prohibited.
-- [ ] Human hints/manual edits/prompt changes prohibited.
-
-## Telemetry
-
-- [ ] Total input/output tokens captured where exposed.
-- [ ] Reconstruction input classification frozen.
-- [ ] File/byte read measurement available.
-- [ ] Search/tool/model calls measured.
-- [ ] Reconstruction/total elapsed time measured.
-- [ ] Retry/escalation measured.
-- [ ] Cache counters captured where exposed.
-- [ ] Provider-billed usage captured only if exposed.
+- [x] Failure taxonomy frozen.
+- [x] No-human-rescue rule frozen.
+- [x] Selective reruns prohibited.
+- [x] Rerun eligibility restricted to objective infrastructure categories.
+- [ ] Exact timeout/stopping/resource limits frozen after runtime selection.
 
 ## Preregistration
 
-- [ ] Allowed P0 interpretation categories frozen.
-- [ ] P0 explicitly labelled methodology pilot/initial case study.
-- [ ] No inferential non-inferiority claim planned for ~5 tasks.
-- [ ] Preregistration committed before any outcome is observed.
+- [x] Corpus-selected preregistration document created.
+- [x] Allowed P0 interpretation categories frozen.
+- [x] P0 explicitly labelled methodology pilot.
+- [x] No inferential non-inferiority claim planned from five tasks.
+- [x] RRI/RTF kept descriptive.
+- [ ] Final model/runtime fields populated.
+- [ ] Final preregistration SHA generated.
+- [ ] Condition order derived from final preregistration lock.
+- [ ] `PREREGISTRATION_LOCK.json` created before outcomes.
 
-If any mandatory treatment/leakage/verifier item is unresolved: **DO NOT RUN P0.**
+If any mandatory runtime, leakage, verifier, or treatment-isolation item remains unresolved: **DO NOT RUN P0.**

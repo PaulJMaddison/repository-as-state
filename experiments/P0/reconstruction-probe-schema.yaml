@@ -1,0 +1,66 @@
+{
+  "schema": "P0-RECONSTRUCTION-PROBE-v1",
+  "status": "FROZEN_FOR_MODEL_RUNTIME_PREPARATION",
+  "chain_of_thought_requested": false,
+  "stored_outside_subject_workspace": true,
+  "available_to_later_tasks": false,
+  "required_before_edit_in_condition_B": true,
+  "required_in_condition_C_if_enabled": true,
+  "fields": [
+    {
+      "name": "relevant_architecture",
+      "type": "string",
+      "purpose": "Concise reportable architecture relevant to the current task."
+    },
+    {
+      "name": "current_observable_behaviour",
+      "type": "string",
+      "purpose": "What the current accepted state appears to do."
+    },
+    {
+      "name": "relevant_components",
+      "type": "array[string]",
+      "purpose": "Components discovered as relevant without requiring private reasoning."
+    },
+    {
+      "name": "constraints_and_invariants",
+      "type": "array[string]",
+      "purpose": "Decision-relevant constraints inferred from allowed state."
+    },
+    {
+      "name": "tests_and_build_evidence",
+      "type": "array[string]",
+      "purpose": "Visible verification surfaces found in the allowed workspace."
+    },
+    {
+      "name": "earlier_work_already_completed",
+      "type": "array[string]",
+      "purpose": "Prior accepted programme state relevant to this task."
+    },
+    {
+      "name": "work_now_required",
+      "type": "array[string]",
+      "purpose": "Neutral statement of remaining work."
+    },
+    {
+      "name": "evidence_paths",
+      "type": "array[string]",
+      "purpose": "Paths/citations inside the experimental workspace supporting the report."
+    },
+    {
+      "name": "uncertainties",
+      "type": "array[string]",
+      "purpose": "Uncertain reportable facts."
+    },
+    {
+      "name": "unknowns",
+      "type": "array[string]",
+      "purpose": "Known gaps that may affect implementation."
+    }
+  ],
+  "scoring": {
+    "method": "hidden objective facts where possible; blinded human scoring only where unavoidable",
+    "textual_similarity_to_historical_solution": false,
+    "private_chain_of_thought_scoring": false
+  }
+}

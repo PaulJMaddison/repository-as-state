@@ -1,0 +1,78 @@
+{
+  "experiment": "P0",
+  "subject": "PRIVATE_SUBJECT_A",
+  "status": "CORPUS_SELECTED_PROTOCOL_PENDING_MODEL_RUNTIME_FREEZE",
+  "canonicalisation": "ras-public-structured-json-v1",
+  "candidate_window": {
+    "method": "bounded_contiguous_local_engineering_programme_frozen_before_task_selection",
+    "candidate_transitions_considered": 38,
+    "included_transitions_in_selected_task_units": 17,
+    "excluded_transitions": 21,
+    "selected_task_count": 5
+  },
+  "selection_rule_sha256": "c5d2c4d4346152b58ae85513997a404eea08896e6a1af02ce33ab8f9315b49be",
+  "tasks": [
+    {
+      "id": "P0-T1",
+      "spec_sha256": "13fba4797b1564d10c05ea0fc370de45b5bc907d0976682044131b810309eccf",
+      "dependency": "chain-root",
+      "category": "runtime-governance",
+      "complexity": "medium",
+      "verifier_type": "deterministic-local-behavioural",
+      "accepted_boundary": true,
+      "private_payload_commitment_sha256": "f18860982a56fb639399ff5c004d681e65d49c91d563dd05296ea27917e2fd0e"
+    },
+    {
+      "id": "P0-T2",
+      "spec_sha256": "e6a4f4619fad9c57b35fc3077f0bcd0142dd789ecb3709c3d87b202d209d977a",
+      "dependency": "depends-on-T1",
+      "category": "temporal-governance",
+      "complexity": "high",
+      "verifier_type": "deterministic-local-behavioural",
+      "accepted_boundary": true,
+      "private_payload_commitment_sha256": "f18860982a56fb639399ff5c004d681e65d49c91d563dd05296ea27917e2fd0e"
+    },
+    {
+      "id": "P0-T3",
+      "spec_sha256": "8ca8145ffdfb3ed7245d17d7b70b654f96dffdf1baf93dfe4ba90c1cd867b0cc",
+      "dependency": "depends-on-T1-T2",
+      "category": "identity-lifecycle",
+      "complexity": "high",
+      "verifier_type": "deterministic-local-behavioural",
+      "accepted_boundary": true,
+      "private_payload_commitment_sha256": "f18860982a56fb639399ff5c004d681e65d49c91d563dd05296ea27917e2fd0e"
+    },
+    {
+      "id": "P0-T4",
+      "spec_sha256": "f8049a3f9d120c98114d3a1764651964205b2730a3aa208599ed01e3e97276e4",
+      "dependency": "depends-on-T1-T2",
+      "category": "governed-fact-state",
+      "complexity": "high",
+      "verifier_type": "deterministic-local-behavioural",
+      "accepted_boundary": true,
+      "private_payload_commitment_sha256": "f18860982a56fb639399ff5c004d681e65d49c91d563dd05296ea27917e2fd0e"
+    },
+    {
+      "id": "P0-T5",
+      "spec_sha256": "b65ddf2304f2d7b3f55b8b4b0d238bed494cf9f3f457ed895e6215c3474fc663",
+      "dependency": "depends-on-T3-T4",
+      "category": "durable-governed-ingress",
+      "complexity": "high",
+      "verifier_type": "deterministic-local-behavioural",
+      "accepted_boundary": true,
+      "private_payload_commitment_sha256": "f18860982a56fb639399ff5c004d681e65d49c91d563dd05296ea27917e2fd0e"
+    }
+  ],
+  "chain": {
+    "genuinely_sequential": true,
+    "note": "The dependency graph is connected and culminates in T5 integrating accepted state from the identity and governed-state branches."
+  },
+  "ablation": {
+    "condition_C_enabled": false,
+    "reason": "NO_DEFENSIBLE_ABLATION"
+  },
+  "private_lock_sha256": "f18860982a56fb639399ff5c004d681e65d49c91d563dd05296ea27917e2fd0e",
+  "experimental_agent_runs": 0,
+  "p0_executed": false,
+  "positive_empirical_ras_results": false
+}
