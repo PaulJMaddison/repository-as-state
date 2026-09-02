@@ -1,0 +1,18 @@
+\section{Future Work}
+\label{sec:future}
+
+The immediate next step is P0 corpus selection and preregistration. The pilot should identify a sequence of tasks with genuine historical dependence, pin private subject revisions, define hidden behavioural verification, finalise reset enforcement, and establish reconstruction telemetry before any outcomes are observed.
+
+A second phase should replicate the design on public repositories. Public subjects reduce the reproducibility limitation of the likely private P0 system and permit independent reruns by other groups. Replication should vary repository size, language, test quality, task locality, dependency width, and documentation maturity.
+
+A third phase should deepen semantic-state ablation. Rather than treating the repository as a monolith, experiments can selectively remove architecture decisions, issue history, concise state documents, tests, comments, schemas, or Git history. The goal is to estimate which artefacts contribute most to correct reconstruction and how redundant those channels are.
+
+A fourth phase should evaluate tiered execution. Conditions should vary executor capability, allowed tools, escalation policy, and specification granularity. Outcome-normalised cost should include failed executions and reasoning re-entry, not only nominal model price.
+
+A fifth phase should study reconstruction scaling directly. Synthetic repository growth can hold task semantics constant while increasing irrelevant repository mass. Real multi-module tasks can vary dependency width. Search and static-analysis tools can be compared with model-only file browsing. The key question is whether $K_i$ remains effectively bounded or whether reconstruction grows with total repository state.
+
+Cross-model experiments are also necessary. A repository that is sufficient for one model may be insufficient for another because code-navigation and inference capabilities differ. Conversely, a strong repository-state representation may make continuity less dependent on any one provider's memory system.
+
+Future work may consider a broader \emph{Authoritative State Externalisation Principle}: systems can persist authoritative state and reconstruct computation rather than preserving every computation that produced the state. This paper does not claim that principle as empirically established beyond software engineering. Other domains may lack repositories, executable tests, versioned artefacts, or objective validation and therefore require very different continuity substrates.
+
+Finally, security evaluation should test hostile repository content, prompt injection, privilege separation, confused-deputy risks, and policy-enforced escalation. If reasoning can be made disposable, short-lived capability tokens and model-independent enforcement may become attractive design tools, but those benefits require direct evidence.

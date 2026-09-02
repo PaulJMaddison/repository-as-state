@@ -1,0 +1,23 @@
+\section{Security and Least Privilege}
+\label{sec:security}
+
+A second systems implication of separating reasoning from execution is security. Agent architectures often couple capability and privilege: the model that performs the most sophisticated reasoning also receives shell access, repository write access, credentials, browsers, deployment tools, and network reach. RaS suggests that these dimensions need not be aligned.
+
+The guiding principle is:
+\begin{quote}
+\textbf{High intelligence does not imply high privilege.}
+\end{quote}
+
+A high-capability reasoner may need to read selected repository state, reason about architecture, identify risks, and propose a bounded work package. A separate executor may need workspace write access, compiler and test-runner access, formatters, and restricted Git operations. Production credentials may belong to neither component.
+
+This separation can reduce blast radius if enforced by infrastructure rather than prompt instruction. A reasoner that cannot write production state cannot directly turn a mistaken inference into an operational incident. An executor that is constrained to a worktree, predefined commands, and a narrow Git capability can perform routine implementation without inheriting every credential available to the orchestration layer. Human approval boundaries can be inserted before sensitive state transitions.
+
+The architecture can also narrow the trusted computing base. Instead of trusting one high-capability model to both decide and enforce its own limits, policy can be implemented in deterministic wrappers, sandbox configuration, repository permissions, network policy, and credential brokers. The reasoner may be replaced without changing the enforcement boundary.
+
+There are important caveats. Least privilege can increase orchestration complexity and create new interfaces vulnerable to confused-deputy behaviour. A malicious or simply erroneous reasoner could craft a bounded work package that causes a privileged executor to take unintended action. The executor therefore requires policy validation over requested operations, not just blind obedience. Similarly, repository content itself can contain prompt injection or hostile instructions, so reconstruction should distinguish code and data from trusted control policy.
+
+RaS does not claim that tiering automatically makes an agent secure. The narrower claim is architectural: durable continuity does not require a long-lived highly privileged reasoner, and therefore capability, persistence, and privilege can be designed independently.
+
+This is especially relevant to the forced-reset setting. If the most capable process is disposable, its credential lifecycle can also be short. Temporary read scopes or task-scoped tokens can expire with the transaction. The execution worker can retain only the operational permissions required for its constrained role. Such a system resembles a capability-separated control plane more than a conventional autonomous desktop agent.
+
+Security outcomes are not part of P0's primary empirical claims. Future work should measure policy violations, privilege requirements, attack surface, and recovery behaviour under adversarial repository inputs. Until then, reduced blast radius and narrower trusted computing base remain security implications of the architecture, not demonstrated results.

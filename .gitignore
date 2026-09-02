@@ -1,0 +1,31 @@
+# Python
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.venv/
+dist/
+build/
+*.egg-info/
+
+# LaTeX build artefacts
+paper/*.aux
+paper/*.bbl
+paper/*.blg
+paper/*.log
+paper/*.out
+paper/*.toc
+paper/*.fls
+paper/*.fdb_latexmk
+paper/*.synctex.gz
+paper/main.pdf
+
+# Runtime material is intentionally non-durable.
+runtime/*
+!runtime/.gitkeep
+
+# Private/local experiment material must never be committed.
+experiments/**/private/
+results/private/
+.env
+.env.*
+*.secret

@@ -1,0 +1,58 @@
+\section{Repository-as-State}
+\label{sec:ras}
+
+Repository-as-State models an engineering programme as a sequence of validated repository transitions. At time $t$, the durable repository is $R_t$ and the current task is $U_t$. A reasoning transaction produces a proposed transition, an execution process applies bounded changes, deterministic and hidden checks adjudicate the result, and accepted state becomes $R_{t+1}$:
+\begin{equation}
+(R_t, U_t)
+\rightarrow
+\mathcal{Q}_t
+\rightarrow
+\Delta_t
+\rightarrow
+\mathcal{E}_t
+\rightarrow
+\mathcal{V}_t
+\rightarrow
+R_{t+1},
+\end{equation}
+where $\mathcal{Q}_t$ is high-capability reasoning, $\Delta_t$ a bounded work package, $\mathcal{E}_t$ execution, and $\mathcal{V}_t$ validation.
+
+The architecture has five important properties.
+
+\subsection{Repository state is durable; reasoning state is not}
+
+The accepted output of a transaction must be represented in artefacts that survive the session: source, tests, build rules, schemas, documentation, history, or evidence. The reasoning process is allowed to disappear completely after the transition. This is stronger than periodically summarising a long-lived agent. The reset condition is architectural, not accidental.
+
+\subsection{Repository-as-State is not repository-as-prompt}
+
+A repository can contain millions of tokens and an arbitrarily long Git history. RaS does not propose placing all of that content into every model call. Durable state may be large; active inference context should remain selective.
+
+Let $K_t$ denote the reconstructed context supplied from $R_t$ for task $U_t$. RaS requires a reconstruction policy
+\begin{equation}
+\mathcal{R}(R_t,U_t) \rightarrow K_t
+\end{equation}
+that attempts to preserve task-relevant information while excluding irrelevant repository mass. Reconstruction may involve file search, symbol tracing, test discovery, recent history, architecture records, static analysis, or other repository-local tools. The research question is whether the cost and error rate of this reconstruction remain acceptable as repositories and task depth grow.
+
+\subsection{Continuity is encoded in heterogeneous artefacts}
+
+Source code alone is unlikely to be sufficient. Consider a duplicate-command bug. Historical reasoning may establish the invariant “duplicate requests must not create duplicate effects”. Once captured by an idempotency test, future actors can recover an important semantic constraint without replaying the original debugging conversation. An architecture decision record may preserve why two modules are separated; a schema may preserve a compatibility contract; a lockfile may preserve an environmental assumption.
+
+Condition C in the experimental design therefore performs semantic-state ablation. It retains source, tests, and build rules while removing selected semantic artefacts according to a preregistered manifest. If resumability falls, the experiment begins to identify which repository components actually carry continuity.
+
+\subsection{Accepted state transitions require adjudication}
+
+A language model's statement that a task is complete is not sufficient evidence. RaS places compilers, tests, runtime measurements, hidden behavioural verifiers, and where necessary preregistered human review outside the reasoning process. The repository becomes authoritative only to the extent that its transitions are checked.
+
+This design also reduces dependence on a particular model's self-consistency. The same repository invariant can be read by different models and enforced by model-independent tests. That property is central to the proposed forced-reset experiments.
+
+\subsection{The programme, not the session, is the persistent object}
+
+A long-lived agent architecture naturally treats the agent process as the continuing entity. RaS instead treats the engineering programme as a chain of repository states:
+\begin{equation}
+R_0 \rightarrow R_1 \rightarrow R_2 \rightarrow \cdots \rightarrow R_n.
+\end{equation}
+Each transition may be produced by a different fresh reasoning process. Continuity succeeds if those processes can reconstruct enough state to continue correctly.
+
+This perspective does not deny the value of memory systems. It changes which state is considered primary. Agent memory may remain useful for convenience, latency reduction, or personalisation, but the core engineering programme should remain recoverable from durable authoritative artefacts when conversational state is unavailable.
+
+The strongest form of RaS would show high resumability, bounded reconstruction cost, and comparable engineering quality across deep task sequences. A weaker but still useful result could show that RaS works only for particular task localities, repository organisations, or classes of artefact. Failure would also be informative: it would identify information that repositories systematically fail to preserve.

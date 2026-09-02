@@ -1,0 +1,18 @@
+\section{Conclusion}
+\label{sec:conclusion}
+
+Repository-as-State asks a narrow but consequential question: must durable software-engineering continuity live inside a persistent high-capability reasoning process?
+
+The proposed alternative is to persist authoritative engineering state in the repository, reconstruct only the task-relevant subset for each transaction, use high-capability reasoning when needed, delegate bounded execution where appropriate, validate the resulting state transition with external evidence, and then allow the reasoning process to disappear.
+
+This paper formalises that architecture rather than claiming it has already been proved. It introduces approximate repository sufficiency, the proposed Repository Resumability Index, a provider-neutral state-economics model, a context-scaling model under explicit assumptions, tiered-execution conditions, and a forced-state-reset experimental design. It also places reconstruction cost at the centre of falsification: if rediscovery becomes too expensive or reset engineering success degrades materially, the strong RaS claim is not supported.
+
+The systems principle is simple:
+
+\begin{quote}
+\textbf{Persist authoritative state. Reconstruct computation.}
+\end{quote}
+
+For software engineering, the repository is a plausible substrate because it already contains executable and versioned consequences of prior reasoning. Whether it is sufficient in practice, which artefacts carry the continuity, and whether disposable reasoning improves outcome-normalised resource use are empirical questions.
+
+Controlled evidence is not yet available. The next research step is P0 corpus selection and preregistration followed by the Forced-State-Reset Pilot.

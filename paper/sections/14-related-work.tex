@@ -1,0 +1,36 @@
+\section{Related Work}
+\label{sec:related}
+
+RaS intersects several research areas but is not equivalent to any one of them.
+
+\subsection{Software-engineering agents and benchmarks}
+
+SWE-bench introduced a repository-level benchmark built from real GitHub issues and corresponding changes, requiring systems to understand and modify multi-file codebases \citep{jimenez2024swebench}. SWE-agent showed that agent--computer interface design can materially improve language-model performance on such tasks \citep{yang2024sweagent}. OpenHands broadened this line into an open platform for software agents with code editing, shell interaction, browsing, sandboxing, and benchmark integration \citep{wang2024openhands}. Its later SDK work adds modular lifecycle control, memory management, routing, and local-to-remote execution \citep{wang2025openhandsSDK}.
+
+These systems provide important execution and evaluation foundations. RaS focuses on a different variable: whether conversational continuity must remain persistent across sequential engineering transactions when repository state survives.
+
+\subsection{External memory and virtual context}
+
+MemGPT frames long-context interaction as a virtual-memory problem and manages information across memory tiers to extend effective context \citep{packer2023memgpt}. Recent surveys describe agent memory through mechanisms such as context-resident compression, retrieval stores, reflection, hierarchical context, and learned management \citep{du2026memory,luo2026memory}. This literature generally asks how agents should retain and retrieve useful experience.
+
+RaS is complementary but deliberately repository specific. It asks whether accepted engineering artefacts can replace much of the need to retain the historical interaction at all. The target is not better recall of the complete trajectory, but sufficient reconstruction of decision-relevant state from the engineered object.
+
+\subsection{Repository-level instruction artefacts}
+
+Repository-local instruction files represent one explicit way to externalise durable guidance for coding agents. A 2026 empirical study of more than 12,000 Cursor rule files found that such files encode project context, engineering practices, code-quality expectations, structure, configuration, and some security guidance \citep{sun2026cursorrules}. This supports the broader observation that developers already place agent-relevant semantic state in repositories. It does not establish that such files are sufficient for long-horizon continuity.
+
+\subsection{Inference state and KV-cache management}
+
+Large-model serving research treats request state as a systems resource. PagedAttention and vLLM reduce KV-cache fragmentation and enable higher serving throughput through virtual-memory-inspired management \citep{kwon2023vllm}. Such work concerns efficient inference-state management inside serving infrastructure. RaS instead asks whether a software-engineering programme can reduce the amount of historical reasoning state that needs to persist across requests in the first place. The two layers can interact but should not be conflated.
+
+\subsection{Repository infrastructure}
+
+Cursor's 2026 “Git at any scale” article describes Continuity, a repository storage system whose write-ahead log is durably stored in S3-compatible object storage while local repository copies are treated as rematerialisable serving state \citep{marti2026continuity}. This provides a useful architectural precedent for separating durable repository history from replaceable repository-serving compute.
+
+The distinction from RaS is explicit. Continuity addresses \emph{repository-state scalability}; RaS investigates \emph{agent-state scalability}. Continuity neither tests fresh-agent reconstruction nor proves any RaS continuity or cost claim.
+
+\subsection{Novelty boundary}
+
+The project does not claim novelty for external memory, repository-aware agents, stateless services, Git-backed workflows, prompt files, model routing, or tiered compute individually. The proposed contribution is the combination of (i) treating repository state as the primary continuity substrate for long-horizon software engineering, (ii) making high-capability reasoning explicitly disposable between bounded transactions, and (iii) evaluating that claim through forced state reset, repository-state ablation, and reconstruction-cost measurement.
+
+Whether this combination is sufficiently distinct and empirically useful is itself subject to literature review and later peer scrutiny.

@@ -1,0 +1,47 @@
+\section{Discussion}
+\label{sec:discussion}
+
+RaS changes the locus of persistence. Instead of asking how to keep a reasoning process alive indefinitely, it asks what durable artefacts allow a fresh process to act correctly. That difference has implications for agent design, infrastructure, human oversight, and the interpretation of “memory” in software engineering.
+
+\subsection{Repository state as semantic compression}
+
+Engineering work routinely compresses large reasoning trajectories into smaller accepted artefacts. A debugging session can contain dozens of hypotheses and experiments, yet the durable consequence may be a five-line fix, one regression test, and a short design note. From a future-action perspective, this can be a desirable lossy compression: failed thoughts need not be replayed if the accepted state preserves the constraint that matters.
+
+The important distinction is therefore between \emph{lossless conversational memory} and \emph{decision-relevant semantic state}. RaS predicts that the latter may be enough for many software-engineering continuations. Semantic-state ablation tests which artefacts perform that compression well and where important rationale is lost.
+
+\subsection{Human and AI capability profiles}
+
+The motivating workflow was asymmetric rather than purely autonomous. Human and AI systems possess different capability profiles. Human contribution may include persistent goals, grounded experience, problem selection, taste, risk judgement, strategic pivots, and deciding what evidence matters. High-capability AI may contribute broad technical synthesis, formalisation, rapid generation, critique, mathematical modelling, and implementation support. Execution agents contribute comparatively cheap or local machine interaction. Deterministic systems contribute compilation, tests, and measurements.
+
+A useful conceptual workflow is:
+\[
+\text{human proposes/orchestrates}
+\rightarrow
+\text{high-capability AI amplifies/reasons}
+\rightarrow
+\text{execution worker implements}
+\rightarrow
+\text{tests/data/reality adjudicate}.
+\]
+The final arbiter is external evidence. This is discussion and observed motivation, not the central empirical RaS result.
+
+\subsection{Fixed infrastructure and useful throughput}
+
+If persistent reasoning-state burden per engineering programme can be reduced, fixed inference infrastructure may potentially support greater useful concurrency. Conceptually:
+\[
+\text{fixed infrastructure}
++
+\text{lower persistent state requirement per programme}
+\rightarrow
+\text{potentially greater useful agent throughput}.
+\]
+
+This is an implication, not a measured result. Real serving throughput depends on model weights, KV-cache management, prompt sharing, batching, routing, hardware, request length, latency constraints, and provider architecture. Work such as vLLM demonstrates that KV-cache management materially affects serving throughput \citep{kwon2023vllm}, but it does not establish that RaS produces infrastructure savings.
+
+The paper therefore makes no claim that datacentre constraints are solved, that a particular provider will save a given percentage, or that agent abundance follows on any specified timeline.
+
+\subsection{What failure would teach}
+
+A negative RaS result would still be valuable. If fresh agents fail because key rationale lives outside repositories, that identifies a missing state representation problem. If success depends heavily on concise state documents, the result may suggest that explicit semantic manifests are more important than source history. If reconstruction cost grows with dependency width, future systems may need better repository indexing or task-specific state compilers. If persistent agents outperform reset agents only on certain task classes, hybrid lifecycle policies become a more credible target than universal statelessness.
+
+For that reason, the project should resist turning the architecture into a product claim before the experiments. The useful scientific question is not whether RaS can be made to look successful, but which engineering conditions make disposable reasoning viable.

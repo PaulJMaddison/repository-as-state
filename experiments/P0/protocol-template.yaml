@@ -1,0 +1,67 @@
+protocol:
+  id: P0
+  name: Forced-State-Reset Pilot
+  version: "0.1-draft"
+  status: not_executed
+
+subject:
+  visibility: private
+  source_committed_publicly: false
+  public_subject_identifier: null
+  pinned_revision_private: null
+
+conditions:
+  A:
+    name: persistent_monolithic_control
+    retain_conversation_history: true
+    forced_reset_after_task: false
+  B:
+    name: ras_forced_reset
+    retain_conversation_history: false
+    forced_reset_after_task: true
+  C:
+    name: ras_semantic_state_ablation
+    retain_conversation_history: false
+    forced_reset_after_task: true
+    ablation_manifest: null
+  D:
+    name: ras_tiered_execution
+    retain_conversation_history: false
+    forced_reset_after_task: true
+    separate_execution_worker: true
+
+reset_enforcement:
+  allow_resume: false
+  allow_previous_conversation: false
+  allow_external_summary: false
+  allow_copied_hidden_memory: false
+  allowed_inputs:
+    - repository_state
+    - current_task
+
+telemetry:
+  capture:
+    - input_tokens
+    - output_tokens
+    - reconstruction_tokens
+    - cached_input_tokens_if_available
+    - uncached_input_tokens_if_available
+    - files_read
+    - tool_calls
+    - model_calls
+    - elapsed_seconds
+    - retries
+    - human_interventions
+
+outcomes:
+  primary:
+    - correct_continuation_under_hidden_verification
+  secondary:
+    - repository_resumability_index
+    - reconstruction_token_fraction
+    - regression_rate
+    - reconstruction_accuracy
+
+publication:
+  raw_private_evidence_public: false
+  sanitisation_required: true

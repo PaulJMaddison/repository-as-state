@@ -1,0 +1,40 @@
+\section{Tests as Executable Semantic Memory}
+\label{sec:executable-memory}
+
+Software repositories contain artefacts that do more than describe state. Tests can actively enforce knowledge produced by earlier reasoning. This makes them a candidate mechanism for preserving decision-relevant semantic history across agent resets.
+
+Suppose a debugging episode establishes the requirement:
+\begin{quote}
+Duplicate requests must not create duplicate effects.
+\end{quote}
+A persistent agent could remember that statement in conversation or explicit memory. A repository can instead retain a regression test such as \emph{duplicate request is idempotent}. Future implementations that violate the invariant are then rejected even if the actor never sees the original conversation.
+
+Tests possess several properties that are attractive for continuity:
+\begin{itemize}
+    \item they are executable;
+    \item they are versioned with the code they constrain;
+    \item they can be evaluated independently of the current reasoning model;
+    \item they are automatically checkable in CI;
+    \item they detect regressions rather than merely documenting intent;
+    \item they are human reviewable.
+\end{itemize}
+
+Calling tests “memory” is metaphorical unless operationalised. A test does not store every reason an invariant exists, and an implementation can overfit a narrow test while violating broader intent. Nevertheless, tests can carry information that changes the probability of future correct action. In the terminology of Section~\ref{sec:sufficiency}, they can reduce the difference between action conditioned on historical interaction and action conditioned only on repository state.
+
+This motivates the distinction between \emph{lossless conversation memory} and \emph{decision-relevant semantic state}. Engineering routinely performs semantic compression:
+\[
+\begin{array}{c}
+\text{many observations, hypotheses, failed fixes, and discussions}\\
+\downarrow\\
+\text{accepted fix} + \text{regression test} + \text{optional design record}.
+\end{array}
+\]
+The final repository may be much smaller than the reasoning trajectory yet preserve what matters for future correctness.
+
+This compression can be lossy in harmful ways. Tests may omit edge cases; comments can become stale; design rationale may disappear; source code can encode \emph{what} without \emph{why}. RaS therefore does not claim that tests alone are sufficient. Instead, source, tests, architecture records, schemas, build rules, and history form a heterogeneous state representation.
+
+The semantic-state ablation condition can begin to identify relative contribution. For example, removing architecture documents while retaining tests asks whether executable constraints already encode enough of the relevant decision. Conversely, retaining architecture documents while withholding selected non-essential tests in a later experiment could measure how much continuity depends on executable versus descriptive state.
+
+A further implication is model independence. Conversational memory may be coupled to a provider-specific session representation. A regression test can be consumed by any future actor with access to the repository and test runner. This property makes tests particularly compatible with disposable reasoning and cross-model replication.
+
+The empirical challenge is to avoid circular evaluation. If the same visible tests both communicate the task and define success, an agent can pass without reconstructing the broader intended behaviour. Hidden behavioural verification is therefore required for central experiments. Visible tests can carry semantic state; hidden verifiers should adjudicate whether that state supports genuinely correct continuation rather than test-specific imitation.

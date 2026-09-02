@@ -1,0 +1,15 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "repository-as-state"
+version = "0.1.0"
+description = "Research tooling for Repository-as-State experiments"
+requires-python = ">=3.11"
+license = {text = "Apache-2.0"}
+authors = [{name = "Paul Maddison"}]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src"]

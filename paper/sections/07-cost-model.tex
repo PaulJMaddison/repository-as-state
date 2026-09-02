@@ -1,0 +1,99 @@
+\section{State Economics and Context Scaling}
+\label{sec:cost}
+
+RaS is partly motivated by a resource-placement hypothesis: durable continuity may be cheaper to persist in repository infrastructure than in repeatedly supplied high-capability model state. This claim requires careful separation between observable resource proxies and provider-internal economics.
+
+\subsection{Provider-neutral cost decomposition}
+
+For a conventional persistent coding agent, define
+\begin{equation}
+C_{\mathrm{persistent}}
+=
+C_{\mathrm{reasoning}}
++
+C_{\mathrm{context/history}}
++
+C_{\mathrm{agent-state}}
++
+C_{\mathrm{execution}}
++
+C_{\mathrm{tools}}
++
+C_{\mathrm{orchestration}}.
+\end{equation}
+For RaS, define
+\begin{equation}
+C_{\mathrm{RaS}}
+=
+C_{\mathrm{reconstruction}}
++
+C_{\mathrm{reasoning}}
++
+C_{\mathrm{shallow-execution}}
++
+C_{\mathrm{repository-state}}.
+\end{equation}
+The empirical economic question is whether
+\begin{equation}
+C_{\mathrm{RaS}} < C_{\mathrm{persistent}}
+\end{equation}
+for sufficiently long engineering programmes while outcome quality remains comparable.
+
+The terms need not all be monetary. Experiments should report measured proxies such as input and output tokens, cached and uncached tokens where available, files read, tool calls, model calls, elapsed time, execution time, retry count, and provider-billed usage where exposed. These should be distinguished from theoretical infrastructure implications and from unobservable provider-internal cost. Subscription price is not a valid estimator of provider inference margin, and a chat product should not be treated as providing zero-cost inference.
+
+\subsection{Context-scaling model}
+
+Assume a persistent process has stable base context $B$, average historical interaction growth $g$ per sequential reasoning step, and $n$ steps. Under naive full-history replay, cumulative supplied context is
+\begin{align}
+T_{\mathrm{persistent}}(n)
+&=
+\sum_{i=1}^{n}\left[B+g(i-1)\right] \\
+&=
+nB+\frac{gn(n-1)}{2}.
+\end{align}
+For fixed $g>0$, cumulative supplied information is therefore
+\begin{equation}
+T_{\mathrm{persistent}}(n)\in\Theta(n^2).
+\end{equation}
+
+Now let $K_i$ be the task-relevant reconstructed context used by RaS at step $i$. If
+\begin{equation}
+K_i \leq K \quad \forall i,
+\end{equation}
+then
+\begin{equation}
+T_{\mathrm{RaS}}(n)
+=
+\sum_{i=1}^{n}K_i
+\leq nK,
+\end{equation}
+and under a non-degenerate lower bound the cumulative information supplied is $\Theta(n)$.
+
+This is a theorem about the stated information-supply models, not a claim about commercial coding agents. Real systems can use prompt caching, summarisation, compaction, retrieval, hierarchical memory, or provider-side state management. Long-context serving systems also employ specialised memory management such as PagedAttention \citep{kwon2023vllm}. These mechanisms can materially alter realised compute and billing.
+
+More importantly, the RaS linear result depends on the bounded-reconstruction assumption. That assumption may fail.
+
+\subsection{Reconstruction as a falsification condition}
+
+The strongest criticism of RaS is that it shifts cost from conversation replay to repository rediscovery. We therefore define reconstruction cost $C_{\mathrm{reconstruction}}$ as a first-class measured quantity. Where instrumentation permits, it includes:
+\begin{itemize}
+    \item reconstruction input tokens;
+    \item files and bytes read;
+    \item search or symbol-navigation calls;
+    \item model calls made before task reasoning begins;
+    \item elapsed reconstruction time;
+    \item cached and uncached context;
+    \item retries caused by incomplete reconstruction.
+\end{itemize}
+
+We additionally define Reconstruction Token Fraction:
+\begin{equation}
+\mathrm{RTF}
+=
+\frac{\text{Reconstruction Tokens}}
+{\text{Total RaS Input Tokens}}.
+\end{equation}
+
+RTF should be reported against repository size, sequential depth, task locality, and dependency width. If RTF or other reconstruction costs grow strongly with repository size, then the bounded-$K$ model has poor empirical support. If total outcome-normalised cost equals or exceeds the persistent control, the state-economics hypothesis is not supported even if forced-reset engineering success remains high.
+
+This separation is important because continuity and economics are different research questions. RaS could prove technically resumable yet economically unattractive, or economically efficient only on repositories with particular structure.

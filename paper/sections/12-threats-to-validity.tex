@@ -1,0 +1,32 @@
+\section{Threats to Validity}
+\label{sec:threats}
+
+RaS is vulnerable to several classes of confound that can make a forced-reset architecture appear stronger or weaker than it is.
+
+\subsection{External validity}
+
+\textbf{Single-repository bias} is immediate if early experiments use one codebase. Repository organisation, test quality, language, module boundaries, and engineering conventions can all affect reconstruction. \textbf{Single-model bias} is equally important because models differ in code navigation, long-context use, tool calling, and summarisation. \textbf{Repository complexity}, \textbf{task locality}, and \textbf{dependency width} may determine whether bounded reconstruction is feasible. Results in software engineering must not be silently generalised to personal assistants, embodied agents, research agents, or other domains.
+
+\subsection{Internal validity}
+
+\textbf{Task-selection bias} can favour RaS if experimenters choose tasks that are naturally encoded in source and tests. Conversely, selecting tasks that rely on deliberately undocumented intent could unfairly penalise it. \textbf{Historical commit survivor bias} arises when tasks are reconstructed only from changes known to have succeeded. \textbf{Future-history leakage} is especially serious: later tests, comments, files, or commit messages may reveal the answer to a historical task.
+
+\textbf{Human intervention} can become an undeclared external memory channel. \textbf{Experiment-order effects} can occur if operators, task generators, or infrastructure learn across repeated conditions. \textbf{Contamination} can arise from model pretraining on public repositories or accidental sharing of artefacts between conditions. \textbf{Model nondeterminism} means a small number of runs can confuse stochastic variation with an architectural effect. \textbf{Provider updates} can alter behaviour during a study even when a model name is unchanged.
+
+\subsection{Construct validity}
+
+The project depends on several proxies. RRI measures correct continuation after reset, not the latent information equivalence expressed by the repository-sufficiency formulation. \textbf{Documentation quality} may dominate the result, causing the study to measure the benefit of unusually disciplined documentation rather than repositories generally. This is why semantic ablation is necessary.
+
+\textbf{Reconstruction-cost classification} is another major risk. Repository reading that is necessary solely because history was destroyed must not disappear into a generic reasoning bucket. \textbf{Token telemetry gaps} can prevent complete cost comparison, particularly when providers expose caching or context accounting differently. \textbf{Prompt caching} may advantage persistent conditions or repeated repository prefixes in ways that must be measured rather than assumed.
+
+\textbf{Hidden-verifier bias} can make success criteria too narrow, too aligned with the task author, or inadvertently informative. A hidden verifier should adjudicate behaviour, not encode an implementation preference.
+
+\subsection{Reproducibility and statistical conclusion validity}
+
+A private P0 subject limits independent reproduction. The appropriate response is not to publish proprietary material, but to classify the limitation explicitly and follow with public-repository replications. P0 will also have limited \textbf{statistical power}; it is intended to validate protocol and telemetry, not establish broad effect sizes.
+
+Later studies must predeclare sample sizes, exclusions, missing-data handling, confidence intervals, and treatment of multiple comparisons. Failed or aborted runs should remain part of the experiment record unless an exclusion rule was committed before outcomes were observed.
+
+\subsection{The central falsifier}
+
+The most direct criticism is that RaS simply replaces conversation replay with repository rediscovery. If reconstruction tokens, file reads, tool calls, or wall-clock time grow sufficiently with repository size and depth, the architecture may be resumable but not economically useful. This possibility is not a secondary limitation. It is a central falsification condition for the state-economics claim.

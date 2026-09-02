@@ -1,0 +1,69 @@
+\section{Experimental Method}
+\label{sec:method}
+
+The defining experiment for RaS is deliberate destruction of agent continuity. The intervention must be stronger than starting a new visible chat while silently retaining summaries, provider memory, or orchestration state.
+
+For a sequence of engineering tasks, let $A_i$ denote the reasoning process used at stage $i$:
+\begin{align}
+A_1 + R_0 + U_1 &\rightarrow R_1,\\
+\text{destroy }A_1, \qquad
+A_2^{\mathrm{fresh}} + R_1 + U_2 &\rightarrow R_2,\\
+\text{destroy }A_2, \qquad &\ldots
+\end{align}
+The reset condition prohibits previous conversation, resume mechanisms, external session summaries, copied hidden memory, and manual transfer of task-specific historical state. Only the allowed repository state and the current task survive.
+
+\subsection{Experimental conditions}
+
+The research programme defines four conditions.
+
+\paragraph{A --- Persistent monolithic control.}
+A continuing high-capability agent session retains history and may reason, edit, execute tests, and inspect the environment.
+
+\paragraph{B --- RaS forced reset.}
+The same high-capability model is used, but the reasoning session is destroyed after every bounded task. Complete allowed repository state persists. Each new task begins in a fresh reasoning session.
+
+\paragraph{C --- RaS semantic-state ablation.}
+Condition C follows B but removes selected semantic repository artefacts according to a preregistered manifest. Candidate removals include architecture decision records, state or session documents, and semantic product documentation. Source, tests, and build rules remain unless a later experiment explicitly studies those artefacts.
+
+\paragraph{D --- RaS tiered execution.}
+High-capability reasoning remains transactional while a separate lower-cost, stateful, or local execution worker performs constrained edits, compilation, tests, and Git operations. High-capability reasoning re-enters only under protocol-defined escalation conditions.
+
+\subsection{Task construction}
+
+Sequential tasks must require genuine dependence on earlier accepted state. Independent issue-resolution tasks would not test continuity deeply enough. A task sequence should therefore include evolving interfaces, cross-module invariants, regression-sensitive behaviour, and decisions whose consequences matter several stages later.
+
+Task construction also creates leakage risk. If tasks are derived from historical commits, later repository state can reveal the answer. A valid corpus must pin the starting revision for each stage and exclude future files, tests, comments, and history unavailable at that point. Historical commit survivor bias must be recorded: successful historical changes may underrepresent dead ends and ambiguous requirements.
+
+\subsection{Success and hidden verification}
+
+A task is successful only if it satisfies preregistered acceptance criteria. Visible tests alone are insufficient because they both communicate repository state and can invite test-specific overfitting. Hidden behavioural verification should assess the externally intended behaviour without revealing solution details.
+
+Where hidden verification is impossible, the protocol should use another independent criterion such as a held-out test suite or blinded human assessment. Human intervention must be explicitly limited and recorded; otherwise a human operator can become an unmeasured continuity channel.
+
+\subsection{Reconstruction telemetry}
+
+Condition B is not meaningful without measuring rediscovery. Each transaction should record, where available:
+\begin{itemize}
+    \item total input and output tokens;
+    \item reconstruction-attributed tokens;
+    \item cached and uncached input;
+    \item files and bytes read before implementation;
+    \item search, symbol, and history operations;
+    \item model and tool calls;
+    \item elapsed reconstruction and total task time;
+    \item retries, escalations, and human interventions.
+\end{itemize}
+
+Classification rules for what counts as reconstruction must be preregistered. Otherwise an experimenter can make RaS look cheaper by classifying repository-reading work as ordinary reasoning.
+
+\subsection{P0: Forced-State-Reset Pilot}
+
+P0 is a pilot intended to validate the experimental machinery rather than establish generality. The likely private subject is KynticAI Fortress. Proprietary source, private diffs, hidden verifier implementations, and raw traces containing source must remain outside the public repository. Public evidence should consist only of sanitised aggregate results, protocol metadata, and publication-safe artefact hashes.
+
+P0 should test whether reset enforcement is technically credible, whether task sequencing genuinely depends on prior state, whether hidden verification can be kept independent, and whether reconstruction telemetry is complete enough for later analysis. It should also identify variance and failure modes needed for confirmatory power calculations.
+
+\subsection{Analysis}
+
+Primary reporting should include task success by condition and RRI by sequential depth. Secondary outcomes should include regression rate, reconstruction accuracy, RTF, total input tokens, tool calls, model calls, elapsed time, retry rate, and intervention count. Later confirmatory studies should preregister estimands, confidence intervals, missing-data rules, multiplicity control, and power calculations.
+
+The experimental method is designed to permit a negative result. If reset performance degrades substantially, if semantic ablation has no interpretable effect, or if reconstruction cost rises enough to erase resource advantages, those findings directly constrain the RaS claim.

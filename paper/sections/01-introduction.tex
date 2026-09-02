@@ -1,0 +1,35 @@
+\section{Introduction}
+\label{sec:introduction}
+
+Software-engineering agents now operate across repositories, shells, test runners, browsers, issue trackers, and other development tools. Systems such as SWE-agent demonstrate that a language model can navigate and modify real repositories through an agent--computer interface \citep{yang2024sweagent}; OpenHands provides a broader software-agent platform with sandboxed execution and composable tools \citep{wang2024openhands}. Benchmarks such as SWE-bench made repository-level issue resolution a measurable target \citep{jimenez2024swebench}. These systems establish that models can perform useful repository-centred work. They do not, however, settle a distinct systems question: \emph{where should engineering continuity live when work extends across many reasoning episodes?}
+
+A common conceptual answer is that an agent should become increasingly stateful. Conversation history, summaries, explicit memories, tool traces, or provider-managed context are retained so that a future step can recover what happened earlier. Memory research for language-model agents accordingly treats persistence, selection, consolidation, and retrieval as central mechanisms \citep{du2026memory,luo2026memory}. For many applications that is a natural design. Software engineering, however, has an unusually strong pre-existing durable state substrate: the repository itself.
+
+Source code is only one part of that substrate. Tests encode behavioural invariants; schemas encode interfaces; build files encode environmental assumptions; architecture records encode decisions; Git history preserves accepted transitions; documentation records intent; and executable verification systems can reject regressions independently of model memory. Software development already converts a large amount of transient human reasoning into a smaller durable engineering state. A debugging session may explore many failed hypotheses, yet only a final fix, regression test, and perhaps a design note need survive for future work.
+
+Repository-as-State (RaS) asks whether this property can be exploited more aggressively for agentic software engineering. The central proposition is:
+
+\begin{quote}
+\textbf{Durable engineering continuity does not necessarily need to live inside the expensive high-capability reasoning process.}
+\end{quote}
+
+The corresponding architectural ambition is to make high-capability reasoning \emph{disposable}. At step $t$, a reasoning process receives durable repository state $R_t$ and current task $U_t$. It reconstructs a bounded, relevant subset of state, performs architecture or difficult reasoning, and produces a bounded work package or proposed state transition. An execution process performs edits and deterministic checks. Accepted artefacts become $R_{t+1}$. The reasoning session may then be destroyed. At a later step, a fresh reasoning process receives $R_{t+1}$ and $U_{t+1}$ without the previous conversation.
+
+This claim is intentionally narrower than “Git can store agent memory”. Git persistence is obvious, as is the ability of coding agents to read repositories. RaS instead investigates whether the repository can become the \emph{primary continuity mechanism} for a long-running engineering programme, allowing persistent high-capability conversational state to be reduced or eliminated between bounded transactions.
+
+The idea arose from a practical asymmetric workflow in which difficult reasoning occurred in high-capability sessions, bounded implementation work was passed to comparatively shallow execution agents, and compilers, tests, runtime evidence, documentation, and Git persisted the accepted result. Later fresh reasoning sessions could often reconstruct the relevant state from the repository. The observed pattern was:
+\[
+\text{deep reasoning}
+\rightarrow \text{bounded specification}
+\rightarrow \text{execution}
+\rightarrow \text{deterministic evidence}
+\rightarrow \text{repository persistence}
+\rightarrow \text{fresh reasoning}.
+\]
+This observation motivates the present research programme. It is not controlled empirical evidence.
+
+The paper makes four initial contributions. First, it formalises Repository-as-State as a continuity architecture and distinguishes durable repository state from active inference context. Second, it proposes approximate repository sufficiency and the Repository Resumability Index (RRI) as operational concepts for forced-state-reset evaluation. Third, it derives theoretical context-scaling and tiered-execution models while separating measured cost proxies from unobservable provider-internal cost. Fourth, it specifies an experimental design in which conversational state is deliberately destroyed after each bounded engineering task.
+
+The research is explicitly falsifiable. The strongest immediate criticism is that RaS merely moves cost from replaying conversation to rediscovering repository state. Reconstruction cost is therefore not treated as overhead to be ignored; it is a primary outcome. If repository growth causes reconstruction to become sufficiently expensive, or if forced resets materially degrade engineering success, the strong RaS hypothesis fails.
+
+The current manuscript contains theory and experimental design only. Controlled empirical evidence is not yet available, and no result in this paper should be read as experimental validation of RaS.

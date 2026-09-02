@@ -1,0 +1,56 @@
+preregistration:
+  study_id: P0
+  status: draft_not_registered
+  timestamp_utc: null
+  protocol_version: "0.1-draft"
+
+research_questions:
+  rq1_continuity: null
+  rq2_state_economics: null
+  rq3_tiered_execution: null
+  rq4_repository_sufficiency: null
+
+sample:
+  task_selection_rule: null
+  number_of_sequences: null
+  tasks_per_sequence: null
+  inclusion_criteria: []
+  exclusion_criteria: []
+
+randomisation:
+  condition_assignment: null
+  order_control: null
+  seed_commitment: null
+
+models:
+  high_capability_model: null
+  execution_worker: null
+  versions_pinned_if_possible: true
+  temperature_and_sampling: null
+
+success_definition:
+  task_level_success: null
+  hidden_verifier_rule: null
+  allowed_human_intervention: null
+
+analysis_plan:
+  primary_estimand: null
+  rri_by_depth: true
+  reconstruction_cost_analysis: true
+  missing_data_rule: null
+  statistical_tests: []
+  confidence_intervals: null
+  multiplicity_control: null
+
+falsification:
+  reconstruction_cost_threshold_or_rule: null
+  failure_conditions: []
+
+data_boundary:
+  proprietary_subject: true
+  raw_evidence_public: false
+  sanitisation_review: null
+
+results:
+  populated: false
+  note: "No empirical values belong in a preregistration template."
