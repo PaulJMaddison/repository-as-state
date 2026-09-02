@@ -18,7 +18,7 @@ This is a public research repository for Repository-as-State (RaS). Treat scient
 
 ## Public repository safety
 
-Never commit proprietary KynticAI source, private diffs, hidden proprietary verifier code, private source snapshots, credentials, secrets, customer data, Very Group material, or model traces containing proprietary source. Do not add unnecessary personal filesystem paths.
+Never commit proprietary source, private diffs, hidden proprietary verifier code, private source snapshots, credentials, secrets, customer data, Very Group material, or model traces containing proprietary source. Do not add unnecessary personal filesystem paths.
 
 Private experimental evidence must remain outside this repository until sanitised into public aggregate evidence.
 
