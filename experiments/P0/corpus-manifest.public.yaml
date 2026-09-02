@@ -10,57 +10,57 @@
     "excluded_transitions": 21,
     "selected_task_count": 5
   },
-  "selection_rule_sha256": "0d05613e86be9dd3bc9c133104b750ac71dc19377c6dee5cc9d4e0007449d6e0",
+  "selection_rule_sha256": "0afd708810437c474261e294d8353865a7d0f522434452f648d618c761a54c1e",
   "tasks": [
     {
       "id": "P0-T1",
-      "spec_sha256": "4f6448c040779f23026f4575f2d38aeba675b9cb6dd93ada40bd31daa68529a8",
+      "spec_sha256": "c29757620cc576521b08d32b5b38156adaa782f8c50cbbf74013ca8014832743",
       "dependency": "chain-root",
       "category": "runtime-governance",
       "complexity": "medium",
       "verifier_type": "deterministic-local-behavioural",
       "accepted_boundary": true,
-      "private_payload_commitment_sha256": "75d4a60d0d650c7899c6ec25cb74931b9590785c2ed45eae1bedf82d048c5609"
+      "private_payload_commitment_sha256": "ad0d5abdcd98d4cc73a02b085553ca1bcfa4831ba46c42ea9e77cf3b14d575b2"
     },
     {
       "id": "P0-T2",
-      "spec_sha256": "9ec5f0eaf20fc37fe6ffdf467420bd50f4ead568205d9886c766df254cb650ac",
+      "spec_sha256": "99a3ab9248c977e404a17c6347880fb709a07bb43ac10b345ba98ef414e95e44",
       "dependency": "depends-on-T1",
       "category": "temporal-governance",
       "complexity": "high",
       "verifier_type": "deterministic-local-behavioural",
       "accepted_boundary": true,
-      "private_payload_commitment_sha256": "75d4a60d0d650c7899c6ec25cb74931b9590785c2ed45eae1bedf82d048c5609"
+      "private_payload_commitment_sha256": "ad0d5abdcd98d4cc73a02b085553ca1bcfa4831ba46c42ea9e77cf3b14d575b2"
     },
     {
       "id": "P0-T3",
-      "spec_sha256": "0b08e12fa6a9d5df8c151c758e17a129497b8e082428a959525d777cbbbd1fd8",
+      "spec_sha256": "654055c7416768b1fda554d8c4d94dcf291a31a68a8bf4180e73cf6e317ba8f5",
       "dependency": "depends-on-T1-T2",
       "category": "identity-lifecycle",
       "complexity": "high",
       "verifier_type": "deterministic-local-behavioural",
       "accepted_boundary": true,
-      "private_payload_commitment_sha256": "75d4a60d0d650c7899c6ec25cb74931b9590785c2ed45eae1bedf82d048c5609"
+      "private_payload_commitment_sha256": "ad0d5abdcd98d4cc73a02b085553ca1bcfa4831ba46c42ea9e77cf3b14d575b2"
     },
     {
       "id": "P0-T4",
-      "spec_sha256": "82fd91fe695fd7be9c425e9831420f114280d495ea40166a3569d4181abd01c5",
+      "spec_sha256": "b330b62086abeef22a83841248366e4889b54ab2705f951ff8290cf2122e4f67",
       "dependency": "depends-on-T1-T2",
       "category": "governed-fact-state",
       "complexity": "high",
       "verifier_type": "deterministic-local-behavioural",
       "accepted_boundary": true,
-      "private_payload_commitment_sha256": "75d4a60d0d650c7899c6ec25cb74931b9590785c2ed45eae1bedf82d048c5609"
+      "private_payload_commitment_sha256": "ad0d5abdcd98d4cc73a02b085553ca1bcfa4831ba46c42ea9e77cf3b14d575b2"
     },
     {
       "id": "P0-T5",
-      "spec_sha256": "1160e9b97b76ed5ef94abc67a4ee47c5f7c0cfe3283cc8e1112d5b76ed297eb5",
+      "spec_sha256": "dfa28f9776c21841d3799631c445c1488a5964b7f5f54470fbba4012ee93b8bd",
       "dependency": "depends-on-T3-T4",
       "category": "durable-governed-ingress",
       "complexity": "high",
       "verifier_type": "deterministic-local-behavioural",
       "accepted_boundary": true,
-      "private_payload_commitment_sha256": "75d4a60d0d650c7899c6ec25cb74931b9590785c2ed45eae1bedf82d048c5609"
+      "private_payload_commitment_sha256": "ad0d5abdcd98d4cc73a02b085553ca1bcfa4831ba46c42ea9e77cf3b14d575b2"
     }
   ],
   "chain": {
@@ -77,7 +77,7 @@
     "condition_C_enabled": false,
     "reason": "NO_DEFENSIBLE_ABLATION"
   },
-  "private_lock_sha256": "75d4a60d0d650c7899c6ec25cb74931b9590785c2ed45eae1bedf82d048c5609",
+  "private_lock_sha256": "ad0d5abdcd98d4cc73a02b085553ca1bcfa4831ba46c42ea9e77cf3b14d575b2",
   "experimental_agent_runs": 0,
   "p0_executed": false,
   "positive_empirical_ras_results": false
