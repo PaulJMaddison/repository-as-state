@@ -1,5 +1,6 @@
 from pathlib import Path
 import os
+import ctypes
 import subprocess
 
 import pytest
@@ -143,7 +144,23 @@ def test_symlink_escape_fails(tmp_path):
     _, dest, _, future = clean_workspace(tmp_path)
     external = tmp_path / "external.txt"
     external.write_text("x", encoding="utf-8")
-    os.symlink(external, dest / "escape-link")
+    link = dest / "escape-link"
+    if os.name == "nt":
+        # Python's os.symlink does not request the Windows 10+
+        # SYMBOLIC_LINK_FLAG_ALLOW_UNPRIVILEGED_CREATE flag.  Use the
+        # native API so this deterministic harness works for developers
+        # with Developer Mode enabled, without requiring an elevated token.
+        create_symbolic_link = ctypes.windll.kernel32.CreateSymbolicLinkW
+        create_symbolic_link.argtypes = [ctypes.c_wchar_p, ctypes.c_wchar_p, ctypes.c_uint32]
+        create_symbolic_link.restype = ctypes.c_ubyte
+        created = create_symbolic_link(str(link), str(external), 2)
+        if not created:
+            error = ctypes.WinError()
+            if getattr(error, "winerror", None) == 1314:
+                pytest.skip("Windows symbolic-link privilege is unavailable")
+            raise error
+    else:
+        os.symlink(external, link)
     result = future_history_leak_gate(dest, [future], network_isolation_asserted=True)
     assert "symlink_escape" in result.failures
     assert "workspace_not_clean" in result.failures
