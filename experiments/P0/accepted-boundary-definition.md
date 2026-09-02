@@ -20,7 +20,10 @@ These are deliberately separate:
 
 **CURRENT REPRODUCTION EVIDENCE** is a new deterministic build/test execution of that historical boundary.
 
-For the selected P0 corpus, all five boundaries are judged credible accepted states from the committed programme structure plus deterministic behavioural test/proof contracts. Exact historical CI/check runs are not attached to those five boundary commits, and current private-source historical build reproduction was not available in the connector-only curator runtime.
+The original five-boundary proposal was superseded during preparation when the
+identity-lifecycle post-state failed direct behavioural reproduction. No final
+amended corpus boundary is currently accepted; exact reproduction evidence must
+be completed before any future subchain is frozen.
 
 This limitation is frozen into the preregistration. It must not later be rewritten as if exact historical CI evidence had been observed.
 

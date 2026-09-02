@@ -47,13 +47,13 @@ This is a hard gate.
 - [x] Private leakage notes frozen in the lock payload.
 - [ ] Re-run leakage checks on each finally materialised private execution workspace.
 
-## Hidden verifier — requirements frozen; implementation pending
+## Hidden verifier — superseded implementation exists; final amended set pending
 
 - [x] Generic public contract frozen.
 - [x] Task-specific behavioural requirements frozen privately.
 - [x] Patch similarity rejected as success criterion.
 - [x] Equivalent correct implementations required.
-- [ ] Private verifier source built outside both public repo and subject workspace.
+- [x] Superseded-corpus private verifier source built outside both public repo and subject workspace.
 - [ ] Final verifier versions/hashes frozen after implementation.
 - [ ] Verifier builder validates deterministic local/offline execution.
 

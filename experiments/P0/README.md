@@ -1,6 +1,6 @@
 # P0 — Forced-State-Reset Methodology Pilot
 
-**Status: CORPUS SELECTED; PROTOCOL PREPARED; MODEL/RUNTIME FREEZE PENDING.**  
+**Status: CORPUS REVIEW REQUIRED; NO VALID SUBCHAIN OF MINIMUM LENGTH.**
 **P0 executed: NO.**  
 **Experimental agent runs: 0.**
 
@@ -53,13 +53,13 @@ P0 remains **NOT RUN-READY** until the exact model/runtime is frozen, including:
 - cache policy;
 - network policy.
 
-The private hidden verifier implementation and isolated task workspaces also remain to be prepared outside both this public repository and the subject workspace.
+Superseded-corpus private verifier implementations and isolated workspaces were prepared outside this public repository and the subject workspace. Final amended verifier versions and workspaces were not frozen because no eligible subchain of the required minimum length exists.
 
 ## Harness status
 
 The generic FUTURE_HISTORY_LEAK_GATE and canonicalisation/preregistration helpers are implemented in `src/ras/`.
 
-Current deterministic synthetic harness validation: **49 passed / 1 environment-skipped** (Windows symlink privilege), including **21 Git isolation/leakage tests**.
+Current deterministic synthetic harness validation: **49 passed / 1 environment-skipped** (Windows symlink privilege), including **20 passed / 1 environment-skipped Git isolation/leakage tests**.
 
 **HARNESS TEST DATA — NOT RESEARCH EVIDENCE.**
 
@@ -68,6 +68,7 @@ Current deterministic synthetic harness validation: **49 passed / 1 environment-
 `MODEL_RUNTIME_FREEZE_PENDING=true`  
 `P0_PREREGISTRATION_FROZEN=false`  
 `P0_CORPUS_INSUFFICIENT_AFTER_BOUNDARY_VALIDATION=true`
+`P0_CORPUS_INSUFFICIENT_AFTER_SUBCHAIN_AMENDMENT=true`
 `P0_PROTOCOL_READY_FOR_MODEL_FREEZE=false`
 `NETWORK_ISOLATION_READY=false`
 

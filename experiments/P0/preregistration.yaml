@@ -20,13 +20,18 @@
     "raw_subject_data_public": false
   },
   "corpus": {
-    "public_manifest_sha256": "f579e8a4108a2cfe90cf848d6534e70d6d64f75c4d44f9d3f8c58fe2cc536a41",
+    "public_manifest_sha256": "fc03bd010e47d035218021d65fce6b84622df6968b86aa83e3a6e62df9bd8f2d",
     "private_lock_sha256": "75d4a60d0d650c7899c6ec25cb74931b9590785c2ed45eae1bedf82d048c5609",
+    "superseded_private_lock_sha256": "75d4a60d0d650c7899c6ec25cb74931b9590785c2ed45eae1bedf82d048c5609",
+    "amendments": [
+      "001-corpus-boundary-validation.md",
+      "002-valid-subchain-pilot-size.md"
+    ],
     "selection_rule_sha256": "0d05613e86be9dd3bc9c133104b750ac71dc19377c6dee5cc9d4e0007449d6e0",
     "task_count": 0,
     "candidate_transitions_considered": 38,
     "excluded_transitions": 21,
-    "task_spec_sha256": {
+    "superseded_task_spec_sha256": {
       "P0-T1": "4f6448c040779f23026f4575f2d38aeba675b9cb6dd93ada40bd31daa68529a8",
       "P0-T2": "9ec5f0eaf20fc37fe6ffdf467420bd50f4ead568205d9886c766df254cb650ac",
       "P0-T3": "0b08e12fa6a9d5df8c151c758e17a129497b8e082428a959525d777cbbbd1fd8",
@@ -35,7 +40,14 @@
     },
     "genuinely_sequential": true,
     "accepted_boundaries_verified": false,
-    "boundary_reproduction_limitation": "Original T3 was independently rejected during preparation; no amended five-task chain was selected."
+    "boundary_reproduction_limitation": "Original T3 was independently rejected during preparation; no amended five-task chain was selected.",
+    "current_amended_corpus": {
+      "selected_task_count": 0,
+      "minimum_task_count": 3,
+      "maximum_task_count": 5,
+      "status": "NO_VALID_SUBCHAIN_OF_MINIMUM_LENGTH"
+    },
+    "network_isolation_ready": false
   },
   "selection": {
     "window_rule_public": "bounded contiguous local engineering programme frozen before individual task selection",

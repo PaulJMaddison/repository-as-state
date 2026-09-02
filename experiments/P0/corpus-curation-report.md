@@ -53,11 +53,11 @@ Selection rule:
 
 Public corpus manifest canonical digest:
 
-`f579e8a4108a2cfe90cf848d6534e70d6d64f75c4d44f9d3f8c58fe2cc536a41`
+`fc03bd010e47d035218021d65fce6b84622df6968b86aa83e3a6e62df9bd8f2d`
 
 Current corpus-selected preregistration canonical digest (not a final freeze hash):
 
-`e56730444cc403abb2bc50fade885a5f4d735bb2a8f5307160f9939093ca64b8`
+`ef3a29aba53b44ea7d8ee134b448cd37a71a17738bc5e7b1c240f7c5b3eb09f0`
 
 Private P0 lock:
 
@@ -73,7 +73,7 @@ Synthetic validation: **21 leak/isolation tests passed**. Full public research-t
 
 ## Verifier and ablation status
 
-Task-specific hidden-verifier behavioural requirements are frozen in the private lock payload; verifier implementation is not yet built.
+Task-specific hidden-verifier behavioural requirements are frozen in the private lock payload. Superseded-corpus verifier implementations were built privately; no final amended verifier set was frozen because the amended corpus is insufficient.
 
 Condition C is not enabled:
 

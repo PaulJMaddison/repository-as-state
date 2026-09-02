@@ -1,6 +1,6 @@
 # P0 task-selection protocol
 
-Status: **CORPUS SELECTED — MODEL/RUNTIME FREEZE PENDING**
+Status: **ORIGINAL CORPUS RECORD PRESERVED; SUPERSEDED BY AMENDMENTS 001–002**
 
 This document records the task-selection rule that was fixed before individual historical transitions were evaluated for P0.
 
@@ -10,7 +10,7 @@ Use one **bounded contiguous local engineering programme**, selected before insp
 
 Publicly, the private subject is identified only as `PRIVATE_SUBJECT_A`. Exact dates, repository identifiers, commits, paths, solution transitions, and task text are held only in the private P0 lock payload.
 
-The selected window contains:
+The original selected-window record contains:
 
 - candidate transitions considered: **38**;
 - transitions grouped into selected task units: **17**;
@@ -84,6 +84,11 @@ The selected public dependency shape is:
 `P0-T1 -> P0-T2 -> P0-T3/P0-T4 -> P0-T5`
 
 The graph is connected. T5 depends on accumulated accepted state from both the identity/lifecycle and governed-state branches.
+
+This original selection is retained for audit and is not the current corpus.
+Amendment 001 rejects the original T3 boundary. Amendment 002 defines the
+longest valid dependency-preserving subchain rule with a minimum of three and a
+maximum of five tasks. No amended subchain currently meets that minimum.
 
 ## Patch independence
 
