@@ -4,7 +4,7 @@
 
 P0 is the initial pilot for evaluating whether sequential software-engineering work can continue correctly after complete conversational-state reset.
 
-The likely private subject is KynticAI Fortress, but this public repository contains no Fortress source, proprietary diff, hidden verifier implementation or private model trace. P0 must be prepared so that private subject or evidence remains private and only sanitised aggregate evidence crosses the publication boundary.
+The likely P0 subject is a private proprietary software system, but this public repository contains no proprietary source, private diff, hidden verifier implementation or private model trace. P0 must be prepared so that private subject or evidence remains private and only sanitised aggregate evidence crosses the publication boundary.
 
 ## Pilot objectives
 
