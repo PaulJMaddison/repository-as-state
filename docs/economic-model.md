@@ -1,41 +1,60 @@
-# Provider-neutral economic model
+# Resource and economic model — hostile-audit revision
 
-For a conventional persistent coding agent, define:
+The original additive conceptual cost model risked double counting because reasoning, context and agent-state costs can overlap in actual provider billing and inference.
 
-    C_persistent =
-        C_reasoning
-      + C_context/history
-      + C_agent-state
-      + C_execution
-      + C_tools
-      + C_orchestration.
+P0 should therefore report an **observable resource vector**, not infer provider-internal cost:
 
-For RaS, define:
+    Z_c = (
+      input_tokens,
+      output_tokens,
+      model_calls,
+      tool_calls,
+      repository_bytes_read,
+      files_read,
+      reconstruction_time,
+      total_time,
+      retries,
+      provider_billed_cost_if_exposed
+    )
 
-    C_RaS =
-        C_reconstruction
-      + C_reasoning
-      + C_shallow-execution
-      + C_repository-state.
+for condition c.
 
-The empirical economic question is whether:
+## Observability classes
 
-    C_RaS < C_persistent
+### OBSERVABLE
+- input/output tokens exposed by the interface;
+- model/tool calls;
+- files and repository bytes read;
+- searches;
+- elapsed time;
+- retries;
+- provider-billed charges when explicitly exposed.
 
-for sufficiently long engineering programmes while maintaining comparable engineering quality.
+### PARTIALLY OBSERVABLE
+- cached/uncached token counters;
+- prompt-cache hits;
+- session-persistence indicators;
+- opaque provider usage categories.
 
-## Cost categories
+Report the interface/version and limitations.
 
-RaS explicitly separates:
+### UNOBSERVABLE
+- exact provider GPU allocation;
+- exact KV-cache residency cost;
+- internal storage/scheduler amortisation;
+- hidden cache implementation;
+- provider profit margin.
 
-1. **Measured cost proxy** — observable tokens, model calls, tool calls, files read, elapsed time, execution time, retry count and provider-billed usage where available.
-2. **Theoretical infrastructure implication** — consequences derived from an explicit resource model.
-3. **Unobservable provider-internal cost** — internal inference, cache, scheduling, hardware and margin information not available to the experimenter.
-
-Subscription pricing must not be used to infer provider margins or internal inference cost. Chat interfaces must not be treated as “free inference”.
+Do not call these measured savings.
 
 ## Reconstruction Token Fraction
 
-    RTF = Reconstruction Tokens / Total RaS Input Tokens.
+    RTF = reconstruction_input_tokens / total_RaS_input_tokens.
 
-RTF should be reported with repository size and task depth. Increasing RTF as a repository grows is a direct warning signal for the strong RaS claim.
+RTF is descriptive only. Report numerator, denominator, total resource vector, failures and retries.
+
+## Economic falsifier
+
+The resource/economic thesis fails if reconstruction, retry and execution burden erases any advantage from removing predecessor history.
+
+Subscription price is not evidence of provider-internal inference cost.

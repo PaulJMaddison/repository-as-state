@@ -1,25 +1,18 @@
-# Tiered execution
+# Tiered execution — hostile-audit revision
 
-RaS distinguishes reasoning capability from operational privilege.
+Tiered execution is a **secondary architecture**, not a logical requirement of Repository-as-State and not part of P0's primary causal comparison.
 
-A high-capability reasoner may be most valuable for architecture, decomposition, causal reasoning, difficult debugging, review, interpretation and planning. An execution worker may handle repository edits, compilation, tests, formatters, Git and constrained environment interaction.
+A high-capability reasoner may handle architecture, decomposition, difficult debugging, review and evidence interpretation. A separate worker may handle edits, compilers, tests, formatting, Git and constrained environment interaction.
 
-A simple theoretical utilisation model is:
+The elementary accounting identity:
 
-    C_monolithic = (N_R + N_E) c_R
+    C_M = (N_R + N_E)c_R
+    C_T = N_R*c_R + N_E*c_E + C_O
 
-versus:
+implies tiering is cheaper only when:
 
-    C_tiered = N_R c_R + N_E c_E + C_orchestration,
+    N_E(c_R-c_E) > C_O.
 
-where N_R and N_E are reasoning and execution units, c_R and c_E their respective unit costs, and C_orchestration the coordination overhead.
+This is not a novel theorem. It simply makes orchestration/retry overhead explicit.
 
-Under this model, tiering saves cost when:
-
-    N_E (c_R - c_E) > C_orchestration.
-
-This is a theoretical condition only. Real model pricing, execution quality, retry rates, coordination failures and latency must be measured.
-
-## Least privilege
-
-High intelligence does not imply high privilege. A reasoner may need read, reason and propose access. An executor may need workspace write, compiler, test runner and restricted Git. Production credentials may belong to neither. This separation can reduce blast radius and narrow the trusted computing base if enforcement is outside the model.
+Recent repository-exploration and model-routing work already studies cheaper models for modular suboperations. A later RaS experiment may test whether accepted-state continuity makes such tiering easier, but P0 must not change executor quality while testing history persistence.

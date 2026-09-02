@@ -1,32 +1,67 @@
-# Theoretical model
+# Theoretical model — hostile-audit revision
 
-## Context-scaling model
+## Disposable reasoning
 
-Assume:
+A reasoning process is **disposable with respect to engineering programme continuity** when replacing it after an accepted engineering transition does not materially impair the next correct continuation under a prespecified behavioural comparison, given matched authoritative project state, current task, model capability/configuration, tool interface and execution environment.
 
-- B is stable base context supplied to a persistent reasoner;
-- g is average historical interaction growth added per sequential step;
-- n is the number of sequential reasoning steps;
-- naive full-history replay supplies all preceding historical growth at every step.
+Disposable does not mean computation-free. A fresh process may recompute context. Reconstruction cost is therefore a first-class outcome.
 
-Then cumulative supplied context is:
+## Full-history replay stress model
+
+Let:
+- B be fixed base context;
+- g be average new historical tokens added per sequential step;
+- n be sequential reasoning steps.
+
+Under naive full-history replay:
+
+    T_full(n)
+      = sum(i=1..n) [B + g(i-1)]
+      = nB + g*n(n-1)/2
+      in Theta(n^2).
+
+This is a conditional stress model, **not** a general model of persistent agents.
+
+Let h_i* be effective retained history after compaction, retrieval, summarisation, windows or other context management:
 
     T_persistent(n)
-      = sum(i=1..n) [B + g(i-1)]
-      = nB + g*n(n-1)/2.
+      = sum(i=1..n) [B + h_i*].
 
-For fixed positive g, this model yields Theta(n^2) cumulative supplied information.
+If h_i* is bounded, persistent cumulative input is also linear. Therefore the paper makes no general asymptotic claim that RaS beats persistent agents.
 
-For RaS, let K_i be the reconstructed task-relevant input at step i. If reconstruction remains bounded such that K_i <= K for all i, then:
+## Reconstruction model
 
-    T_RaS(n) <= nK,
+For RaS:
 
-and the cumulative supplied information is Theta(n) under the stated bound.
+    T_RaS(n) = sum(i=1..n) K_i
 
-These are theoretical information-supply models, not measurements of commercial agents. Prompt caching, compaction, retrieval, provider-specific state management, long-context optimisations and changing task complexity can alter observed cost. The model does not assert that all persistent agents literally replay full history or that all RaS reconstructions remain bounded.
+with a realistic dependency:
+
+    K_i = f(
+      |R_i|,
+      task locality,
+      dependency width,
+      documentation quality,
+      test quality,
+      architecture quality,
+      retrieval quality
+    ).
+
+Bounded K is not assumed empirically.
+
+## Behavioural target
+
+For later repeated studies, let Y be hidden-verifier success and c be persistent-history control A or forced-reset B:
+
+    p_c(d) = P(Y=1 | c, depth=d, matched model/environment/task population).
+
+A confirmatory study may preregister a justified non-inferiority or equivalence margin. P0 is too small to establish that inference.
 
 ## Falsification pressure
 
-The bounded-reconstruction assumption is itself empirical. Repository growth may increase search and rediscovery cost. RaS must therefore measure reconstruction tokens, files read, tool calls, model calls, elapsed time, and cached or uncached context where telemetry permits.
-
-If reconstruction cost grows until it eliminates the expected state-economics advantage, that is evidence against the strong version of the RaS hypothesis.
+The strong RaS claim is weakened if:
+- B loses verified success relative to A;
+- complete-sequence success collapses with depth;
+- reconstruction dominates resource use;
+- success depends on unusually tailored semantic documentation;
+- effects disappear with larger/non-local repositories.

@@ -1,21 +1,21 @@
 \begin{tikzpicture}[
 node distance=5mm,
-box/.style={draw,rounded corners,align=center,minimum width=3.25cm,minimum height=7mm,font=\small},
+box/.style={draw,rounded corners,align=center,minimum width=3.35cm,minimum height=7mm,font=\small},
 arrow/.style={-{Latex[length=1.8mm]},thick}
 ]
-\node[font=\bfseries] at (-3.2,1.0) {Persistent control};
-\node[box] (p1) at (-3.2,0) {Reasoner $A$\\Task 1};
-\node[box,below=of p1] (p2) {Same reasoner $A$\\history retained};
-\node[box,below=of p2] (p3) {Same reasoner $A$\\history retained};
+\node[font=\bfseries] at (-3.25,1.0) {A: persistent-history control};
+\node[box] (p1) at (-3.25,0) {$R_0+U_1$\\reasoner session $A$};
+\node[box,below=of p1] (p2) {accept $R_1$; rematerialise\\canonical workspace};
+\node[box,below=of p2] (p3) {$R_1+U_2$ + predecessor\\reasoning history};
 \draw[arrow] (p1)--(p2);
 \draw[arrow] (p2)--(p3);
 
-\node[font=\bfseries] at (3.2,1.0) {Forced reset};
-\node[box] (r1) at (3.2,0) {Fresh reasoner $A_1$\\$R_0+U_1$};
-\node[box,below=of r1] (reset1) {Destroy $A_1$; persist $R_1$};
-\node[box,below=of reset1] (r2) {Fresh reasoner $A_2$\\$R_1+U_2$};
-\node[box,below=of r2] (reset2) {Destroy $A_2$; persist $R_2$};
+\node[font=\bfseries] at (3.25,1.0) {B: forced reset};
+\node[box] (r1) at (3.25,0) {$R_0+U_1$\\fresh session $B_1$};
+\node[box,below=of r1] (reset1) {accept $R_1$; destroy $B_1$;\\rematerialise same workspace};
+\node[box,below=of reset1] (r2) {$R_1+U_2$\\fresh session $B_2$};
 \draw[arrow] (r1)--(reset1);
 \draw[arrow] (reset1)--(r2);
-\draw[arrow] (r2)--(reset2);
+
+\node[below=12mm of p3,align=center,font=\small] (note) {Model/configuration, tools, environment, task, accepted repository state, and verifier are matched.\\The intended treatment difference is predecessor reasoning-session history.};
 \end{tikzpicture}

@@ -1,4 +1,4 @@
-# Paper v0.1
+# Paper v0.1 — hostile-audit revision
 
 Working title: **Repository-as-State: Externalising Agent Continuity for Stateless High-Capability Reasoning**
 
@@ -7,35 +7,60 @@ Affiliation: **Independent Researcher**
 Location: **Liverpool, United Kingdom**  
 Version: **0.1.0**
 
-This is the first canonical full theoretical/systems/research-design paper for Repository-as-State (RaS).
+## Audit status
+
+A hostile pre-experiment audit has narrowed the novelty and strengthened the experimental design.
+
+**Internal decision:** GO_WITH_REQUIRED_PROTOCOL_CHANGES  
+**P0 execution readiness:** NOT YET READY  
+**Controlled empirical RaS evidence:** NONE
+
+The audit does **not** conclude that RaS is validated. It concludes that a narrower post-acceptance reasoning-state-disposal hypothesis is specific and falsifiable enough to justify P0 preparation if the required causal/isolation gates are implemented.
+
+Key audit documents:
+
+- `hostile-review-v0.1.md`
+- `novelty-audit.md`
+- `reviewer-attacks.md`
+- `falsification-criteria.md`
+- `evidence-roadmap.md`
+- `experiment-plan.md`
+- `validation-audit.md`
+- `../experiments/P0/readiness-checklist.md`
+
+## Narrowed contribution
+
+The broad idea that repositories/Git can serve as agent memory is prior art. The current paper focuses on:
+
+1. disposal of predecessor high-capability reasoning-session state **after validated accepted sequential engineering transitions**;
+2. a matched persistent-history versus forced-reset treatment;
+3. reconstruction-cost accounting that can falsify the economic thesis;
+4. a reportable state-reconstruction probe stored outside the subject workspace;
+5. small semantic-state ablations at accepted boundaries.
+
+RRI, tiered execution, repository retrieval, sequential coding evaluation, Git-bound memory, tests/docs as engineering knowledge, and durable compute are not presented as independently novel contributions.
+
+## Major hostile-audit corrections
+
+- removed the unobservable KL-divergence repository-sufficiency formalism;
+- replaced it with a behavioural matched A/B target;
+- demoted quadratic full-history growth to a naive stress model;
+- explicitly state that a managed persistent agent can also have linear cumulative effective context;
+- replaced speculative additive economics with an observable resource vector and observability classes;
+- demoted RRI to a descriptive metric;
+- deferred tiered execution beyond primary P0;
+- made Handoff Debt adverse prior evidence;
+- added canonical workspace/runtime matching;
+- added FUTURE_HISTORY_LEAK_GATE and task-leakage controls;
+- added verifier hash/freeze requirements;
+- added no-human-rescue and preregistered rerun rules;
+- added reproducible historical-corpus selection rules.
 
 ## Evidence status
 
-**CONTROLLED EMPIRICAL EVIDENCE IS NOT YET AVAILABLE.**
+**P0 has not been executed.**
 
-P0 — the Forced-State-Reset Pilot — has not been executed. The manuscript contains no positive controlled empirical RaS result and no fabricated example result.
-
-## Scope of v0.1
-
-The paper establishes:
-
-- Repository-as-State as a continuity architecture;
-- the formal reconstruction/reasoning/execution/validation loop;
-- approximate repository sufficiency;
-- the full-history versus bounded-reconstruction context model;
-- reconstruction cost and Reconstruction Token Fraction;
-- provider-neutral state economics;
-- transactional high-capability reasoning;
-- tiered execution;
-- tests and durable semantic state;
-- selective durable documentation;
-- least privilege;
-- Forced-State-Reset Evaluation;
-- the proposed Repository Resumability Index;
-- the state-reconstruction probe;
-- the P0 experimental method;
-- repository-state versus agent-state scalability;
-- related-work and novelty boundaries.
+The Results section contains no invented measurements. Positive controlled empirical RaS claims remain zero.
 
 ## Build
 
@@ -46,24 +71,23 @@ From the paper directory:
     pdflatex main.tex
     pdflatex main.tex
 
-A convenient alternative is:
+or, where available:
 
     latexmk -pdf main.tex
 
-The paper uses standard LaTeX packages plus TikZ for source-controlled conceptual figures.
+The paper uses TikZ for conceptual figures.
 
 ## Research discipline
 
-- Do not invent empirical values.
-- Keep hypotheses labelled.
-- Treat reconstruction cost as a central falsification route.
-- Add only verifiable citations.
-- Keep `claims-register.md` consistent with the manuscript.
-- Keep private experimental source/evidence outside this public repository.
-- Do not treat conceptual figures as measured curves.
+- Current prior work must be credited even when it weakens novelty.
+- Handoff Debt is not to be dismissed; post-acceptance boundaries are the hypothesis.
+- No P0 run until the readiness checklist is complete.
+- Do not infer provider GPU/KV/margin savings from client token counters.
+- Conceptual figures are not empirical data.
+- Public/private boundary remains mandatory.
 
 ## Draft AI-assistance disclosure
 
-Generative AI was used extensively to assist with formalisation, mathematical framing, drafting, literature synthesis, experiment design, and research-software design. The human author controls the research direction, hypotheses, engineering observations, experimental decisions, interpretation, and final claims. AI systems are not listed as authors.
+Generative AI was used extensively to assist with formalisation, mathematical framing, drafting, literature synthesis, hostile review, experiment design, and research-software design. The human author controls the research direction, hypotheses, engineering observations, experimental decisions, interpretation, and final claims. AI systems are not listed as authors.
 
-This disclosure remains in the repository rather than the manuscript until the target venue's disclosure requirements are known.
+This disclosure remains outside the manuscript until a target venue's requirements are known.

@@ -1,30 +1,28 @@
 \section{Tiered Execution}
 \label{sec:tiered}
 
-RaS continuity and tiered execution are related but separable claims. The continuity hypothesis can be tested using the same high-capability model for reasoning and editing. Tiered execution introduces a second question: after high-capability reasoning has produced a bounded work package, can routine stateful execution be delegated to a lower-cost, local, or more constrained worker without materially reducing engineering quality?
+Tiered execution is \textbf{not logically necessary for RaS}. It is a secondary architecture that becomes convenient when reasoning persistence, execution state, and operational privilege are separated. The core continuity experiment must therefore be able to compare persistent-history and forced-reset conditions without changing executor quality.
 
-The high-capability reasoner is best reserved, under the proposed architecture, for operations such as architecture, decomposition, difficult causal reasoning, complex debugging, review, difficult trade-off analysis, interpretation of evidence, and work-package creation. An execution worker may instead perform repository edits, compilation, test execution, formatting, linting, Git operations, local-environment interaction, and tightly constrained environment actions where permitted.
+A high-capability reasoner may be useful for architecture, decomposition, difficult causal reasoning, complex debugging, review, trade-off analysis, evidence interpretation, and work-package creation. A separate worker may perform repository edits, compilation, test execution, formatting, linting, Git operations, and tightly constrained environment interaction.
 
 \input{tables/reasoner-executor}
 
-Let $N_R$ be the number of high-capability reasoning operations, $N_E$ the number of execution operations, $c_R$ the average cost of a high-capability operation, $c_E$ the average cost of an execution operation, and $C_O$ orchestration overhead. A simplified monolithic model is:
-\begin{equation}
-C_M=(N_R+N_E)c_R.
-\end{equation}
-Tiered execution is:
-\begin{equation}
-C_T=N_Rc_R+N_Ec_E+C_O.
-\end{equation}
-It is cheaper under this theoretical model when:
+Let $N_R$ and $N_E$ denote reasoning and execution operations and let $c_R$, $c_E$, and $C_O$ denote their accounting-unit costs and orchestration overhead. Under the deliberately simplified accounting model:
+\begin{align}
+C_M&=(N_R+N_E)c_R,\
+C_T&=N_Rc_R+N_Ec_E+C_O.
+\end{align}
+Therefore $C_T<C_M$ exactly when:
 \begin{equation}
 N_E(c_R-c_E)>C_O.
 \label{eq:tiered}
 \end{equation}
 
-Equation~\ref{eq:tiered} is theoretical. It does not assume that $c_E<c_R$ in all deployments, that execution quality is equivalent, or that orchestration is cheap. A nominally inexpensive executor can become more expensive in outcome-normalised terms if it repeatedly misunderstands the work package, introduces regressions, exhausts retries, or forces the high-capability reasoner to re-enter.
+This inequality is elementary accounting, not a research contribution. It is retained only to expose the condition that hand-off overhead and quality failures must be included before declaring tiering cheaper. The quantities are not assumed to be monetary, mutually constant, or directly observable across providers.
 
-Tiered execution can therefore fail through at least four mechanisms. First, the work package may omit a crucial semantic constraint. Second, the executor may lack enough capability to handle an unexpected repository state. Third, the executor may have insufficient tool access to reproduce the required evidence. Fourth, repeated hand-offs may create latency and context overhead larger than any saving.
+Recent work independently studies modular repository exploration with lower-cost models and finds useful quality/cost operating points for issue localisation \citep{awad2026exploration}. Model routing is also established prior work \citep{ong2024routellm}. RaS therefore claims no novelty for using cheaper models for suboperations.
 
-Condition D in the broader research programme evaluates this architecture. P0 may initially focus primarily on persistent control, forced reset, and semantic-state ablation because those conditions test the central continuity proposition more directly. Tiered execution should not be allowed to confound the first continuity result.
+Tiered execution can fail because a work package omits a constraint, the executor cannot handle an unexpected state, tool permissions differ, or repeated hand-offs cause retries and re-entry. Any economic study must count those failures.
 
-The architecture nevertheless matters because it highlights a systems principle: the component that performs the most sophisticated reasoning does not necessarily need to perform the most machine operations. If continuity is external, reasoning capability, execution state, and operational privilege can be independently scoped.
+\paragraph{P0 scope.}
+Condition D is removed from the primary P0 causal comparison. P0 should first establish whether conditions A and B can be matched except for predecessor reasoning-session history. A small preregistered semantic-state ablation may be exploratory. Tiered execution belongs in a later experiment once the continuity intervention itself is identifiable.

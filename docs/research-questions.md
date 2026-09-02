@@ -1,27 +1,43 @@
-# Research questions
+# Research questions — hostile-audit revision
 
-## RQ1 — Continuity
+## RQ1 — Post-acceptance continuity
 
-Can durable repository state substitute for persistent conversational or agent state as the primary continuity mechanism for long-horizon software-engineering work?
+For genuinely dependent software-engineering tasks, what is the effect of removing predecessor high-capability reasoning-session history **after a validated accepted project transition**, when accepted repository state, current task, model/configuration, tools and environment are otherwise matched?
 
-Conceptually:
+P0 tests whether this treatment can be isolated. Later repeated studies may test a preregistered non-inferiority/equivalence claim.
 
-    P(S | R_t, U_t) ≈ P(S | H_t, R_t, U_t)
+## RQ2 — Reconstruction burden
 
-where S is successful engineering outcome, R_t durable repository state, H_t accumulated agent or conversation history, and U_t the current task.
+How much repository rediscovery is required after forced reset?
 
-The equality is not assumed; it is the object of measurement.
+Measure:
+- reconstruction input tokens;
+- repository bytes/files read;
+- searches/navigation operations;
+- model/tool calls;
+- reconstruction and total elapsed time;
+- retries;
+- observable cache usage.
 
-## RQ2 — State economics
+A valid result may be: **reset succeeds but reconstruction is more expensive than retaining predecessor history**.
 
-Can externalising engineering continuity materially reduce the amount of high-capability model state or context required per successful unit of engineering work?
+## RQ3 — Durable semantic carriers
 
-The principal claim under investigation is not “reasoning becomes cheap”. It is that high-capability reasoning may become **disposable** between transactions.
+Which allowed project artefacts have marginal continuity value at accepted boundaries?
 
-## RQ3 — Tiered execution
+Candidate classes include source, tests, Git history, architecture records, concise state documentation, schemas and reproducible build information.
 
-Can high-capability reasoning be separated from lower-cost or local stateful execution without materially reducing engineering success?
+Condition C must use small preregistered ablations rather than arbitrary repository degradation.
 
-## RQ4 — Repository sufficiency
+## RQ4 — Scaling and portability
 
-Which repository artefacts are responsible for successful reconstruction of engineering state? Candidate carriers include source, tests, Git history, architecture records, concise state documentation, schemas and reproducible build information.
+How do reset effects vary with:
+- sequential depth;
+- repository size;
+- task locality;
+- dependency width;
+- documentation/test quality;
+- retrieval method;
+- model family?
+
+Cross-model continuity and tiered execution are later research questions, not P0's primary treatment.

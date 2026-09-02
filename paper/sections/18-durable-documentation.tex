@@ -1,36 +1,27 @@
 \section{Durable Documentation and Selective Retention}
 \label{sec:durable-docs}
 
-Code and tests are powerful carriers of engineering state, but they do not necessarily preserve the rationale required for a later correct decision. Some information deserves explicit durable semantic representation: why an architectural boundary exists, which alternatives were rejected for reasons that remain valid, what security assumption a component relies upon, which migration phase is currently active, or which business invariant cannot be inferred from implementation alone.
+Code and tests do not necessarily preserve why an architectural boundary exists, why an alternative was rejected, what security assumption is active, or which migration phase remains incomplete. Some information may therefore require explicit durable semantic representation.
 
-RaS therefore does not advocate “code is documentation”, nor does it advocate dumping full reasoning transcripts into Markdown. Both extremes are problematic. A code-only repository can erase rationale. A transcript-heavy repository can replace one unbounded history problem with another, preserve obsolete hypotheses, and make reconstruction expensive.
+RaS does not advocate dumping complete reasoning transcripts into Markdown. Guo's Git-bound memory work shows one legitimate alternative architecture in which session-derived episodes and decisions are deliberately persisted and retrieved \citep{guo2026gitmemory}. RaS tests whether some accepted boundaries can avoid needing that predecessor-session memory; it does not claim transcript persistence is inherently wrong.
 
-A useful retention principle can be expressed conceptually. Persist an item of engineering knowledge $x$ when:
+A conceptual retention heuristic is:
 \begin{equation}
-P_{\mathrm{reuse}}(x)
-\times
-L_{\mathrm{missing}}(x)
+P_{\mathrm{reuse}}(x)L_{\mathrm{missing}}(x)
 >
-C_{\mathrm{persist+retrieve}}(x).
+C_{\mathrm{persist+retrieve}}(x),
 \label{eq:retention}
 \end{equation}
-Here $P_{\mathrm{reuse}}(x)$ is the probability that future work will need the knowledge, $L_{\mathrm{missing}}(x)$ is the expected loss if it is absent, and $C_{\mathrm{persist+retrieve}}(x)$ is the cost of preserving, maintaining, and later reconstructing it.
+where the terms represent reuse likelihood, loss if missing, and preservation/retrieval cost. The expression is not an estimable production formula and is not used as an experimental statistic.
 
-Equation~\ref{eq:retention} is not proposed as a production formula with directly measurable probabilities and monetary values. It is a design heuristic that makes the trade-off explicit. High-consequence, non-obvious, likely-to-recur knowledge should be externalised. Low-value transient reasoning should usually disappear.
+Candidate durable documentation includes architecture decisions, operational constraints, security boundaries, migration state, non-obvious business intent, and rejected alternatives whose repetition would create meaningful risk.
 
-This suggests several durable documentation classes:
+But more context can hurt. Gloaguen et al. report that repository-level AGENTS.md context files can reduce success while increasing inference cost \citep{gloaguen2026agentsmd}; Khatri reports bounded null correctness effects in a controlled two-agent ablation \citep{khatri2026contextfiles}. These results make documentation quality and selectivity empirical variables rather than presumed advantages.
 
-\begin{itemize}
-    \item \textbf{architecture decisions}: why a boundary, dependency, protocol, or data model exists;
-    \item \textbf{operational constraints}: assumptions about ordering, retries, idempotency, time, storage, or failure recovery;
-    \item \textbf{security boundaries}: trust assumptions, privilege constraints, data handling, and prohibited flows;
-    \item \textbf{migration state}: what has moved, what remains dual-run, and which compatibility guarantees still apply;
-    \item \textbf{business intent}: non-obvious requirements that tests may only partially encode;
-    \item \textbf{known rejected alternatives}: only where repeating the alternative would create meaningful cost or risk.
-\end{itemize}
+Condition C should therefore ask:
+\begin{quote}
+\textbf{Which durable repository artefacts have marginal continuity value at accepted task boundaries?}
+\end{quote}
+It should not ask whether agents fail after deleting large amounts of useful state.
 
-The quality of these artefacts is a threat to validity as well as a design variable. An unusually disciplined repository may make RaS appear stronger than typical software projects. Conversely, a repository with stale or contradictory documentation may make forced reset fail even when persistent history would have repaired the ambiguity. Semantic-state ablation is therefore not merely a convenience; it helps identify whether success depends on explicit documentation, tests, source structure, history, or redundancy between them.
-
-Repository-local agent instruction files are one contemporary example of explicit semantic state. A 2026 empirical study of more than twelve thousand Cursor rule files found that such files commonly encode project context, engineering practices, structure, configuration, and maintainability guidance \citep{sun2026cursorrules}. RaS does not claim those files are sufficient or ideal. Their existence does, however, show that developers already externalise agent-relevant context into versioned repository artefacts.
-
-The desired end state is a repository that preserves enough high-value semantic information for future correct action without becoming a transcript archive. That balance is itself part of the reconstruction-cost question.
+A successful RaS architecture may ultimately require selective semantic documentation. If the amount of specially curated state required grows comparably to the predecessor history it replaces, or only works when tailored by an author who already knows the future tasks, that is evidence against the strong state-economics/generalisation claim.

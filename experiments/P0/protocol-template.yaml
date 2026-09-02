@@ -1,67 +1,195 @@
 protocol:
   id: P0
-  name: Forced-State-Reset Pilot
-  version: "0.1-draft"
+  name: Forced-State-Reset Methodology Pilot
+  version: "0.2-hostile-audit-draft"
   status: not_executed
+  decision_gate: GO_WITH_REQUIRED_PROTOCOL_CHANGES
+  ready_to_execute: false
 
 subject:
   visibility: private
   source_committed_publicly: false
   public_subject_identifier: null
-  pinned_revision_private: null
+  candidate_window_private: null
+  corpus_manifest_hash: null
+  task_hashes: []
+  sequential_dependency_justification_frozen: false
 
 conditions:
   A:
-    name: persistent_monolithic_control
-    retain_conversation_history: true
-    forced_reset_after_task: false
+    name: persistent_history_control
+    predecessor_reasoning_history_available: true
+    canonical_workspace_rematerialized_each_task: true
+    separate_execution_worker: false
   B:
     name: ras_forced_reset
-    retain_conversation_history: false
-    forced_reset_after_task: true
+    predecessor_reasoning_history_available: false
+    canonical_workspace_rematerialized_each_task: true
+    separate_execution_worker: false
   C:
-    name: ras_semantic_state_ablation
-    retain_conversation_history: false
-    forced_reset_after_task: true
-    ablation_manifest: null
+    name: ras_semantic_state_ablation_exploratory
+    enabled_for_p0: null
+    predecessor_reasoning_history_available: false
+    canonical_workspace_rematerialized_each_task: true
+    ablation_manifest_hash: null
   D:
     name: ras_tiered_execution
-    retain_conversation_history: false
-    forced_reset_after_task: true
-    separate_execution_worker: true
+    enabled_for_p0: false
+    note: "Deferred because executor capability would confound the primary history treatment."
+
+treatment_invariant:
+  intended_difference:
+    - predecessor_reasoning_session_history
+  must_match:
+    - accepted_repository_state
+    - current_task_text
+    - stable_experiment_instructions
+    - high_capability_model_and_configuration
+    - tool_schema
+    - executor_implementation_and_privileges
+    - base_environment
+    - dependency_versions
+    - network_policy
+    - hidden_verifier
+
+runtime_control:
+  model_id: null
+  model_version_or_snapshot: null
+  sampling_configuration: null
+  system_instruction_hash: null
+  tool_schema_hash: null
+  executor_hash: null
+  base_image_digest: null
+  toolchain_manifest_hash: null
+  dependency_manifest_hash: null
+  environment_manifest_hash: null
+  cache_policy: null
+  provider_account_memory_disabled_or_audited: false
+  fail_if_hidden_cross_session_memory_uncontrolled: true
+
+canonical_workspace:
+  materializer_version: null
+  clean_tracked_state_required: true
+  untracked_state_policy: empty_or_manifested
+  shell_history_reset: true
+  ide_state_reset: true
+  scratch_state_reset: true
+  previous_worktree_state_reset: true
+  build_cache_policy: null
+  dependency_cache_policy: null
+
+future_history_leak_gate:
+  name: FUTURE_HISTORY_LEAK_GATE
+  fail_closed: true
+  before_model_invocation: true
+  checks:
+    no_remotes: true
+    known_future_shas_non_resolvable: true
+    no_future_refs_tags_reflogs: true
+    no_packed_future_objects: true
+    no_git_alternates: true
+    no_source_repo_worktree_link: true
+    no_future_patch_or_ci_artifacts: true
+    private_future_source_network_blocked: true
+  evidence_record_hash: null
+  on_failure: RUN_INVALID_STOP_BEFORE_MODEL_CALL
+
+task_leakage_gate:
+  frozen_audit_required: true
+  check_post_cutoff:
+    - commit_messages
+    - issue_edits
+    - branch_and_tag_names
+    - changelogs_and_todos
+    - comments_and_generated_docs
+    - future_tests
+    - task_generation_files
+    - patch_files
+  legitimate_cutoff_state_is_allowed: true
+
+hidden_verifier:
+  stored_outside_workspace: true
+  unavailable_to_agent: true
+  behavior_oriented: true
+  same_across_conditions: true
+  equivalent_correct_solutions_allowed: true
+  historical_patch_is_not_text_oracle: true
+  version: null
+  hash: null
 
 reset_enforcement:
   allow_resume: false
-  allow_previous_conversation: false
-  allow_external_summary: false
-  allow_copied_hidden_memory: false
-  allowed_inputs:
-    - repository_state
-    - current_task
+  allow_previous_conversation_in_B: false
+  allow_external_summary_in_B: false
+  allow_copied_reconstruction_in_B: false
+  allow_account_or_session_memory_in_B: false
+  allow_human_hint: false
+  allow_file_pointer_hint: false
+  allow_manual_edit: false
+  allow_prompt_change_after_run_start: false
+  allow_cross_condition_information_transfer: false
+
+reconstruction_probe:
+  required_before_edit_in_B: true
+  request_chain_of_thought: false
+  stored_outside_subject_workspace: true
+  available_to_future_agent: false
+  rubric_hash: null
+  blinded_scoring_when_feasible: true
+
+run_control:
+  timeout_rule: null
+  stopping_rule: null
+  allowed_retry_count: null
+  cancellation_rule: null
+  agent_failure_definition: null
+  infrastructure_failure_definition: null
+  rerun_rule: null
+  selective_rerun_prohibited: true
 
 telemetry:
   capture:
     - input_tokens
     - output_tokens
-    - reconstruction_tokens
+    - reconstruction_input_tokens
     - cached_input_tokens_if_available
     - uncached_input_tokens_if_available
     - files_read
+    - repository_bytes_read
+    - repository_searches
+    - symbol_or_history_operations
     - tool_calls
     - model_calls
-    - elapsed_seconds
+    - reconstruction_elapsed_seconds
+    - total_elapsed_seconds
     - retries
+    - escalations
     - human_interventions
+    - provider_billed_cost_if_available
 
 outcomes:
   primary:
-    - correct_continuation_under_hidden_verification
+    - matched_hidden_verifier_result_by_task_and_depth
+    - complete_sequence_success
   secondary:
-    - repository_resumability_index
+    - repository_resumability_index_descriptive
     - reconstruction_token_fraction
+    - reconstruction_probe_accuracy
     - regression_rate
-    - reconstruction_accuracy
+    - retry_and_escalation_behavior
+
+p0_interpretation:
+  allowed:
+    - METHODOLOGY_FAILURE
+    - EVIDENCE_AGAINST_RAS
+    - MIXED_OR_CONDITIONAL_PILOT_EVIDENCE
+    - SUPPORTIVE_PILOT_EVIDENCE
+  prohibited:
+    - PROVEN
+    - GENERAL_SUPERIORITY
+    - PROVIDER_INFRASTRUCTURE_SAVING
 
 publication:
   raw_private_evidence_public: false
   sanitisation_required: true
+  positive_empirical_claims_before_execution: false

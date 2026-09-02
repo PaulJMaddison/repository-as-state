@@ -1,46 +1,25 @@
 \section{Repository-State and Agent-State Scalability}
 \label{sec:scalability}
 
-RaS separates two scaling problems that are easy to conflate.
+The paper retains a distinction between repository-state scalability and agent-state scalability, but the latter now has an explicit definition.
 
-The first is \emph{repository-state scalability}: how durable source history, objects, refs, and repository-serving infrastructure remain available as repository count and size grow. The second is \emph{agent-state scalability}: how reasoning processes preserve or reconstruct the information needed to continue useful work across long programmes.
+\emph{Repository-state scalability} concerns storing, serving, and reconstructing repository objects and history as repository count and size grow. Cursor Continuity is a contemporary example of durable object/log state with replaceable repository-serving compute \citep{marti2026continuity}.
 
-Modern repository infrastructure provides an architectural precedent for the first problem. Cursor Continuity describes a write-ahead log persisted in S3-compatible object storage and local repository-serving state that can be materialised or rebuilt from the durable object state \citep{marti2026continuity}. The important RaS observation is not that this implementation proves anything about agents. It is that repository durability and repository-serving compute can be designed as different layers.
+\emph{Agent-state scalability} is an architectural objective: the ability to increase the number or duration of concurrent long-horizon agentic programmes without proportionally increasing persistent \emph{high-capability reasoning-session state} requirements.
 
-Figure~\ref{fig:scalability-stack} extends the separation conceptually.
+Figure~\ref{fig:scalability-stack} is conceptual.
 
 \begin{figure}[htbp]
 \centering
 \input{figures/scalability-stack}
-\caption{Conceptual separation of repository-state scalability and agent-state scalability. Cursor Continuity is relevant only to the upper repository-infrastructure precedent; the lower RaS layers remain hypotheses to be evaluated.}
+\caption{CONCEPTUAL --- NOT EMPIRICAL DATA. Repository-serving durability and high-capability reasoning-session persistence are distinct layers. Cursor Continuity supports only the upper repository-infrastructure precedent.}
 \label{fig:scalability-stack}
 \end{figure}
 
-The conceptual stack is:
+The two problems are independent. A scalable Git service does not imply that agents can resume without conversational history. Conversely, reasoning-session disposal does not require novel Git infrastructure.
 
-\begin{enumerate}
-    \item durable object/log state;
-    \item replaceable repository-serving compute;
-    \item durable engineering repository state;
-    \item replaceable high-capability reasoning;
-    \item replaceable constrained execution workers.
-\end{enumerate}
+Long-context inference creates serving-state and processing requirements, but production serving is more complex than one conversation occupying one dedicated GPU. PagedAttention manages KV-cache allocation \citep{kwon2023vllm}; DistServe separates prefill and decode resources \citep{zhong2024distserve}; Mooncake uses disaggregated KV-cache infrastructure \citep{qin2024mooncake}. Consequently, terminating a reasoning session does not map cleanly to a provider-internal resource saving.
 
-The top layers concern storage and Git serving. The bottom layers concern whether engineering semantics can be reconstructed after reasoning processes disappear. A repository system can scale perfectly while an agent still requires complete historical conversation. Conversely, an agent could be resumable from repository state even if the underlying Git service is implemented conventionally. The research questions are therefore independent.
+The only defensible infrastructure statement at v0.1 is conditional: if a workload can reduce persistent high-capability reasoning-state requirements while preserving useful outcomes and without paying the same cost in reconstruction, a serving system \emph{may} have more scheduling flexibility or useful concurrency. This is an \textbf{IMPLICATION}, not a measured result.
 
-This separation also clarifies the infrastructure implication. Long-context inference creates state-management pressure, including KV-cache allocation and bandwidth requirements; serving work such as PagedAttention shows that memory management can affect practical throughput \citep{kwon2023vllm}. RaS does not claim to remove those costs. Every reasoning transaction still requires inference state while it runs.
-
-The defensible implication is conditional:
-\[
-\begin{array}{c}
-\text{fixed inference infrastructure}\
-+\
-\text{lower persistent high-capability state requirement per useful programme}
-\end{array}
-\quad\Longrightarrow\quad
-\text{potentially greater useful concurrency or throughput}.
-\]
-
-This remains an \textbf{IMPLICATION}, not an empirical result. Real throughput depends on model size, prompt length, batching, cache reuse, scheduler design, latency objectives, hardware, and provider implementation. RaS does not claim to solve data-centre scarcity, eliminate infrastructure constraints, guarantee abundance, or imply a particular labour-market outcome.
-
-The relevant empirical quantity is more modest: how much high-capability input state and session persistence are required per successful engineering transition when repository reconstruction is included honestly. If those quantities decline without loss of engineering quality, the infrastructure implication becomes more plausible. If they do not, the implication should be rejected.
+A direct agent-state scalability claim therefore requires future workload-level serving experiments, not token accounting alone.

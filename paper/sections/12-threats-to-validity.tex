@@ -1,44 +1,64 @@
 \section{Threats to Validity}
 \label{sec:threats}
 
-RaS is unusually vulnerable to experimental design choices because the intervention acts on information availability. A convincing result must therefore make alternative explanations difficult.
-
-\subsection{External validity}
-
-\textbf{Single-repository bias} is immediate if early experiments use one system. Language, module structure, test culture, repository age, and engineering conventions can all affect reconstruction. \textbf{Private-subject bias} compounds this problem because independent researchers cannot reproduce the initial subject exactly. Public-repository replications are therefore required before broad claims.
-
-\textbf{Single-model bias} matters because models differ in code navigation, retrieval, context use, tool calling, and tolerance for incomplete documentation. \textbf{Repository size}, \textbf{task locality}, and \textbf{dependency width} may determine whether bounded reconstruction is feasible. A method that works for a local patch may fail for cross-service migrations. Results in coding must not be silently generalised to personal assistants, embodied agents, or other domains.
-
-\subsection{Internal validity}
-
-\textbf{Task selection} can make either condition look favourable. Tasks naturally encoded in tests may favour RaS; tasks dependent on undocumented conversation may favour persistence. Selection rules must be fixed before outcomes.
-
-\textbf{Historical commit survivor bias} occurs when tasks are reconstructed from successful historical changes, excluding realistic dead ends and abandoned work. \textbf{Future-history leakage} is especially serious because a later commit, tag, reflog, packfile, branch, comment, or test can reveal the solution to a historical task. Isolation must be fail-closed.
-
-\textbf{Human intervention} can become an undeclared continuity channel. Hints, manual repair, prompt rewriting after failure, or transferring conclusions across conditions invalidate the reset intervention. \textbf{Order effects} can arise if operators or infrastructure learn the task corpus. \textbf{Contamination} can occur through shared caches, generated artefacts, model pretraining on public solutions, or accidental workspace reuse.
-
-\textbf{Model nondeterminism} means small samples can mistake sampling variance for architecture effects. \textbf{Provider changes} may alter behaviour during a longitudinal study even when a model label appears stable.
+RaS is unusually vulnerable to validity failures because its treatment is information availability. A convincing study must control not only prompts but every hidden state channel through which predecessor work can survive.
 
 \subsection{Construct validity}
 
-RRI measures correct continuation after reset; it does not directly observe the latent action distribution in the repository-sufficiency definition. \textbf{Reconstruction accuracy} is itself measured through a rubric and may overvalue explicit textual state. The state-reconstruction probe must therefore be analysed alongside actual engineering outcomes.
+\textbf{Repository sufficiency is conditional, not intrinsic.} Success depends on task class, depth, model, tool contract, environment, and repository quality. The paper therefore operationalises a matched behavioural comparison rather than latent action-distribution equality.
 
-\textbf{Documentation quality} can dominate the treatment. A heavily curated repository may measure the value of disciplined documentation rather than repositories generally. This is scientifically acceptable if reported, but limits generalisation.
+\textbf{RRI is descriptive.} It mixes reconstruction and implementation ability, can be inflated by easy tasks, and is not a causal estimator. Matched A/B outcomes and complete-sequence success remain primary.
 
-\textbf{Ablation design} is difficult because semantic state is redundant. Removing an ADR while leaving a test or comment that encodes the same decision may create a false conclusion that the ADR was irrelevant. Conversely, removing too much can damage buildability and change the task itself.
+\textbf{Reconstruction accuracy} depends on a rubric. Textual similarity can reward verbose reports without engineering understanding. Hidden ground-truth items and blinded scoring are preferable.
 
-\textbf{Hidden-verifier validity} matters because a verifier may reward one implementation style, omit business behaviour, or accidentally leak solution structure. Hidden verification should assess behaviour rather than preferred code shape.
+\textbf{Reconstruction-cost classification} is manipulable unless frozen. Repository reading, search, and model calls required to rebuild lost context must not be silently moved into a generic reasoning bucket.
 
-\textbf{Reconstruction-cost classification} can bias the economic result. If repository reading required only because history was destroyed is counted as generic reasoning rather than reconstruction, RaS appears artificially cheap. The classification rule must be preregistered.
+\textbf{Economic observability is limited.} Token and call counters are proxies; provider-internal GPU scheduling, KV-cache residency cost, storage amortisation, and margin are not measurable from ordinary client telemetry.
 
-\textbf{Token telemetry gaps} and \textbf{prompt caching} complicate cost comparison. Providers may expose input/output tokens while hiding internal retrieval, cache storage, or scheduler behaviour. Repeated prefixes may advantage one condition. The study should report observable proxies rather than infer hidden cost.
+\subsection{Internal validity}
+
+\textbf{Treatment confounding} is the largest pre-P0 risk. A new session can differ from a persistent one in system prompts, provider account memory, prompt caches, tool sessions, executor state, shell history, untracked files, worktrees, environment variables, build artefacts, dependency caches, IDE state, clocks, or network access. Canonical rematerialisation and invariant configuration are mandatory.
+
+\textbf{Future-history leakage} is catastrophic. A historical checkout inside a full clone can retain future solution objects through refs, reflogs, packs, alternates, tags, remotes, or worktree links. The FUTURE_HISTORY_LEAK_GATE must fail closed before the model is invoked.
+
+\textbf{Task leakage} can arise from future commit messages, issue edits, branch names, changelogs, TODOs, generated documentation, future tests, hidden patch files, or CI artefacts. Legitimate cutoff-state information is allowed; post-cutoff solution information is not.
+
+\textbf{Verifier leakage} invalidates behavioural testing if the agent can access hidden tests, expected patch text, verifier output beyond the declared interface, or task-generation ground truth.
+
+\textbf{Human rescue} is an undeclared continuity channel. Hints, file pointers, manual edits, prompt changes after failure, copied conclusions, and selective reruns must be prohibited.
+
+\textbf{Executor differences} can confound continuity if A and B use different editing agents, privileges, tool schemas, or retry behaviour. Tiered execution is therefore outside the primary P0 comparison.
+
+\textbf{Dependency/environment state} can carry hidden history. Caches and local databases must be identically seeded or reset.
+
+\textbf{Model nondeterminism and provider drift} can produce outcome differences unrelated to state persistence. Sampling configuration must be pinned where possible; repeated confirmatory trials are required.
+
+\subsection{Selection and author bias}
+
+\textbf{Private-subject/author bias} is severe for P0. The likely subject is a system the author knows well and may have designed with unusually strong tests, documentation, and repository discipline. That repository may already favour the RaS hypothesis.
+
+\textbf{Historical commit survivor bias} selects work that is known to have reached a successful future state. Dead ends, ambiguous tasks, and failed changes are underrepresented.
+
+\textbf{Task-selection bias} arises if the author chooses tasks with clean repository traces or expected reset success. A frozen candidate window, inclusion/exclusion rules, task hashes, and sampling procedure are required.
+
+\textbf{Sequentiality} must be real. Five unrelated bugs do not test programme continuity, but artificially chaining tasks can favour the theory. Later tasks should depend naturally on earlier accepted code, interface, test, architecture, or state transitions.
+
+\subsection{External validity}
+
+A single private repository, model family, language, architecture, and highly curated engineering environment cannot support general claims. Public unrelated repositories, multiple languages, multiple models, independent task sets, and independent replication are required.
+
+Repository size, task locality, dependency width, documentation quality, test quality, and retrieval quality may interact strongly with reset performance. A result on a disciplined repository may not transfer to large, poorly documented, cross-service systems.
 
 \subsection{Statistical conclusion validity}
 
-P0 is a pilot and will have limited statistical power. It should validate intervention integrity, telemetry, task construction, and variance rather than support general effect-size claims. Later experiments require predeclared sample sizes, confidence intervals, missing-data rules, randomisation or counterbalancing, and multiplicity treatment.
+Approximately five tasks and one run per condition cannot establish superiority or non-inferiority. P0 is a methodology pilot/initial case study. It can reveal broken methodology, leakage, unmeasurable reconstruction, or catastrophic continuity failure; at best it can produce supportive pilot evidence.
 
-Failed or aborted runs must not disappear. A preregistered distinction between agent failure and harness/infrastructure failure is required, and excluded runs must remain auditable.
+Later inference requires repeated runs, a declared task population, a justified non-inferiority/equivalence margin, dependence-aware uncertainty intervals, missing-data rules, stopping rules, and multiplicity treatment.
 
-\subsection{Central falsification condition}
+\subsection{Prior empirical evidence adverse to a strong thesis}
 
-The most direct criticism is that RaS simply replaces conversation replay with repository rediscovery. If reconstruction tokens, file reads, searches, model calls, or elapsed time grow enough with repository size and task depth to erase outcome-normalised advantages, the architecture may remain technically resumable while its state-economics hypothesis fails. This possibility is a central falsifier, not a caveat to be minimised.
+Handoff Debt reports substantial rediscovery overhead for repository-only successor agents on interrupted tasks \citep{kc2026handoff}. That experiment is not the same as post-acceptance RaS, but it raises the prior probability that repository-only resumption can be expensive. A P0 result in which reconstruction dominates tokens/events/time is therefore not surprising and must count as evidence against the economic thesis.
+
+\subsection{Central falsification conditions}
+
+RaS is weakened if reset reduces verified task success beyond a preregistered acceptable margin; complete-sequence success collapses with depth; reconstruction dominates resource use; persistent history consistently yields better outcomes; success depends on unusually tailored semantic documentation; or advantages disappear on larger, non-local, unrelated repositories. These conditions are expanded in \texttt{paper/falsification-criteria.md}.

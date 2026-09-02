@@ -1,46 +1,34 @@
 \section{Discussion}
 \label{sec:discussion}
 
-RaS changes the locus of persistence. Instead of beginning with the goal of keeping an intelligent process alive indefinitely, it asks what durable engineering state allows a fresh process to act correctly. This inversion does not eliminate memory; it moves the research focus from preserving the agent's complete trajectory toward preserving and reconstructing authoritative consequences of engineering work.
+The hostile audit changes how RaS should be interpreted. The broad intuition that “software repositories can act as memory” is not novel. Git-bound agent memory, commit-history memory, context files, repository maps, and sequential coding evaluation already exist \citep{guo2026gitmemory,wang2025repomemory,li2026learningcommit,shastry2026swesteps}. The potentially useful contribution is narrower: make \emph{accepted engineering boundaries} the disposal boundary and measure the causal value of predecessor reasoning-session history at those boundaries.
 
-\subsection{Observed origin of the architecture}
+\subsection{The strongest adverse prior}
 
-The architecture was recognised after repeated practical software-engineering use rather than designed purely theoretically. The observed workflow involved human orchestration and problem selection, high-capability AI reasoning, detailed bounded engineering specifications, comparatively shallow local execution agents, deterministic build/test/runtime evidence, repository persistence, and later fresh reasoning sessions reconstructing state.
+Handoff Debt shows that repository-only takeover of interrupted work can incur substantial rediscovery compared with context-bearing handoffs \citep{kc2026handoff}. RaS should not claim this evidence is irrelevant. It suggests that reasoning history can carry valuable information not yet represented in partial repository state.
 
-That origin is useful because it identifies a concrete systems pattern worth testing. It also creates a risk of confirmation bias: a workflow that felt effective can motivate hypotheses but cannot validate them. The claims register therefore classifies the origin as \textbf{OBSERVED}, not \textbf{EMPIRICAL}.
+The post-acceptance boundary is the hypothesis. If validation plus durable engineering artefacts have successfully externalised the important consequences of the prior task, then the next dependent task may need less predecessor context. If P0 observes the same rediscovery penalty after accepted boundaries, the practical economic case weakens substantially.
 
-\subsection{Decision-relevant state rather than transcript preservation}
+\subsection{Decision-relevant semantic compression is ordinary engineering}
 
-Engineering work often compresses a large reasoning trajectory into a smaller durable result. A debugging session can contain many hypotheses and failed attempts, while the durable consequence may be a fix, regression test, schema change, and concise design note. RaS predicts that future action often needs these consequences more than it needs the full transcript.
+Software projects have always compressed design reasoning into code, tests, documentation, schemas, and history. Calling that “decision-relevant semantic compression” describes a useful mechanism but does not make it new. RaS's claim concerns the \emph{architectural consequence}: because engineering already externalises substantial decision-relevant state, persistent high-capability model history may have limited marginal value after some boundaries.
 
-This form of compression is intentionally lossy. The question is not whether history can be reproduced, but whether future correct action changes materially when history is removed. If important rationale disappears, forced reset should expose the loss. If all necessary constraints are present in durable state, preserving the transcript may add little marginal value.
+That consequence must be tested, not inferred from the existence of tests or Git.
 
-\subsection{Human and AI capability complementarity}
+\subsection{Observed origin remains anecdotal}
 
-The paper does not depend on a philosophical claim that humans are “real intelligence” while AI systems only pattern match. A more useful framing is that humans and AI systems exhibit different capability profiles.
+The architecture was recognised through repeated practical use involving human orchestration, high-capability reasoning, local execution agents, deterministic evidence, and repository persistence. This remains useful motivation only. It is exposed to confirmation bias, task selection, author familiarity, survivor bias, model familiarity, human rescue, and undocumented assistance.
 
-Human strengths may include persistent personal goals, consequence-grounded experience, strategic problem selection, taste, risk judgement, cross-domain lived experience, and deciding which outcomes matter. High-capability AI may contribute broad technical synthesis, formalisation, rapid generation, multi-domain knowledge, mathematical manipulation, critique, and implementation leverage. Execution workers contribute machine interaction. Deterministic systems add executable truth checks.
+\subsection{Persistent agents may simply be better}
 
-A useful workflow is therefore:
-\[
-\text{human orchestrates}
-\rightarrow
-\text{AI reasons/amplifies}
-\rightarrow
-\text{execution worker acts}
-\rightarrow
-\text{tests/data/reality adjudicate}.
-\]
-The final arbiter is external evidence. This is a discussion of the observed architecture, not an empirical comparison of human and AI intelligence.
+A negative outcome is credible. Persistent history may save rediscovery, preserve rationale omitted from durable artefacts, and provide low-cost continuity when compaction and caching are effective. RaS may work only at coarse accepted boundaries, for local tasks, or in unusually disciplined repositories. Hybrid designs may therefore dominate both permanent persistence and forced reset.
 
-\subsection{When persistent agents may be better}
+\subsection{Human and AI complementarity is secondary}
 
-RaS should not be interpreted as an argument that all agents should reset. Persistent agents may be superior when relevant state is inherently interpersonal, weakly represented in the repository, expensive to reconstruct, or continuously changing outside version control. They may also reduce latency for tightly coupled sequences where the next task begins immediately and history is small.
+Human and AI systems exhibit different capability profiles. Humans may contribute persistent goals, consequence-grounded experience, strategic problem selection, taste, and risk judgement; AI systems may contribute broad synthesis, formalisation, critique, and implementation leverage; deterministic systems provide executable checks. This framing describes the motivating workflow but is not part of the central causal claim.
 
-Hybrid designs are therefore plausible. A system might keep a reasoner alive within a bounded work package while using repository state as the recovery boundary between packages. It might persist selected semantic memories only when the retention principle in Section~\ref{sec:durable-docs} suggests future value. Or it might preserve a session while requiring that every accepted decision still be externalised so the project remains recoverable.
+\subsection{What a useful negative result would teach}
 
-\subsection{What a negative result would teach}
+If reset fails because crucial rationale is absent, the study identifies a state-representation gap. If reset succeeds but reconstruction consumes most resources, the continuity hypothesis may survive while the economic hypothesis fails. If performance depends on tailored state files, RaS may reduce to a repository-documentation discipline rather than a general lifecycle property. If success disappears on unrelated repositories or models, external validity is narrow.
 
-If reset agents consistently fail despite good repository hygiene, that would identify information that repositories systematically fail to preserve. If success depends strongly on explicit state documents, the result may imply that source and tests alone are insufficient. If reconstruction cost grows with dependency width, better indexes or state compilers may be needed. If persistent history helps only for particular task classes, lifecycle routing may be more useful than universal statelessness.
-
-The scientific value of RaS therefore does not depend on a positive result. The research programme is useful if it reveals where engineering continuity actually resides and what it costs to reconstruct.
+The theory is therefore only useful if those outcomes are allowed to count against it.

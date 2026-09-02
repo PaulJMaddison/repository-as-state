@@ -1,17 +1,26 @@
-# Core thesis
+# Core thesis — hostile-audit revision
 
-Repository-as-State (RaS) investigates a narrow systems claim for software engineering:
+Repository-as-State investigates a narrow software-engineering lifecycle hypothesis:
 
 > Durable engineering continuity does not necessarily need to live inside the expensive high-capability reasoning process.
 
-The intended architecture makes high-capability reasoning **disposable**. A reasoning process consumes durable repository state R_t and a current task U_t, proposes a bounded state transition, and relies on execution plus deterministic evidence to produce R_(t+1). The reasoning process may then be destroyed. A later fresh process reconstructs the decision-relevant engineering state from the repository.
+The intended system makes high-capability reasoning **disposable with respect to programme continuity** at validated accepted engineering boundaries.
 
-This is not the claim that Git stores “memory”, nor the observation that coding agents can read repositories. The research question is whether repository state can carry enough decision-relevant semantic continuity that complete conversational-state reset does not materially reduce long-horizon engineering success.
+This does not mean:
+- Git as memory is novel;
+- repositories eliminate memory cost;
+- fresh reasoners perform no rediscovery;
+- persistent agents always replay full history;
+- tiered execution is required;
+- security or provider-internal savings are proven.
 
-RaS therefore separates three things that are often conflated:
+The strongest causal question is:
 
-1. **Durable authoritative state** — source, tests, schemas, history, design records, build information, evidence.
-2. **Active inference context** — the bounded subset reconstructed for one reasoning transaction.
-3. **Ephemeral computation** — high-capability reasoning and execution processes that can be replaced.
+> After an accepted dependent engineering transition, what is the marginal value of predecessor high-capability reasoning-session history when project state, task, model/configuration, tools and environment are otherwise matched?
 
-The project begins from repeated practical observation of such a workflow. That observation motivates controlled experiments; it is not itself proof.
+The experiment must allow the answer to be:
+- persistent history materially improves success;
+- reset succeeds but rediscovery is too expensive;
+- effects depend on repository/task/model class.
+
+The project begins from OBSERVED practical workflows, not controlled evidence.

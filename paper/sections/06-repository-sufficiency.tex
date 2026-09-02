@@ -1,48 +1,41 @@
-\section{Approximate Repository Sufficiency}
+\section{Behavioural Repository Sufficiency}
 \label{sec:sufficiency}
 
-The central continuity hypothesis can be expressed in terms of future action. Let $H_t$ be complete historical engineering interaction up to time $t$, $R_t$ durable repository state, $U$ a new task, and $A_{t+1}$ a useful or correct next engineering action.
+The original v0.1 draft expressed repository sufficiency through equality of latent distributions over “useful next actions” and a KL-divergence bound. Hostile review rejects that formulation for the planned experiments. The action space is open-ended, equivalent implementations need not have comparable surface actions, and the proposed runs do not expose a well-defined probability distribution over engineering actions. KL divergence would therefore add mathematical appearance without an estimable quantity.
 
-An ideally sufficient repository would satisfy:
+The paper instead defines an observable behavioural target.
+
+Let $Y_{s,d,c}\in\{0,1\}$ denote preregistered hidden-verifier success for task sequence $s$, depth $d$, and condition $c$. Let $c=A$ be the persistent-history control and $c=B$ the forced-reset condition. The two conditions must use the same accepted starting repository state, current task, high-capability model/configuration, tool contract, workspace image, and acceptance criteria. The intended treatment difference is availability of predecessor reasoning-session history.
+
+For later repeated confirmatory experiments, define:
 \begin{equation}
-P(A_{t+1}\mid H_t,U)
-=
-P(A_{t+1}\mid R_t,U).
-\label{eq:ideal-suff}
+p_c(d)=P(Y=1\mid c,d,\mathcal{M},\mathcal{E},\mathcal{T}),
+\label{eq:behavioural-success}
 \end{equation}
-Exact equality is unrealistic. Historical interaction can contain arbitrary information that was never externalised, and the space of useful engineering actions is not directly enumerable.
+where $\mathcal{M}$ identifies the matched model/configuration, $\mathcal{E}$ the controlled execution environment, and $\mathcal{T}$ the task-sampling population.
 
-A conceptual approximate definition is:
+A future confirmatory study can preregister a scientifically justified non-inferiority margin $\delta>0$ and ask whether:
 \begin{equation}
-D_{\mathrm{KL}}\left(
-P(A\mid H_t,U)
-\;\|\;
-P(A\mid R_t,U)
-\right)
-\le \epsilon.
-\label{eq:epsilon}
+p_B(d)-p_A(d) \ge -\delta
+\label{eq:noninferiority-target}
 \end{equation}
+over the declared task population and depth range. If symmetric equivalence is scientifically required, a two-sided margin can be preregistered instead. The margin must be fixed before outcomes and justified in engineering terms; this paper does not invent one.
 
-Equation~\ref{eq:epsilon} is not included merely to make the paper look formal. It is useful because it states the intended notion of sufficiency precisely: removing historical interaction should not materially change the distribution over useful next actions, within some tolerated divergence. It also makes clear that repository sufficiency is task-conditional. A repository can be sufficient for one task and insufficient for another.
+P0 is too small to establish non-inferiority statistically. Its role is to test whether the intervention, task corpus, hidden verification, leakage controls, and telemetry are workable and whether an obvious continuity collapse appears.
 
-Literal KL divergence is unlikely to be directly observable in deployed agents. The action space is open-ended, model probabilities over complete engineering trajectories may be inaccessible, and different surface actions can be functionally equivalent. The equation is therefore a conceptual definition rather than the proposed experimental statistic.
+“Repository sufficiency” is therefore shorthand for a conditional behavioural claim, not an intrinsic property of a repository. A repository may be adequate for one task class, model, tool interface, and depth but not another. It also need not preserve every past thought. The question is whether accepted durable state permits matched fresh reasoning to achieve comparable engineering outcomes at acceptable reconstruction cost.
 
-The experiment operationalises sufficiency through observable proxies:
+Operational evidence includes:
 \begin{itemize}
-    \item engineering task success;
-    \item hidden behavioural verification;
-    \item state-reconstruction accuracy;
+    \item hidden-verifier task success;
+    \item complete-sequence success across dependent tasks;
+    \item success by sequential depth;
+    \item reconstruction-probe accuracy;
     \item regression rate;
-    \item successful resumption after forced reset;
-    \item reconstruction cost.
+    \item human-independent resumption;
+    \item reconstruction resource use and elapsed time.
 \end{itemize}
 
-These proxies capture different failure modes. A fresh reasoner can identify the correct architecture but fail implementation. It can implement a locally correct change while violating a hidden invariant. It can eventually succeed only after reading most of a large repository, producing poor economics. Conversely, it can produce an incomplete verbal reconstruction yet succeed because executable tests constrain the relevant behaviour.
+Semantic-state ablation remains useful but must test marginal continuity value rather than “making the repository worse”. Condition C should remove one small preregistered artefact class or information channel at a time while keeping task semantics and buildability intact. Redundant encoding must be audited: deleting an ADR proves little if the same decision is reproduced verbatim in a test, comment, or later allowed commit.
 
-Repository sufficiency is therefore not synonymous with repository completeness. A repository need not preserve every past thought. It must preserve enough decision-relevant state, or enable sufficiently reliable reconstruction from its artefacts, for future correct action.
-
-Semantic-state ablation provides a causal probe. Condition C removes selected state carriers according to a preregistered manifest while preserving the task and executable baseline. Candidate carriers include architecture decisions, concise state documents, agent instruction files, semantic product documentation, selected history, or other non-source artefacts. If correct continuation falls after an artefact class is removed, that suggests the class carried useful continuity for the tested tasks.
-
-Ablation is complicated by redundancy. A decision may appear in source structure, a test, a schema, an ADR, and a commit message. Removing one representation may leave the information recoverable elsewhere. Conversely, deleting too many artefacts can change the engineering task rather than merely the continuity available to solve it. Ablation therefore requires an information-leakage audit as well as a file manifest.
-
-The strong RaS hypothesis is not that $R_t$ always replaces $H_t$. It is that for an important class of software-engineering work, the marginal value of full historical conversational state can be made small enough that durable repository state becomes the primary continuity mechanism.
+The strong RaS hypothesis is thus intentionally narrow: for a declared class of dependent software-engineering tasks at accepted transition boundaries, predecessor reasoning-session history may have sufficiently small marginal behavioural value that a fresh reasoner can continue from authoritative project state without material outcome loss. Whether that is true is an empirical question.

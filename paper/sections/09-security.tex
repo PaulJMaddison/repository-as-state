@@ -1,31 +1,30 @@
 \section{Security and Least Privilege}
 \label{sec:security}
 
-Separating durable continuity from the reasoning process has a security implication independent of economic savings: high intelligence does not imply high privilege.
+RaS does not establish a security property. It \emph{permits} an architecture in which reasoning lifetime, execution privilege, and credential lifetime are independently scoped. That distinction is important.
 
-A high-capability reasoner may require repository read access, reasoning capability, and permission to propose a patch or bounded work package. An executor may require workspace write access, compiler and test runner access, a formatter or linter, restricted Git, and tightly scoped environment interaction. Production credentials may belong to neither.
+A high-capability reasoner may need repository read access and permission to propose a patch or bounded work package. An executor may need workspace write access, compiler/test access, restricted Git, and tightly scoped environment actions. Production credentials may belong to neither. If policy is enforced outside the model, such separation can reduce the permissions held by any single component.
 
-This separation can reduce blast radius only if it is enforced outside the model. Prompt instructions are not an access-control boundary. Repository permissions, sandbox configuration, network policy, credential brokers, command allowlists, approval gates, and deterministic validators must define what each component can actually do.
+This is a \textbf{RaS-enabled architecture}, not proven security improvement. Prompt instructions are not access control; repository permissions, sandboxes, network policy, credential brokers, command allowlists, approval gates, and independently collected validation must enforce boundaries.
 
-A compromised or simply mistaken reasoner should not automatically gain production credentials merely because it can perform difficult technical analysis. A compromised executor should not automatically inherit the model's broader contextual access. The architecture can therefore narrow the trusted computing base by making reasoner, executor, validator, and credential authority separately replaceable components.
+Threats include:
 
-The separation introduces its own risks.
+\paragraph{Prompt injection and poisoned semantic state.}
+Malicious comments, instruction files, generated documentation, issue text, commit metadata, and other repository artefacts can manipulate reconstruction. Durable generated state can propagate an attack to future fresh reasoners.
 
-\paragraph{Compromised reasoning process.}
-A reasoner may generate a technically plausible but dangerous work package, exploit a downstream executor, or misclassify untrusted repository content as control instructions. The executor must validate requested operations against policy rather than blindly treating the proposal as authority.
+\paragraph{Malicious tests and verifier-shaped behaviour.}
+Tests are executable inputs to agent decisions and can themselves be compromised. Visible test success cannot be assumed to imply safe behaviour.
 
-\paragraph{Compromised executor.}
-An executor can alter repository state, falsify local evidence, or attempt privilege escalation. Validation should therefore include independently collected evidence where possible, and sensitive transitions should require stronger trust boundaries than ordinary compilation.
+\paragraph{Compromised dependencies.}
+Build systems may execute dependency hooks or scripts. Canonicalisation of the workspace does not make external dependencies trustworthy.
 
-\paragraph{Repository poisoning.}
-Repositories can contain malicious comments, instruction files, generated text, test fixtures, or documents intended to manipulate an agent. Reconstruction must treat repository content as data with provenance, not as an automatically trusted instruction hierarchy.
+\paragraph{Work-package or patch injection.}
+A compromised reasoner can craft a proposal intended to exploit the executor; a compromised executor can alter the requested patch, falsify local evidence, or attempt privilege escalation.
 
-\paragraph{Untrusted generated state.}
-Agent-generated documentation can itself become durable attack surface. A malicious instruction committed today may be consumed by a fresh model tomorrow. Review and policy should therefore apply to semantic state as well as executable code.
+\paragraph{Secrets in authoritative state.}
+A repository can accidentally contain credentials or sensitive data. Making repository state central to reconstruction increases the importance of provenance, secret scanning, and access controls; RaS does not make such content safe.
 
 \paragraph{Human approval boundaries.}
-High-consequence operations may require explicit human approval even when the reasoner and executor agree. The architecture should make such boundaries visible rather than hiding them inside an autonomous session.
+High-consequence operations may require explicit human approval even when reasoner, executor, and local tests agree.
 
-Potential benefits include reduced blast radius, narrower credential distribution, model-independent enforcement, and shorter-lived capability tokens. These are architectural implications, not measured security results. Future work should evaluate policy violations and adversarial repository inputs directly.
-
-The key point is that persistent engineering continuity does not require a persistent highly privileged intelligence. If repository state carries continuity, reasoning lifetime and privilege lifetime can be designed independently.
+Potential benefits such as reduced blast radius, narrower credential distribution, and shorter-lived capabilities remain \textbf{IMPLICATIONS}. They require adversarial evaluation before any security claim can be upgraded.

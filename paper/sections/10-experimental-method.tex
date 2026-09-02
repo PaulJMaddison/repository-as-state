@@ -1,70 +1,125 @@
 \section{Forced-State-Reset Evaluation and Experimental Method}
 \label{sec:method}
 
-The central experimental contribution is \emph{Forced-State-Reset Evaluation}: deliberately destroy the reasoning session between sequential engineering stages and test whether the next fresh reasoner can reconstruct enough state to continue correctly.
+The central experiment deliberately removes predecessor reasoning-session continuity after an \emph{accepted} engineering transition and tests whether a fresh reasoner can continue a dependent programme from the same durable project state.
 
-For a sequence of tasks:
-\begin{align}
-A_1 + R_0 + U_1 &\rightarrow R_1,\\
-\text{destroy }A_1, \qquad
-A_2^{\mathrm{fresh}} + R_1 + U_2 &\rightarrow R_2,\\
-\text{destroy }A_2, \qquad &\ldots
-\end{align}
-The fresh process receives the current repository state, current task, and stable experiment instructions. It must not receive the previous conversation, a hidden summary, a resumed session, copied state reconstruction, or future history.
+\subsection{Causal target}
 
-The purpose is direct: determine whether engineering continuity resides sufficiently in $R_t$ rather than $H_t$.
+The primary P0 comparison is:
 
-\subsection{Experimental conditions}
-
-\input{tables/experiment-conditions}
-
-\paragraph{A --- Persistent monolithic control.}
-One continuing high-capability session retains conversation/history and may reason, edit, and test.
+\paragraph{A --- Persistent-history control.}
+The high-capability reasoner has access to the predecessor conversation/session history relevant to the task chain.
 
 \paragraph{B --- RaS forced reset.}
-The same high-capability model and configuration is used, complete allowed repository state persists, and a new session begins after every bounded task with no previous session state.
+A fresh high-capability reasoning session receives no predecessor conversation, hidden summary, copied reconstruction, resume state, or account/session memory.
 
-\paragraph{C --- RaS semantic-state ablation.}
-Condition C follows B but removes selected semantic state carriers according to a preregistered manifest. The purpose is to identify which repository artefacts contribute to continuity. Ablation must account for redundant information: deleting one document does not remove a decision if a later test or comment reveals the same fact.
+The intended A/B treatment is \textbf{availability of predecessor reasoning-session history}. Everything else that can materially affect the outcome must be matched or explicitly measured.
 
-\paragraph{D --- RaS tiered execution.}
-High-capability reasoning is transactional while a separate lower-cost, stateful, or local executor performs constrained implementation. The reasoner re-enters only when protocol-defined evidence requires escalation. Because D adds a second causal variable, P0 may focus primarily on A/B/C and evaluate D later.
+Condition C, semantic-state ablation, is exploratory and should remove only a small preregistered information class. Tiered execution D is deferred beyond the primary P0 because changing executor capability would confound the continuity intervention.
 
-\subsection{P0 --- Forced-State-Reset Pilot}
+\subsection{Canonical task-boundary materialisation}
 
-P0 is a pilot, not a confirmatory study. It will use a complex real-world private software repository under controlled local conditions while keeping source and raw proprietary evidence outside this public repository. Public outputs will contain only sanitised aggregate evidence and publication-safe metadata.
+Before \emph{every task in both A and B}, the harness must materialise the exact accepted repository state $R_t$ into a canonical clean workspace. Persistent condition A must not inherit untracked files or tool residue merely because its conversation persists.
 
-The intended pilot should select approximately five sequential, non-trivial historical engineering tasks; construct isolated starting histories; create neutral task specifications; compare persistent and reset conditions; optionally include semantic-state ablation; run hidden behavioural verification; and capture all measurable reconstruction and execution telemetry.
-
-P0 has not been run as part of this paper.
-
-\subsection{Preventing future-history leakage}
-
-Historical task reconstruction is methodologically dangerous. Simply checking out an old commit from a complete Git clone is insufficient because future commits containing the solution may remain accessible in refs, reflogs, packfiles, object databases, local branches, tags, or remotes.
-
-The experimental repository must therefore contain only history allowed through the intended $R_0$ boundary. Future solution SHAs must be non-resolvable. Remotes must be absent or made incapable of revealing future state. Hidden task-generation material must not be accessible from the workspace. The harness should fail closed when prohibited future history can be resolved.
-
-This requirement is stronger than ordinary benchmark checkout hygiene because RaS is explicitly testing whether repository state is sufficient. Leakage of future repository state would invalidate the central intervention.
-
-\subsection{No human rescue}
-
-Controlled runs must prohibit hints, “look in file X” guidance, copied information from another condition, manual repair, prompt improvement after observing a failure, or transfer of previous-agent conclusions. Otherwise the human operator becomes an unmeasured continuity channel.
-
-Negative results must remain evidence. The study should distinguish:
+The following must be invariant across A/B unless the protocol explicitly treats them as measured variables:
 \begin{itemize}
-    \item \textbf{agent failure}: the required experimental environment was available, but the reasoner or executor failed to produce an accepted transition;
-    \item \textbf{harness/infrastructure failure}: the run could not validly test the agent because required infrastructure, isolation, telemetry, or tooling failed.
+    \item repository commit/object graph allowed at the boundary;
+    \item tracked and untracked workspace contents;
+    \item system/developer experiment instructions;
+    \item current task text;
+    \item high-capability model identifier/build, sampling configuration, and tool schema;
+    \item executor implementation and privileges;
+    \item base image, language/toolchain versions, environment variables, locale, clock/timezone policy, and dependency versions;
+    \item network policy;
+    \item hidden verifier and acceptance rule.
 \end{itemize}
-The exclusion rule for infrastructure failure must be preregistered before outcomes are observed.
 
-\subsection{State-reconstruction probe}
+Shell history, editor/IDE state, temporary files, worktrees, previous-agent scratch files, local databases, generated summaries, and environment artefacts must be reset or identically seeded. Build/dependency caches may be used only under a preregistered policy that makes them condition-independent (for example, deterministic prewarming from the same cutoff state); otherwise they must be reset.
 
-Before editing after a reset, the fresh reasoner should produce the structured probe defined in Section~\ref{sec:resumability}. The probe records architecture, behaviour, components, constraints, tests, completed work, required work, evidence paths, uncertainty, and unknowns without requesting chain-of-thought. It is stored outside the subject repository so it does not become durable state for the next task.
+If the selected model interface can carry undisclosed account-level or cross-session memory that cannot be disabled or audited, the A/B experiment is \textbf{not identifiable} on that interface. Prefer a stateless API or controlled local runtime in which the message sequence and system instructions are explicit.
+
+\subsection{Prompt and cache controls}
+
+The stable experimental instructions and current-task prompt must be byte-identical across A/B except for the explicit predecessor-history payload in A. Prompt/context caching is not itself the behavioural treatment. Where possible, disable cross-run cache effects for strict causal analysis; otherwise record exposed cached/uncached token counters and separate behavioural results from economic interpretation.
+
+\subsection{FUTURE_HISTORY_LEAK_GATE}
+
+Simply checking out an old commit from a complete clone is invalid. Before any model call, the harness must verify a fail-closed \texttt{FUTURE_HISTORY_LEAK_GATE}. At minimum:
+
+\begin{itemize}
+    \item all remotes are absent;
+    \item every known post-cutoff solution SHA fails object-resolution checks;
+    \item no local branch, tag, reflog, packed object, or alternate object store exposes future history;
+    \item \texttt{.git/objects/info/alternates} and equivalent environment-based alternate-object mechanisms are absent;
+    \item no worktree or filesystem link points to the source repository;
+    \item no patch file, generated diff, hidden task-generation artefact, or CI artefact contains future code;
+    \item network policy prevents fetching the private source repository or other task-specific future state.
+\end{itemize}
+
+If any gate check fails: \textbf{RUN INVALID --- STOP BEFORE MODEL INVOCATION}. The failing gate remains part of the audit record.
+
+\subsection{Task leakage and corpus construction}
+
+Information legitimately present in $R_t$ at the cutoff is allowed even if helpful. Leakage is information from after the cutoff or task-generation material that reveals the future solution.
+
+Historical tasks can leak through future commit messages, issue edits, branch names, changelogs, TODOs, generated documentation, future tests, or hidden patch files. Corpus preparation must audit these channels.
+
+To reduce retrospective cherry-picking, P0 must define before runs:
+\begin{itemize}
+    \item a candidate historical time/window or other reproducible sampling frame;
+    \item explicit inclusion and exclusion criteria;
+    \item a rule requiring genuine sequential dependence between later tasks and earlier accepted code, interface, test, architecture decision, or state transition;
+    \item a committed candidate list and task hashes;
+    \item the sampling/randomisation procedure and seed where randomness is used;
+    \item any subjective complexity labels before outcomes are observed.
+\end{itemize}
+
+Five unrelated bug fixes are not a strong continuity test. Artificially manufacturing dependency to favour RaS is also invalid.
+
+\subsection{Hidden behavioural verification}
+
+Each task's verifier must:
+\begin{itemize}
+    \item live outside the experimental workspace and be unavailable to the agent;
+    \item be frozen before runs with a version identifier and cryptographic hash;
+    \item be identical across A/B/C for the same task;
+    \item test externally intended behaviour rather than patch-text similarity;
+    \item accept equivalent correct implementations;
+    \item avoid using the historical future patch as the sole oracle.
+\end{itemize}
+
+The historical implementation may inform task selection and verifier construction, but it is not the required textual solution.
+
+\subsection{No human rescue and rerun rules}
+
+After a run starts, prohibit hints, file pointers, copied information, prompt adjustment, manual edits, transfer of conclusions across conditions, and selective reruns because an outcome is disappointing.
+
+Pre-register:
+\begin{itemize}
+    \item timeouts and stopping conditions;
+    \item allowed retry count and whether retries remain inside the same experimental unit;
+    \item \textbf{AGENT_FAILURE}: the controlled environment was valid but the agent failed to reach an accepted state;
+    \item \textbf{INFRASTRUCTURE_FAILURE}: a preregistered harness/runtime failure prevented a valid agent test;
+    \item exact conditions under which an infrastructure-failed run may be repeated.
+\end{itemize}
+
+Excluded and repeated runs remain auditable.
+
+\subsection{P0 interpretation}
+
+P0 is a methodology pilot/initial case study, likely involving roughly five dependent tasks. It is not powered to establish general superiority or non-inferiority. Before running it, the preregistration must allow only:
+\begin{itemize}
+    \item \textbf{METHODOLOGY FAILURE};
+    \item \textbf{EVIDENCE AGAINST RaS};
+    \item \textbf{MIXED / CONDITIONAL PILOT EVIDENCE};
+    \item \textbf{SUPPORTIVE PILOT EVIDENCE}.
+\end{itemize}
+“Proven” is not an allowed P0 interpretation.
 
 \subsection{Outcome and telemetry}
 
-Primary outcomes should include correct task continuation under independent behavioural verification and RRI by sequential depth. Secondary outcomes should include reconstruction accuracy, regression rate, RTF, total model input/output tokens, cached/uncached input where exposed, files read, repository searches, tool/model calls, elapsed reconstruction and task time, retries, escalation, and human-intervention flags.
+Primary behavioural reporting should compare matched A/B verifier outcomes task-by-task and by depth. Also report complete-sequence success. RRI remains descriptive for B. The reconstruction probe and resource vector in Sections~\ref{sec:resumability} and~\ref{sec:cost} provide mechanism and efficiency information.
 
-Task success should not be defined by visible tests alone. Visible tests are themselves candidate semantic state carriers and can invite overfitting. Hidden verification, held-out behavioural tests, or another independent preregistered acceptance criterion should adjudicate correctness.
+P0 should capture reconstruction and total input/output tokens, files/bytes read, searches, model/tool calls, elapsed times, retries, cache counters where exposed, and human/intervention flags. Classification rules must be frozen before outcomes.
 
-P0 is expected to inform later sample-size and power decisions. Confirmatory experiments should preregister estimands, confidence intervals, missing-data rules, multiplicity control, randomisation or counterbalancing, and model/version pinning to the extent providers permit.
+Only after repeated tasks/runs exist should confirmatory work preregister a non-inferiority/equivalence margin, confidence intervals, dependence-aware analysis, multiplicity handling, and statistical power.

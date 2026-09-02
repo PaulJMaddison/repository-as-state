@@ -1,20 +1,20 @@
 \section{Future Work}
 \label{sec:future}
 
-The immediate next step after paper v0.1 is an independent audit of the theoretical foundation, experiment design, claims register, and literature positioning before P0 is frozen. The purpose of that audit is to find hidden assumptions, leakage routes, ambiguous outcome definitions, and prior work that weakens the novelty boundary.
+The hostile audit concludes that P0 should proceed only after required protocol controls are frozen. The immediate next step is therefore corpus selection and preregistration under the audit gates, not execution.
 
-After that audit, P0 corpus selection and preregistration should identify a small sequence of genuinely dependent engineering tasks, pin allowed historical state, construct neutral task specifications, define hidden behavioural verification, freeze the reconstruction-cost classification, and verify that future solution history is non-resolvable. The preregistration should be committed before any P0 outcomes are observed.
+P0 must first create a reproducible candidate task window, sequential-dependence rule, task hashes, canonical workspace materialisation procedure, FUTURE_HISTORY_LEAK_GATE, task-leakage audit, frozen hidden-verifier hashes, reconstruction-probe rubric, model/tool/environment manifest, stopping/rerun rules, and resource-classification rules.
 
-A second phase should replicate the evaluation on public repositories. Public subjects reduce the reproducibility limitation of the initial private pilot and allow independent groups to reproduce the reset intervention. Replication should vary language, repository size, test quality, documentation maturity, task locality, dependency width, and architectural complexity.
+After P0, repeated trials on the same complex repository are needed before any uncertainty estimate is meaningful. Public replications should then vary repository size, language, documentation quality, test quality, task locality, dependency width, and architecture.
 
-A third phase should deepen semantic-state ablation. Rather than treating the repository as a single memory substrate, experiments can selectively remove architecture decisions, agent instruction files, issue-derived state, tests, schemas, comments, build rules, or Git history while keeping the task definition stable. The objective is to identify which artefact combinations most strongly support resumability.
+Semantic-state ablation should remove small preregistered information classes rather than broadly degrading the repository. The scientific question is which durable artefacts have marginal continuity value.
 
-A fourth phase should evaluate tiered execution separately. Executor capability, tool access, work-package granularity, retry policy, and escalation policy can be varied. Outcome-normalised cost must include failed executions and high-capability re-entry rather than only nominal per-call price.
+Tiered execution belongs in a separate experiment because lower-cost exploration/execution is established prior work and changing executor capability would confound the core history treatment.
 
-A fifth phase should directly test reconstruction scaling. Synthetic repository growth can add irrelevant mass while holding task semantics constant. Real tasks can vary dependency width. Retrieval methods can compare plain search, symbol indexes, static-analysis graphs, task-specific manifests, and model-guided exploration. The bounded-reconstruction hypothesis should be replaced by measured growth curves.
+Cross-model continuity is particularly interesting but not part of P0. A design in which model family $M_A$ produces an accepted $R_t$ and a different family $M_B$ resumes from it without predecessor model-native state would provide stronger evidence that continuity resides in external project state rather than a model-specific session representation. It should be tested only after same-model causal identification works.
 
-Cross-model evaluation is also necessary. Repository sufficiency may depend on the reasoner's code-navigation and inference capabilities. A well-structured repository might reduce dependence on any one provider's memory system, but this remains an untested benefit.
+Reconstruction scaling should be tested directly. Synthetic irrelevant repository growth can hold task semantics constant; real tasks can vary dependency width. Plain search, symbol indexes, static-analysis graphs, repository maps, and model-guided retrieval can be compared without claiming any one is intrinsically RaS.
 
-Security work should evaluate malicious repository instructions, poisoned documentation, confused-deputy attacks, executor compromise, policy enforcement, and human approval boundaries. The security advantage of separating intelligence from privilege requires direct adversarial evidence.
+Security work should evaluate malicious repository instructions, tests, dependencies, commit metadata, poisoned durable documentation, work-package manipulation, executor compromise, and secret exposure. Least-privilege benefits remain architectural possibilities until adversarially measured.
 
-Finally, the broader Authoritative-State Externalisation Principle in Section~\ref{sec:authoritative-principle} should remain speculative until analogous experiments exist outside software engineering. CRM systems, databases, ticket systems, event logs, document stores, and infrastructure state may provide authoritative substrates in other domains, but RaS does not prove that they are sufficient.
+The broader Authoritative-State Externalisation Principle remains speculative. Software repositories have unusually strong versioning, diffability, executable verification, and reproducible tooling; CRM systems, event logs, databases, and document stores may not offer equivalent semantics.

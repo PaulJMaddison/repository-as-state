@@ -1,24 +1,31 @@
-# Approximate repository sufficiency
+# Behavioural repository sufficiency
 
-Let:
+The earlier KL-divergence formulation has been removed after hostile review because the planned experiment does not estimate a well-defined distribution over equivalent engineering actions.
 
-- H_t be complete historical engineering interaction;
-- R_t be durable repository state;
-- U be the next task;
-- A_(t+1) be a useful next engineering action.
+Repository sufficiency is now a **conditional behavioural claim**, not an intrinsic repository property.
 
-An ideal repository would satisfy:
+For a declared task population, model/configuration, environment and depth, compare:
 
-    P(A_(t+1) | H_t, U) = P(A_(t+1) | R_t, U).
+- A — persistent-history control;
+- B — forced reset.
 
-Exact equality is unrealistic. Conceptually, epsilon-repository sufficiency may be expressed as:
+The intended treatment difference is predecessor reasoning-session history.
 
-    D_KL(
-      P(A | H_t, U)
-      ||
-      P(A | R_t, U)
-    ) <= epsilon.
+Later repeated studies may define:
 
-Literal KL divergence over useful engineering actions is unlikely to be directly observable. RaS therefore operationalises sufficiency using engineering success, hidden behavioural verification, resumption success, reconstruction accuracy, regression rate and state-reconstruction cost.
+    p_A(d) = P(hidden-verifier success | A, depth d)
+    p_B(d) = P(hidden-verifier success | B, depth d)
 
-The important object is not lossless conversational memory. It is preservation of the information necessary for future correct action.
+and preregister a scientifically justified non-inferiority/equivalence margin.
+
+P0 is a methodology pilot and cannot establish such an inference.
+
+Observable evidence includes:
+- matched task success;
+- complete-sequence success;
+- success by depth;
+- reconstruction-probe accuracy;
+- regression rate;
+- reconstruction resources.
+
+The key question is not whether all prior reasoning can be reproduced. It is whether accepted project state supports comparable next-task behaviour at acceptable rediscovery cost.

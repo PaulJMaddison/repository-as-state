@@ -1,14 +1,16 @@
-# From stateful agents to transactional reasoning
+# From stateful agents to bounded reasoning episodes
 
-RaS treats a reasoning session as a transaction rather than a durable process:
+RaS uses "reasoning transaction" only as a lifecycle analogy:
 
     R_t + U_t
-      -> high-capability reasoning transaction
+      -> bounded reasoning episode
       -> validated state transition
       -> R_(t+1)
 
-After the transition, reasoning state may be destroyed.
+After acceptance, the reasoning process may be replaced.
 
-This framing changes the scalable unit from a persistent long-lived agent process to an **independent reasoning transaction**. It also creates explicit commit semantics: proposed work is not durable continuity until it has been encoded into repository artefacts and validated.
+This does **not** imply ACID, serialisability, transactional memory, deterministic replay or database atomicity.
 
-The analogy to stateless application compute is deliberately limited. A reasoning transaction may still be expensive, nondeterministic and dependent on a large model. RaS does not make the computation stateless within the transaction; it asks whether the programme can be resumable between transactions without durable conversational state.
+Checkpoint/restart and durable workflow systems are prior architectural precedents. The RaS question is whether a fresh nondeterministic software-engineering reasoner can reconstruct enough semantic state from accepted project artefacts to continue a dependent task programme without predecessor reasoning-session history.
+
+A valid experiment must keep workspace, tools, model/configuration, task and environment matched across persistent-history and forced-reset conditions.

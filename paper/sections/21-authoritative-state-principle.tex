@@ -1,24 +1,23 @@
 \section{Broader Authoritative-State Externalisation Principle}
 \label{sec:authoritative-principle}
 
-RaS may be a software-engineering-specific instance of a broader systems idea:
+RaS may be a software-engineering-specific instance of a broader design question:
 
 \begin{quote}
 \textbf{Persist authoritative state. Reconstruct computation.}
 \end{quote}
 
-Suppose a domain has an authoritative state $A_t$, historical interaction $H_t$, a new task $U_t$, and a useful future action $X_{t+1}$. A broader externalisation hypothesis would ask whether:
-\begin{equation}
-P(X_{t+1}\mid H_t,A_t,U_t)
-\approx
-P(X_{t+1}\mid A_t,U_t).
-\label{eq:authoritative-general}
-\end{equation}
+The hostile audit removes any suggestion that the paper has already formalised or established a general principle. Outside software engineering, the relevant state may live in CRM systems, transactional databases, ticket systems, event logs, document systems, infrastructure state, or combinations of those stores.
 
-If Equation~\ref{eq:authoritative-general} held for a domain, long-term model-native history could have limited marginal value relative to reconstructing from authoritative domain state. Candidate stores might include CRM systems, transactional databases, ticket systems, event logs, document systems, or infrastructure state.
+A future domain-specific experiment would need to ask behaviourally:
+- what authoritative state is available at a valid recovery boundary;
+- what predecessor model-native history is removed;
+- which other state channels are matched;
+- whether successor task outcomes degrade;
+- how much reconstruction costs.
 
-This is future work, not a result of the present paper. Software repositories have several properties that make them unusually favourable: versioning, explicit diffs, executable tests, deterministic build systems, inspectable schemas, mature access control, and a long engineering culture of encoding decisions into artefacts. Other domains may lack equivalent verification or may depend heavily on tacit, interpersonal, or continuously changing state.
+Software repositories are unusually favourable because they provide versioning, explicit diffs, executable tests, deterministic tools, schemas, reviewable text artefacts, and often reproducible builds. Other domains may rely more heavily on tacit, interpersonal, continuously changing, or externally governed information.
 
-There is also no reason to assume that a single authoritative store is sufficient. A production software programme may require repository state plus an issue tracker, deployment state, incident history, and external requirements. The broader principle should therefore be understood as an invitation to identify the \emph{authoritative domain state} rather than to force every agent into Git.
+There is also no reason to assume one store is sufficient. A production engineering programme may require repository state plus deployment state, incident history, requirements, and tickets. Calling all of this “repository state” would obscure the causal treatment.
 
-The proposed generalisation becomes scientifically useful only if it creates falsifiable questions: what state must survive, what computation can be safely reconstructed, how much reconstruction costs, and what quality is lost when model-native history is removed? RaS provides one concrete domain in which those questions can be asked experimentally.
+Accordingly, the Authoritative-State Externalisation Principle remains \textbf{FUTURE WORK / HYPOTHESIS}. RaS does not establish a general theory of intelligence or agent memory.

@@ -1,64 +1,61 @@
-\section{Related Work and Novelty Boundary}
+\section{Related Work and Narrowed Novelty Boundary}
 \label{sec:related}
 
-RaS intersects software-engineering agents, agent memory, context engineering, durable execution, model routing, repository instructions, inference-state management, and repository infrastructure. The contribution is not the invention of any one of those areas; it is the combined continuity architecture and the proposed way of testing it.
+Hostile literature review materially narrows the novelty claim. Repository-backed agent memory, commit-history memory, sequential software evolution benchmarks, interrupted-task handoff evaluation, lower-cost repository exploration, durable execution, and repository-scale replaceable compute all predate this experiment. RaS is defensible only if it credits those overlaps and focuses on the treatment they do not isolate.
 
-\subsection{Software-engineering agents and benchmarks}
+\subsection{Repository-level agents and sequential software evolution}
 
-SWE-bench introduced a benchmark of real GitHub issues requiring repository-level software changes and execution-based evaluation \citep{jimenez2024swebench}. SWE-agent demonstrated that a purpose-built agent--computer interface can improve navigation, editing, context management, and test execution \citep{yang2024sweagent}. OpenHands broadened this direction into an open platform for generalist software agents with sandboxed execution and benchmark integration \citep{wang2024openhands}. Its Software Agent SDK later made lifecycle control, memory management, model-agnostic routing, and local-to-remote execution explicit architectural concerns \citep{wang2025openhandsSDK}.
+SWE-bench and SWE-agent establish repository-level issue resolution and agent--computer interfaces \citep{jimenez2024swebench,yang2024sweagent}. OpenHands and its SDK provide sandboxed execution, lifecycle control, memory mechanisms, security features, and multi-model routing \citep{wang2024openhands,wang2025openhandsSDK}. SWE-STEPS already evaluates chains of dependent pull requests and shows that isolated-task evaluation can overstate long-horizon performance \citep{shastry2026swesteps}. RaS therefore cannot claim novelty for repository-level coding or sequential task chains.
 
-These systems establish strong foundations for repository interaction and execution. RaS isolates a different variable: whether high-capability conversational continuity must survive across sequential engineering stages after accepted repository state has been persisted.
+Its narrower experimental variable is whether predecessor \emph{reasoning-session history} is needed after each accepted state transition when the same dependent task chain, model, tools, and accepted project state are otherwise matched.
+
+\subsection{The closest empirical challenge: interrupted-task handoff}
+
+Handoff Debt is the closest direct empirical challenge found in this audit \citep{kc2026handoff}. It freezes repository state at deterministic interruption points and compares successor agents receiving repository-only state, raw traces, summaries, or structured notes. Across multiple models, context-bearing handoffs substantially reduce agent events and cumulative prompt tokens relative to repository-only takeover, while solve-rate effects are smaller and model dependent.
+
+That work defeats any broad claim that “the repository alone makes predecessor context unnecessary” or that repository-only reconstruction is automatically economical. The remaining distinction is the reset boundary. Handoff Debt interrupts \emph{partially completed tasks}, where intent and evidence may not yet have been externalised into accepted engineering artefacts. RaS proposes disposal \emph{after validated accepted transitions} and then asks whether the next dependent task can proceed without predecessor reasoning history. P0 must test whether that boundary difference actually matters.
+
+\subsection{Git-bound and repository memory}
+
+Guo explicitly argues that agentic-development memory should be Git-bound, linking assistant sessions to commit state and routing queries over structural maps, episodes, and decision synthesis \citep{guo2026gitmemory}. This is strong overlap with the broad “repository as memory” intuition. However, it makes session history durable inside the Git-bound memory system. RaS instead tests whether predecessor session/transcript state can be absent after an accepted transition.
+
+Other work uses commit history as non-parametric repository memory for code localisation \citep{wang2025repomemory} or builds online repository memory from historical commits to learn project-specific change patterns \citep{li2026learningcommit}. These results make clear that repository history can be useful memory, but they also show that a current snapshot may omit project-specific patterns. RaS therefore treats Git history and semantic artefacts as candidate durable-state carriers rather than claiming source snapshots are sufficient.
+
+\subsection{Repository context files}
+
+Repository instruction files are established context mechanisms. Sun et al. document more than twelve thousand public Cursor rule files containing project context and engineering guidance \citep{sun2026cursorrules}. Gloaguen et al. find that AGENTS.md-style context files can reduce task success and raise inference cost despite increasing exploration \citep{gloaguen2026agentsmd}. Khatri's two-agent ablation finds no measurable correctness effect within declared bounds and highlights agent-specific task difficulty \citep{khatri2026contextfiles}. These findings weaken any assumption that more curated repository documentation automatically improves resumability. Condition C should study marginal continuity value, not assume documentation is beneficial.
+
+\subsection{Repository exploration and tiering}
+
+Repository exploration is itself a measurable, costly stage. Awad and Ivanov evaluate lower-cost explorer models and identify quality/cost operating points for localisation \citep{awad2026exploration}. RouteLLM studies learned model routing \citep{ong2024routellm}. Consequently, separating a high-capability reasoner from cheaper exploration/execution is not a novel RaS contribution; it is a secondary architecture to evaluate separately.
 
 \subsection{Agent memory and context engineering}
 
-MemGPT treats extended interaction as a virtual-context management problem, moving information between memory tiers to support long-running conversations and document analysis \citep{packer2023memgpt}. Recent memory surveys organise a broader literature spanning storage, reflection, experience abstraction, retrieval, hierarchical context, and policy-controlled memory \citep{du2026memory,luo2026memory}.
+MemGPT treats extended interaction as managed virtual context \citep{packer2023memgpt}, while current surveys cover episodic, semantic, reflective, hierarchical, and learned memory \citep{du2026memory,luo2026memory}. Context-engineering guidance explicitly recommends compaction, structured memory, retrieval, and subagent architectures for long-horizon agents \citep{anthropic2025context}. These systems invalidate a straw-man comparison against agents that always replay full history.
 
-Context engineering addresses the related problem of curating what information enters a finite model context. Anthropic's engineering guidance explicitly recommends maintaining a high-signal context through retrieval, compaction, and selective loading in long-horizon agents \citep{anthropic2025context}. SWE-agent similarly manages environment feedback and command history to avoid unnecessarily verbose context \citep{yang2024sweagent}.
+RaS asks a different question: after accepted engineering boundaries, can the marginal value of predecessor model-native history become small enough that it is not required for programme continuity?
 
-RaS is complementary. Instead of asking only how to preserve and retrieve prior agent experience, it asks how much of the experience can be allowed to disappear after its decision-relevant consequences have been encoded in authoritative software artefacts.
+\subsection{Durable execution, checkpointing, and transaction terminology}
 
-\subsection{Repository-local semantic state}
-
-Repository-local instruction files are a direct example of durable agent-relevant context. Sun et al. analyse more than twelve thousand Cursor rule files and find recurring project context, engineering practices, structure, configuration, maintainability guidance, and some security content \citep{sun2026cursorrules}. RaS does not claim that instruction files are sufficient or uniquely important; they demonstrate that externalising semantic guidance into versioned repository state is already common enough to study empirically.
-
-Tests, schemas, build rules, architecture records, and history extend this idea beyond prompt-like instructions. RaS's semantic-state ablation is intended to identify which classes actually contribute to resumability.
-
-\subsection{Durable execution and compute--storage separation}
-
-Durable workflow systems provide a broader systems precedent for reconstructable volatile compute. Durable Functions formalises a programming model in which execution progress can survive failures under compute--storage separation and record/replay \citep{burckhardt2021durable}. Temporal similarly describes durable workflow execution using persisted event history and replaceable worker processes, although RaS does not depend on Temporal semantics.
-
-RaS differs because language-model reasoning is nondeterministic and its task is to reconstruct semantic engineering state, not replay a deterministic workflow history. The precedent is architectural: volatile computation can operate over durable external state without the worker process itself being the persistent object.
-
-\subsection{Model routing}
-
-RouteLLM studies learned routing between stronger and weaker models to optimise quality/cost trade-offs \citep{ong2024routellm}. Tiered RaS execution may use model routing, but routing is not the continuity contribution. RaS first asks whether the programme can survive destruction of the previous reasoning state; only then does it ask which capability tier should execute a particular transaction.
+Durable Functions formalises stateful serverless workflows under compute--storage separation and replay \citep{burckhardt2021durable}. Durable AI workflow research also studies semantic isolation across pauses and continuations \citep{mozafari2026semantic}. These are important precedents and terminology constraints. RaS does not claim to invent checkpoint/restart or transactional computation. Its object of reconstruction is semantic engineering state for a fresh nondeterministic reasoner, not deterministic workflow replay.
 
 \subsection{Inference-state management}
 
-PagedAttention and vLLM show that KV-cache allocation and sharing materially affect LLM-serving throughput, particularly for long sequences \citep{kwon2023vllm}. This supports the general systems observation that inference state is a real resource. It does not prove that externalising engineering continuity reduces provider cost or data-centre pressure. RaS keeps those consequences as hypotheses and implications.
+PagedAttention/vLLM demonstrates that KV-cache allocation and sharing affect LLM-serving throughput \citep{kwon2023vllm}. DistServe separates prefill and decode resources \citep{zhong2024distserve}; Mooncake builds a KV-cache-centric disaggregated serving architecture \citep{qin2024mooncake}. These systems show why simplistic “one conversation equals one GPU allocation” reasoning is wrong. RaS makes no provider-internal saving claim.
 
 \subsection{Repository-state infrastructure}
 
-Cursor's 2026 “Git at any scale” article describes Continuity, a repository system based on a write-ahead log in S3-compatible object storage, with repository-serving state materialised on nodes from durable object state \citep{marti2026continuity}. This is a useful contemporary precedent for separating repository-state durability from replaceable repository-serving compute.
+Cursor Continuity persists a write-ahead log in S3-compatible object storage and materialises repository-serving state on replaceable nodes \citep{marti2026continuity}. This is a repository-infrastructure precedent only. It does not evaluate model continuity, forced reasoning-state reset, or reconstruction economics.
 
-The distinction is central:
-\begin{quote}
-\textbf{Continuity addresses repository-state scalability; RaS investigates agent-state scalability.}
-\end{quote}
-Cursor Continuity does not test fresh-agent reconstruction, forced state reset, RRI, or RaS economics.
+\subsection{What remains plausibly novel}
 
-\subsection{Novelty boundary}
-
-RaS does not claim novelty for Git, agents reading repositories, external memory, context retrieval, model routing, tests, durable execution, or stateless web services. The proposed research contribution is the combination of:
+After removing generous claims, the audit finds a narrower combination not identified in the reviewed prior work:
 
 \begin{enumerate}
-    \item repository-native durable engineering state as the primary continuity mechanism;
-    \item deliberate disposal of high-capability reasoning state between engineering stages;
-    \item Forced-State-Reset Evaluation;
-    \item the proposed Repository Resumability Index;
-    \item explicit reconstruction-cost measurement rather than treating rediscovery as free;
-    \item separation of high-capability reasoning from stateful execution and privilege;
-    \item investigation of agent-state scalability as distinct from repository-state scalability.
+    \item disposal of high-capability reasoning-session state specifically at \emph{accepted/validated sequential engineering boundaries};
+    \item a matched A/B intervention intended to hold repository state, dependent task, model capability/configuration, tools, and environment constant while varying predecessor reasoning history;
+    \item reconstruction-cost accounting designed so repository-only resumption is explicitly allowed to lose;
+    \item an external state-reconstruction probe plus semantic-state ablation at accepted boundaries to identify which durable artefacts carry marginal continuity value.
 \end{enumerate}
 
-Whether that combination proves practically important remains an empirical question.
+RRI, tiered execution, Git-backed state, sequential tasks, and repository retrieval are not independently strong novelty claims. The surviving novelty is sufficient to justify a carefully controlled pilot, not to claim a new general theory before evidence.

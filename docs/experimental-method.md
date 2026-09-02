@@ -1,42 +1,96 @@
-# Experimental method
+# Experimental method — hostile-audit revision
 
-## Conditions
+## Primary P0 causal comparison
 
-**A — Persistent monolithic control.** A continuing high-capability session retains history and may reason, edit and test.
+**A — Persistent-history control**
+- predecessor high-capability reasoning-session history available;
+- canonical accepted project state;
+- current task.
 
-**B — RaS forced reset.** The same high-capability model is used, complete repository state is retained, and the reasoning session is destroyed after every bounded task. A fresh session receives only repository state and the next task.
+**B — RaS forced reset**
+- no predecessor conversation, summary, resume state or copied reconstruction;
+- same canonical accepted project state;
+- same current task.
 
-**C — RaS semantic-state ablation.** As B, except pre-registered semantic repository artefacts are removed according to a manifest while source, tests and build rules remain.
+The intended treatment is **predecessor reasoning-session history availability**.
 
-**D — RaS tiered execution.** High-capability reasoning is transactional and a separate lower-cost or stateful execution worker performs constrained implementation and verification.
+## State that must be matched across A/B
 
-## Forced reset
+Before every task in both conditions:
+- materialise the same accepted repository state into a canonical clean workspace;
+- remove untracked files, shell history, IDE state, scratch files and previous tool residue;
+- use identical system/developer experiment instructions and task text;
+- use the same model build/configuration/sampling;
+- use the same tool schema/executor/privileges;
+- use the same base image, dependency versions, environment policy and network policy;
+- use the same hidden verifier.
 
-For each sequential stage:
+Caches must be reset or identically prewarmed under a preregistered policy.
 
-    A_1 + R_0 + U_1 -> R_1
-    destroy A_1
-    A_2(fresh) + R_1 + U_2 -> R_2
-    destroy A_2
+If provider/account/session memory cannot be disabled or audited, the runtime is ineligible for the causal A/B experiment.
 
-and repeat.
+## FUTURE_HISTORY_LEAK_GATE
 
-In reset conditions there is no previous conversation, resume facility, external summary, copied hidden memory or manual transfer of state. Only the repository and current task survive.
+Before model invocation:
+- no remotes;
+- known future solution SHAs cannot resolve;
+- no future refs/tags/reflogs/packed objects;
+- no Git alternate object store;
+- no source-repository worktree/filesystem link;
+- no future patch/CI/generated artefact;
+- network cannot retrieve private future source state.
 
-## Outcomes
+If any check fails:
 
-Primary and secondary outcomes should include:
+    RUN INVALID — STOP BEFORE MODEL INVOCATION.
 
-- correct task continuation under hidden behavioural verification;
-- RRI by depth;
-- regression rate;
-- reconstruction accuracy;
-- input and output tokens where available;
-- reconstruction tokens and RTF;
-- files read;
-- tool and model calls;
-- wall-clock time;
-- retries and intervention count;
-- execution cost proxies.
+## Task leakage
 
-P0 is a pilot. Confirmatory analyses, exclusion rules and power calculations belong in later preregistrations.
+Audit post-cutoff:
+- commit messages;
+- issue edits;
+- branch names;
+- changelogs/TODOs;
+- future tests;
+- generated docs;
+- patch files/task-generation outputs.
+
+Information legitimately present at cutoff remains allowed.
+
+## Hidden verifier
+
+Must be:
+- outside the workspace;
+- unavailable to the agent;
+- behaviour-oriented;
+- identical across conditions;
+- versioned and hashed before runs;
+- capable of accepting equivalent correct solutions.
+
+## Human intervention and reruns
+
+After run start prohibit:
+- hints/file pointers;
+- copied information;
+- prompt changes;
+- manual edits;
+- cross-condition conclusions;
+- selective reruns.
+
+Preregister timeouts, retries and the distinction between AGENT_FAILURE and INFRASTRUCTURE_FAILURE.
+
+## P0 scope
+
+Primary: A/B.
+
+Exploratory: one small preregistered semantic-state ablation C if it does not weaken causal clarity.
+
+Deferred: tiered execution D.
+
+P0 is a methodology pilot/initial case study. Allowed interpretations:
+- METHODOLOGY FAILURE;
+- EVIDENCE AGAINST RaS;
+- MIXED / CONDITIONAL PILOT EVIDENCE;
+- SUPPORTIVE PILOT EVIDENCE.
+
+Never PROVEN.

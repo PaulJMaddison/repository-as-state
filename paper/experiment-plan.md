@@ -1,117 +1,232 @@
-# Experiment plan — Paper v0.1
+# Experiment plan — Paper v0.1 hostile-audit revision
 
-## P0 — Forced-State-Reset Pilot
+## P0 — Forced-State-Reset Methodology Pilot
 
 **Status: NOT EXECUTED.**
+**Execution readiness: NOT YET READY.**
+**Audit decision: GO_WITH_REQUIRED_PROTOCOL_CHANGES.**
 
-Purpose: validate the continuity intervention, task sequencing, history isolation, hidden verification, reconstruction probe, telemetry and public/private evidence pipeline before any confirmatory claim.
+P0 is an initial case study whose purpose is to determine whether the treatment can be isolated, leakage prevented, reconstruction measured, and dependent-task continuation adjudicated. It cannot establish general superiority or population-level non-inferiority.
 
-### Before P0 is allowed to run
+## Primary causal treatment
 
-1. independently audit the paper, claims register, novelty boundary and experimental design;
-2. select approximately five genuinely sequential non-trivial tasks from a complex private software repository;
-3. pin the allowed starting history for every task;
-4. ensure future solution commits, refs, reflogs, pack objects and remotes cannot be resolved;
-5. create neutral task specifications without hidden solution language;
-6. define hidden behavioural verification before the model sees the task;
-7. freeze the state-reconstruction probe rubric;
-8. freeze reconstruction-cost classification;
-9. define model/configuration pinning and sampling settings;
-10. define agent failure versus harness/infrastructure failure;
-11. define allowed retries, timeouts and cancellation rules;
-12. define prohibited human intervention;
-13. define sanitisation and public evidence fields;
-14. commit the preregistration before observing outcomes.
+### A — Persistent-history control
 
-### Primary P0 conditions
+Available at task d:
+- canonical accepted project state R_d;
+- current task U_d;
+- stable experiment instructions;
+- predecessor high-capability reasoning-session history.
 
-**A — Persistent monolithic control**
-- same high-capability session continues;
-- conversation/history retained;
-- agent may reason, edit and test.
+### B — Forced reset
 
-**B — RaS forced reset**
-- same high-capability model/configuration;
-- complete allowed repository state;
-- fresh session after every bounded task;
-- no prior conversation, summary, resume state or copied reconstruction.
+Available at task d:
+- the same canonical accepted project state R_d;
+- the same current task U_d;
+- the same stable experiment instructions;
+- **no predecessor reasoning conversation, hidden summary, resume state, copied reconstruction, or account/session memory**.
 
-**C — Semantic-state ablation**
-- same as B;
-- preregistered semantic state carriers removed;
-- source/tests/build rules preserved unless explicitly part of the ablation.
+The intended A/B difference is predecessor reasoning-session history. Model/configuration, tools, executor, workspace, environment and verifier must be matched.
 
-Condition D (tiered execution) should normally be deferred until the core continuity intervention is understood.
+### C — Exploratory semantic-state ablation
 
-### State-reconstruction probe
+Optional only after A/B integrity is established.
 
-Before edits in reset conditions, capture outside the subject repository:
+Remove one small preregistered semantic artefact class while preserving task meaning/buildability. The question is marginal continuity value, not whether an agent fails after the repository is broadly damaged.
 
-- relevant architecture;
-- current behaviour;
-- affected components;
+### D — Tiered execution
+
+**Deferred beyond primary P0.** It changes executor capability and would confound the continuity treatment.
+
+## Required infrastructure before preregistration can be frozen
+
+### 1. Canonical workspace materialiser
+
+Given a task/cutoff manifest, construct condition-independent workspace state:
+- exact allowed Git object graph;
+- exact tracked files;
+- empty/declared untracked state;
+- no prior shell/editor/worktree scratch;
+- declared toolchain/dependency state;
+- declared environment/network state.
+
+The same materialiser must be used for A and B.
+
+### 2. Runtime-control manifest
+
+Freeze:
+- high-capability model/provider/model ID;
+- API/runtime version where exposed;
+- sampling/temperature;
+- system/developer experiment instructions;
+- tool schema;
+- executor implementation/privileges;
+- base image/toolchain versions;
+- environment variables/locale/timezone policy;
+- dependency/cache policy;
+- network policy.
+
+If provider/account/session memory cannot be disabled or audited, that runtime is ineligible for the causal A/B experiment.
+
+### 3. FUTURE_HISTORY_LEAK_GATE
+
+Before model invocation verify:
+- no remotes;
+- known post-cutoff solution SHAs cannot resolve;
+- no future refs/tags/reflogs/packed objects;
+- no Git alternates or environment-based alternate object stores;
+- no source-repository worktree/filesystem link;
+- no patch/generated/CI artefact with future solution;
+- network cannot retrieve private future source state.
+
+Any failure => **RUN INVALID; STOP BEFORE MODEL CALL.**
+
+### 4. Task-leakage audit
+
+Audit post-cutoff information in:
+- commit messages;
+- issue edits;
+- branch/tag names;
+- changelogs/TODOs;
+- comments/generated docs;
+- future tests;
+- task-generation files;
+- historical patch files.
+
+Legitimate information already present at cutoff remains allowed.
+
+### 5. Hidden-verifier package
+
+For each task:
+- behaviour-oriented;
+- outside experimental workspace;
+- inaccessible to agent;
+- identical across conditions;
+- frozen version/hash before runs;
+- accepts equivalent correct implementations;
+- historical future patch not used as text oracle.
+
+### 6. Reconstruction-probe rubric
+
+Freeze objective reportable items:
+- relevant components;
+- architecture/state;
 - constraints/invariants;
-- relevant tests;
-- completed prior work;
-- current remaining work;
-- evidence paths;
-- uncertainty;
-- unknowns.
+- current behaviour;
+- relevant tests/evidence;
+- prior accepted work;
+- outstanding work;
+- uncertainty/unknowns.
 
-Do not collect hidden chain-of-thought.
+Store probe outside subject workspace. Do not request chain-of-thought.
 
-### Telemetry
+### 7. Run-control rules
 
-Capture where available:
+Pre-register:
+- timeouts/stopping;
+- allowed retries;
+- cancellation handling;
+- AGENT_FAILURE;
+- INFRASTRUCTURE_FAILURE;
+- rerun eligibility;
+- no-human-rescue rules.
 
-- total input/output tokens;
-- reconstruction-attributed tokens;
-- cached/uncached input;
-- files/bytes read;
-- repository searches;
-- symbol/history operations;
-- tool calls;
+## Corpus selection
+
+Before outcomes:
+1. define a historical candidate time/window or equivalent reproducible frame;
+2. freeze inclusion/exclusion criteria;
+3. require genuine sequential dependency across tasks;
+4. avoid five unrelated bug fixes;
+5. avoid artificially manufactured dependencies;
+6. freeze candidate list and task hashes;
+7. freeze sampling/randomisation procedure and seed if used;
+8. record any subjective complexity label before outcomes.
+
+Approximately five tasks are acceptable for P0 only as a methodology pilot.
+
+## Sequential dependency criterion
+
+A later task should naturally depend on one or more earlier accepted:
+- code changes;
+- interfaces/contracts;
+- tests;
+- architecture decisions;
+- schemas/migrations;
+- state transitions.
+
+The dependence rationale is frozen before runs.
+
+## Telemetry
+
+Capture where observable:
+- input/output tokens;
+- reconstruction-attributed input;
+- cached/uncached tokens;
+- files and bytes read;
+- repository/symbol/history searches;
 - model calls;
+- tool calls;
 - reconstruction elapsed time;
 - total elapsed time;
-- retries;
-- escalation;
+- retries/escalations;
+- verifier result;
 - human-intervention flag;
-- harness-failure flag.
+- infrastructure-failure flag;
+- provider-billed usage when exposed.
 
-### Primary outcome
+## Outcomes
 
-Correct engineering continuation under independent hidden behavioural verification.
+Primary descriptive P0 reporting:
+- matched A/B verifier result by task and depth;
+- complete-sequence success.
 
-### Secondary outcomes
+Secondary:
+- B-only RRI by task/depth;
+- reconstruction-probe accuracy;
+- RTF and full resource vector;
+- regression/retry behaviour.
 
-- RRI by sequential depth;
-- state-reconstruction accuracy;
-- Reconstruction Token Fraction;
-- regression rate;
-- reconstruction and total measured cost proxies;
-- retry/escalation behaviour.
+Do not conduct or imply population non-inferiority from ~5 tasks.
 
-## P1 — Public controlled replication
+## Allowed P0 interpretations
 
-Replicate A/B on public repositories with multiple languages, repository sizes, documentation qualities, dependency widths and task localities. Establish uncertainty intervals and power analysis.
+- METHODOLOGY FAILURE
+- EVIDENCE AGAINST RaS
+- MIXED / CONDITIONAL PILOT EVIDENCE
+- SUPPORTIVE PILOT EVIDENCE
 
-## P2 — Semantic-state ablation
+Not allowed:
+- PROVEN
+- GENERAL SUPERIORITY
+- PROVIDER-INFRASTRUCTURE SAVING
 
-Systematically remove durable state classes to estimate which artefacts carry continuity and which are redundant.
+## Later experiments
 
-## P3 — Tiered execution
+### P1 — Repeated same-repository runs
+Estimate stochastic variation and paired A/B effects.
 
-Compare monolithic high-capability execution with high-capability reasoning plus constrained lower-cost/stateful workers. Count failed execution and reasoning re-entry.
+### P2 — Multi-repository replication
+Public unrelated repositories, languages, architectures, task classes and dependency widths.
 
-## P4 — Reconstruction scaling
+### P3 — Semantic-state ablation
+Small causal ablations of durable artefact classes.
 
-Hold task semantics constant while varying irrelevant repository mass and dependency width. Compare reconstruction strategies and test the bounded-K assumption directly.
+### P4 — Tiered execution
+Separate executor-capability/economic study.
+
+### P5 — Reconstruction scaling
+Vary repository mass and dependency width; compare retrieval strategies.
+
+### P6 — Cross-model continuity
+M_A creates accepted state; M_B resumes without predecessor model-native state.
 
 ## Decision gates
 
-Do not make a positive repository-sufficiency claim if reset integrity cannot be proven, hidden verification is not independent, or task construction leaks future state.
+Do not run P0 until all readiness items in experiments/P0/readiness-checklist.md are frozen and auditable.
 
-Do not make a state-economics claim if reconstruction, retry and execution costs are incomplete.
+Do not make behavioural continuity claims if A/B treatment isolation is not demonstrated.
 
-Do not make a tiered-execution claim before quality-equivalence criteria are defined.
+Do not make economic claims without reconstruction/retry costs.
+
+Do not make security, serving or generalisation claims from P0.

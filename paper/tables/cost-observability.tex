@@ -1,0 +1,15 @@
+\begin{table}[htbp]
+\centering
+\small
+\caption{Audit classification of economic/resource quantities. “Observable” means available to the experiment, not necessarily a direct measure of provider-internal cost.}
+\label{tab:cost-observability}
+\begin{tabularx}{\textwidth}{@{}lX X@{}}
+\toprule
+Class & Examples & Permitted use \\
+\midrule
+OBSERVABLE & Input/output tokens exposed by API, model/tool calls, repository bytes/files read, searches, elapsed time, retries, provider-billed charge when exposed & Report directly; compare outcome-normalised values across conditions \\
+PARTIALLY OBSERVABLE & Cached-token counters, prompt-cache hits, session persistence indicators, opaque provider usage categories & Report with interface/version and limitations; do not infer hidden implementation \\
+UNOBSERVABLE & Exact GPU allocation, KV-cache residency cost, internal storage/scheduling amortisation, provider margin & Do not label as measured saving; discuss only as theoretical implication \\
+\bottomrule
+\end{tabularx}
+\end{table}

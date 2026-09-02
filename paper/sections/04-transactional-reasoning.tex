@@ -1,48 +1,39 @@
 \section{From Stateful Agents to Transactional High-Capability Reasoning}
 \label{sec:transactional}
 
-RaS treats a high-capability reasoning episode as a bounded transaction over durable external engineering state:
+RaS treats a high-capability reasoning episode as a bounded computation over externally persisted engineering state:
 \begin{equation}
 R_t + U_t
 \rightarrow
-\text{reasoning transaction}
+\text{reasoning episode}
 \rightarrow
 \text{validated state transition}
 \rightarrow
 R_{t+1}.
 \end{equation}
-After $R_{t+1}$ is accepted, the reasoning state may be destroyed.
+After $R_{t+1}$ is accepted, the reasoning process may be terminated and replaced.
 
-The word \emph{transactional} describes lifecycle and durability, not ACID database semantics. A reasoning episode does not automatically provide serialisability, atomic side effects, isolation, or deterministic replay. The analogy is narrower: a bounded computation reads authoritative state, attempts a transition, and only a validated result becomes durable programme state.
+The term \emph{transactional} is retained only as a lifecycle analogy. It does not imply ACID semantics, serialisability, transactional memory, deterministic replay, or database atomicity. Recent work on semantic isolation for durable AI workflows uses transaction terminology for a different problem: maintaining compatible semantic resources across paused and resumed workflows \citep{mozafari2026semantic}. RaS therefore uses “reasoning transaction” narrowly to mean a bounded reasoning episode over externally persisted authoritative state whose process identity need not survive after an accepted transition.
 
-Figure~\ref{fig:lifecycle} contrasts a persistent lifecycle with the forced-reset lifecycle evaluated by RaS.
+\subsection{Disposable reasoning is recomputation-tolerant, not computation-free}
+
+A reasoning process is \emph{disposable with respect to programme continuity} if replacing it after an accepted transition does not materially impair the next correct programme continuation under a prespecified behavioural comparison, given matched durable state, task, model capability/configuration, tool interface, and execution environment.
+
+This definition explicitly allows recomputation. A fresh reasoner may re-read files, rediscover dependencies, or re-establish architectural understanding. If that work is large, disposal may be technically feasible but economically inferior. “Disposable” therefore concerns lifecycle dependence, not elimination of reasoning cost.
+
+Figure~\ref{fig:lifecycle} contrasts the persistent-history control with the forced-reset lifecycle.
 
 \begin{figure}[htbp]
 \centering
 \input{figures/persistent-vs-reset}
-\caption{Conceptual lifecycle comparison. The forced-reset condition intentionally destroys reasoning-session continuity after each accepted engineering transition.}
+\caption{Conceptual lifecycle comparison. The experimental treatment is predecessor reasoning-session history at an accepted engineering boundary; workspace, model, tools, task, and accepted repository state must otherwise be matched.}
 \label{fig:lifecycle}
 \end{figure}
 
-This reframing changes the scalable unit from a permanent long-lived intelligent agent process to an \emph{independent reasoning transaction}. Several potential systems properties follow, although none is yet an empirical RaS result.
+Checkpoint/restart and stateless-service systems are important precedents rather than novelty claims. Durable Functions, for example, demonstrates reliable workflow execution with persisted state and reconstructable compute \citep{burckhardt2021durable}. Git already provides checkpoint-like accepted repository states. The RaS-specific question is semantic: whether those accepted software artefacts contain enough information that a fresh high-capability reasoner can continue a \emph{dependent engineering programme} without predecessor conversational/model-native history.
 
-\paragraph{Restartability.}
-A fresh reasoner can in principle be scheduled after a crash, timeout, policy boundary, model upgrade, or ordinary task completion if the repository captures sufficient continuity.
+Potential properties such as restartability, horizontal scheduling, model routing, and lower session affinity are architectural implications only. Model routing is established prior work \citep{ong2024routellm}; cross-model continuity is not tested in P0 and remains future work.
 
-\paragraph{Horizontal scheduling.}
-Reasoning transactions need not maintain affinity to the inference worker that performed a previous transaction. This may simplify scheduling over shared model infrastructure, provided reconstruction is efficient.
+The architecture also exposes failure classes. A reset run can fail because reconstruction selected the wrong evidence; because the reasoner misinterpreted correct evidence; because the proposal omitted a constraint; because execution failed; because the environment changed; or because validation was invalid. These mechanisms must not be collapsed into one causal explanation.
 
-\paragraph{Model interchangeability and routing.}
-Because the continuity substrate is external, a later transaction can in principle use a different model. Model-routing work such as RouteLLM demonstrates that capability/cost routing is a distinct optimisation problem \citep{ong2024routellm}. RaS does not require learned routing, but it creates a clean transaction boundary at which routing decisions can be made.
-
-\paragraph{Fault tolerance.}
-If uncommitted reasoning disappears, the accepted repository state remains. This resembles a general durable-compute pattern in which volatile workers reconstruct from persisted state. Durable Functions, for example, formalises reliable workflow execution under compute--storage separation and record/replay \citep{burckhardt2021durable}. RaS does not inherit those guarantees; the precedent shows only that volatile compute over durable state is a well-established systems pattern.
-
-\paragraph{Lifecycle clarity.}
-A transaction has an explicit start state, task, allowed context, execution boundary, validation rule, and accepted end state. These boundaries improve experimental control because the continuity intervention can be defined precisely.
-
-The architecture also exposes failure classes. A fresh transaction can fail because $\Gamma$ reconstructed the wrong files; because the reasoner misunderstood correctly reconstructed state; because the work package omitted a critical constraint; because the executor implemented it incorrectly; because the environment failed; or because the validator was invalid. Collapsing all of these into “agent failed” would obscure the mechanism.
-
-The strongest objection remains semantic underspecification. Persistent agents can carry intentions that never became durable artefacts. A transactional architecture forces the system either to encode those intentions or to accept that a reset may lose them. This is not an implementation bug in the research design; it is precisely what Forced-State-Reset Evaluation is intended to expose.
-
-Transactional reasoning is therefore a lifecycle hypothesis, not a claim that agents should be stateless internally. During one transaction a model can use substantial working context, tools, scratch state, and iterative reasoning. RaS asks only whether that state needs to remain persistent \emph{between} accepted engineering transitions.
+The central experimental requirement is therefore stronger than “open a new chat”. The audit requires canonical workspace rematerialisation and invariant system instructions, model configuration, task specification, tool interface, dependency state, and environment across conditions. If hidden provider/session memory or uncontrolled tool state differs between A and B, the treatment is not identifiable.

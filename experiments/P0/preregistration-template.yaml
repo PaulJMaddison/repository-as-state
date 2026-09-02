@@ -1,50 +1,114 @@
 preregistration:
   study_id: P0
   status: draft_not_registered
+  protocol_version: "0.2-hostile-audit-draft"
   timestamp_utc: null
-  protocol_version: "0.1-draft"
 
 research_questions:
-  rq1_continuity: null
-  rq2_state_economics: null
-  rq3_tiered_execution: null
-  rq4_repository_sufficiency: null
+  primary:
+    wording: "What is the effect of removing predecessor reasoning-session history after accepted dependent engineering transitions under matched project/model/tool/environment state?"
+  reconstruction:
+    wording: "What rediscovery burden does forced reset impose?"
+  semantic_state:
+    wording: "Which preregistered project artefact class has marginal continuity value?"
+    p0_exploratory: true
+  tiered_execution:
+    p0_primary: false
 
 sample:
-  task_selection_rule: null
-  number_of_sequences: null
-  tasks_per_sequence: null
+  candidate_window_rule: null
+  candidate_set_frozen: false
   inclusion_criteria: []
   exclusion_criteria: []
+  sequential_dependency_rule: null
+  task_hashes: []
+  tasks_per_sequence: null
+  number_of_sequences: null
+  historical_survivor_bias_acknowledged: true
+  author_subject_bias_acknowledged: true
 
-randomisation:
-  condition_assignment: null
-  order_control: null
-  seed_commitment: null
+selection:
+  sampling_rule: null
+  random_seed: null
+  subjective_complexity_labels_frozen_pre_outcome: false
+  no_cherry_pick_by_expected_ras_success: true
 
-models:
-  high_capability_model: null
-  execution_worker: null
-  versions_pinned_if_possible: true
-  temperature_and_sampling: null
+treatment_identification:
+  canonical_workspace_materializer_hash: null
+  stable_experiment_instruction_hash: null
+  model_configuration_hash_or_manifest: null
+  tool_schema_hash: null
+  executor_hash: null
+  environment_manifest_hash: null
+  cache_policy: null
+  account_session_memory_control_proof: null
+  requirement: "Only predecessor reasoning-session history may differ materially between A and B."
+
+leakage:
+  future_history_leak_gate_version: null
+  gate_evidence_hash: null
+  task_leakage_audit_hash: null
+  fail_closed_before_model_call: true
+
+verifier:
+  version: null
+  hash: null
+  stored_outside_workspace: true
+  behavior_oriented: true
+  equivalent_solutions_allowed: true
+
+reconstruction_probe:
+  rubric_version: null
+  rubric_hash: null
+  reportable_state_only: true
+  chain_of_thought_requested: false
+  stored_outside_workspace: true
+
+run_control:
+  timeout_rule: null
+  stopping_rule: null
+  retry_rule: null
+  cancellation_rule: null
+  agent_failure_definition: null
+  infrastructure_failure_definition: null
+  rerun_rule: null
+  no_human_rescue: true
 
 success_definition:
   task_level_success: null
+  complete_sequence_success: null
   hidden_verifier_rule: null
-  allowed_human_intervention: null
 
 analysis_plan:
-  primary_estimand: null
-  rri_by_depth: true
+  p0_is_methodology_pilot: true
+  inferential_noninferiority_claim_in_p0: false
+  matched_A_B_reporting: true
+  rri_descriptive_only: true
+  success_by_depth: true
   reconstruction_cost_analysis: true
   missing_data_rule: null
-  statistical_tests: []
-  confidence_intervals: null
+  infrastructure_failure_rule: null
+
+future_confirmatory_analysis:
+  task_population: null
+  noninferiority_or_equivalence_margin: null
+  margin_justification: null
+  confidence_interval_method: null
+  dependence_handling: null
   multiplicity_control: null
+  power_analysis: null
+
+allowed_p0_interpretation:
+  - METHODOLOGY_FAILURE
+  - EVIDENCE_AGAINST_RAS
+  - MIXED_OR_CONDITIONAL_PILOT_EVIDENCE
+  - SUPPORTIVE_PILOT_EVIDENCE
 
 falsification:
-  reconstruction_cost_threshold_or_rule: null
-  failure_conditions: []
+  reconstruction_dominance_rule: null
+  behavioral_failure_rule: null
+  sequence_depth_failure_rule: null
+  documentation_dependency_rule: null
 
 data_boundary:
   proprietary_subject: true

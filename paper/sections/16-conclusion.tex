@@ -1,20 +1,21 @@
 \section{Conclusion}
 \label{sec:conclusion}
 
-Repository-as-State asks a narrow systems question with potentially broad consequences for software-engineering agents: must durable engineering continuity live inside a persistent high-capability reasoning process?
+Hostile review narrows Repository-as-State rather than eliminating it.
 
-The proposed alternative is to make the software project the persistent object. Durable repository state $R_t$ and current task $U_t$ are transformed by a bounded reconstruction function into the active reasoning view. High-capability reasoning proposes a transition. A stateful or constrained executor may implement it. Compilers, tests, runtime observations, and behavioural verification adjudicate the candidate. Only an accepted state becomes $R_{t+1}$. The high-capability reasoning process may then disappear.
+The broad idea that Git or repositories can hold agent memory is prior art. Sequential coding evaluation is prior art. Context retrieval, durable workflow execution, repository maps, model routing, cheaper repository explorers, and commit-history memory are prior art. Interrupted-task handoff research further shows that repository-only successors can pay substantial rediscovery cost.
 
-RaS therefore does not primarily attempt to make high-quality reasoning cheap. It attempts to make high-quality reasoning disposable while preserving the engineering programme.
+The surviving RaS question is more specific: \emph{after a dependent engineering task has reached a validated accepted repository state, can predecessor high-capability reasoning-session state be discarded without materially impairing the next correct continuation, when model, task, tools, workspace, and environment are otherwise matched?}
 
-Paper v0.1 formalises that proposition through approximate repository sufficiency, a cumulative-context model under explicit assumptions, a provider-neutral cost decomposition, reconstruction cost and RTF, transactional reasoning, tiered execution, durable semantic state, selective documentation, least privilege, Forced-State-Reset Evaluation, the proposed Repository Resumability Index, and a separate state-reconstruction probe. It distinguishes repository-state scalability from agent-state scalability and places broader authoritative-state externalisation explicitly in future work.
+That question is technically meaningful because “disposable” refers to lifecycle dependence, not elimination of computation. A fresh reasoner may recompute context; the experiment explicitly measures whether that rediscovery makes disposal unattractive.
 
-The theory is intentionally falsifiable. Forced reset may reduce engineering quality. Reconstruction may become expensive as repositories or dependency width grow. Important rationale may remain outside repository state. Tiered execution may add more coordination cost than it saves. Security separation may introduce new confused-deputy risks. Any of these outcomes should narrow or reject the corresponding claim rather than be explained away after measurement.
+The revised paper removes the unobservable KL-divergence formalism, demotes the quadratic context model to a naive full-history stress case, replaces additive speculative economics with observable resource accounting, demotes RRI to a descriptive metric, and separates tiered execution from the primary P0 intervention. It strengthens fail-closed history isolation, task-leakage controls, hidden-verifier freezing, canonical workspace rematerialisation, no-human-rescue rules, and subject/task selection discipline.
 
 The central systems principle remains:
-
 \begin{quote}
 \textbf{Persist authoritative state. Reconstruct computation.}
 \end{quote}
 
-Controlled empirical evaluation is not yet available. P0 has not been executed. The next step is an independent audit of the foundation and paper, followed by corpus selection and preregistration if the design survives that review.
+But this is now a hypothesis about a boundary condition in software-engineering agent lifecycles, not a claim that repositories eliminate memory cost.
+
+Controlled empirical evaluation is still absent. P0 may proceed as a methodology pilot only after its corpus, preregistration, and isolation gates are frozen. A successful P0 can provide supportive pilot evidence; it cannot prove RaS.

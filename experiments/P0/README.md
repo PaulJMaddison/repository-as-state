@@ -1,33 +1,62 @@
-# P0 — Forced-State-Reset Pilot
+# P0 — Forced-State-Reset Methodology Pilot
 
-**Status: NOT EXECUTED.**
+**Status: NOT EXECUTED.**  
+**Ready to execute: NO.**  
+**Audit decision: GO_WITH_REQUIRED_PROTOCOL_CHANGES.**
 
-P0 is the initial pilot for evaluating whether sequential software-engineering work can continue correctly after complete conversational-state reset.
+P0 evaluates whether dependent software-engineering work can continue after predecessor high-capability reasoning-session history is removed **at validated accepted engineering boundaries**.
 
-The likely P0 subject is a private proprietary software system, but this public repository contains no proprietary source, private diff, hidden verifier implementation or private model trace. P0 must be prepared so that private subject or evidence remains private and only sanitised aggregate evidence crosses the publication boundary.
+P0 is a methodology pilot / initial case study. It cannot establish general superiority or population-level non-inferiority.
 
-## Pilot objectives
+## Primary comparison
 
-1. Exercise the forced-reset protocol end to end.
-2. Validate task packaging and state-reset enforcement.
-3. Validate hidden-verifier independence.
-4. Measure reconstruction telemetry, including RTF.
-5. Estimate variance and failure modes for later power analysis.
-6. Test whether the public or private evidence pipeline is adequate.
+### A — Persistent-history control
+- same canonical accepted project state;
+- same current task;
+- predecessor reasoning-session history available.
 
-## Reset rule
+### B — Forced reset
+- same canonical accepted project state;
+- same current task;
+- fresh reasoning session;
+- no predecessor conversation/summary/resume/copied reconstruction/account-session memory.
 
-Between eligible sequential tasks in reset conditions:
+The model/configuration, tools, executor, environment, network policy and hidden verifier must otherwise be matched.
 
-- terminate the reasoning session;
-- do not use resume;
-- do not provide prior conversation;
-- do not provide an external session summary;
-- do not copy hidden memory;
-- provide only the allowed repository snapshot plus the current task.
+Condition C is optional exploratory semantic-state ablation.
 
-## Evidence
+Tiered execution D is deferred because it would change executor capability while P0 is trying to isolate reasoning-history persistence.
 
-Raw private evidence stays outside this repository. Public P0 outputs, if approved for release, should contain protocol version, task IDs, condition labels, depth, aggregate success or failure, sanitised verifier outcome, reconstruction telemetry, timing, model or runtime metadata, intervention flags and hashes of publication-safe artefacts.
+## Mandatory readiness gate
 
-Use protocol-template.yaml and preregistration-template.yaml as starting points. They intentionally contain no results.
+Before P0, complete:
+
+[readiness-checklist.md](readiness-checklist.md)
+
+The critical gates are:
+
+1. canonical workspace rematerialisation for both A and B;
+2. controllable provider/session memory;
+3. FUTURE_HISTORY_LEAK_GATE;
+4. post-cutoff task-leakage audit;
+5. frozen corpus and task hashes;
+6. frozen hidden-verifier versions/hashes outside workspace;
+7. frozen reconstruction-probe rubric;
+8. frozen timeout/retry/failure/rerun rules;
+9. no human rescue;
+10. preregistration committed before outcomes.
+
+## Public/private boundary
+
+The likely subject is a private proprietary software system. This public repository contains no proprietary subject source, private diff, hidden verifier implementation or source-bearing model trace.
+
+Raw private evidence remains outside this repository. Public outputs may contain sanitised protocol metadata, task identifiers, aggregate outcomes, resource telemetry and publication-safe hashes.
+
+## Allowed P0 conclusions
+
+- METHODOLOGY FAILURE
+- EVIDENCE AGAINST RaS
+- MIXED / CONDITIONAL PILOT EVIDENCE
+- SUPPORTIVE PILOT EVIDENCE
+
+P0 may not conclude **PROVEN**.

@@ -1,51 +1,40 @@
 \section{The Agent Continuity Problem}
 \label{sec:continuity-problem}
 
-Long-running software-engineering work is path dependent. A task performed today may depend on an architectural decision made weeks earlier, a regression discovered in a previous branch, an interface guarantee encoded by another module, a deployment assumption, or a rejected approach whose failure was expensive to understand. A future actor must recover enough of that state to continue correctly.
+Long-running software-engineering work is path dependent. A later task may depend on an earlier architectural decision, interface, regression test, migration, or failure mode. A future actor must recover enough relevant state to continue correctly.
 
-Agentic engineering systems can accumulate many forms of transient state: conversational history, tool observations, repository exploration, build results, hypotheses, rejected approaches, architectural decisions, environment state, retry history, model outputs, and task progress. Conventional long-running agents may preserve some combination of persistent conversation, compacted context, summaries, episodic memory, working memory, server-side state, execution sandboxes, cached prompts, and persistent tool or session state.
+Agentic systems can accumulate conversational history, tool observations, repository exploration, build results, hypotheses, rejected approaches, environment state, retry history, model outputs, and task progress. Persistent systems may preserve conversation, compacted context, summaries, episodic memory, working memory, server-side state, cached prompts, or persistent tool sessions. These mechanisms can be useful and are not claimed to be unnecessary.
 
-These mechanisms can be valuable. Memory systems such as MemGPT explicitly manage information across memory tiers to extend effective interaction beyond one context window \citep{packer2023memgpt}. Recent surveys describe increasingly sophisticated agent-memory mechanisms spanning storage, reflection, abstraction, retrieval, and policy-controlled management \citep{du2026memory,luo2026memory}. RaS does not claim that such mechanisms are universally unnecessary or inferior.
+Memory systems such as MemGPT manage information across tiers \citep{packer2023memgpt}; current surveys cover a broad family of persistent and retrieved agent memories \citep{du2026memory,luo2026memory}. Repository-specific memory work also uses commit history and Git-bound session artefacts \citep{wang2025repomemory,guo2026gitmemory}. The RaS question is therefore not whether memory exists, but where the \emph{marginal continuity value} lies after an engineering transition has been accepted.
 
-The narrower question is:
-
-\begin{quote}
-\textbf{How much of software-engineering continuity can instead be recovered from authoritative domain-native state?}
-\end{quote}
-
-Software engineering is unusual because its domain-native state is rich and executable. Relevant artefacts can include:
+Software engineering is an unusually favourable domain because project state can include:
 \begin{itemize}
-    \item source code and generated interfaces;
-    \item tests and hidden behavioural contracts;
+    \item source and generated interfaces;
+    \item tests and behavioural constraints;
     \item Git history and accepted diffs;
-    \item configuration and toolchain definitions;
-    \item schemas, migrations, and compatibility declarations;
-    \item architecture decisions and security boundaries;
-    \item product or behavioural documentation;
-    \item CI evidence and reproducible build information.
+    \item configuration/toolchain definitions;
+    \item schemas and migrations;
+    \item architecture/security records;
+    \item product/behavioural documentation;
+    \item CI/build evidence.
 \end{itemize}
 
-Let $H_t$ denote accumulated interaction history, $R_t$ durable repository state, $U_t$ the current task, and $S$ a successful engineering outcome. A persistent architecture can condition on:
-\begin{equation}
-P(S\mid H_t,R_t,U_t).
-\end{equation}
-The RaS continuity hypothesis asks whether, for a useful class of long-horizon engineering tasks,
+Let $H_t$ denote \emph{predecessor reasoning-session history not already represented as allowed project state}, $R_t$ the accepted project/repository state, $U_t$ the next task, and $S$ verifier-defined success. Conceptually, the continuity hypothesis asks whether:
 \begin{equation}
 P(S\mid R_t,U_t)
 \approx
-P(S\mid H_t,R_t,U_t).
+P(S\mid H_t,R_t,U_t)
 \label{eq:continuity}
 \end{equation}
+over a declared task/model/environment population.
 
-Equation~\ref{eq:continuity} is an empirical target, not an asserted identity. If removal of $H_t$ materially reduces success after controlling for model, repository state, task, and execution resources, then repository state is not sufficiently carrying continuity for the tested workflow.
+This is not the P0 estimator. Section~\ref{sec:sufficiency} defines the observable matched A/B target. The equation only states what marginal information $H_t$ is supposed to represent.
 
-The hypothesis is plausible because accepted engineering work is routinely reified. Requirements become interfaces and tests. Architectural choices become module boundaries and decision records. Bugs become fixes and regressions tests. Dependency assumptions become lockfiles and compatibility checks. This conversion means that a repository can preserve consequences of earlier reasoning even when it does not preserve the reasoning trace.
+The hypothesis is plausible because engineering decisions are routinely reified, but that practice is not novel and does not prove sufficiency. Important rationale can remain outside the repository; documentation can be stale; tests can be incomplete; external systems can contain authoritative runtime facts. A repository may be excellent at preserving one task's constraints and poor at another's.
 
-Yet important information can remain outside the repository. A conversation may carry stakeholder nuance, an operational caveat, or knowledge that an apparently reasonable alternative was rejected for a subtle reason. Documentation may be stale. Tests may encode only happy paths. Build state may depend on local conditions. External systems may be authoritative for runtime facts. RaS therefore cannot equate “version controlled” with “sufficient”.
-
-There is also an authority problem. Conversation history contains plans, guesses, abandoned hypotheses, and stale observations. Repository artefacts can also be wrong, but many are closer to the engineered object and can be independently checked. A compiler can reject a state. A test can demonstrate a violated invariant. A schema can constrain an interface. A commit can be reviewed. This motivates the systems principle:
+Conversation history also contains guesses, abandoned hypotheses, and stale observations. Repository artefacts can likewise be wrong, but many can be independently checked by compilers, tests, schemas, build systems, and behavioural verification. This motivates the research principle:
 \begin{quote}
 \textbf{Persist authoritative state. Reconstruct computation.}
 \end{quote}
 
-The principle is intentionally limited at this stage to software engineering. Whether analogous authoritative domain state can support disposable reasoning in other domains is future work.
+The principle is a hypothesis about engineering lifecycle boundaries, not a general law of agents.

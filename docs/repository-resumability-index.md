@@ -1,18 +1,25 @@
 # Repository Resumability Index (RRI)
 
-RRI is a **proposed** research metric:
+RRI is a **proposed descriptive metric**, not a causal estimator and not an established standard:
 
     RRI =
-      successful correct continuations after complete agent-state reset
-      ---------------------------------------------------------------
-                           eligible forced resets
+      verified successful continuations after eligible forced resets
+      -------------------------------------------------------------
+                         eligible forced resets
 
-Conceptually:
+An eligible reset requires:
+- correct canonical starting state;
+- successful reset and contamination gates;
+- declared task/model/tool/environment availability;
+- no preregistered infrastructure failure before a valid agent test.
 
-    RRI = P(correct continuation | complete conversational-state reset).
+A successful continuation requires the frozen behavioural verifier to pass.
 
-RRI may be measured at sequential depth RRI_1, RRI_2, ..., RRI_n to detect degradation as the engineering programme progresses.
+Report:
+- RRI by task/depth;
+- repository/task identifiers;
+- uncertainty only when repeated observations justify it;
+- infrastructure failures separately;
+- **complete-sequence success** for dependent task chains.
 
-A “successful correct continuation” must be defined before the experiment and should require task completion plus hidden behavioural verification or another independent acceptance criterion. Mere compilation, textual similarity, or agent self-report is insufficient.
-
-Ineligible resets, exclusions and human interventions must be pre-registered and reported. RRI is not an established benchmark metric and should not be presented as one.
+Easy tasks can inflate aggregate RRI. RRI also mixes reconstruction and implementation ability. The primary causal evidence is the matched A/B comparison; the reconstruction probe provides mechanism evidence.

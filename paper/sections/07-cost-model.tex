@@ -1,148 +1,95 @@
 \section{Context Growth, Reconstruction Cost, and State Economics}
 \label{sec:cost}
 
-RaS has an economic motivation, but its central intellectual claim is continuity placement rather than a specific price forecast. A provider-neutral model is therefore preferable to assumptions about internal GPU scheduling, proprietary caches, margins, or subscription economics.
+RaS has an economic motivation, but paper v0.1 does not have evidence for monetary savings. The hostile audit therefore separates a theoretical stress model, observable resource accounting, and unobservable provider-internal economics.
 
-\subsection{A simple cumulative-context model}
+\subsection{Full-history replay is a stress model, not the persistent-agent baseline}
 
-Let $B$ be fixed base context, $g$ the average number of new historical tokens introduced per sequential interaction, and $n$ the number of reasoning steps. Under a naive full-history replay model, the input presented at step $i$ is
+Let $B$ be fixed base context, $g$ the average number of new historical tokens added per step, and $n$ sequential reasoning steps. Under \emph{naive full-history replay}, step $i$ receives:
 \begin{equation}
-T_i = B + g(i-1).
+T_i=B+g(i-1),
 \end{equation}
-The cumulative supplied context is
+so cumulative supplied input is:
 \begin{align}
-T_{\mathrm{persistent}}(n)
-&=
-\sum_{i=1}^{n}[B+g(i-1)] \\
-&=
-nB + \frac{gn(n-1)}{2}.
-\label{eq:persistent-context}
+T_{\mathrm{full}}(n)
+&=\sum_{i=1}^{n}[B+g(i-1)] \\
+&=nB+\frac{gn(n-1)}{2}
+\in\Theta(n^2)
 \end{align}
-For fixed $g>0$,
-\begin{equation}
-T_{\mathrm{persistent}}(n)\in\Theta(n^2).
-\end{equation}
+for fixed $g>0$.
 
-Now let $K_i$ be the repository/task context reconstructed for RaS step $i$. If
+This is correct algebra but a weak empirical baseline. Modern agents may use prefix caching, context windows, compaction, summaries, retrieval, selective history, server-side state, or other mechanisms. Let $h_i^*$ be the effective historical input supplied to a persistent reasoner after such management. Then:
 \begin{equation}
-K_i \le K
+T_{\mathrm{persistent}}(n)=\sum_{i=1}^{n}(B+h_i^*).
+\label{eq:persistent-general}
 \end{equation}
-for bounded $K$, then
-\begin{equation}
-T_{\mathrm{RaS}}(n)
-=
-\sum_{i=1}^{n}K_i
-\le nK,
-\end{equation}
-and, given a non-degenerate lower bound, cumulative supplied context is $\Theta(n)$.
+If $h_i^*$ is bounded, persistent cumulative supplied input is also linear in $n$. Consequently, \textbf{there is no general asymptotic RaS advantage over a well-managed persistent agent}. The quadratic curve is retained only as a theoretical full-replay stress case.
 
-Figure~\ref{fig:context-growth} illustrates only these mathematical assumptions.
+For RaS, let $K_i$ be reconstructed repository/task input:
+\begin{equation}
+T_{\mathrm{RaS}}(n)=\sum_{i=1}^{n}K_i.
+\end{equation}
+The original bounded assumption $K_i\le K$ is also only a stress model. A more realistic reconstruction size is:
+\begin{equation}
+K_i=f(|R_i|,L_i,D_i,Q_i^{\mathrm{doc}},Q_i^{\mathrm{test}},Q_i^{\mathrm{arch}},Q_i^{\mathrm{retrieval}}),
+\label{eq:realistic-k}
+\end{equation}
+where repository size, task locality, dependency width, and documentation/test/architecture/retrieval quality can all affect rediscovery.
+
+Figure~\ref{fig:context-growth} therefore illustrates two conditional mathematical shapes, not an empirical comparison of deployed agents.
 
 \begin{figure}[htbp]
 \centering
 \input{figures/context-growth}
-\caption{Conceptual cumulative-context growth under the stated models. The curves are illustrative mathematical shapes, not measured agent or provider costs.}
+\caption{THEORETICAL / ILLUSTRATIVE --- NOT EMPIRICAL DATA. Quadratic growth is the naive full-history replay stress case; bounded reconstruction is a conditional RaS stress case. Persistent agents with bounded effective history can also have linear cumulative supplied input.}
 \label{fig:context-growth}
 \end{figure}
 
-This result must not be confused with a claim that commercial persistent agents universally have quadratic monetary cost. Real systems can use prompt-prefix caching, compaction, summarisation, context pruning, retrieval, server-side state, and changing provider architectures. Agent interfaces can also avoid replaying observations that are no longer useful. The theorem concerns cumulative information supplied under a specified naive replay model.
+\subsection{Rediscovery is allowed to defeat RaS}
 
-The bounded-$K$ assumption is equally important and potentially false. A more realistic model is:
-\begin{equation}
-K_i =
-f(
-|R_i|,
-L_i,
-D_i,
-Q^{\mathrm{doc}}_i,
-Q^{\mathrm{test}}_i,
-Q^{\mathrm{arch}}_i,
-Q^{\mathrm{retrieval}}_i
-),
-\label{eq:realistic-k}
-\end{equation}
-where $|R_i|$ is repository scale, $L_i$ task locality, $D_i$ dependency width, and the $Q$ terms represent documentation, test, architecture, and retrieval quality. The empirical question is not whether $K_i$ is literally constant. It is whether $K_i$ grows slowly enough, and with sufficiently high reconstruction fidelity, for externalised continuity to remain useful.
+Handoff Debt provides direct evidence that repository-only successor agents can pay substantial rediscovery cost after interrupted tasks \citep{kc2026handoff}. RaS does not explain this away: if the same effect remains large after \emph{accepted} transition boundaries, it weakens the practical thesis.
 
-\subsection{Reconstruction cost as a falsification route}
-
-The strongest obvious objection is that RaS merely moves cost from persistent context into repeated repository rediscovery. This is legitimate. RaS therefore defines reconstruction cost $C_{\mathrm{reconstruction}}$ as a first-class outcome rather than an implementation detail.
-
-Future experiments should measure, where available:
+Future experiments should capture:
 \begin{itemize}
-    \item input tokens attributable to reconstruction;
-    \item files and bytes read;
-    \item repository and symbol searches;
-    \item history and dependency-navigation operations;
-    \item tool calls and model calls;
-    \item elapsed reconstruction time;
-    \item cached versus uncached context;
-    \item retries caused by incomplete or incorrect reconstruction.
+    \item reconstruction-attributed input tokens;
+    \item repository bytes and number of files inspected;
+    \item repository, symbol, dependency, and history searches;
+    \item model and tool calls;
+    \item reconstruction elapsed time and total task elapsed time;
+    \item observable cache hits/misses or cached/uncached tokens;
+    \item retries and escalations attributable to missing or incorrect reconstruction.
 \end{itemize}
 
-We propose the \emph{Reconstruction Token Fraction}:
+The proposed Reconstruction Token Fraction remains descriptive:
 \begin{equation}
-\mathrm{RTF}
-=
-\frac{T_{\mathrm{reconstruction}}}
-{T_{\mathrm{RaS,input}}}.
+\mathrm{RTF}=
+\frac{T_{\mathrm{reconstruction,input}}}
+{T_{\mathrm{RaS,total~input}}}.
 \label{eq:rtf}
 \end{equation}
-RTF is meaningful only with a consistent classification rule. The boundary between “reconstruction” and “task reasoning” must be preregistered before outcomes are observed. Otherwise repository reading can be relabelled after the fact to make the architecture appear cheaper.
+RTF alone cannot establish efficiency: a low fraction can coexist with high total cost, and a high fraction can be acceptable if total outcome-normalised resource use is low. Report the numerator and denominator as well as the ratio.
 
-If reconstruction becomes excessively expensive as repositories grow, that weakens the RaS state-economics thesis even if forced-reset engineering success remains high.
+\subsection{Do not double-count conceptual cost components}
 
-\subsection{Provider-neutral cost decomposition}
-
-For a persistent coding agent:
-\begin{align}
-C_{\mathrm{persistent}}
-=&\ C_{\mathrm{reasoning}}
-+ C_{\mathrm{context/history}}
-+ C_{\mathrm{agent-state}} \nonumber\\
-&+ C_{\mathrm{execution}}
-+ C_{\mathrm{tooling}}
-+ C_{\mathrm{orchestration}}.
-\label{eq:cpersistent}
-\end{align}
-
-For RaS:
-\begin{align}
-C_{\mathrm{RaS}}
-=&\ C_{\mathrm{reconstruction}}
-+ C_{\mathrm{reasoning}}
-+ C_{\mathrm{shallow-execution}} \nonumber\\
-&+ C_{\mathrm{repository-state}}
-+ C_{\mathrm{orchestration,RaS}}.
-\label{eq:cras}
-\end{align}
-
-No component is assumed to be zero. The economic hypothesis is that for sufficiently long engineering programmes,
+The original additive equations risked treating reasoning, context, and agent-state cost as mutually exclusive even though provider billing and inference work can overlap those concepts. The audit replaces them with a measured resource vector:
 \begin{equation}
-C_{\mathrm{RaS}} < C_{\mathrm{persistent}}
+\mathbf{Z}_c=
+(T_{\mathrm{in}},T_{\mathrm{out}},N_{\mathrm{model}},N_{\mathrm{tool}},
+B_{\mathrm{repo-read}},N_{\mathrm{files}},t_{\mathrm{recon}},t_{\mathrm{total}},
+N_{\mathrm{retry}},C_{\mathrm{billed}})
+\label{eq:resource-vector}
 \end{equation}
-while
-\begin{equation}
-Q_{\mathrm{engineering,RaS}}
-\approx
-Q_{\mathrm{engineering,persistent}}.
-\end{equation}
-The second condition is essential. Lower nominal model usage is not a saving if regressions, retries, or failed tasks increase sufficiently.
+for condition $c$, with elements reported only where observable and with $C_{\mathrm{billed}}$ included only when exposed by the provider or metered service.
 
-Three categories must remain separate:
+\input{tables/cost-observability}
 
-\paragraph{Measured cost proxy.}
-Observable model tokens, provider-reported usage, calls, files read, searches, elapsed time, execution operations, retries, and session persistence.
+A monetary comparison may sum \emph{mutually exclusive metered charges} actually observed by the experiment. It must not add speculative “reasoning cost”, “KV-cache cost”, “GPU cost”, and subscription price as if those were independent measured quantities.
 
-\paragraph{Theoretical infrastructure implication.}
-A consequence derived from an explicit resource model, such as the possibility that lower persistent state per useful programme permits greater concurrency.
+Three categories remain:
+\begin{itemize}
+    \item \textbf{OBSERVABLE}: experiment-side tokens/calls/reads/times and provider-billed usage when exposed;
+    \item \textbf{PARTIALLY OBSERVABLE}: cache behaviour, retained session state, or provider-reported categories whose implementation is not transparent;
+    \item \textbf{UNOBSERVABLE}: internal GPU scheduling, exact KV-cache residency cost, storage amortisation, hidden cache implementation, and provider margin.
+\end{itemize}
 
-\paragraph{Unobservable provider-internal cost.}
-GPU allocation, exact KV-cache cost, storage amortisation, scheduler behaviour, internal cache hit rates not exposed to the user, and provider margin.
-
-The experiment cannot infer the third category from subscription pricing. Nor should a bundled chat product be described as “free inference”.
-
-Table~\ref{tab:persistent-vs-ras} summarises the architectural comparison.
-
-\input{tables/persistent-vs-ras}
-
-Long-context serving research provides evidence that inference-state management can materially affect throughput. PagedAttention, for example, addresses KV-cache fragmentation and sharing in LLM serving \citep{kwon2023vllm}. That result motivates care around state burden but does not establish RaS savings. The defensible RaS claim remains conditional: if less high-capability historical state must persist per useful engineering programme, fixed inference infrastructure may potentially support more useful concurrent work.
+LLM-serving research shows that KV-cache management and prefill/decode scheduling affect throughput \citep{kwon2023vllm,zhong2024distserve,qin2024mooncake}. It does \emph{not} justify inferring that closing a conversation releases a dedicated GPU allocation or that RaS yields a particular infrastructure saving. Infrastructure effects remain conditional implications requiring separate serving experiments.

@@ -1,21 +1,27 @@
-# Terminology
+# Terminology — hostile-audit revision
 
-**Repository-as-State (RaS):** the hypothesis and architecture in which durable software-engineering continuity is externalised into authoritative repository artefacts and reconstructed for fresh reasoning transactions.
+**Repository-as-State (RaS):** the hypothesis/architecture in which accepted software-project state is treated as the primary durable continuity substrate and predecessor high-capability reasoning-session history may be removed between accepted transitions.
 
-**Authoritative state:** durable, reviewable state whose contents govern the next engineering action. In RaS this is primarily repository state.
+**Authoritative project state:** the allowed durable project artefacts at an experimental cutoff: source, tests, schemas, build/configuration, documentation, architecture records and Git history as defined by protocol.
 
-**Reasoning transaction:** a bounded invocation of high-capability reasoning over current task plus reconstructed state, ending in a proposed and validated state transition.
+**Reasoning transaction:** a bounded reasoning episode over externally persisted project state that can end after a validated transition. Lifecycle analogy only; does not imply ACID semantics.
 
-**Reconstruction:** the process of selecting and supplying repository information needed for a reasoning transaction.
+**Disposable reasoning:** a reasoning process is disposable with respect to programme continuity when replacing it after an accepted transition does not materially impair the next correct continuation under matched durable state, task, model/configuration, tools and environment. Disposal may require recomputation.
 
-**Persistent monolithic agent:** a control condition in which a continuing high-capability session retains history and may reason, edit and test.
+**Persistent-history control (A):** condition retaining predecessor reasoning-session history while rematerialising canonical workspace/environment state.
 
-**Tiered execution:** separation of high-capability reasoning from a lower-cost, stateful or constrained execution worker.
+**Forced-reset condition (B):** fresh reasoning session with predecessor reasoning history absent while other declared causal inputs are matched.
 
-**Repository sufficiency:** the degree to which repository state preserves information needed for future correct engineering action after historical conversational state is removed.
+**Reconstruction:** selection and inspection of project information needed to understand the current task after reset.
 
-**RRI:** Repository Resumability Index, a proposed empirical metric for successful correct continuation after forced state reset.
+**Tiered execution:** a secondary architecture separating high-capability reasoning from a lower-cost/stateful/constrained execution worker. Not necessary for RaS and not primary P0.
 
-**RTF:** Reconstruction Token Fraction, reconstruction tokens divided by total RaS input tokens.
+**Repository sufficiency:** conditional behavioural adequacy of allowed project state for a declared task/model/environment/depth; not an intrinsic repository property.
 
-**Decision-relevant semantic state:** durable information required to choose or validate future correct actions, distinguished from lossless replay of historical reasoning.
+**RRI:** Repository Resumability Index, a descriptive proportion of eligible reset continuations that pass the behavioural verifier.
+
+**RTF:** Reconstruction Token Fraction, reconstruction-attributed input tokens divided by total forced-reset input tokens.
+
+**Decision-relevant semantic state:** durable information required for future correct action. The phrase describes a mechanism; persisting engineering decisions is not claimed as novel.
+
+**Agent-state scalability:** the architectural objective of increasing concurrent/long-horizon programmes without proportionally increasing persistent high-capability reasoning-session state requirements.
