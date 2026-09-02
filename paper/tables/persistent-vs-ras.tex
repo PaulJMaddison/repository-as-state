@@ -1,0 +1,18 @@
+\begin{table}[htbp]
+\centering
+\small
+\caption{Conceptual comparison of persistent-agent and RaS continuity architectures.}
+\label{tab:persistent-vs-ras}
+\begin{tabularx}{\textwidth}{@{}lX X@{}}
+\toprule
+Dimension & Persistent agent & Repository-as-State \\
+\midrule
+Primary continuity & Conversation/agent/session state plus repository & Durable repository state plus task-specific reconstruction \\
+Reasoner lifetime & Potentially long lived & Bounded transaction; may be destroyed after commit \\
+Historical context & Retained, compacted, cached, or summarised & Reconstructed selectively from authoritative state \\
+Failure recovery & Resume or restore agent/session state & Start fresh from accepted repository state \\
+Central cost risk & Persistent/history state growth & Repository reconstruction growth \\
+Primary empirical question & Does persistent history improve outcomes? & Can reset preserve outcomes at acceptable reconstruction cost? \\
+\bottomrule
+\end{tabularx}
+\end{table}

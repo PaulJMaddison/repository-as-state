@@ -7,6 +7,6 @@ authors:
     given-names: Paul
 repository-code: "https://github.com/PaulJMaddison/repository-as-state"
 license: Apache-2.0
-version: 0.1.0-draft
+version: 0.1.0
 date-released: 2026-09-02
-abstract: "Research artefacts for studying whether durable repository state can externalise software-engineering continuity from high-capability reasoning processes."
+abstract: "Independent research artefacts for studying whether durable repository state can externalise software-engineering continuity from high-capability reasoning processes."

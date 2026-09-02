@@ -1,47 +1,46 @@
 \section{Discussion}
 \label{sec:discussion}
 
-RaS changes the locus of persistence. Instead of asking how to keep a reasoning process alive indefinitely, it asks what durable artefacts allow a fresh process to act correctly. That difference has implications for agent design, infrastructure, human oversight, and the interpretation of “memory” in software engineering.
+RaS changes the locus of persistence. Instead of beginning with the goal of keeping an intelligent process alive indefinitely, it asks what durable engineering state allows a fresh process to act correctly. This inversion does not eliminate memory; it moves the research focus from preserving the agent's complete trajectory toward preserving and reconstructing authoritative consequences of engineering work.
 
-\subsection{Repository state as semantic compression}
+\subsection{Observed origin of the architecture}
 
-Engineering work routinely compresses large reasoning trajectories into smaller accepted artefacts. A debugging session can contain dozens of hypotheses and experiments, yet the durable consequence may be a five-line fix, one regression test, and a short design note. From a future-action perspective, this can be a desirable lossy compression: failed thoughts need not be replayed if the accepted state preserves the constraint that matters.
+The architecture was recognised after repeated practical software-engineering use rather than designed purely theoretically. The observed workflow involved human orchestration and problem selection, high-capability AI reasoning, detailed bounded engineering specifications, comparatively shallow local execution agents, deterministic build/test/runtime evidence, repository persistence, and later fresh reasoning sessions reconstructing state.
 
-The important distinction is therefore between \emph{lossless conversational memory} and \emph{decision-relevant semantic state}. RaS predicts that the latter may be enough for many software-engineering continuations. Semantic-state ablation tests which artefacts perform that compression well and where important rationale is lost.
+That origin is useful because it identifies a concrete systems pattern worth testing. It also creates a risk of confirmation bias: a workflow that felt effective can motivate hypotheses but cannot validate them. The claims register therefore classifies the origin as \textbf{OBSERVED}, not \textbf{EMPIRICAL}.
 
-\subsection{Human and AI capability profiles}
+\subsection{Decision-relevant state rather than transcript preservation}
 
-The motivating workflow was asymmetric rather than purely autonomous. Human and AI systems possess different capability profiles. Human contribution may include persistent goals, grounded experience, problem selection, taste, risk judgement, strategic pivots, and deciding what evidence matters. High-capability AI may contribute broad technical synthesis, formalisation, rapid generation, critique, mathematical modelling, and implementation support. Execution agents contribute comparatively cheap or local machine interaction. Deterministic systems contribute compilation, tests, and measurements.
+Engineering work often compresses a large reasoning trajectory into a smaller durable result. A debugging session can contain many hypotheses and failed attempts, while the durable consequence may be a fix, regression test, schema change, and concise design note. RaS predicts that future action often needs these consequences more than it needs the full transcript.
 
-A useful conceptual workflow is:
+This form of compression is intentionally lossy. The question is not whether history can be reproduced, but whether future correct action changes materially when history is removed. If important rationale disappears, forced reset should expose the loss. If all necessary constraints are present in durable state, preserving the transcript may add little marginal value.
+
+\subsection{Human and AI capability complementarity}
+
+The paper does not depend on a philosophical claim that humans are “real intelligence” while AI systems only pattern match. A more useful framing is that humans and AI systems exhibit different capability profiles.
+
+Human strengths may include persistent personal goals, consequence-grounded experience, strategic problem selection, taste, risk judgement, cross-domain lived experience, and deciding which outcomes matter. High-capability AI may contribute broad technical synthesis, formalisation, rapid generation, multi-domain knowledge, mathematical manipulation, critique, and implementation leverage. Execution workers contribute machine interaction. Deterministic systems add executable truth checks.
+
+A useful workflow is therefore:
 \[
-\text{human proposes/orchestrates}
+\text{human orchestrates}
 \rightarrow
-\text{high-capability AI amplifies/reasons}
+\text{AI reasons/amplifies}
 \rightarrow
-\text{execution worker implements}
+\text{execution worker acts}
 \rightarrow
 \text{tests/data/reality adjudicate}.
 \]
-The final arbiter is external evidence. This is discussion and observed motivation, not the central empirical RaS result.
+The final arbiter is external evidence. This is a discussion of the observed architecture, not an empirical comparison of human and AI intelligence.
 
-\subsection{Fixed infrastructure and useful throughput}
+\subsection{When persistent agents may be better}
 
-If persistent reasoning-state burden per engineering programme can be reduced, fixed inference infrastructure may potentially support greater useful concurrency. Conceptually:
-\[
-\text{fixed infrastructure}
-+
-\text{lower persistent state requirement per programme}
-\rightarrow
-\text{potentially greater useful agent throughput}.
-\]
+RaS should not be interpreted as an argument that all agents should reset. Persistent agents may be superior when relevant state is inherently interpersonal, weakly represented in the repository, expensive to reconstruct, or continuously changing outside version control. They may also reduce latency for tightly coupled sequences where the next task begins immediately and history is small.
 
-This is an implication, not a measured result. Real serving throughput depends on model weights, KV-cache management, prompt sharing, batching, routing, hardware, request length, latency constraints, and provider architecture. Work such as vLLM demonstrates that KV-cache management materially affects serving throughput \citep{kwon2023vllm}, but it does not establish that RaS produces infrastructure savings.
+Hybrid designs are therefore plausible. A system might keep a reasoner alive within a bounded work package while using repository state as the recovery boundary between packages. It might persist selected semantic memories only when the retention principle in Section~\ref{sec:durable-docs} suggests future value. Or it might preserve a session while requiring that every accepted decision still be externalised so the project remains recoverable.
 
-The paper therefore makes no claim that datacentre constraints are solved, that a particular provider will save a given percentage, or that agent abundance follows on any specified timeline.
+\subsection{What a negative result would teach}
 
-\subsection{What failure would teach}
+If reset agents consistently fail despite good repository hygiene, that would identify information that repositories systematically fail to preserve. If success depends strongly on explicit state documents, the result may imply that source and tests alone are insufficient. If reconstruction cost grows with dependency width, better indexes or state compilers may be needed. If persistent history helps only for particular task classes, lifecycle routing may be more useful than universal statelessness.
 
-A negative RaS result would still be valuable. If fresh agents fail because key rationale lives outside repositories, that identifies a missing state representation problem. If success depends heavily on concise state documents, the result may suggest that explicit semantic manifests are more important than source history. If reconstruction cost grows with dependency width, future systems may need better repository indexing or task-specific state compilers. If persistent agents outperform reset agents only on certain task classes, hybrid lifecycle policies become a more credible target than universal statelessness.
-
-For that reason, the project should resist turning the architecture into a product claim before the experiments. The useful scientific question is not whether RaS can be made to look successful, but which engineering conditions make disposable reasoning viable.
+The scientific value of RaS therefore does not depend on a positive result. The research programme is useful if it reveals where engineering continuity actually resides and what it costs to reconstruct.

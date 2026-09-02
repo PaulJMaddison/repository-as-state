@@ -1,0 +1,18 @@
+\begin{tikzpicture}[
+node distance=4mm,
+repo/.style={draw,rounded corners,align=center,minimum width=8cm,minimum height=8mm},
+agent/.style={draw,dashed,rounded corners,align=center,minimum width=8cm,minimum height=8mm},
+arrow/.style={-{Latex[length=1.8mm]},thick}
+]
+\node[repo] (object) {Durable object / log state};
+\node[repo,below=of object] (serve) {Replaceable repository-serving compute};
+\node[repo,below=of serve] (eng) {Durable engineering repository state};
+\node[agent,below=of eng] (reason) {Replaceable high-capability reasoning};
+\node[agent,below=of reason] (exec) {Replaceable constrained execution workers};
+\draw[arrow] (object)--(serve);
+\draw[arrow] (serve)--(eng);
+\draw[arrow] (eng)--(reason);
+\draw[arrow] (reason)--(exec);
+\node[right=5mm of serve,align=left,font=\small] {repository-state\\scalability};
+\node[right=5mm of reason,align=left,font=\small] {agent-state\\scalability};
+\end{tikzpicture}

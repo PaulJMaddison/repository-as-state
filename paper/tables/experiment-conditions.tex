@@ -1,0 +1,16 @@
+\begin{table}[htbp]
+\centering
+\small
+\caption{Planned experimental conditions. P0 may focus on A/B/C before tiered execution D.}
+\label{tab:conditions}
+\begin{tabularx}{\textwidth}{@{}lX X@{}}
+\toprule
+Condition & Persistent information & Intervention \\
+\midrule
+A: Persistent monolithic & Repository + conversation/session history & No forced reset; same high-capability session continues \\
+B: RaS forced reset & Repository + current task only & Destroy session after each bounded task \\
+C: Semantic-state ablation & Ablated repository + current task & As B, with preregistered semantic carriers removed \\
+D: Tiered execution & Repository + fresh reasoning transaction & Separate constrained executor; reasoner re-enters on defined evidence \\
+\bottomrule
+\end{tabularx}
+\end{table}

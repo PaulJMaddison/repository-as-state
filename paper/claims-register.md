@@ -1,33 +1,49 @@
-# Claims register
+# Claims register — Paper v0.1
 
-This register is normative for claim discipline. A substantive statement must remain in its current category until evidence justifies a change.
+This register is normative for claim discipline. No positive Repository-as-State claim is currently classified as EMPIRICAL.
 
-| ID | Category | Claim | Current support / status |
-|---|---|---|---|
-| C01 | THEORETICAL | Under naive full-history replay with stable base context B and positive average history growth g, cumulative supplied context is nB + g n(n-1)/2 and therefore Theta(n^2). | Derived in paper Section 7 under explicit assumptions. |
-| C02 | THEORETICAL | If reconstructed task-relevant context K_i remains bounded by K, cumulative RaS supplied context is at most nK and therefore linear in n under a non-degenerate lower bound. | Derived in paper Section 7; bounded reconstruction is not yet empirically established. |
-| C03 | THEORETICAL | Tiered execution is cheaper in the simplified model when N_E(c_R-c_E) exceeds orchestration cost. | Algebraic consequence of the stated model; not a provider claim. |
-| C04 | OBSERVED | RaS was motivated by repeated practical workflows using high-capability reasoning, bounded execution, deterministic evidence and repository persistence. | Author observation; not controlled evidence. |
-| C05 | HYPOTHESIS | Repository state can preserve sufficient engineering continuity for fresh reasoning sessions after complete conversational-state reset. | Primary P0/P1 hypothesis; untested. |
-| C06 | HYPOTHESIS | Externalising continuity can reduce high-capability state/context burden per successful engineering outcome. | Requires reconstruction and outcome-normalised cost measurement. |
-| C07 | HYPOTHESIS | Tiered execution can reduce high-capability model utilisation without materially reducing engineering success. | Planned condition D; untested. |
-| C08 | HYPOTHESIS | Tests and other executable artefacts carry decision-relevant semantic state that improves resumability. | Mechanism proposed; requires ablation evidence. |
-| C09 | HYPOTHESIS | Reconstruction cost can remain bounded enough for RaS to retain a scaling advantage on useful classes of repository tasks. | Central falsifiable assumption; untested. |
-| C10 | IMPLICATION | Lower persistent reasoning-state burden may permit greater useful concurrency on fixed inference infrastructure. | Conditional systems implication only. |
-| C11 | IMPLICATION | Separating reasoner and executor can permit narrower operational privileges and blast radius. | Architectural implication; no security benchmark yet. |
-| C12 | EXTERNAL | SWE-bench evaluates real-world repository-level software-engineering issues. | Jimenez et al., arXiv:2310.06770. |
-| C13 | EXTERNAL | SWE-agent uses an agent-computer interface to let language models act on software repositories and environments. | Yang et al., NeurIPS 2024 / arXiv:2405.15793. |
-| C14 | EXTERNAL | OpenHands provides an open software-agent platform and later SDK with sandboxed and composable execution capabilities. | Wang et al. 2024 and 2025. |
-| C15 | EXTERNAL | Cursor Continuity persists repository pushes through a WAL in S3-compatible object storage and can materialise local repository state, providing repository-infrastructure precedent. | Cursor first-party article, 18 Aug 2026. It does not prove RaS. |
-| C16 | EXTERNAL | Repository-local Cursor rule files have been empirically observed to encode project context and engineering guidance. | Sun et al., arXiv:2608.10622. |
-| C17 | EMPIRICAL | Controlled RaS forced-reset experiments demonstrate repository sufficiency. | **NOT ESTABLISHED. No controlled results yet.** |
-| C18 | EMPIRICAL | RaS reduces measured cost relative to persistent agents. | **NOT ESTABLISHED. No controlled results yet.** |
-| C19 | EMPIRICAL | Tiered RaS execution preserves quality while reducing utilisation. | **NOT ESTABLISHED. No controlled results yet.** |
+| ID | Wording | Category | Manuscript location | Support | Current status | Evidence required to upgrade |
+|---|---|---|---|---|---|---|
+| C01 | Under naive full-history replay with fixed base context and positive average history growth, cumulative supplied context is quadratic in sequential steps. | THEORETICAL | Context Growth | Algebraic derivation from stated model. | Established only under assumptions. | No empirical upgrade required; measure how well assumptions describe real agents. |
+| C02 | If task reconstruction remains bounded, cumulative RaS supplied context is linear in sequential steps. | THEORETICAL | Context Growth | Bound on sum of reconstructed contexts. | Conditional on bounded reconstruction. | Measure reconstruction growth across depth/repository size. |
+| C03 | Real reconstruction size depends on repository scale, locality, dependency width, documentation/test/architecture quality and retrieval quality. | HYPOTHESIS | Context Growth | Systems model and identified variables. | Untested as quantitative model. | Multi-repository scaling experiment. |
+| C04 | RaS was motivated by repeated practical workflows combining high-capability reasoning, bounded execution, deterministic evidence and repository persistence. | OBSERVED | Introduction; Discussion | Author observation. | Motivation only. | Cannot become controlled evidence without prospective protocol. |
+| C05 | Repository state can preserve sufficient continuity for complex sequential software-engineering work after complete reasoning-state reset. | HYPOTHESIS | Agent Continuity; Repository Sufficiency | Central research hypothesis. | Untested. | Forced-reset A/B experiments with hidden verification. |
+| C06 | Full historical conversation has limited marginal value when decision-relevant engineering state has been durably externalised. | HYPOTHESIS | Externalising Continuity; Sufficiency | Consequence of C05. | Untested. | Controlled comparison with/without history. |
+| C07 | Repository-as-State is distinct from repository-as-prompt: durable state may be large while active reasoning context remains selective. | THEORETICAL | Repository-as-State | Architectural definition. | Definition/architecture. | Empirically test reconstruction selectivity and cost. |
+| C08 | Tests can carry executable decision-relevant semantic state across reasoning resets. | HYPOTHESIS | Tests and Durable Semantic State | Mechanism argument. | Untested causal contribution. | Semantic-state ablation and hidden verification. |
+| C09 | Architecture records and other durable documentation can preserve rationale not recoverable from code/tests alone. | HYPOTHESIS | Durable Documentation | Mechanism argument. | Untested causal contribution. | Documentation ablation and reconstruction probe. |
+| C10 | Selective semantic retention is preferable to preserving every reasoning transcript. | HYPOTHESIS | Durable Documentation | Retention-cost argument. | Design hypothesis. | Compare reconstruction quality/cost under retention policies. |
+| C11 | Reconstruction cost is a central falsification route for the RaS state-economics thesis. | THEORETICAL | Reconstruction Cost | Follows from cost decomposition. | Established as research design principle. | Measure actual reconstruction costs. |
+| C12 | The proposed Reconstruction Token Fraction measures reconstruction tokens as a share of total RaS input tokens. | THEORETICAL | Reconstruction Cost | Metric definition. | Proposed metric. | Validate usefulness/reliability across experiments. |
+| C13 | For sufficiently long programmes, RaS may use fewer measured high-capability state/context resources than a persistent agent while preserving quality. | HYPOTHESIS | State Economics | Provider-neutral model. | Untested. | Outcome-normalised A/B telemetry. |
+| C14 | Provider GPU allocation, exact KV-cache cost, infrastructure amortisation and provider margin are not directly observable from ordinary experiment telemetry. | EXTERNAL | State Economics | Limits of exposed interfaces; no provider-internal access assumed. | Methodological constraint. | Only provider-internal instrumentation could change this. |
+| C15 | Tiered execution is cheaper in the simplified model when N_E(c_R-c_E) exceeds orchestration overhead. | THEORETICAL | Tiered Execution | Algebraic derivation. | Established only under model assumptions. | Measure all terms and quality effects. |
+| C16 | Tiered execution can reduce high-capability model utilisation without materially reducing engineering quality. | HYPOTHESIS | Tiered Execution | Planned condition D. | Untested. | Controlled tiered-execution study. |
+| C17 | High-capability reasoning and operational privilege can be scoped independently. | THEORETICAL | Security | Architectural separation. | Architecturally feasible. | Security experiments needed for benefit claims. |
+| C18 | Separating reasoner and executor may reduce blast radius or trusted-computing-base exposure. | IMPLICATION | Security | Conditional least-privilege argument. | Not empirically demonstrated. | Adversarial security evaluation. |
+| C19 | Forced-State-Reset Evaluation directly intervenes on conversational continuity while preserving allowed repository state. | THEORETICAL | Experimental Method | Protocol definition. | Proposed methodology. | Demonstrate intervention integrity in P0. |
+| C20 | Future-history availability would invalidate a historical forced-reset experiment. | THEORETICAL | Experimental Method | Causal leakage argument. | Methodological requirement. | Harness proof that future SHAs/remotes are inaccessible. |
+| C21 | RRI estimates correct continuation frequency after eligible complete reasoning-state resets under a specified protocol. | THEORETICAL | Repository Resumability | Metric definition. | Proposed research metric. | Repeated experiments; reliability/uncertainty analysis. |
+| C22 | A structured state-reconstruction probe can separate state understanding from downstream engineering success without requesting chain-of-thought. | HYPOTHESIS | Repository Resumability | Measurement design. | Untested. | Validate rubric agreement and predictive value. |
+| C23 | SWE-bench, SWE-agent and OpenHands establish repository-level software-agent evaluation/execution foundations but do not test the RaS continuity intervention. | EXTERNAL | Related Work | Cited primary papers/platform sources. | Supported literature positioning. | Revise if prior work directly tests equivalent reset conditions. |
+| C24 | Agent-memory and context-engineering work studies persistent/selected context, while RaS asks how much historical interaction can disappear after authoritative state externalisation. | EXTERNAL | Related Work | MemGPT, memory surveys, context-engineering source. | Supported distinction, subject to literature audit. | Independent literature review. |
+| C25 | Durable Functions provides precedent for volatile compute over durable external execution state, but not evidence for RaS semantic reconstruction. | EXTERNAL | Transactional Reasoning; Related Work | OOPSLA 2021. | Supported precedent only. | No upgrade to RaS evidence without direct agent experiments. |
+| C26 | Cursor Continuity provides precedent for durable repository state with replaceable repository-serving compute. | EXTERNAL | Related Work; Scalability | Cursor first-party research article, 18 Aug 2026. | Supported precedent only. | Does not upgrade without RaS-specific experiments. |
+| C27 | Repository-state scalability and agent-state scalability are distinct systems problems. | THEORETICAL | Scalability | Layer separation argument. | Architectural distinction. | Empirical interaction can be studied later. |
+| C28 | Lower persistent high-capability state requirements may permit greater useful concurrency on fixed inference infrastructure. | IMPLICATION | Scalability; Discussion | Conditional systems implication; KV-cache literature motivates relevance. | Unmeasured. | Serving experiments with controlled workloads. |
+| C29 | A broader Authoritative-State Externalisation Principle may apply beyond software engineering. | HYPOTHESIS | Broader Principle | Conceptual generalisation. | Speculative future work. | Domain-specific controlled experiments. |
+| C30 | Controlled RaS forced-reset evaluation demonstrates repository sufficiency. | EMPIRICAL | Results | None. | **NOT ESTABLISHED.** | Valid completed P0/replication evidence. |
+| C31 | RaS reduces measured cost relative to persistent agents. | EMPIRICAL | Results | None. | **NOT ESTABLISHED.** | Outcome-normalised controlled telemetry. |
+| C32 | Tiered RaS execution preserves quality while reducing high-capability utilisation. | EMPIRICAL | Results | None. | **NOT ESTABLISHED.** | Controlled condition-D evidence. |
+| C33 | RaS improves security in practice. | EMPIRICAL | Results/Security | None. | **NOT ESTABLISHED.** | Adversarial security experiments. |
 
 ## Rules
 
-- Never upgrade HYPOTHESIS to EMPIRICAL because a practical workflow “worked”.
-- External system results support only the external statement actually made by the source.
-- Provider subscription prices are not evidence of provider-internal inference cost.
-- Illustrative mathematics must be labelled theoretical or “ILLUSTRATIVE EXAMPLE — NOT EMPIRICAL DATA”.
-- Any future EMPIRICAL claim must link to a versioned protocol, public-safe evidence, analysis code and exact repository revision.
+- THEORETICAL claims remain conditional on their stated assumptions.
+- OBSERVED motivation must never be cited as controlled validation.
+- EXTERNAL claims support only what the cited source actually establishes.
+- HYPOTHESIS and IMPLICATION claims must not be rewritten as findings.
+- Positive EMPIRICAL RaS claims require a versioned protocol, exact repository revision, publication-safe evidence, analysis code and documented exclusion rules.
+- Provider subscription pricing is not evidence of provider-internal inference cost.
+- Conceptual figures and equations are not empirical data.

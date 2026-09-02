@@ -1,0 +1,9 @@
+\begin{tikzpicture}[x=0.85cm,y=0.6cm]
+\draw[->] (0,0) -- (8.5,0) node[right]{sequential reasoning steps $n$};
+\draw[->] (0,0) -- (0,7.2) node[above,align=center]{cumulative\\supplied context};
+\draw[thick] plot[smooth] coordinates {(0,0) (1,0.45) (2,0.95) (3,1.55) (4,2.25) (5,3.1) (6,4.15) (7,5.45) (8,7)};
+\draw[thick,dashed] (0,0) -- (8,4.2);
+\node[align=left] at (5.8,6.2) {naive full-history model\\$\Theta(n^2)$};
+\node[align=left] at (6.0,3.0) {bounded reconstruction model\\$\Theta(n)$};
+\node[below,align=center] at (4,-0.8) {Conceptual only --- no measured data};
+\end{tikzpicture}

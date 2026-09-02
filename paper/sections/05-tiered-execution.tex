@@ -1,30 +1,30 @@
 \section{Tiered Execution}
 \label{sec:tiered}
 
-Software-engineering agents frequently combine two categories of work: high-level reasoning and machine interaction. The former includes architecture, decomposition, causal diagnosis, difficult debugging, review, interpretation, and planning. The latter includes file editing, compilation, test execution, formatting, Git operations, and constrained infrastructure interaction.
+RaS continuity and tiered execution are related but separable claims. The continuity hypothesis can be tested using the same high-capability model for reasoning and editing. Tiered execution introduces a second question: after high-capability reasoning has produced a bounded work package, can routine stateful execution be delegated to a lower-cost, local, or more constrained worker without materially reducing engineering quality?
 
-A monolithic design can perform both categories with the same high-capability model. RaS asks whether they can be separated. Let $N_R$ be the number of high-capability reasoning units and $N_E$ the number of execution units. If the high-capability resource has unit cost $c_R$, a simple monolithic model is
+The high-capability reasoner is best reserved, under the proposed architecture, for operations such as architecture, decomposition, difficult causal reasoning, complex debugging, review, difficult trade-off analysis, interpretation of evidence, and work-package creation. An execution worker may instead perform repository edits, compilation, test execution, formatting, linting, Git operations, local-environment interaction, and tightly constrained environment actions where permitted.
+
+\input{tables/reasoner-executor}
+
+Let $N_R$ be the number of high-capability reasoning operations, $N_E$ the number of execution operations, $c_R$ the average cost of a high-capability operation, $c_E$ the average cost of an execution operation, and $C_O$ orchestration overhead. A simplified monolithic model is:
 \begin{equation}
-C_{\mathrm{monolithic}} = (N_R + N_E)c_R.
+C_M=(N_R+N_E)c_R.
 \end{equation}
-If execution can instead use a lower-cost worker with unit cost $c_E$, plus orchestration overhead $C_O$,
+Tiered execution is:
 \begin{equation}
-C_{\mathrm{tiered}} = N_Rc_R + N_Ec_E + C_O.
+C_T=N_Rc_R+N_Ec_E+C_O.
 \end{equation}
-Under this theoretical model, tiering reduces cost when
+It is cheaper under this theoretical model when:
 \begin{equation}
-N_E(c_R-c_E) > C_O.
-\label{eq:tieredcondition}
+N_E(c_R-c_E)>C_O.
+\label{eq:tiered}
 \end{equation}
 
-Equation~\ref{eq:tieredcondition} is deliberately provider neutral. It does not assert any model price, inference cost, margin, or hardware utilisation. Real systems introduce further terms: retries, specification errors, executor failures, tool latency, model-call minimums, and the cost of escalating a failed execution back to a high-capability reasoner.
+Equation~\ref{eq:tiered} is theoretical. It does not assume that $c_E<c_R$ in all deployments, that execution quality is equivalent, or that orchestration is cheap. A nominally inexpensive executor can become more expensive in outcome-normalised terms if it repeatedly misunderstands the work package, introduces regressions, exhausts retries, or forces the high-capability reasoner to re-enter.
 
-Tiered execution can fail in at least four ways. First, the work package may be semantically incomplete. Second, the executor may lack the reasoning ability to recover from an unexpected repository state. Third, repeated execution failures may consume more resources than a monolithic agent. Fourth, coordination itself may increase latency and token use.
+Tiered execution can therefore fail through at least four mechanisms. First, the work package may omit a crucial semantic constraint. Second, the executor may lack enough capability to handle an unexpected repository state. Third, the executor may have insufficient tool access to reproduce the required evidence. Fourth, repeated hand-offs may create latency and context overhead larger than any saving.
 
-These failure modes make condition D an empirical question rather than an architectural preference. A useful experiment should compare outcome-normalised resource use, not just per-call price. A cheap executor that creates regressions or requires repeated high-capability intervention is not economically cheaper in the relevant sense.
+Condition D in the broader research programme evaluates this architecture. P0 may initially focus primarily on persistent control, forced reset, and semantic-state ablation because those conditions test the central continuity proposition more directly. Tiered execution should not be allowed to confound the first continuity result.
 
-Tiering also changes state placement. The execution worker may be stateful with respect to the local workspace and tools while the high-capability reasoner remains ephemeral between reasoning transactions. This is compatible with the central RaS proposition: the expensive reasoning process need not carry the programme's durable continuity.
-
-The design arose from practical workflows in which a human or high-capability model decomposed work and a comparatively shallow coding agent performed edits, builds, tests, and Git interaction. Again, this observed workflow is motivation only. Controlled evaluation must hold task definitions, repository state, and acceptance criteria constant while varying persistence and execution tier.
-
-If successful, tiering would imply that the most intelligent component need not be the component that performs the most operations. That separation is economically interesting, but it is equally important for security, discussed in Section~\ref{sec:security}.
+The architecture nevertheless matters because it highlights a systems principle: the component that performs the most sophisticated reasoning does not necessarily need to perform the most machine operations. If continuity is external, reasoning capability, execution state, and operational privilege can be independently scoped.

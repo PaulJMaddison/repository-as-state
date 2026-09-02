@@ -1,18 +1,20 @@
 \section{Conclusion}
 \label{sec:conclusion}
 
-Repository-as-State asks a narrow but consequential question: must durable software-engineering continuity live inside a persistent high-capability reasoning process?
+Repository-as-State asks a narrow systems question with potentially broad consequences for software-engineering agents: must durable engineering continuity live inside a persistent high-capability reasoning process?
 
-The proposed alternative is to persist authoritative engineering state in the repository, reconstruct only the task-relevant subset for each transaction, use high-capability reasoning when needed, delegate bounded execution where appropriate, validate the resulting state transition with external evidence, and then allow the reasoning process to disappear.
+The proposed alternative is to make the software project the persistent object. Durable repository state $R_t$ and current task $U_t$ are transformed by a bounded reconstruction function into the active reasoning view. High-capability reasoning proposes a transition. A stateful or constrained executor may implement it. Compilers, tests, runtime observations, and behavioural verification adjudicate the candidate. Only an accepted state becomes $R_{t+1}$. The high-capability reasoning process may then disappear.
 
-This paper formalises that architecture rather than claiming it has already been proved. It introduces approximate repository sufficiency, the proposed Repository Resumability Index, a provider-neutral state-economics model, a context-scaling model under explicit assumptions, tiered-execution conditions, and a forced-state-reset experimental design. It also places reconstruction cost at the centre of falsification: if rediscovery becomes too expensive or reset engineering success degrades materially, the strong RaS claim is not supported.
+RaS therefore does not primarily attempt to make high-quality reasoning cheap. It attempts to make high-quality reasoning disposable while preserving the engineering programme.
 
-The systems principle is simple:
+Paper v0.1 formalises that proposition through approximate repository sufficiency, a cumulative-context model under explicit assumptions, a provider-neutral cost decomposition, reconstruction cost and RTF, transactional reasoning, tiered execution, durable semantic state, selective documentation, least privilege, Forced-State-Reset Evaluation, the proposed Repository Resumability Index, and a separate state-reconstruction probe. It distinguishes repository-state scalability from agent-state scalability and places broader authoritative-state externalisation explicitly in future work.
+
+The theory is intentionally falsifiable. Forced reset may reduce engineering quality. Reconstruction may become expensive as repositories or dependency width grow. Important rationale may remain outside repository state. Tiered execution may add more coordination cost than it saves. Security separation may introduce new confused-deputy risks. Any of these outcomes should narrow or reject the corresponding claim rather than be explained away after measurement.
+
+The central systems principle remains:
 
 \begin{quote}
 \textbf{Persist authoritative state. Reconstruct computation.}
 \end{quote}
 
-For software engineering, the repository is a plausible substrate because it already contains executable and versioned consequences of prior reasoning. Whether it is sufficient in practice, which artefacts carry the continuity, and whether disposable reasoning improves outcome-normalised resource use are empirical questions.
-
-Controlled evidence is not yet available. The next research step is P0 corpus selection and preregistration followed by the Forced-State-Reset Pilot.
+Controlled empirical evaluation is not yet available. P0 has not been executed. The next step is an independent audit of the foundation and paper, followed by corpus selection and preregistration if the design survives that review.

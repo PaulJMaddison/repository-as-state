@@ -1,99 +1,148 @@
-\section{State Economics and Context Scaling}
+\section{Context Growth, Reconstruction Cost, and State Economics}
 \label{sec:cost}
 
-RaS is partly motivated by a resource-placement hypothesis: durable continuity may be cheaper to persist in repository infrastructure than in repeatedly supplied high-capability model state. This claim requires careful separation between observable resource proxies and provider-internal economics.
+RaS has an economic motivation, but its central intellectual claim is continuity placement rather than a specific price forecast. A provider-neutral model is therefore preferable to assumptions about internal GPU scheduling, proprietary caches, margins, or subscription economics.
 
-\subsection{Provider-neutral cost decomposition}
+\subsection{A simple cumulative-context model}
 
-For a conventional persistent coding agent, define
+Let $B$ be fixed base context, $g$ the average number of new historical tokens introduced per sequential interaction, and $n$ the number of reasoning steps. Under a naive full-history replay model, the input presented at step $i$ is
 \begin{equation}
-C_{\mathrm{persistent}}
-=
-C_{\mathrm{reasoning}}
-+
-C_{\mathrm{context/history}}
-+
-C_{\mathrm{agent-state}}
-+
-C_{\mathrm{execution}}
-+
-C_{\mathrm{tools}}
-+
-C_{\mathrm{orchestration}}.
+T_i = B + g(i-1).
 \end{equation}
-For RaS, define
-\begin{equation}
-C_{\mathrm{RaS}}
-=
-C_{\mathrm{reconstruction}}
-+
-C_{\mathrm{reasoning}}
-+
-C_{\mathrm{shallow-execution}}
-+
-C_{\mathrm{repository-state}}.
-\end{equation}
-The empirical economic question is whether
-\begin{equation}
-C_{\mathrm{RaS}} < C_{\mathrm{persistent}}
-\end{equation}
-for sufficiently long engineering programmes while outcome quality remains comparable.
-
-The terms need not all be monetary. Experiments should report measured proxies such as input and output tokens, cached and uncached tokens where available, files read, tool calls, model calls, elapsed time, execution time, retry count, and provider-billed usage where exposed. These should be distinguished from theoretical infrastructure implications and from unobservable provider-internal cost. Subscription price is not a valid estimator of provider inference margin, and a chat product should not be treated as providing zero-cost inference.
-
-\subsection{Context-scaling model}
-
-Assume a persistent process has stable base context $B$, average historical interaction growth $g$ per sequential reasoning step, and $n$ steps. Under naive full-history replay, cumulative supplied context is
+The cumulative supplied context is
 \begin{align}
 T_{\mathrm{persistent}}(n)
 &=
-\sum_{i=1}^{n}\left[B+g(i-1)\right] \\
+\sum_{i=1}^{n}[B+g(i-1)] \\
 &=
-nB+\frac{gn(n-1)}{2}.
+nB + \frac{gn(n-1)}{2}.
+\label{eq:persistent-context}
 \end{align}
-For fixed $g>0$, cumulative supplied information is therefore
+For fixed $g>0$,
 \begin{equation}
 T_{\mathrm{persistent}}(n)\in\Theta(n^2).
 \end{equation}
 
-Now let $K_i$ be the task-relevant reconstructed context used by RaS at step $i$. If
+Now let $K_i$ be the repository/task context reconstructed for RaS step $i$. If
 \begin{equation}
-K_i \leq K \quad \forall i,
+K_i \le K
 \end{equation}
-then
+for bounded $K$, then
 \begin{equation}
 T_{\mathrm{RaS}}(n)
 =
 \sum_{i=1}^{n}K_i
-\leq nK,
+\le nK,
 \end{equation}
-and under a non-degenerate lower bound the cumulative information supplied is $\Theta(n)$.
+and, given a non-degenerate lower bound, cumulative supplied context is $\Theta(n)$.
 
-This is a theorem about the stated information-supply models, not a claim about commercial coding agents. Real systems can use prompt caching, summarisation, compaction, retrieval, hierarchical memory, or provider-side state management. Long-context serving systems also employ specialised memory management such as PagedAttention \citep{kwon2023vllm}. These mechanisms can materially alter realised compute and billing.
+Figure~\ref{fig:context-growth} illustrates only these mathematical assumptions.
 
-More importantly, the RaS linear result depends on the bounded-reconstruction assumption. That assumption may fail.
+\begin{figure}[htbp]
+\centering
+\input{figures/context-growth}
+\caption{Conceptual cumulative-context growth under the stated models. The curves are illustrative mathematical shapes, not measured agent or provider costs.}
+\label{fig:context-growth}
+\end{figure}
 
-\subsection{Reconstruction as a falsification condition}
+This result must not be confused with a claim that commercial persistent agents universally have quadratic monetary cost. Real systems can use prompt-prefix caching, compaction, summarisation, context pruning, retrieval, server-side state, and changing provider architectures. Agent interfaces can also avoid replaying observations that are no longer useful. The theorem concerns cumulative information supplied under a specified naive replay model.
 
-The strongest criticism of RaS is that it shifts cost from conversation replay to repository rediscovery. We therefore define reconstruction cost $C_{\mathrm{reconstruction}}$ as a first-class measured quantity. Where instrumentation permits, it includes:
+The bounded-$K$ assumption is equally important and potentially false. A more realistic model is:
+\begin{equation}
+K_i =
+f(
+|R_i|,
+L_i,
+D_i,
+Q^{\mathrm{doc}}_i,
+Q^{\mathrm{test}}_i,
+Q^{\mathrm{arch}}_i,
+Q^{\mathrm{retrieval}}_i
+),
+\label{eq:realistic-k}
+\end{equation}
+where $|R_i|$ is repository scale, $L_i$ task locality, $D_i$ dependency width, and the $Q$ terms represent documentation, test, architecture, and retrieval quality. The empirical question is not whether $K_i$ is literally constant. It is whether $K_i$ grows slowly enough, and with sufficiently high reconstruction fidelity, for externalised continuity to remain useful.
+
+\subsection{Reconstruction cost as a falsification route}
+
+The strongest obvious objection is that RaS merely moves cost from persistent context into repeated repository rediscovery. This is legitimate. RaS therefore defines reconstruction cost $C_{\mathrm{reconstruction}}$ as a first-class outcome rather than an implementation detail.
+
+Future experiments should measure, where available:
 \begin{itemize}
-    \item reconstruction input tokens;
+    \item input tokens attributable to reconstruction;
     \item files and bytes read;
-    \item search or symbol-navigation calls;
-    \item model calls made before task reasoning begins;
+    \item repository and symbol searches;
+    \item history and dependency-navigation operations;
+    \item tool calls and model calls;
     \item elapsed reconstruction time;
-    \item cached and uncached context;
-    \item retries caused by incomplete reconstruction.
+    \item cached versus uncached context;
+    \item retries caused by incomplete or incorrect reconstruction.
 \end{itemize}
 
-We additionally define Reconstruction Token Fraction:
+We propose the \emph{Reconstruction Token Fraction}:
 \begin{equation}
 \mathrm{RTF}
 =
-\frac{\text{Reconstruction Tokens}}
-{\text{Total RaS Input Tokens}}.
+\frac{T_{\mathrm{reconstruction}}}
+{T_{\mathrm{RaS,input}}}.
+\label{eq:rtf}
 \end{equation}
+RTF is meaningful only with a consistent classification rule. The boundary between “reconstruction” and “task reasoning” must be preregistered before outcomes are observed. Otherwise repository reading can be relabelled after the fact to make the architecture appear cheaper.
 
-RTF should be reported against repository size, sequential depth, task locality, and dependency width. If RTF or other reconstruction costs grow strongly with repository size, then the bounded-$K$ model has poor empirical support. If total outcome-normalised cost equals or exceeds the persistent control, the state-economics hypothesis is not supported even if forced-reset engineering success remains high.
+If reconstruction becomes excessively expensive as repositories grow, that weakens the RaS state-economics thesis even if forced-reset engineering success remains high.
 
-This separation is important because continuity and economics are different research questions. RaS could prove technically resumable yet economically unattractive, or economically efficient only on repositories with particular structure.
+\subsection{Provider-neutral cost decomposition}
+
+For a persistent coding agent:
+\begin{align}
+C_{\mathrm{persistent}}
+=&\ C_{\mathrm{reasoning}}
++ C_{\mathrm{context/history}}
++ C_{\mathrm{agent-state}} \nonumber\\
+&+ C_{\mathrm{execution}}
++ C_{\mathrm{tooling}}
++ C_{\mathrm{orchestration}}.
+\label{eq:cpersistent}
+\end{align}
+
+For RaS:
+\begin{align}
+C_{\mathrm{RaS}}
+=&\ C_{\mathrm{reconstruction}}
++ C_{\mathrm{reasoning}}
++ C_{\mathrm{shallow-execution}} \nonumber\\
+&+ C_{\mathrm{repository-state}}
++ C_{\mathrm{orchestration,RaS}}.
+\label{eq:cras}
+\end{align}
+
+No component is assumed to be zero. The economic hypothesis is that for sufficiently long engineering programmes,
+\begin{equation}
+C_{\mathrm{RaS}} < C_{\mathrm{persistent}}
+\end{equation}
+while
+\begin{equation}
+Q_{\mathrm{engineering,RaS}}
+\approx
+Q_{\mathrm{engineering,persistent}}.
+\end{equation}
+The second condition is essential. Lower nominal model usage is not a saving if regressions, retries, or failed tasks increase sufficiently.
+
+Three categories must remain separate:
+
+\paragraph{Measured cost proxy.}
+Observable model tokens, provider-reported usage, calls, files read, searches, elapsed time, execution operations, retries, and session persistence.
+
+\paragraph{Theoretical infrastructure implication.}
+A consequence derived from an explicit resource model, such as the possibility that lower persistent state per useful programme permits greater concurrency.
+
+\paragraph{Unobservable provider-internal cost.}
+GPU allocation, exact KV-cache cost, storage amortisation, scheduler behaviour, internal cache hit rates not exposed to the user, and provider margin.
+
+The experiment cannot infer the third category from subscription pricing. Nor should a bundled chat product be described as “free inference”.
+
+Table~\ref{tab:persistent-vs-ras} summarises the architectural comparison.
+
+\input{tables/persistent-vs-ras}
+
+Long-context serving research provides evidence that inference-state management can materially affect throughput. PagedAttention, for example, addresses KV-cache fragmentation and sharing in LLM serving \citep{kwon2023vllm}. That result motivates care around state burden but does not establish RaS savings. The defensible RaS claim remains conditional: if less high-capability historical state must persist per useful engineering programme, fixed inference infrastructure may potentially support more useful concurrent work.

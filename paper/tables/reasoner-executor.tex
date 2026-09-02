@@ -1,0 +1,19 @@
+\begin{table}[htbp]
+\centering
+\small
+\caption{Illustrative capability separation for tiered execution.}
+\label{tab:reasoner-executor}
+\begin{tabularx}{\textwidth}{@{}lX X@{}}
+\toprule
+Function & High-capability reasoner & Execution worker \\
+\midrule
+Architecture/decomposition & Primary & Follow bounded plan \\
+Complex causal debugging & Primary & Collect evidence / execute checks \\
+Repository editing & May propose patch & Primary operational role \\
+Compiler/tests/lint & Interpret difficult evidence & Execute repeatedly \\
+Git operations & Usually propose/approve & Restricted implementation actions \\
+Environment access & Minimal where possible & Scoped to required tools \\
+Production credentials & Not implied & Not implied \\
+\bottomrule
+\end{tabularx}
+\end{table}

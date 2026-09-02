@@ -1,0 +1,19 @@
+\begin{table}[htbp]
+\centering
+\small
+\caption{Candidate durable state carriers in a Repository-as-State system.}
+\label{tab:state-artifacts}
+\begin{tabularx}{\textwidth}{@{}lX X@{}}
+\toprule
+Artefact & Continuity carried & Failure mode if absent or stale \\
+\midrule
+Source & Current implementation and interfaces & Behaviour must be rediscovered or inferred incorrectly \\
+Tests & Executable behavioural constraints & Regressions and hidden invariants may be missed \\
+Schemas/migrations & Data contracts and transition state & Compatibility or migration phase can be misread \\
+Build/configuration & Reproducible environment assumptions & Fresh workers cannot reproduce evidence \\
+Architecture records & Rationale and non-obvious boundaries & Rejected or unsafe designs may reappear \\
+Git history & Accepted transitions and provenance & Prior intent and change sequence become harder to inspect \\
+CI/runtime evidence & Verified properties of a state & Agent self-report can be mistaken for proof \\
+\bottomrule
+\end{tabularx}
+\end{table}

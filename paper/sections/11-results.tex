@@ -1,12 +1,31 @@
 \section{Results}
 \label{sec:results}
 
-\textbf{Controlled empirical results are not yet available.}
+\textbf{P0 has not yet been executed. Controlled empirical results are not available.}
 
-P0 --- the Forced-State-Reset Pilot --- has not been executed. No RRI values, reconstruction-cost measurements, model comparisons, condition effects, confidence intervals, significance tests, or empirical cost savings are reported in this draft.
+There are currently no measured RRI values, reconstruction-cost measurements, condition effects, confidence intervals, statistical tests, model comparisons, or empirical cost savings to report. The practical workflow that motivated RaS is \textbf{OBSERVED} motivation and must not be interpreted as controlled evidence.
 
-The practical workflow that motivated RaS is classified as \emph{observed motivation}, not controlled evidence. It should not be used to infer that repository state is sufficient, that forced resets preserve engineering quality, or that tiered execution reduces cost.
+\begin{center}
+\fbox{\parbox{0.82\textwidth}{
+\centering
+\textbf{PLACEHOLDER --- NO EMPIRICAL DATA.}\\[1mm]
+This section will be populated only from versioned experimental protocols and publication-safe evidence after P0 and subsequent studies are executed.
+}}
+\end{center}
 
-When results become available, this section will report only measurements produced under versioned protocols and will distinguish pilot, confirmatory, and replication evidence. Tables will identify the repository or public subject identifier, pinned revision, task sequence, condition, model/runtime version, reset depth, verifier outcome, reconstruction telemetry, intervention status, and sanitisation status.
+Future results should report, at minimum, subject or public repository identifier, pinned starting revision, task sequence, condition, model/runtime version, reset depth, hidden-verifier outcome, state-reconstruction score, reconstruction telemetry, total task telemetry, retries, intervention flags, and sanitisation status.
 
-No illustrative numeric result is included here because plausible-looking examples could be mistaken for measured data.
+Expected result tables include:
+\begin{itemize}
+    \item task success and RRI by condition and sequential depth;
+    \item state-reconstruction accuracy by condition;
+    \item reconstruction tokens, RTF, files read, searches, calls, and elapsed time;
+    \item regression and retry rates;
+    \item outcome-normalised measured cost proxies.
+\end{itemize}
+
+No dummy percentages or illustrative result values are included because plausible numbers could later be mistaken for measurements.
+
+The project uses the claim categories in Table~\ref{tab:claim-categories} to prevent theoretical, observed, and hypothetical statements from being silently presented as findings.
+
+\input{tables/claim-categories}

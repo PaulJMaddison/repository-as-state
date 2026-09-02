@@ -1,0 +1,70 @@
+\section{Repository Resumability and State Reconstruction}
+\label{sec:resumability}
+
+A forced reset produces a binary engineering outcome only after the agent has first attempted to understand the repository. RaS therefore separates two questions:
+
+\begin{enumerate}
+    \item Can a fresh reasoner reconstruct the relevant engineering state?
+    \item Given that reconstructed state, can it perform the next engineering task correctly?
+\end{enumerate}
+
+This separation matters because a failed continuation may originate in reconstruction rather than reasoning or execution.
+
+\subsection{Repository Resumability Index}
+
+We propose the \emph{Repository Resumability Index} (RRI):
+\begin{equation}
+\mathrm{RRI}
+=
+\frac{
+\text{successful correct continuations after complete reasoning-state reset}
+}{
+\text{eligible forced resets}
+}.
+\label{eq:rri}
+\end{equation}
+Conceptually,
+\begin{equation}
+\mathrm{RRI}
+=
+P(\text{correct continuation}
+\mid
+\text{complete conversational reset})
+\end{equation}
+under a specified experimental protocol.
+
+RRI is a \textbf{proposed research metric}, not an established standard. Its interpretation depends on eligibility and correctness definitions. Compilation alone is insufficient. A successful continuation should satisfy preregistered behavioural acceptance criteria, preferably including hidden verification unavailable as solution guidance.
+
+RRI should be reported by task depth as $\mathrm{RRI}_1,ldots,\mathrm{RRI}_n$, by repository, and where experiments are repeated, with uncertainty intervals appropriate to the design. Infrastructure failures should not automatically count as agent failures, but exclusion must be governed by a predeclared rule. An “eligible forced reset” is one in which the correct starting state, task specification, model configuration, and required experimental infrastructure were available and the reset intervention was successfully enforced.
+
+\subsection{State-reconstruction probe}
+
+Before editing after a reset, the experimental reasoner should produce a structured \emph{state-reconstruction probe}. The probe must not request or record hidden chain-of-thought. It captures concise, inspectable task state:
+
+\begin{itemize}
+    \item relevant architecture;
+    \item current externally observable behaviour;
+    \item affected components;
+    \item constraints and invariants;
+    \item relevant tests and verification paths;
+    \item work apparently completed in prior repository state;
+    \item work still required by the current task;
+    \item evidence paths supporting the reconstruction;
+    \item uncertainty and known unknowns.
+\end{itemize}
+
+The probe must be stored \emph{outside} the experimental subject repository. Otherwise it becomes new durable state and contaminates subsequent resets.
+
+Let $\widehat{R}_t$ denote the agent's estimated task-relevant state reconstructed from $R_t$. The probe allows analysis of
+\begin{equation}
+R_t \rightarrow \widehat{R}_t
+\end{equation}
+separately from
+\begin{equation}
+\widehat{R}_t \rightarrow \text{successful engineering transition}.
+\end{equation}
+A run may reconstruct the repository accurately and still fail implementation; alternatively it may produce a weak reconstruction but succeed through local exploration during execution. These are different mechanisms.
+
+Reconstruction accuracy cannot be measured by comparing private reasoning traces. Instead, a preregistered rubric can compare the probe against a held-out, publication-safe state specification or blinded evaluator labels. The rubric should emphasise constraints, dependencies, prior accepted work, and missing-state errors rather than stylistic similarity.
+
+RRI and reconstruction accuracy are complementary. RRI asks whether the programme continues. The probe asks how well a fresh reasoner understood the state before acting. Reconstruction cost then asks how expensive that understanding was to obtain.

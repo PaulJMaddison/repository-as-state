@@ -1,0 +1,35 @@
+\section{Externalising Engineering Continuity}
+\label{sec:externalising}
+
+The engineering state required for correct continuation is broader than source code. A long-running software task accumulates observations, failed hypotheses, accepted constraints, test outcomes, environment assumptions, architectural decisions, migration state, and knowledge of what has already been tried. A persistent agent can carry some of this information in its history. RaS asks which parts should instead be converted into domain-native durable state.
+
+The transformation can be viewed as a form of \emph{decision-relevant semantic compression}. An engineering episode might contain several incorrect hypotheses, repeated debugging attempts, discarded implementations, and long discussion. Once the problem is resolved, future correctness may depend only on a smaller set of durable consequences:
+\[
+\text{transient reasoning trajectory}
+\longrightarrow
+\left\{
+\begin{array}{l}
+\text{accepted implementation},\\
+\text{regression test},\\
+\text{concise rationale},\\
+\text{schema or interface update},\\
+\text{explicit operational constraint}.
+\end{array}
+\right.
+\]
+
+The goal is not lossless compression of conversation. Preserving every intermediate thought would defeat the purpose and could preserve noise, stale hypotheses, or model-specific reasoning traces. The goal is to retain information whose absence would change a future correct engineering decision.
+
+This distinction explains why repository state can be semantically richer than a simple code snapshot. Consider a reliability bug in which duplicate requests can create duplicate effects. The original debugging conversation may be lengthy. The durable continuity requirement is narrower: future implementations must preserve idempotency. A regression test, an interface contract, and a concise design note may carry that knowledge more reliably than a conversational summary because they are versioned, reviewable, and partly executable.
+
+Semantic compression is not automatically safe. Final code may reveal what was done without explaining why. Tests may encode only a subset of intended behaviour. Comments can be stale. Architecture records can be wrong. A rejected alternative may matter later because a future engineer could rediscover and repeat the same dangerous approach. RaS therefore predicts that useful continuity will be distributed across heterogeneous artefacts rather than concentrated in one canonical “memory file”.
+
+The architecture also creates pressure toward explicitness. A persistent conversation can carry undocumented assumptions for many turns. A disposable reasoning process cannot. If a constraint matters beyond the current transaction, it should be represented in a durable form appropriate to the domain. That may improve inspectability, but it can also create documentation overhead. The experimental programme must therefore measure whether the required externalisation burden remains practical.
+
+The distinction between authoritative domain state and model-native memory is central. A conversation may contain a statement that an API is idempotent; a test can demonstrate the property against the implementation. A model memory may remember a migration decision; a schema and migration manifest can make the current state inspectable. A session may remember that a compiler version is required; a toolchain file can make the constraint reproducible. In each case, the repository representation is closer to the engineered object and can be consumed by different humans, models, and deterministic systems.
+
+This does not imply that all valuable engineering knowledge belongs in Git. Runtime incidents, production telemetry, external tickets, security systems, or customer requirements may live elsewhere. The narrow RaS claim concerns a software-engineering programme whose authoritative continuity is substantially reconstructable from repository state plus the explicitly supplied current task. Later work may extend the concept to a broader set of authoritative domain stores, but that is a separate hypothesis.
+
+The initial experiment therefore treats externalisation as both a design principle and a measurable variable. If forced-reset agents fail because crucial context was never encoded durably, the result reveals a continuity gap. If semantic-state ablation removes architecture notes or state documents and success falls, that is evidence that descriptive artefacts carry information not recoverable from code and tests alone. If ablation has no effect, the same information may be redundant elsewhere.
+
+RaS should therefore not be evaluated by asking whether an agent can “remember” a repository. The meaningful question is whether an engineering programme can survive the destruction of the reasoning process because enough decision-relevant state has been externalised into durable, reconstructable, independently verifiable artefacts.

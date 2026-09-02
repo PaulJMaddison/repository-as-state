@@ -1,58 +1,71 @@
 \section{Repository-as-State}
 \label{sec:ras}
 
-Repository-as-State models an engineering programme as a sequence of validated repository transitions. At time $t$, the durable repository is $R_t$ and the current task is $U_t$. A reasoning transaction produces a proposed transition, an execution process applies bounded changes, deterministic and hidden checks adjudicate the result, and accepted state becomes $R_{t+1}$:
+RaS models an engineering programme as a sequence of validated transitions over durable repository state. The notation distinguishes durable state, active reasoning context, reasoning, execution, observations, and acceptance.
+
+Let:
+\begin{itemize}
+    \item $R_t$ be the durable repository state at time $t$;
+    \item $U_t$ be the current engineering task;
+    \item $H_t$ be accumulated conversational or agent history;
+    \item $Q_t$ be the high-capability reasoning process;
+    \item $E_t$ be the execution worker and environment;
+    \item $O_t$ be deterministic or runtime observations produced during execution.
+\end{itemize}
+
+A reconstruction function $\Gamma$ constructs the active reasoning view:
 \begin{equation}
-(R_t, U_t)
-\rightarrow
-\mathcal{Q}_t
-\rightarrow
-\Delta_t
-\rightarrow
-\mathcal{E}_t
-\rightarrow
-\mathcal{V}_t
-\rightarrow
-R_{t+1},
+X_t = \Gamma(R_t,U_t).
+\label{eq:gamma}
 \end{equation}
-where $\mathcal{Q}_t$ is high-capability reasoning, $\Delta_t$ a bounded work package, $\mathcal{E}_t$ execution, and $\mathcal{V}_t$ validation.
-
-The architecture has five important properties.
-
-\subsection{Repository state is durable; reasoning state is not}
-
-The accepted output of a transaction must be represented in artefacts that survive the session: source, tests, build rules, schemas, documentation, history, or evidence. The reasoning process is allowed to disappear completely after the transition. This is stronger than periodically summarising a long-lived agent. The reset condition is architectural, not accidental.
-
-\subsection{Repository-as-State is not repository-as-prompt}
-
-A repository can contain millions of tokens and an arbitrarily long Git history. RaS does not propose placing all of that content into every model call. Durable state may be large; active inference context should remain selective.
-
-Let $K_t$ denote the reconstructed context supplied from $R_t$ for task $U_t$. RaS requires a reconstruction policy
+The high-capability reasoner applies a reasoning policy $\pi_R$:
 \begin{equation}
-\mathcal{R}(R_t,U_t) \rightarrow K_t
+P_t = \pi_R(X_t),
+\label{eq:reason}
 \end{equation}
-that attempts to preserve task-relevant information while excluding irrelevant repository mass. Reconstruction may involve file search, symbol tracing, test discovery, recent history, architecture records, static analysis, or other repository-local tools. The research question is whether the cost and error rate of this reconstruction remain acceptable as repositories and task depth grow.
+where $P_t$ is a bounded engineering proposal, transition plan, or work package.
 
-\subsection{Continuity is encoded in heterogeneous artefacts}
-
-Source code alone is unlikely to be sufficient. Consider a duplicate-command bug. Historical reasoning may establish the invariant “duplicate requests must not create duplicate effects”. Once captured by an idempotency test, future actors can recover an important semantic constraint without replaying the original debugging conversation. An architecture decision record may preserve why two modules are separated; a schema may preserve a compatibility contract; a lockfile may preserve an environmental assumption.
-
-Condition C in the experimental design therefore performs semantic-state ablation. It retains source, tests, and build rules while removing selected semantic artefacts according to a preregistered manifest. If resumability falls, the experiment begins to identify which repository components actually carry continuity.
-
-\subsection{Accepted state transitions require adjudication}
-
-A language model's statement that a task is complete is not sufficient evidence. RaS places compilers, tests, runtime measurements, hidden behavioural verifiers, and where necessary preregistered human review outside the reasoning process. The repository becomes authoritative only to the extent that its transitions are checked.
-
-This design also reduces dependence on a particular model's self-consistency. The same repository invariant can be read by different models and enforced by model-independent tests. That property is central to the proposed forced-reset experiments.
-
-\subsection{The programme, not the session, is the persistent object}
-
-A long-lived agent architecture naturally treats the agent process as the continuing entity. RaS instead treats the engineering programme as a chain of repository states:
+Execution applies the proposal against current repository state in environment $E_t$:
 \begin{equation}
-R_0 \rightarrow R_1 \rightarrow R_2 \rightarrow \cdots \rightarrow R_n.
+(R'_t,O_t)=\pi_E(P_t,R_t,E_t).
+\label{eq:execute}
 \end{equation}
-Each transition may be produced by a different fresh reasoning process. Continuity succeeds if those processes can reconstruct enough state to continue correctly.
+A validation function decides whether the candidate state is acceptable:
+\begin{equation}
+V(R'_t,O_t)\in\{0,1\}.
+\label{eq:validate}
+\end{equation}
+If $V=1$, the durable state advances:
+\begin{equation}
+R_{t+1}=\mathrm{Commit}(R'_t).
+\label{eq:commit}
+\end{equation}
+If validation fails, the candidate must not silently become authoritative. The protocol may permit repair within the current transaction, escalation, or a recorded failure, but the accepted repository state remains unchanged until the acceptance rule is satisfied.
 
-This perspective does not deny the value of memory systems. It changes which state is considered primary. Agent memory may remain useful for convenience, latency reduction, or personalisation, but the core engineering programme should remain recoverable from durable authoritative artefacts when conversational state is unavailable.
+After Equation~\ref{eq:commit}, $Q_t$ may be destroyed. A future process $Q_{t+1}$ should, under the strong RaS hypothesis, be able to operate from
+\begin{equation}
+R_{t+1}+U_{t+1}
+\end{equation}
+without requiring the complete $H_t$ that produced earlier transitions.
 
-The strongest form of RaS would show high resumability, bounded reconstruction cost, and comparable engineering quality across deep task sequences. A weaker but still useful result could show that RaS works only for particular task localities, repository organisations, or classes of artefact. Failure would also be informative: it would identify information that repositories systematically fail to preserve.
+This model makes three separations explicit.
+
+\subsection{Durable state versus active context}
+
+Repository-as-State is not Repository-as-Prompt. A repository can contain millions of tokens, generated artefacts, vendored dependencies, long histories, and files irrelevant to the current task. Equation~\ref{eq:gamma} therefore matters as much as persistence itself. $R_t$ is the durable state space; $X_t$ is a selected reasoning view over that state.
+
+The reconstruction function may use file search, symbol navigation, dependency tracing, test discovery, recent history, architecture records, build metadata, static analysis, or model-guided retrieval. It may also discover that a task requires information not durably represented in the repository. Such a discovery is evidence about repository sufficiency, not merely a retrieval inconvenience.
+
+\subsection{Proposal versus execution}
+
+$P_t$ is intentionally separated from $\pi_E$. A high-capability reasoner can propose a transition without necessarily possessing repository write access, shell access, cloud credentials, or unrestricted Git permissions. The executor may be cheaper, more stateful, more local, or simply more tightly sandboxed. RaS continuity does not depend on tiered execution, but the architecture makes tiering possible.
+
+\subsection{Observation versus authority}
+
+Tool output and model statements are not automatically authoritative. Compilation results, tests, runtime measurements, hidden behavioural verification, linters, and other observations enter $O_t$, but acceptance is represented separately by $V$. This matters because an agent can incorrectly state that a task is complete. A repository becomes a continuity substrate only to the extent that its transitions are governed by evidence.
+
+Table~\ref{tab:state-artifacts} lists candidate durable-state carriers.
+
+\input{tables/durable-state-artifacts}
+
+The strongest version of RaS would exhibit three properties simultaneously: high engineering success after complete reasoning-state reset, bounded or slowly growing reconstruction cost, and no material loss in engineering quality relative to a persistent control. Those properties are not assumed. The experimental programme is designed to determine where they hold and where they fail.

@@ -1,0 +1,20 @@
+\begin{tikzpicture}[
+node distance=7mm,
+box/.style={draw,rounded corners,align=center,minimum width=7.2cm,minimum height=8mm},
+arrow/.style={-{Latex[length=2mm]},thick}
+]
+\node[box] (state) {Durable repository state $R_t$ + current task $U_t$};
+\node[box,below=of state] (recon) {Bounded reconstruction $X_t=\Gamma(R_t,U_t)$};
+\node[box,below=of recon] (reason) {Ephemeral high-capability reasoning $P_t=\pi_R(X_t)$};
+\node[box,below=of reason] (exec) {Execution worker/environment $\pi_E(P_t,R_t,E_t)$};
+\node[box,below=of exec] (evidence) {Compiler, tests, runtime and behavioural evidence $O_t$};
+\node[box,below=of evidence] (validate) {Validation $V(R'_t,O_t)$};
+\node[box,below=of validate] (next) {Accepted durable repository state $R_{t+1}$};
+\draw[arrow] (state)--(recon);
+\draw[arrow] (recon)--(reason);
+\draw[arrow] (reason)--(exec);
+\draw[arrow] (exec)--(evidence);
+\draw[arrow] (evidence)--(validate);
+\draw[arrow] (validate)--(next);
+\draw[arrow,dashed] (next.east) -- ++(1.0,0) |- node[pos=0.25,right,align=left]{fresh future\\reasoner} (recon.east);
+\end{tikzpicture}

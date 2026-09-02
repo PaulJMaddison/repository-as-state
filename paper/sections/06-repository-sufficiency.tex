@@ -1,66 +1,48 @@
 \section{Approximate Repository Sufficiency}
 \label{sec:sufficiency}
 
-The central continuity question can be stated more precisely in terms of future action. Let $H_t$ be the complete historical engineering interaction up to time $t$, $R_t$ the durable repository state, $U$ the next task, and $A_{t+1}$ a useful next engineering action. An ideal repository would preserve all history relevant to action selection:
+The central continuity hypothesis can be expressed in terms of future action. Let $H_t$ be complete historical engineering interaction up to time $t$, $R_t$ durable repository state, $U$ a new task, and $A_{t+1}$ a useful or correct next engineering action.
+
+An ideally sufficient repository would satisfy:
 \begin{equation}
 P(A_{t+1}\mid H_t,U)
 =
 P(A_{t+1}\mid R_t,U).
 \label{eq:ideal-suff}
 \end{equation}
+Exact equality is unrealistic. Historical interaction can contain arbitrary information that was never externalised, and the space of useful engineering actions is not directly enumerable.
 
-Exact equality in Equation~\ref{eq:ideal-suff} is unrealistic. Historical conversation may contain arbitrary information not represented in the repository, and the space of useful engineering actions is not directly enumerable. We therefore introduce \emph{$\epsilon$-repository sufficiency} as a conceptual approximation:
+A conceptual approximate definition is:
 \begin{equation}
 D_{\mathrm{KL}}\left(
 P(A\mid H_t,U)
 \;\|\;
 P(A\mid R_t,U)
 \right)
-\leq \epsilon.
+\le \epsilon.
 \label{eq:epsilon}
 \end{equation}
 
-Equation~\ref{eq:epsilon} is a theoretical device, not a proposed directly measurable statistic. In realistic agent systems, the underlying action distributions may be inaccessible, model versions may change, and task success depends on execution and verification as well as action selection.
+Equation~\ref{eq:epsilon} is not included merely to make the paper look formal. It is useful because it states the intended notion of sufficiency precisely: removing historical interaction should not materially change the distribution over useful next actions, within some tolerated divergence. It also makes clear that repository sufficiency is task-conditional. A repository can be sufficient for one task and insufficient for another.
 
-RaS therefore operationalises repository sufficiency through observable proxies:
+Literal KL divergence is unlikely to be directly observable in deployed agents. The action space is open-ended, model probabilities over complete engineering trajectories may be inaccessible, and different surface actions can be functionally equivalent. The equation is therefore a conceptual definition rather than the proposed experimental statistic.
+
+The experiment operationalises sufficiency through observable proxies:
 \begin{itemize}
-    \item correct engineering continuation under independent acceptance criteria;
+    \item engineering task success;
     \item hidden behavioural verification;
-    \item successful resumption after forced reset;
-    \item reconstruction accuracy for task-relevant constraints;
+    \item state-reconstruction accuracy;
     \item regression rate;
-    \item reconstruction cost;
-    \item human intervention required to recover missing state.
+    \item successful resumption after forced reset;
+    \item reconstruction cost.
 \end{itemize}
 
-These measures capture different failure modes. A fresh agent may reconstruct the correct architecture but fail execution. It may complete a task while violating an undocumented invariant. It may eventually succeed but require reading most of the repository, making the continuity mechanism economically unattractive. A single success metric would hide these distinctions.
+These proxies capture different failure modes. A fresh reasoner can identify the correct architecture but fail implementation. It can implement a locally correct change while violating a hidden invariant. It can eventually succeed only after reading most of a large repository, producing poor economics. Conversely, it can produce an incomplete verbal reconstruction yet succeed because executable tests constrain the relevant behaviour.
 
-\subsection{Repository Resumability Index}
+Repository sufficiency is therefore not synonymous with repository completeness. A repository need not preserve every past thought. It must preserve enough decision-relevant state, or enable sufficiently reliable reconstruction from its artefacts, for future correct action.
 
-We propose the Repository Resumability Index (RRI):
-\begin{equation}
-\mathrm{RRI}
-=
-\frac{
-\text{successful correct continuations after complete agent-state reset}
-}{
-\text{eligible forced resets}
-}.
-\end{equation}
-Equivalently, RRI estimates
-\begin{equation}
-P(\text{correct continuation}\mid\text{complete conversational-state reset})
-\end{equation}
-under a specified protocol.
+Semantic-state ablation provides a causal probe. Condition C removes selected state carriers according to a preregistered manifest while preserving the task and executable baseline. Candidate carriers include architecture decisions, concise state documents, agent instruction files, semantic product documentation, selected history, or other non-source artefacts. If correct continuation falls after an artefact class is removed, that suggests the class carried useful continuity for the tested tasks.
 
-RRI is not an established standard. Its value depends critically on the success definition and eligibility rules. A continuation should not count as correct merely because code was produced or compiled. The preregistered acceptance criterion should include hidden behavioural checks or another independent specification not available for solution leakage.
+Ablation is complicated by redundancy. A decision may appear in source structure, a test, a schema, an ADR, and a commit message. Removing one representation may leave the information recoverable elsewhere. Conversely, deleting too many artefacts can change the engineering task rather than merely the continuity available to solve it. Ablation therefore requires an information-leakage audit as well as a file manifest.
 
-RRI should also be measured by sequential depth. Let $\mathrm{RRI}_d$ denote success following a reset at depth $d$. A high aggregate RRI can hide degradation after many transitions. Depth-specific reporting can reveal whether repository continuity erodes as decisions accumulate.
-
-\subsection{Semantic-state ablation}
-
-A high RRI would still leave a causal question: what part of the repository carried continuity? Condition C removes selected semantic artefacts according to a preregistered manifest while retaining source, tests, and build rules. Candidate ablations include architecture decisions, concise state documents, semantic product specifications, or selected history.
-
-If performance falls when a class of artefact is removed, that provides evidence that the artefact carries decision-relevant state. If performance is unchanged, the artefact may be redundant for the tested tasks, or its information may be recoverable elsewhere.
-
-The ablation must avoid future-history leakage. Removing a design document while retaining later tests or comments that explicitly encode the same answer may fail to remove the relevant information. Repository sufficiency is therefore a property of the complete information topology, not individual file types in isolation.
+The strong RaS hypothesis is not that $R_t$ always replaces $H_t$. It is that for an important class of software-engineering work, the marginal value of full historical conversational state can be made small enough that durable repository state becomes the primary continuity mechanism.

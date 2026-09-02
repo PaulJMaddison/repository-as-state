@@ -4,37 +4,54 @@
 \usepackage[utf8]{inputenc}
 \usepackage{amsmath,amssymb}
 \usepackage{booktabs}
+\usepackage{tabularx}
+\usepackage{longtable}
 \usepackage{geometry}
 \usepackage{hyperref}
 \usepackage[numbers]{natbib}
 \usepackage{microtype}
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta,positioning,shapes.geometric,fit}
 \geometry{margin=1in}
+
+\newcommand{\RaS}{Repository-as-State}
+\newcommand{\RRI}{Repository Resumability Index}
+\newcommand{\RTF}{Reconstruction Token Fraction}
 
 \title{Repository-as-State:\\Externalising Agent Continuity for Stateless High-Capability Reasoning}
 \author{Paul Maddison\\Independent Researcher\\Liverpool, United Kingdom}
-\date{Draft --- 2 September 2026}
+\date{Paper v0.1 --- 2 September 2026}
 
 \begin{document}
 \maketitle
 
 \begin{abstract}
-Long-horizon software-engineering agents are commonly discussed as persistent processes whose conversational history, working memory, or model-side state carries continuity across tasks. This paper investigates a different systems architecture: \emph{Repository-as-State} (RaS), in which the durable software repository is treated as the primary carrier of engineering continuity and high-capability reasoning is invoked transactionally. A reasoning process receives durable repository state and a current task, reconstructs a bounded task-relevant subset of state, proposes a state transition, and may then disappear after implementation and deterministic validation persist the result. We formalise the continuity question, introduce an approximate repository-sufficiency concept, propose the Repository Resumability Index (RRI), derive provider-neutral context-scaling and tiered-execution cost models, and define a forced-state-reset evaluation that deliberately destroys conversational continuity between sequential engineering stages. A central falsification condition is reconstruction cost: RaS is weakened if repository rediscovery grows enough to erase any benefit from avoiding persistent historical state. We also examine tests as executable semantic memory, least-privilege implications of separating reasoning from execution, and repository infrastructure precedent for durable state with replaceable serving compute. Controlled empirical results are not yet available; the present paper is a theoretical and methodological baseline for preregistered pilot and replication studies.
+Long-horizon software-engineering agents are often framed as persistent intelligent processes whose conversational history, working memory, execution session, or model-side state carries continuity across tasks. This paper investigates an inversion of that architecture. \emph{Repository-as-State} (RaS) treats the software project and its durable repository artefacts as the persistent object while allowing high-capability reasoning processes to be transactional and disposable. At step $t$, a reconstruction function $\Gamma$ selects a bounded reasoning view $X_t$ from durable repository state $R_t$ and current task $U_t$; a high-capability reasoner proposes a bounded engineering transition; a separate execution environment may apply it; deterministic or behavioural evidence validates the candidate state; and only an accepted state is committed as $R_{t+1}$. The reasoner may then cease to exist. A later fresh reasoner should, if the hypothesis holds, recover the decision-relevant engineering state from $R_{t+1}$ without receiving the complete previous reasoning history.
+
+We formalise approximate repository sufficiency, distinguish repository-as-state from repository-as-prompt, and derive a simple cumulative-context model in which naive full-history replay grows quadratically under explicit assumptions while bounded reconstruction grows linearly. The model is not a claim about universal commercial-agent monetary cost: caching, compaction, retrieval, prompt-prefix reuse, and provider architecture may change realised costs. Reconstruction is therefore treated as a first-class falsification route and measured through tokens, repository reads, searches, tool/model calls, elapsed time, and the proposed Reconstruction Token Fraction. We further propose Forced-State-Reset Evaluation and the Repository Resumability Index (RRI), and separate the continuity hypothesis from a secondary tiered-execution architecture in which high-capability reasoning and operational privilege need not reside in the same component.
+
+Controlled empirical evaluation has not yet been executed. This paper contributes the theoretical architecture, formal models, measurement framework, experimental conditions, security analysis, and preregistration-oriented method that will be used to test whether high-quality reasoning can be made disposable without making engineering continuity disposable.
 \end{abstract}
 
 \input{sections/01-introduction}
 \input{sections/02-agent-continuity-problem}
 \input{sections/03-repository-as-state}
+\input{sections/17-externalising-engineering-continuity}
 \input{sections/04-transactional-reasoning}
-\input{sections/05-tiered-execution}
 \input{sections/06-repository-sufficiency}
 \input{sections/07-cost-model}
+\input{sections/05-tiered-execution}
 \input{sections/08-executable-memory}
+\input{sections/18-durable-documentation}
 \input{sections/09-security}
+\input{sections/19-repository-resumability}
 \input{sections/10-experimental-method}
 \input{sections/11-results}
+\input{sections/14-related-work}
 \input{sections/12-threats-to-validity}
 \input{sections/13-discussion}
-\input{sections/14-related-work}
+\input{sections/20-repository-agent-state-scalability}
+\input{sections/21-authoritative-state-principle}
 \input{sections/15-future-work}
 \input{sections/16-conclusion}
 
