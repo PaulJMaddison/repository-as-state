@@ -108,3 +108,9 @@ Condition C is not enabled because no clean semantic-only ablation was identifie
 The corpus is selected but the experiment is not run-ready until the exact model/runtime, stable system instructions, tools/permissions, resource budget, telemetry, cache/network policy, account-memory controls, and private verifier implementation are frozen.
 
 No P0 result exists.
+## Fixed cross-condition state progression
+
+To preserve causal identifiability, P0 does **not** let A and B produce different repository states for the next task. For each task, both conditions receive independently materialised copies of the same frozen historical accepted pre-state. Experimental outputs are adjudicated and recorded, but the next task advances to the next frozen historical accepted boundary.
+
+This preserves byte-identical repository state across A/B. It also creates a declared limitation: Condition A may retain reasoning about a materially equivalent prior implementation that differs from the next frozen historical boundary. Stable runtime instructions must state that the rematerialised repository is authoritative.
+

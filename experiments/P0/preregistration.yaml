@@ -20,18 +20,18 @@
     "raw_subject_data_public": false
   },
   "corpus": {
-    "public_manifest_sha256": "05b10fc6ddad29e962eaa0ca7e7551c6c9dc6e57eb09918917d5a64a28f21b8c",
-    "private_lock_sha256": "f18860982a56fb639399ff5c004d681e65d49c91d563dd05296ea27917e2fd0e",
-    "selection_rule_sha256": "c5d2c4d4346152b58ae85513997a404eea08896e6a1af02ce33ab8f9315b49be",
+    "public_manifest_sha256": "f579e8a4108a2cfe90cf848d6534e70d6d64f75c4d44f9d3f8c58fe2cc536a41",
+    "private_lock_sha256": "75d4a60d0d650c7899c6ec25cb74931b9590785c2ed45eae1bedf82d048c5609",
+    "selection_rule_sha256": "0d05613e86be9dd3bc9c133104b750ac71dc19377c6dee5cc9d4e0007449d6e0",
     "task_count": 5,
     "candidate_transitions_considered": 38,
     "excluded_transitions": 21,
     "task_spec_sha256": {
-      "P0-T1": "13fba4797b1564d10c05ea0fc370de45b5bc907d0976682044131b810309eccf",
-      "P0-T2": "e6a4f4619fad9c57b35fc3077f0bcd0142dd789ecb3709c3d87b202d209d977a",
-      "P0-T3": "8ca8145ffdfb3ed7245d17d7b70b654f96dffdf1baf93dfe4ba90c1cd867b0cc",
-      "P0-T4": "f8049a3f9d120c98114d3a1764651964205b2730a3aa208599ed01e3e97276e4",
-      "P0-T5": "b65ddf2304f2d7b3f55b8b4b0d238bed494cf9f3f457ed895e6215c3474fc663"
+      "P0-T1": "4f6448c040779f23026f4575f2d38aeba675b9cb6dd93ada40bd31daa68529a8",
+      "P0-T2": "9ec5f0eaf20fc37fe6ffdf467420bd50f4ead568205d9886c766df254cb650ac",
+      "P0-T3": "0b08e12fa6a9d5df8c151c758e17a129497b8e082428a959525d777cbbbd1fd8",
+      "P0-T4": "82fd91fe695fd7be9c425e9831420f114280d495ea40166a3569d4181abd01c5",
+      "P0-T5": "1160e9b97b76ed5ef94abc67a4ee47c5f7c0cfe3283cc8e1112d5b76ed297eb5"
     },
     "genuinely_sequential": true,
     "accepted_boundaries_verified": true,
@@ -40,42 +40,42 @@
   "selection": {
     "window_rule_public": "bounded contiguous local engineering programme frozen before individual task selection",
     "inclusion_criteria": [
-      "real historical requirement",
-      "behaviour/contract/architecture/invariant change",
-      "non-trivial",
-      "neutral specification possible",
-      "credible pre-state",
-      "credible accepted post-state",
-      "behavioural verifier possible",
-      "deterministic/local verification",
-      "no paid cloud",
-      "no unavailable secret/private service",
-      "no live-model nondeterminism",
-      "not mechanical/generated",
-      "focused transition",
-      "within future pilot budget",
-      "natural dependency on accumulated state",
-      "requirement does not disclose solution",
-      "no unavailable private human-only knowledge",
-      "equivalent implementations acceptable"
+      "real historical engineering requirement",
+      "observable behaviour, contract, architecture, or important invariant changes",
+      "non-trivial engineering work",
+      "neutral specification possible without historical implementation disclosure",
+      "credible pre-task repository state",
+      "credible accepted post-task boundary",
+      "behaviourally adjudicable without patch identity",
+      "deterministic/local verification possible",
+      "no paid cloud requirement",
+      "no unavailable secret or private external service",
+      "no dependence on live-model nondeterminism",
+      "not primarily formatting/generated/mechanical churn",
+      "focused enough that unrelated changes do not dominate",
+      "plausible within future P0 per-task budget",
+      "later selected tasks can naturally depend on accumulated accepted state",
+      "requirement wording does not disclose solution",
+      "no required information exists only in unavailable private human conversation",
+      "materially equivalent correct implementations can pass hidden verifier"
     ],
     "exclusion_criteria": [
-      "cloud-only",
-      "credential-dependent",
+      "cloud-only proof work",
+      "credential-dependent work",
       "external-service incident",
-      "pure documentation",
-      "trivial formatting/typo",
+      "pure documentation edit",
+      "trivial typo/formatting change",
       "mass dependency bump",
-      "generated artefact",
-      "unverifiable behaviour",
-      "unrelated-change dominated",
-      "pre-state solution leakage",
-      "unpreventable future-history leakage",
+      "generated artefact update",
+      "no deterministic behavioural adjudication",
+      "transition dominated by unrelated changes",
+      "pre-state discloses future solution rather than legitimate durable state",
+      "future-history isolation cannot be fail-closed",
       "no credible accepted boundary",
-      "time/network dependent",
+      "time/network-dependent task",
       "not deterministic local",
       "subjective human pass/fail",
-      "after first five qualifying clusters under pilot budget"
+      "after first five qualifying clusters under fixed P0 pilot budget"
     ]
   },
   "accepted_boundary": {
@@ -116,6 +116,15 @@
       "per-task resource budget",
       "hidden verifier"
     ]
+  },
+  "execution_state_rule": {
+    "fixed_historical_boundary_progression": true,
+    "same_pre_state_bytes_across_A_B": true,
+    "experimental_output_becomes_next_task_input": false,
+    "rule": "For task P0-Ti, both A and B receive independently materialised copies of the same frozen historical pre-state R(i-1). Experimental task output is adjudicated and recorded but does not determine the next task's starting repository state; the next task starts from the next frozen historical accepted boundary.",
+    "persistent_history_rule": "A retains predecessor reasoning-session history across task evaluations; B receives none. Stable instructions must state that the currently rematerialised repository is authoritative if A remembers implementation details that differ from the frozen historical boundary.",
+    "reason": "Allowing each condition's generated output to become the next pre-state would let repository state diverge and confound the intended predecessor-history treatment.",
+    "limitation": "The persistent condition may retain reasoning about a materially equivalent prior implementation different from the frozen historical next boundary; report this as a P0 design limitation."
   },
   "endpoints": {
     "primary": [
@@ -177,7 +186,7 @@
   "leakage": {
     "gate_name": "FUTURE_HISTORY_LEAK_GATE",
     "gate_version": "0.1.0",
-    "implementation_sha256": "9f9e9d76c63338c7b4a7b98a208c94b5663bfb4e0f759b5ddba09c91c06f836b",
+    "implementation_sha256": "80dccb464d13dcacb3a9c38809d5e93a60b5ec9b14ce2251b31bdbea051f1cd3",
     "fail_closed_before_model_invocation": true,
     "checks": [
       "no_remotes",

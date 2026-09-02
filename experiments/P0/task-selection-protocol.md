@@ -19,7 +19,7 @@ The selected window contains:
 
 Selection-rule commitment:
 
-`c5d2c4d4346152b58ae85513997a404eea08896e6a1af02ce33ab8f9315b49be`
+`0d05613e86be9dd3bc9c133104b750ac71dc19377c6dee5cc9d4e0007449d6e0`
 
 ## Selection algorithm
 

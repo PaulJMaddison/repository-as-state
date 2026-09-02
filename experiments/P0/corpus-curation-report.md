@@ -45,19 +45,19 @@ Every selected task is designed for deterministic local Rust verification. Cloud
 
 Selection rule:
 
-`c5d2c4d4346152b58ae85513997a404eea08896e6a1af02ce33ab8f9315b49be`
+`0d05613e86be9dd3bc9c133104b750ac71dc19377c6dee5cc9d4e0007449d6e0`
 
 Public corpus manifest canonical digest:
 
-`05b10fc6ddad29e962eaa0ca7e7551c6c9dc6e57eb09918917d5a64a28f21b8c`
+`f579e8a4108a2cfe90cf848d6534e70d6d64f75c4d44f9d3f8c58fe2cc536a41`
 
 Current corpus-selected preregistration canonical digest (not a final freeze hash):
 
-`15d1fbfd88e5fe4e56bf1b2a26f5be5ac2a4069e0bf5bca23f19ed063147392f`
+`e56730444cc403abb2bc50fade885a5f4d735bb2a8f5307160f9939093ca64b8`
 
 Private P0 lock:
 
-`f18860982a56fb639399ff5c004d681e65d49c91d563dd05296ea27917e2fd0e`
+`75d4a60d0d650c7899c6ec25cb74931b9590785c2ed45eae1bedf82d048c5609`
 
 ## Harness status
 

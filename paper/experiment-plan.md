@@ -256,3 +256,9 @@ Because model/runtime identity, resource limits, telemetry, cache/network policy
 `P0_PROTOCOL_READY_FOR_MODEL_FREEZE=true`
 
 No experimental agent has been run.
+## Fixed cross-condition state progression
+
+To preserve causal identifiability, P0 does **not** let A and B produce different repository states for the next task. For each task, both conditions receive independently materialised copies of the same frozen historical accepted pre-state. Experimental outputs are adjudicated and recorded, but the next task advances to the next frozen historical accepted boundary.
+
+This preserves byte-identical repository state across A/B. It also creates a declared limitation: Condition A may retain reasoning about a materially equivalent prior implementation that differs from the next frozen historical boundary. Stable runtime instructions must state that the rematerialised repository is authoritative.
+
