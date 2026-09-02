@@ -11,14 +11,14 @@ This is a hard gate.
 - [x] Exclusion criteria frozen.
 - [x] Complete private considered-candidate record frozen.
 - [x] Genuine sequential-dependence rule applied.
-- [x] Five task units selected without cherry-picking later candidates.
+- [ ] Five task units selected without cherry-picking later candidates; prior selection superseded by amendment 001.
 - [x] Neutral task specifications canonicalised and hashed.
 - [x] Private corpus lock payload canonicalised and committed publicly by SHA-256 only.
 - [x] Historical survivor/author-subject bias explicitly documented.
 
 ## Accepted boundaries — complete with frozen limitation
 
-- [x] Five committed coherent accepted post-states identified.
+- [ ] Five committed coherent accepted post-states identified; original T3 boundary rejected.
 - [x] Deterministic local behavioural test/proof contracts identified for every selected task.
 - [x] No selected implementation surface contains unfinished TODO/FIXME/unimplemented markers observed by curation.
 - [x] Historical acceptance evidence distinguished from current reproduction evidence.
@@ -37,7 +37,7 @@ This is a hard gate.
 - [x] Sidecar patch/bundle/archive check.
 - [x] Symlink escape check.
 - [x] Clean workspace check.
-- [x] Network-isolation assertion required.
+- [ ] Network-isolation assertion required; technical isolation is not yet proven.
 - [x] Fail-closed behaviour tested.
 - [x] Synthetic tests labelled non-research evidence.
 

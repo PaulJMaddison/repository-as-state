@@ -1,6 +1,6 @@
 # P0 corpus boundary amendment 001
 
-Status: proposed for review; the P0 experiment remains unexecuted.
+Status: accepted for corpus review; the P0 experiment remains unexecuted.
 
 ## Reason
 
@@ -34,10 +34,18 @@ future-history exclusion, and negative-control requirements. If no replacement
 boundary satisfies the contract inside the predeclared corpus window, the P0
 corpus remains unready and the experiment must not start.
 
+The reselection pass did not produce a defensible amended five-task chain. The
+original T3 unit is recorded as
+`EXCLUDED_INVALID_ACCEPTED_BOUNDARY_DISCOVERED_DURING_PREPARATION`; downstream
+selection was not promoted to a final chain because the required replacement
+eligibility and dependency checks were not all satisfied. The corpus therefore
+stops at `P0_CORPUS_INSUFFICIENT_AFTER_BOUNDARY_VALIDATION=true`.
+
 ## Current disposition
 
 - `FROZEN_T3_REQUIREMENTS_CHANGED=false`
 - `P0_EXECUTED=false`
 - `EXPERIMENTAL_AGENT_RUNS=0`
+- `NETWORK_ISOLATION_READY=false`
 - No private commit identifiers, lock material, implementation details, or
   result-judge information are disclosed here.

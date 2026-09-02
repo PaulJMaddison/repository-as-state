@@ -1,11 +1,11 @@
 {
   "experiment": {
     "id": "P0",
-    "version": "0.3-corpus-selected",
+    "version": "0.3-corpus-review-required",
     "name": "Forced-State-Reset Methodology Pilot",
     "status": "NOT_EXECUTED",
     "p0_preregistration_frozen": false,
-    "p0_protocol_ready_for_model_freeze": true
+    "p0_protocol_ready_for_model_freeze": false
   },
   "research_question": {
     "primary": "After a validated accepted engineering transition, how much continuity is lost when predecessor high-capability reasoning-session state is destroyed?",
@@ -13,7 +13,7 @@
     "pilot_objective": "Test treatment isolation, leakage prevention, behavioural adjudication and reconstruction measurement; do not infer general superiority."
   },
   "audit_base_sha": "02b7bc3b8751fcff85ea6f3987a201e340ccfc2d",
-  "public_protocol_version": "P0-0.3-corpus-selected",
+  "public_protocol_version": "P0-0.3-corpus-review-required",
   "subject": {
     "identifier": "PRIVATE_SUBJECT_A",
     "private": true,
@@ -23,7 +23,7 @@
     "public_manifest_sha256": "f579e8a4108a2cfe90cf848d6534e70d6d64f75c4d44f9d3f8c58fe2cc536a41",
     "private_lock_sha256": "75d4a60d0d650c7899c6ec25cb74931b9590785c2ed45eae1bedf82d048c5609",
     "selection_rule_sha256": "0d05613e86be9dd3bc9c133104b750ac71dc19377c6dee5cc9d4e0007449d6e0",
-    "task_count": 5,
+    "task_count": 0,
     "candidate_transitions_considered": 38,
     "excluded_transitions": 21,
     "task_spec_sha256": {
@@ -34,8 +34,8 @@
       "P0-T5": "1160e9b97b76ed5ef94abc67a4ee47c5f7c0cfe3283cc8e1112d5b76ed297eb5"
     },
     "genuinely_sequential": true,
-    "accepted_boundaries_verified": true,
-    "boundary_reproduction_limitation": "Exact historical CI/check runs are not attached to the five boundary commits; current private-source build reproduction was not possible in the connector-only curator runtime. Boundaries are accepted on committed state plus deterministic local behavioural test/proof contracts and coherent programme progression."
+    "accepted_boundaries_verified": false,
+    "boundary_reproduction_limitation": "Original T3 was independently rejected during preparation; no amended five-task chain was selected."
   },
   "selection": {
     "window_rule_public": "bounded contiguous local engineering programme frozen before individual task selection",

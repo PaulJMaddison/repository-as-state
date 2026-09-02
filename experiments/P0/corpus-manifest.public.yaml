@@ -1,14 +1,14 @@
 {
   "experiment": "P0",
   "subject": "PRIVATE_SUBJECT_A",
-  "status": "CORPUS_SELECTED_PROTOCOL_PENDING_MODEL_RUNTIME_FREEZE",
+  "status": "CORPUS_REVIEW_REQUIRED_AFTER_BOUNDARY_REJECTION",
   "canonicalisation": "ras-public-structured-json-v1",
   "candidate_window": {
     "method": "bounded_contiguous_local_engineering_programme_frozen_before_task_selection",
     "candidate_transitions_considered": 38,
-    "included_transitions_in_selected_task_units": 17,
+    "included_transitions_in_selected_task_units": 0,
     "excluded_transitions": 21,
-    "selected_task_count": 5
+    "selected_task_count": 0
   },
   "selection_rule_sha256": "0d05613e86be9dd3bc9c133104b750ac71dc19377c6dee5cc9d4e0007449d6e0",
   "tasks": [
@@ -19,7 +19,7 @@
       "category": "runtime-governance",
       "complexity": "medium",
       "verifier_type": "deterministic-local-behavioural",
-      "accepted_boundary": true,
+      "accepted_boundary": false,
       "private_payload_commitment_sha256": "75d4a60d0d650c7899c6ec25cb74931b9590785c2ed45eae1bedf82d048c5609"
     },
     {
@@ -29,7 +29,7 @@
       "category": "temporal-governance",
       "complexity": "high",
       "verifier_type": "deterministic-local-behavioural",
-      "accepted_boundary": true,
+      "accepted_boundary": false,
       "private_payload_commitment_sha256": "75d4a60d0d650c7899c6ec25cb74931b9590785c2ed45eae1bedf82d048c5609"
     },
     {
@@ -39,7 +39,7 @@
       "category": "identity-lifecycle",
       "complexity": "high",
       "verifier_type": "deterministic-local-behavioural",
-      "accepted_boundary": true,
+      "accepted_boundary": false,
       "private_payload_commitment_sha256": "75d4a60d0d650c7899c6ec25cb74931b9590785c2ed45eae1bedf82d048c5609"
     },
     {
@@ -49,7 +49,7 @@
       "category": "governed-fact-state",
       "complexity": "high",
       "verifier_type": "deterministic-local-behavioural",
-      "accepted_boundary": true,
+      "accepted_boundary": false,
       "private_payload_commitment_sha256": "75d4a60d0d650c7899c6ec25cb74931b9590785c2ed45eae1bedf82d048c5609"
     },
     {
@@ -59,13 +59,13 @@
       "category": "durable-governed-ingress",
       "complexity": "high",
       "verifier_type": "deterministic-local-behavioural",
-      "accepted_boundary": true,
+      "accepted_boundary": false,
       "private_payload_commitment_sha256": "75d4a60d0d650c7899c6ec25cb74931b9590785c2ed45eae1bedf82d048c5609"
     }
   ],
   "chain": {
-    "genuinely_sequential": true,
-    "note": "The dependency graph is connected and culminates in T5 integrating accepted state from the identity and governed-state branches."
+    "genuinely_sequential": false,
+    "note": "The prior graph is superseded by amendment 001; no amended five-task graph was selected."
   },
   "execution_state_rule": {
     "fixed_historical_boundary_progression": true,
@@ -80,5 +80,9 @@
   "private_lock_sha256": "75d4a60d0d650c7899c6ec25cb74931b9590785c2ed45eae1bedf82d048c5609",
   "experimental_agent_runs": 0,
   "p0_executed": false,
-  "positive_empirical_ras_results": false
+  "positive_empirical_ras_results": false,
+  "corpus_amendment_required": true,
+  "original_t3_boundary_valid": false,
+  "network_isolation_ready": false,
+  "p0_corpus_insufficient_after_boundary_validation": true
 }

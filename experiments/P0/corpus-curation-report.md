@@ -4,7 +4,7 @@
 
 ## Status
 
-- corpus selected: **yes**;
+- corpus selected: **no — superseded during boundary validation**;
 - P0 executed: **no**;
 - experimental agent runs: **0**;
 - model/runtime freeze pending: **yes**;
@@ -15,13 +15,13 @@
 A bounded contiguous local engineering programme was fixed before individual task selection. The window was selected for methodological neutrality: one coherent local programme with deterministic behavioural surfaces, excluding cloud/model/live-service work by programme scope rather than by expected RaS outcome.
 
 - candidate transitions considered: **38**;
-- selected task units: **5**;
-- transitions contained in selected units: **17**;
+- amended selected task units: **0 final units**;
+- transitions contained in final amended units: **0**;
 - excluded later transitions: **21**.
 
 Exclusion of the remaining transitions followed the fixed five-task pilot budget; later tasks were not substituted based on perceived difficulty or expected reset performance.
 
-## Selected public task structure
+## Superseded public task structure
 
 - `P0-T1`: runtime-governance, medium, chain root;
 - `P0-T2`: temporal-governance, high, depends on T1;
@@ -29,11 +29,15 @@ Exclusion of the remaining transitions followed the fixed five-task pilot budget
 - `P0-T4`: governed-fact-state, high, depends on T1/T2;
 - `P0-T5`: durable-governed-ingress, high, depends on T3/T4.
 
-The graph is genuinely sequential and connected.
+This original graph is superseded by amendment 001. `P0-T3` is recorded as
+`EXCLUDED_INVALID_ACCEPTED_BOUNDARY_DISCOVERED_DURING_PREPARATION`; no amended
+five-task graph is selected.
 
 ## Accepted boundaries
 
-All five post-states satisfy the curation definition of credible accepted engineering boundaries through committed coherent state plus deterministic behavioural test/proof contracts.
+The original five-boundary claim is withdrawn. No final amended boundary is
+accepted because the mandatory replacement pre-fail/post-pass chain was not
+completed.
 
 Limitation: exact historical CI/check records are not attached to the five boundary commits, and current private-source historical build reproduction was not possible in the connector-only curator runtime. This is frozen as a limitation, not upgraded into evidence.
 
@@ -63,7 +67,7 @@ Private P0 lock:
 
 FUTURE_HISTORY_LEAK_GATE v0.1.0 is implemented generically.
 
-Synthetic validation: **21 leak/isolation tests passed**. Full public research-tool suite: **50 tests passed**.
+Synthetic validation: **21 leak/isolation tests passed**. Full public research-tool suite: **49 passed / 1 environment-skipped** (Windows symlink privilege).
 
 **HARNESS TEST DATA — NOT RESEARCH EVIDENCE.**
 
@@ -83,6 +87,8 @@ Therefore:
 
 `P0_PREREGISTRATION_FROZEN=false`
 
-`P0_PROTOCOL_READY_FOR_MODEL_FREEZE=true`
+`P0_CORPUS_INSUFFICIENT_AFTER_BOUNDARY_VALIDATION=true`
+`P0_PROTOCOL_READY_FOR_MODEL_FREEZE=false`
+`NETWORK_ISOLATION_READY=false`
 
 No empirical RaS result exists.

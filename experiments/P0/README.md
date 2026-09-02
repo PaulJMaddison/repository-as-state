@@ -59,7 +59,7 @@ The private hidden verifier implementation and isolated task workspaces also rem
 
 The generic FUTURE_HISTORY_LEAK_GATE and canonicalisation/preregistration helpers are implemented in `src/ras/`.
 
-Current deterministic synthetic harness validation: **50 tests passed**, including **21 Git isolation/leakage tests**.
+Current deterministic synthetic harness validation: **49 passed / 1 environment-skipped** (Windows symlink privilege), including **21 Git isolation/leakage tests**.
 
 **HARNESS TEST DATA — NOT RESEARCH EVIDENCE.**
 
@@ -67,7 +67,9 @@ Current deterministic synthetic harness validation: **50 tests passed**, includi
 
 `MODEL_RUNTIME_FREEZE_PENDING=true`  
 `P0_PREREGISTRATION_FROZEN=false`  
-`P0_PROTOCOL_READY_FOR_MODEL_FREEZE=true`
+`P0_CORPUS_INSUFFICIENT_AFTER_BOUNDARY_VALIDATION=true`
+`P0_PROTOCOL_READY_FOR_MODEL_FREEZE=false`
+`NETWORK_ISOLATION_READY=false`
 
 No `PREREGISTRATION_LOCK.json` is created yet because unresolved runtime fields are causal requirements, not optional metadata.
 
