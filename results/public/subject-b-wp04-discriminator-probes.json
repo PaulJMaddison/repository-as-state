@@ -1,0 +1,28 @@
+{
+  "candidateId": "WP04_PR5",
+  "preCommit": "e7f53f17dd7d46050f7836a92a8918c27b6cd01b",
+  "postCommit": "b364a51ace47a8c73dc5e2affcb8fbcd156db1bf",
+  "frozenTaskSpecSha256": "1f5ed2d31a0609e3aff2b3fb82868ac4c368825366f70537267f25df5b85180",
+  "frozenRequirementsSha256": "aa327ab1770fc22050e9ae6e956b20912f3205317696f3d84e900578a8bcd418",
+  "frozenRequirementCount": 8,
+  "probeVersion": "micro-probes-v1",
+  "probeCounts": { "requirements": 8, "observations": 16 },
+  "results": {
+    "WP04-R1": { "pre": "PASS", "post": "PASS", "preDurationMs": 212, "postDurationMs": 218 },
+    "WP04-R2": { "pre": "PASS", "post": "PASS", "preDurationMs": 213, "postDurationMs": 207 },
+    "WP04-R3": { "pre": "PASS", "post": "PASS", "preDurationMs": 212, "postDurationMs": 209 },
+    "WP04-R4": { "pre": "PASS", "post": "PASS", "preDurationMs": 211, "postDurationMs": 225 },
+    "WP04-R5": { "pre": "PASS", "post": "PASS", "preDurationMs": 222, "postDurationMs": 223 },
+    "WP04-R6": { "pre": "PASS", "post": "PASS", "preDurationMs": 221, "postDurationMs": 223 },
+    "WP04-R7": { "pre": "PASS", "post": "PASS", "preDurationMs": 220, "postDurationMs": 220 },
+    "WP04-R8": { "pre": "PASS", "post": "PASS", "preDurationMs": 218, "postDurationMs": 217 }
+  },
+  "allTaskIntroducedRequirementsDirectlyProbed": true,
+  "noFrozenPrePostDiscriminatorExists": true,
+  "wp04FrozenContractAlreadySatisfiedByPre": true,
+  "comprehensiveCandidateValid": false,
+  "v3Created": false,
+  "p0Executed": false,
+  "finalLockCreated": false,
+  "nextStep": "REMOVE_WP04_FROM_FINAL_CHAIN"
+}
