@@ -1,0 +1,22 @@
+{
+  "pr8Sha": "575dc1e531c2a5e6bf39579869720fb8c6deff76",
+  "pr8TreeSha": "4d777a99f1f5b43d8123d221616a1f9688da8b2e",
+  "b4Sha": "96aa7162faa48e47104916331a9ffcfd66af7171",
+  "b5Sha": "83b5b3c98213c13e2d81b33ade63891effcf204d",
+  "b4IsAncestorOfPr8": true,
+  "pr8IsAncestorOfB5": true,
+  "restorePass": true,
+  "buildPass": true,
+  "testSuitePass": false,
+  "testsPassedBeforeStall": 292,
+  "testsFailedBeforeStall": 0,
+  "testsSkippedBeforeStall": 0,
+  "boundaryHarnessValid": false,
+  "pr8AcceptedBoundary": false,
+  "candidateContractsFrozen": false,
+  "newDiscriminatorRuns": 0,
+  "experimentalAgentRuns": 0,
+  "p0Executed": false,
+  "finalLockCreated": false,
+  "nextStep": "SUBJECT_B_CORPUS_REVIEW"
+}
