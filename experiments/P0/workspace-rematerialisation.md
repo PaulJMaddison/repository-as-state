@@ -29,11 +29,15 @@ Both conditions lose:
 
 ## Canonical materialisation mechanism
 
-The public harness creates a **fresh independent Git repository** and fetches only the allowed commit ancestry using a local no-tag object transfer. It then creates the sole allowed branch ref and hard-resets to the allowed commit.
+The public harness creates a **fresh independent Git repository** and fetches only the allowed commit ancestry using a local no-tag object transfer. It then creates the sole allowed writable branch `ras-experiment`, makes that branch the symbolic `HEAD`, and hard-resets it to the allowed commit.
+
+A detached `HEAD` is not an eligible experiment workspace. The leak gate now rejects detached workspaces and any active branch outside the explicitly allowed ref set.
+
+The canonical entry point is `ras-materialize-workspace` (implemented by `ras.workspace`). Future experiment workers must use this shared materialiser rather than ad-hoc `git clone` / `checkout --detach` sequences.
 
 The private source repository is never modified.
 
-The result is not trusted merely because refs were deleted. The leak gate compares all Git objects present with objects reachable from allowed refs and rejects unreachable extras.
+The result is not trusted merely because refs were deleted. The leak gate compares all Git objects present with objects reachable from allowed refs and rejects unreachable extras. It also requires the active symbolic `HEAD` to be an allowed writable branch, no remotes, no Git alternates, no linked worktrees, no reflog-only history and no forbidden future object IDs.
 
 ## Cache policy
 

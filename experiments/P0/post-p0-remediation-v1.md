@@ -7,6 +7,9 @@ retroactively repair P0.
 
 The next runtime candidate must materialise each historical PRE as a local
 writable branch whose tree and commit identity are independently verified.
+The shared public harness now owns this mechanism via `ras.workspace` /
+`ras-materialize-workspace`; private workers must validate and execute it rather
+than reimplementing materialisation with ad-hoc Git commands.
 The workspace must contain no remote, no future refs, no unreachable future
 objects and no private control-plane material.
 
@@ -40,3 +43,14 @@ requirement itself may not be hidden.
 The six P0 outputs, verdicts and hashes are permanent historical evidence.
 No remediation may overwrite or rerun them. A corrected experiment must use a
 new version identifier and new preregistration.
+
+
+## Public harness correction
+
+The post-P0 public runtime fix changes the canonical materialiser so that the
+single experiment ref is `refs/heads/ras-experiment`, makes it the symbolic
+`HEAD`, expires fetch/reflog residue, prunes unreachable objects, and fails the
+leak gate on detached or unapproved active branches.
+
+This public change is a remediation for future experiments only. It does not
+alter P0 or any frozen P0 artefact.
