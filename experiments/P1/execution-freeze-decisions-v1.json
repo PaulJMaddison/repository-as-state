@@ -1,12 +1,12 @@
 {
   "experiment": "P1",
   "subject": "SEARCHFORCARS",
-  "status": "COORDINATOR_DECISIONS_FROZEN_PRIVATE_EXECUTION_LOCK_PENDING",
+  "status": "PUBLICLY_PREREGISTERED_PRIVATE_COMMIT_BINDING_PENDING",
   "runtime": {
     "runtime_generation": "runtime-v3",
     "public_framework_commit": "8765b93686dab9d7b1c031778a5e4a18cadccf30",
     "prior_real_pre_offline_build_sha256": "3c4ca79b22cc7fc9f8d77a8621e94b1c750ee15b9017926b03c28385b30d091b",
-    "network_model_probe_sha256": "b9d06be03ee03e49f697c295f530aad665abf22c4ed6dc078a7f0d97fae537f6",
+    "network_model_probe_sha256": "b9d06be03e49f697c295f530aad665abf22c4ed6dc078a7f0d97fae537f6",
     "provider_destination_set": ["chatgpt.com:443"],
     "provider_transport_separated": true,
     "agent_tool_network_denied": true,
@@ -15,75 +15,36 @@
   },
   "model": {
     "identifier": "gpt-5.6-luna",
-    "selection_basis": "model used by the successful frozen runtime-v3 provider positive control",
-    "codex_cli_version": "MECHANICALLY_FREEZE_FROM_EXECUTION_HOST",
-    "effective_model_configuration_hash": "MECHANICALLY_FREEZE_FROM_EXECUTION_HOST",
+    "codex_cli_version": "codex-cli 0.151.0-alpha.7.2",
+    "effective_model_configuration_hash": "03CD941A69E301F8BD31B19D71C47291613E9C73BBB11BDBEAB20A746B49943E",
     "same_effective_configuration_across_all_six_runs": true
   },
   "prompt": {
     "repository_authority_prefix_path": "experiments/P1/repository-authority-prefix-v1.txt",
     "repository_authority_prefix_sha256": "69ea9b5343c98d5be90b77fd206ef4808f6c9f374f2cf60bb41bcbe3e0ed28f1",
-    "task_prompt_construction": "UTF-8 repository-authority-prefix bytes followed immediately by exact frozen canonical neutral task-spec bytes",
-    "matched_pair_prompt_bytes_identical": true,
-    "task_prompt_sha256": "MECHANICALLY_GENERATE_FROM_PRIVATE_FROZEN_TASK_SPECS"
+    "task_prompt_sha256": {
+      "WP04_PR5": "D7BB8E808B899EB391D80F24A7EBDA65AE0574FBB5275EFEC6EF15B2DBEB3313",
+      "WP05_PR6": "EEB6B50C43AAD19B165DEEF9D6BAE262E581415FC13F5B51154C2F1AAACC8412",
+      "WP06_PR7": "73221046242FA30BC235C1816F6DCEFD86064F188A527FB211E73ECAE49220A3"
+    },
+    "matched_pair_prompt_bytes_identical": true
   },
   "execution": {
     "timeout_seconds_per_run": 1800,
     "attempts_per_condition_task": 1,
     "model_quality_retry_after_model_activity": false,
-    "pre_model_infrastructure_retry_allowed": true,
-    "pre_model_infrastructure_retry_condition": "only when zero model inference/tool activity occurred and failure is independently classified as environment/harness failure",
-    "condition_order_derivation": "first three bytes of overall verifier SHA256 DD 8A 85; odd byte means B-first and even byte means A-first",
-    "condition_order": ["B1", "A1", "A2", "B2", "B3", "A3"],
-    "task_mapping": {
-      "1": "WP04_PR5",
-      "2": "WP05_PR6",
-      "3": "WP06_PR7"
-    }
+    "condition_order": ["B1", "A1", "A2", "B2", "B3", "A3"]
   },
-  "session_continuity": {
-    "condition_a": "A1 starts a new Codex session; A2 and A3 resume exactly that session identifier",
-    "condition_b": "B1 B2 and B3 each start an independent new Codex session with no predecessor session identifier conversation or local session database",
-    "generated_code_carries_between_tasks": false,
-    "each_run_materialises_its_own_exact_historical_pre": true
-  },
-  "experiment_root": {
-    "path": "C:\\Kyntic\\ras-p1-subject-b",
-    "private_hidden_verifier_material_must_not_be_present": true,
-    "execution_lock_sha256": "MECHANICALLY_GENERATE_AFTER_LOCAL_LOCK_ASSEMBLY"
-  },
-  "metrics": {
-    "behavioural_pass_fail": true,
-    "wall_clock_duration": true,
-    "input_output_cached_reasoning_tokens_when_emitted": true,
-    "model_calls": true,
-    "tool_calls": true,
-    "failed_tool_calls": true,
-    "commands": true,
-    "files_read_modified": true,
-    "repository_reconstruction_exploration": true,
-    "timeouts": true,
-    "restore_build_public_test_health": true,
-    "unavailable_value": "UNAVAILABLE",
-    "estimation_for_unavailable_metrics": false
-  },
-  "output_freeze": {
-    "freeze_each_model_output_before_hidden_verifier_access": true,
-    "capture_workspace_tree_or_patch": true,
-    "capture_git_status_and_diff": true,
-    "capture_model_response_and_event_log": true,
-    "capture_metrics": true,
-    "hash_frozen_output_bundle": true,
-    "no_generated_output_carries_to_next_task": true
-  },
-  "blind_adjudication": {
-    "all_six_experimental_outputs_frozen_before_any_hidden_behaviour_verdict_is_inspected": true,
-    "no_correctness_feedback_between_runs": true,
-    "hidden_verifier_source_inaccessible_to_experimental_agents": true
-  },
+  "session_isolation_manifest_sha256": "E7C09E969DBC53BACEAB9E7B8F0CEC0C26D685E0A092ED97B65D795771133A53",
+  "metrics_schema_sha256": "8AA71D813BE31822901580E4E8002B1E7DEBDDA0BFC33E3B83366E10FEAB5580",
+  "output_freeze_mechanism_sha256": "07F38C8C85383B52C3BD9DDB7CC001DC81BE041C4B8969499915B857969029D7",
+  "blind_adjudication_gate_sha256": "0E0E4A481485F998FDAB77486DF8D9AE37FED393C8DC22923A0CEC5A935FABE8",
+  "pre_model_gate_sha256": "CEA2AEC37652FA9A09F7B57970290BEF1C8FDED77EA9DA5EFA7E96A61420452D",
   "overall_private_verifier_package_sha256": "DD8A85151DED2EE5DD11BF27109A5A0823BA2F815474DDE25DCEB33B873784AB",
+  "execution_lock_sha256": "9222FBC10DE1977A565EA04CC9EEFE3077F18B58944383851051849DCA466328",
+  "execution_lock_package_sha256": "951D900DD580CE53F4FA3081E0DFE1707CD6140DF565A3242E11DBCFF8BAD347",
   "p1_experimental_agent_runs": 0,
   "p1_executed": false,
   "p0_rerun": false,
-  "next_step": "PREPARE_PRIVATE_P1_EXECUTION_LOCK_FROM_COORDINATOR_DECISIONS"
+  "next_step": "BIND_PUBLIC_PREREGISTRATION_COMMIT_AND_FINAL_ZERO_MODEL_PREFLIGHT"
 }
