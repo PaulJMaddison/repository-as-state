@@ -37,12 +37,30 @@
   "partitionCount": 12,
   "batchesCompleted": 12,
   "batchesStalled": 1,
-  "bisectedBatches": ["B12"],
+  "bisectedBatches": [
+    "B12"
+  ],
   "bisectionsRequired": 1,
   "discoveredTestListSha256": "02c78ff3b90665fb183a63eb1280b2b92c405a934c36bb67e7448d95f1d28eaa",
-  "nextStep": "FREEZE_PR8_SPLIT_TASK_CONTRACTS",
+  "nextStep": "VALIDATE_PR8_BASE_BOUNDARY_THEN_FREEZE_TWO_NATURAL_TASK_CONTRACTS",
   "previousDiscoveryCount302Invalid": true,
   "previousDiscoveryCountError": "The earlier 302 count came from an over-broad fallback parser that counted any indented discovery-output line when no 'Total Tests' summary was matched; the later fully-qualified-name parser found 300 tests.",
   "independentHistoricalValidationTestCount": 300,
-  "authoritativeDiscoveredTestListSha256": "02c78ff3b90665fb183a63eb1280b2b92c405a934c36bb67e7448d95f1d28eaa"
+  "authoritativeDiscoveredTestListSha256": "02c78ff3b90665fb183a63eb1280b2b92c405a934c36bb67e7448d95f1d28eaa",
+  "pr8BaseSha": "b818d5e50c588113529c5545843446618dba4e4e",
+  "pr8SecondParentSha": "5658fa1ae922afa56ba76f1d8dffd9bd95d60209",
+  "pr8FirstParentIsRecordedBase": true,
+  "recoveryChainPlan": {
+    "existingTask": "WP05_PR6",
+    "candidateA": {
+      "pre": "96aa7162faa48e47104916331a9ffcfd66af7171",
+      "post": "b818d5e50c588113529c5545843446618dba4e4e",
+      "status": "BOUNDARY_VALIDATION_REQUIRED"
+    },
+    "candidateB": {
+      "pre": "b818d5e50c588113529c5545843446618dba4e4e",
+      "post": "575dc1e531c2a5e6bf39579869720fb8c6deff76",
+      "status": "PR8_POST_ACCEPTED_PRE_BOUNDARY_VALIDATION_REQUIRED"
+    }
+  }
 }
