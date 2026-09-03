@@ -1,0 +1,21 @@
+{
+  "experiment": "P2",
+  "subject": "SearchForCars",
+  "stage": "task_contracts_curated",
+  "selected_tasks": 5,
+  "task_spec_statements_total": 20,
+  "governing_behaviours_total": 18,
+  "undisclosed_governing_requirements_total": 0,
+  "unmapped_governing_behaviours_total": 0,
+  "implementation_specific_behaviour_requirements": 0,
+  "all_fairness_audits_pass": true,
+  "all_historical_pre_expected_overall_fail": true,
+  "all_historical_post_expected_overall_pass": true,
+  "private_task_selection_freeze_sha256": "829CD09A84616C5282AFAED1FB4EDA168BE238E344E02EC8AE54A8C11D6ADE94",
+  "private_curation_package_sha256": "5832646A66A37E7F47F124796EEE4E289F72584424E37E2E600970FDC929F6A6",
+  "hidden_verifiers_implemented": false,
+  "hidden_verifiers_qualified": false,
+  "final_preregistration_ready": false,
+  "p2_preregistered": false,
+  "p2_experimental_agent_runs": 0
+}
