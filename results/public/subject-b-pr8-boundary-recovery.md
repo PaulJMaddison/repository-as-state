@@ -11,3 +11,7 @@ The monolithic project run remains disclosed as a harness caveat: it produced 29
 The frozen v2 partitioned replay completed all 12 consecutive batches. One top-level batch stalled and was resolved by the required midpoint bisect; its two child runs accounted for all members. Leaf TRX outcomes account for exactly 300/300 tests: 300 passed, 0 failed and 0 skipped. PR8 is therefore **ACCEPTED_WITH_HARNESS_CAVEAT**. The next step is to freeze PR8 split task contracts. No replacement candidate contracts are frozen and no new discriminator has run.
 
 This aggregate contains no private paths, source, hidden requirements, or proprietary test traces.
+## Natural next split
+
+Before freezing replacement contracts, the recovery plan now prefers the exact historical PR #8 base/first-parent boundary `b818d5e50c588113529c5545843446618dba4e4e`. This avoids treating the entire B4 -> PR8 interval as one broad composite task. If the PR8-base state validates as an accepted boundary, the natural three-task chain becomes existing WP05 followed by B4 -> PR8-base and PR8-base -> PR8 merge. If that base state is not accepted, the broad interval will not be collapsed merely to preserve chain length.
+
