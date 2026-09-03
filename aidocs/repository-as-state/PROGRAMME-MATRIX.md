@@ -51,7 +51,7 @@ Legend: ✅ complete · 🟡 active · ⬜ pending
 | 39 | P0 causal A/B correctness claims rejected | ✅ |
 | 40 | runtime-v3 remediation designed | ✅ |
 | 41 | runtime-v3 network/provider separation proved | ✅ |
-| 42 | runtime-v3 offline build/materialisation proved | ✅ |
+| 42 | runtime-v3 offline materialisation/runtime readiness proved | ✅ |
 | 43 | runtime-v3 model positive-control proved | ✅ |
 | 44 | runtime-v3 A/B environment parity proved | ✅ |
 | 45 | P1 neutral task contracts curated | ✅ |
@@ -85,17 +85,15 @@ Legend: ✅ complete · 🟡 active · ⬜ pending
 - Pending after active item: **7**
 - Total: **67**
 
-## Item 60 methodology note — corrected 2026-09-03 23:32
+## Item 60 absolute methodology rule — corrected 2026-09-03 23:38
 
-A coordinator prompt temporarily and incorrectly treated `dotnet build SearchForCars.sln` success as a required accepted-boundary gate. That was not part of the established methodology.
+**NO BUILD OR TEST EXECUTION IS PERMITTED AS PART OF ITEM 60 VERIFIER QUALIFICATION.**
 
-The whole repository does **not** have to be green merely for a historical work-package boundary to remain eligible. The hidden verifier must judge the frozen disclosed behaviour through implementation-independent semantic probes against the real candidate implementation.
+Do not run full-solution, targeted-project, minimal-project, probe, or candidate builds/tests. Do not use compilation/test-runner success or failure as PRE/POST qualification evidence.
 
-Targeted/minimal compilation may be used as part of a semantic probe when needed, but whole-solution buildability must not be used to invalidate P2_T03 or any other frozen task.
+The prior fixture-only oracle is invalid because it encoded expected verdict state instead of deriving semantic evidence from the frozen candidate. The later T03 build-based stops are also non-authoritative because build/test activity is outside this gate.
 
-Therefore item 59 remains complete and item 60 remains active.
-
-The earlier fixture-only verifier attempt remains invalid for a separate reason: it did not exercise candidate code at all.
+Item 59 remains complete. Item 60 remains active. P2 experimental runs remain zero.
 
 ## Count rule
 
