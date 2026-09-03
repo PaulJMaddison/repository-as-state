@@ -35,3 +35,15 @@ The final private-lock gate remains closed pending comprehensive, independently 
 - SearchForCars product repository: unchanged
 - Public research record: this sanitized aggregate only
 - Hidden verifier implementations, private source snapshots, raw logs, private workspace paths, and credentials: intentionally excluded
+
+## Latest WP04 comprehensive-verifier attempt
+
+A later privileged WP04-only implementation run did not create the comprehensive verifier. It evaluated 0 of 8 frozen requirements, produced no valid PRE/POST comprehensive observations, ran no comprehensive negative controls, and left the final-lock gate closed.
+
+This is recorded as an **incomplete preparation execution**, not a scientific rejection of WP04. The prior narrow WP04 discrimination result remains preserved. The next worker must implement the WP04 comprehensive verifier rather than repeat the coverage audit.
+
+See:
+
+- `results/public/subject-b-wp04-comprehensive-status.md`
+- `results/public/subject-b-wp04-comprehensive-status.json`
+
