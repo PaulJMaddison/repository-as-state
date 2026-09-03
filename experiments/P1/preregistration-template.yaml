@@ -1,0 +1,79 @@
+protocol:
+  id: P1_PROTOCOL_V1
+  status: TEMPLATE_ONLY_NOT_PREREGISTERED
+  p0_is_immutable: true
+
+research_question:
+  treatment: predecessor_reasoning_session_continuity
+  condition_a: persistent_exact_session_resume
+  condition_b: fresh_independent_session_per_task
+  generated_experimental_code_carries_forward: false
+
+runtime:
+  required_generation: runtime-v3-or-later-explicit-version
+  exact_runtime_lock_sha256: null
+  model_identifier: null
+  codex_version: null
+  provider_destination_set: null
+  timeout_seconds: null
+  attempts_per_condition_task: null
+
+corpus:
+  subject: null
+  bounded_historical_window: null
+  task_count: null
+  tasks: []
+
+task_contract:
+  governing_behaviour_mapping_required: true
+  allowed_derivation_classes:
+    - EXPLICITLY_REQUIRED_BY_TASK_SPEC
+    - REASONABLY_ENTAILED_BY_TASK_SPEC
+  forbidden_derivation_class:
+    - NOT_REASONABLY_DERIVABLE_FROM_TASK_SPEC
+  implementation_specific_acceptance_allowed: false
+  non_observable_acceptance_allowed: false
+  shared_evaluator_required: ras.task_contract
+
+conditions:
+  prompt_bytes_identical_within_task_pair: true
+  historical_pre_identical_within_task_pair: true
+  workspace_materialiser_identical: true
+  offline_toolchain_identical: true
+  network_policy_identical: true
+  filesystem_policy_identical: true
+  metrics_policy_identical: true
+
+anti_carryover:
+  rematerialise_exact_historical_pre_per_task: true
+  carry_generated_experimental_output_forward: false
+
+blinding:
+  freeze_all_model_outputs_before_hidden_verdicts: true
+  expose_hidden_verifier_source_to_agent: false
+  hide_governing_requirements_from_agent: false
+  provide_prior_task_correctness_feedback: false
+
+metrics:
+  behavioural_outcome: true
+  wall_clock: true
+  tokens_when_emitted: true
+  tool_calls_when_emitted: true
+  commands_when_emitted: true
+  files_read_modified_when_emitted: true
+  missing_values: UNAVAILABLE
+
+interpretation:
+  equivalence_claim_allowed_from_small_pilot: false
+  non_inferiority_claim_allowed_from_small_pilot: false
+  replication_required_for_generalisation: true
+
+execution:
+  order: null
+  prompt_hashes: []
+  corpus_lock_sha256: null
+  public_preregistration_commit: null
+
+counters:
+  p1_experimental_agent_runs: 0
+  p1_executed: false
