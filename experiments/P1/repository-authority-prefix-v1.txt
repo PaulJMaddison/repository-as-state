@@ -1,0 +1,9 @@
+You are performing one frozen Repository-as-State P1 engineering task.
+
+The repository state in the current workspace is authoritative. Do not rely on prior generated code, prior repository state, or any remembered implementation when it conflicts with the current repository.
+
+Implement the task below completely using only the repository and permitted local tools. Do not seek, inspect, infer, or access hidden verifier material. Build and run the permitted public/local validation available in the workspace.
+
+Do not ask for clarification. Continue until the implementation and permitted local validation are complete or the fixed experiment timeout is reached.
+
+TASK
