@@ -1,6 +1,6 @@
 # Repository-as-State — CURRENT
 
-Updated: 2026-09-03 23:32 Europe/London
+Updated: 2026-09-03 23:36 Europe/London
 
 ## Programme status
 
@@ -13,25 +13,15 @@ Updated: 2026-09-03 23:32 Europe/London
 - P0 rerun: **FALSE**.
 - P1 rerun: **FALSE**.
 
-## Important correction — full-solution build is NOT an accepted-boundary gate
+## Non-negotiable methodology rule
 
-A coordinator prompt on 2026-09-03 incorrectly instructed the P2 verifier worker to use full historical solution build/test success as a qualification condition and then incorrectly reopened item 59 when `dotnet build SearchForCars.sln` failed for P2_T03.
+**Whole-solution or whole-project greenness is not the accepted-boundary model.**
 
-That was a methodology/prompt error by the coordinator.
+Do not use `dotnet build SearchForCars.sln`, `dotnet test SearchForCars.sln`, or failure of an unrelated project as a reason to invalidate a frozen historical work-package boundary.
 
-The established Repository-as-State protocol treats the accepted work-package boundary and frozen disclosed behavioural contract as authoritative. **Commit/whole-repository greenness is not itself the accepted-boundary model.**
+The accepted unit is the validated work-package behavioural/public-contract boundary. Hidden verification must use the narrowest implementation-independent semantic seam that actually exercises the governed candidate behaviour.
 
-For P2 verifier qualification:
-
-- do **not** run `dotnet build SearchForCars.sln` or `dotnet test SearchForCars.sln` as an eligibility/accepted-boundary gate;
-- do **not** invalidate a frozen PRE/POST identity merely because the entire historical solution does not compile in isolation;
-- do exercise the actual candidate implementation through the narrowest implementation-independent semantic seam required by each disclosed behaviour;
-- a private semantic probe/adaptor may itself compile a minimal project or relevant candidate dependency set when necessary to exercise real candidate code;
-- targeted compilation/loading used by a semantic probe is evidence about that probe seam, not a whole-repository greenness requirement;
-- if a particular semantic seam cannot be exercised, try alternate legitimate seams such as reflection, dynamic loading, minimal compile adapters, process/public API behaviour, deterministic fakes, or stable behavioural observation before considering a genuine blocker;
-- source/test-name selectors and fixture-only verdicts remain forbidden.
-
-The earlier public `subject-b-p2-corpus-freeze-correction-v1` record is therefore itself **SUPERSEDED by coordinator correction v2**. Its conclusion that the T03 POST was invalid solely because the full solution build failed must not be used.
+A build may be used only as an implementation detail of a semantic probe, not as the scientific verdict itself.
 
 ## Public repository
 
@@ -112,36 +102,68 @@ Totals:
 - implementation-specific behavioural requirements: 0
 - fairness audits: 5/5 PASS
 
-## Item 60 history
+## Item 60 verifier history
 
-### Rejected fixture-only attempt
+### Attempt 1 — fixture-only oracle: REJECTED
 
-The first verifier attempt used hand-authored semantic-state JSON rather than actual candidate execution. Its apparent PRE/POST, negative-control, alternate-valid and self-test evidence is invalid and quarantined.
+The first verifier worker used hand-authored semantic-state JSON. It did not execute candidate code. Its apparent PRE/POST, negative-control, alternate-valid and self-test evidence is invalid and quarantined.
 
-### Over-strict full-solution build attempt — not a corpus blocker
+### Attempt 2 — whole-solution build blocker: REJECTED
 
-The next worker correctly quarantined the fixture-only oracle but then followed the coordinator's incorrect instruction to build the entire historical SearchForCars solution. T03 produced `CS0535` under that whole-solution build.
+A coordinator prompt incorrectly introduced full solution buildability as a gate. T03 POST produced `CS0535` because Infrastructure implementations do not implement a newly declared interface member. That observation does not invalidate the work-package boundary.
 
-That observation may be retained as engineering context, but **it does not invalidate the frozen T03 task identity and does not reopen item 59**.
+### Attempt 3 — targeted project-build blocker: REJECTED
 
-The correct next action is to continue semantic-verifier engineering using the P1 pattern: direct behaviour probes against actual candidate code with narrow adapters/fixtures, no test-name selectors and no whole-solution greenness gate.
+The corrected prompt explicitly required genuine semantic fallback seams before Terminal B. The worker instead ran:
+
+- targeted `SearchForCars.Application` build — PASS;
+- targeted `SearchForCars.Infrastructure` build — FAIL with the same `CS0535`;
+- Git-history searches.
+
+It then labelled application/infrastructure build paths as two candidate-code seams and returned `VALID_TERMINAL_B`.
+
+Coordinator ruling: **reject Terminal B**.
+
+Two compilation attempts are not two materially different semantic observation seams. The worker never executed a behaviour-level semantic verifier, returned `CANDIDATE_CODE_ACTUALLY_EXERCISED=FALSE`, created zero genuine negative controls, zero alternate-valid controls and no valid self-test package.
+
+## Concrete P2_T03 semantic route
+
+The T03 POST commit `a740ce1965ba26ab5e06ed5c466430f1e28c5ac5` is titled `Add complete source snapshot lifecycle contract` and modifies only the public `IMarketInventoryRepository` declaration in `src/SearchForCars.Application/Abstractions.cs`, adding `ReconcileCompleteSourceSnapshotAsync(...)`.
+
+The targeted `SearchForCars.Application` build already passes.
+
+Therefore the preferred T03 verifier seam is:
+
+1. build **only** the actual historical `SearchForCars.Application` project for PRE and POST;
+2. load the produced actual Application assembly;
+3. reflect the actual `IMarketInventoryRepository` public metadata;
+4. evaluate the three frozen T03 governing behaviours from that public contract metadata;
+5. treat absence/wrong signature in PRE as `HARNESS_VALID + BEHAVIOURAL_FAIL` where appropriate;
+6. require the POST assembly to expose the correct frozen contract;
+7. do **not** load or build Infrastructure unless a frozen T03 behaviour explicitly requires it;
+8. create genuine negative-control variants of the Application public contract and genuine alternate-valid source/assembly variants to prove the verifier is not source-text/layout coupled.
+
+The verifier must derive its result from the compiled actual candidate Application contract, not source-string matching and not hand-authored expected-state JSON.
 
 ## Active item 60
 
-For each P2 task, complete genuine semantic verifier qualification:
+Continue genuine semantic-verifier engineering for **all five tasks**, not T03 only.
 
-1. read frozen disclosed task spec/behaviours;
-2. identify the narrowest real semantic observation seam;
-3. exercise actual candidate code through that seam;
-4. obtain historical PRE overall FAIL and POST PASS under the semantic verifier;
-5. use genuine semantic negative controls, not fixture verdict files;
-6. use alternate valid implementations/structures to prove implementation independence;
-7. self-test harness-invalid vs behavioural-fail classification;
-8. prove determinism;
-9. preserve hidden-material isolation;
-10. freeze final verifier packages only after all gates pass.
+For each task:
 
-Do not use full `SearchForCars.sln` build/test success as a completion requirement.
+1. read frozen disclosed task spec and governing behaviours;
+2. select a behaviour-level semantic seam;
+3. execute/observe actual candidate code or compiled public contract;
+4. PRE overall FAIL / POST PASS;
+5. genuine per-behaviour negative controls;
+6. alternate-valid implementations/structures;
+7. implementation-independence audit;
+8. harness self-tests;
+9. 3× PRE/POST determinism;
+10. ACL isolation;
+11. final verifier freeze only after every gate passes.
+
+Normal engineering work remaining is not Terminal B.
 
 ## Remaining gates
 
@@ -156,4 +178,4 @@ Do not use full `SearchForCars.sln` build/test success as a completion requireme
 
 ## Coordinator/Codex rule
 
-Normal verifier engineering work remaining is never a valid terminal state. Do not add new methodology gates that were not part of the frozen protocol. In particular, do not conflate whole-repository greenness with a validated work-package boundary.
+Future prompts must specify the actual required semantic observation route where one is known. Do not let compiler/test-runner convenience silently replace the scientific verifier contract.
