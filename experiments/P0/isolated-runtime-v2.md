@@ -157,3 +157,15 @@ does not create or assume OS isolation.
 - `HUMAN_RUNTIME_INTEGRITY_REVIEW`: previously frozen identities do not match.
 
 No P0 model receives SearchForCars task material during runtime-v2 validation.
+
+## Validation-stage interpretation
+
+A read-only inventory of an existing general-purpose WSL distro is not a test of
+this candidate architecture. The candidate specifically requires a newly
+provisioned dedicated P0 distro with automount/interoperability disabled,
+unprivileged condition identities, provider-only egress and mechanically tested
+negative controls.
+
+Accordingly, runtime v2 is rejected only after a dedicated candidate has been
+provisioned and one or more required controls are shown to be unenforceable.
+
