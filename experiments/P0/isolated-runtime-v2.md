@@ -169,3 +169,20 @@ negative controls.
 Accordingly, runtime v2 is rejected only after a dedicated candidate has been
 provisioned and one or more required controls are shown to be unenforceable.
 
+## Authentication gate
+
+After the dedicated boundary is mechanically isolated, authenticate Codex with
+a fresh Linux-side ChatGPT login. Do not copy an existing Windows
+`.codex/auth.json`, existing Codex conversation history, or another condition
+user's Codex home into the experiment boundary.
+
+Authentication may precede P0 only for synthetic infrastructure probes. Those
+probes must contain no SearchForCars source, PRE workspace, Subject-B task text
+or hidden verifier material.
+
+After authentication, freeze the minimum provider destination allow-list,
+prove explicit resume/fresh-session semantics, audit provider/account-level
+state as far as the client/runtime makes it observable, and validate metrics
+capture. P0 remains blocked until those gates and the separately approved task
+timeout are frozen.
+
