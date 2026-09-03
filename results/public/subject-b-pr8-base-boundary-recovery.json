@@ -21,7 +21,7 @@
   "baseTestsUnaccountedFor": null,
   "pr8BaseAcceptedBoundary": false,
   "pr8BaseRejectionEstablished": false,
-  "pr8BaseStatus": "UNRESOLVED_HISTORICAL_OBJECT",
+  "pr8BaseStatus": "RETRY_REQUIRED_WRONG_SOURCE_REMOTE",
   "candidateContractsFrozen": false,
   "noAlternativeShaSearched": true,
   "broadB4ToPr8NotForced": true,
@@ -29,5 +29,18 @@
   "experimentalAgentRuns": 0,
   "p0Executed": false,
   "finalLockCreated": false,
-  "nextStep": "SUBJECT_B_CORPUS_REVIEW"
+  "nextStep": "VALIDATE_PR8_BASE_FROM_SEARCHFORCARS_SOURCE",
+  "previousWorkerClassification": "UNRESOLVED_HISTORICAL_OBJECT",
+  "previousWorkerClassificationValid": false,
+  "previousWorkerError": "The worker queried the repository-as-state remote for SearchForCars historical objects instead of using the SearchForCars repository/remote.",
+  "sourceRepository": "PaulJMaddison/searchforcars",
+  "sourceRepositoryLocalPath": "C:\\Sass\\searchforcars",
+  "pr8ObjectReachable": true,
+  "pr8BaseObjectReachable": true,
+  "pr8SecondParentObjectReachable": true,
+  "b4ObjectReachable": true,
+  "githubPr8Resolved": true,
+  "githubPr8MergeSha": "575dc1e531c2a5e6bf39579869720fb8c6deff76",
+  "githubPr8BaseSha": "b818d5e50c588113529c5545843446618dba4e4e",
+  "githubPr8HeadSha": "5658fa1ae922afa56ba76f1d8dffd9bd95d60209"
 }
