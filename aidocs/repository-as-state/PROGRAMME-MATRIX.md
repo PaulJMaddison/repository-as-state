@@ -85,6 +85,12 @@ Legend: ✅ complete · 🟡 active · ⬜ pending
 - Pending after active item: **7**
 - Total: **67**
 
+## Item 60 note — 2026-09-03 23:19
+
+A provisional verifier attempt was rejected before freeze. It evaluated hand-authored semantic-state JSON rather than the actual candidate workspaces. Its PRE/POST, 18/18 negative-control and alternate-valid results are **not valid evidence** and must never enter P2 preregistration.
+
+Item 60 remains active. The next implementation must execute/observe real candidate code through implementation-independent semantic seams and use real candidate-code negative/alternate controls.
+
 ## Count rule
 
-An item becomes ✅ only after the coordinator accepts the evidence for that gate. Starting a Codex prompt does not itself complete the item.
+An item becomes ✅ only after the coordinator accepts the evidence for that gate. Starting a Codex prompt, or producing deterministic but methodologically invalid evidence, does not complete the item.
