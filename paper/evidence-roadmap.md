@@ -2,6 +2,21 @@
 
 This roadmap prevents one successful pilot from being promoted into a general validation claim.
 
+## Current controlled evidence — Subject-B P1
+
+The methodology-corrected Subject-B P1 study is now executed, blind-adjudicated and interpreted.
+
+Across three matched SearchForCars tasks, the persistent-session and fresh-session conditions produced identical behavioural vectors: **30/30 agreements, 0 disagreements**, with both conditions passing 18/30 governing behaviours and 2/3 tasks. WP04 and WP05 passed in both conditions; WP06 failed in both conditions.
+
+This is **supportive-with-limitations single-subject controlled evidence**, not formal equivalence or non-inferiority evidence. Resource/reconstruction evidence is incomplete and mixed. The result therefore sits below Level 2: repeated same-repository runs and a larger preregistered task sample are still required before reliable same-repository effect estimates can be claimed.
+
+Public-safe result record:
+
+- `results/public/subject-b-p1-results-v1.md`
+- `results/public/subject-b-p1-results-v1.json`
+
+Historical preregistration state: `d95e2cdc47f8082a805fa2d5b09cdb272cf977ef`.
+
 ## Level 0 — Observed workflow motivation
 
 Evidence:
@@ -18,16 +33,16 @@ What it does **not** support:
 
 **Current status: available as OBSERVED motivation.**
 
-## Level 1 — P0 methodology pilot / initial case study
+## Level 1 — Controlled single-repository pilot / initial case study
 
 Required:
 - matched A/B history treatment;
 - canonical workspace rematerialisation;
 - FUTURE_HISTORY_LEAK_GATE;
 - frozen task corpus and hidden verifier hashes;
-- no human rescue;
+- no human rescue of experimental implementations;
 - reconstruction probe and resource telemetry;
-- approximately five genuinely dependent tasks.
+- multiple genuinely dependent tasks.
 
 What it can support:
 - the intervention is executable;
@@ -40,6 +55,8 @@ What it cannot support:
 - general superiority;
 - population-level non-inferiority;
 - provider-internal savings.
+
+**Current status: achieved for Subject-B P1 behavioural continuity, with incomplete/mixed resource evidence and only three matched tasks.**
 
 ## Level 2 — Repeated runs on the same complex repository
 
@@ -57,6 +74,8 @@ What it can support:
 
 Remaining weakness:
 - private subject and author/repository bias.
+
+**Current status: not achieved. P2 should target this level before any formal same-repository equivalence/non-inferiority claim is considered.**
 
 ## Level 3 — Multiple repositories and task classes
 
@@ -90,7 +109,7 @@ Design:
 Why it matters:
 - successful continuation would provide stronger evidence that continuity resides in external project state rather than a provider/model-specific session representation.
 
-This is not part of P0.
+This is not part of P1.
 
 ## Level 6 — Independent external replication
 
@@ -119,4 +138,4 @@ Each requires its own evidence.
 
 ## Publication discipline
 
-A paper should state the highest achieved level and the exact claim family it supports. Level 1 supportive evidence is not Level 6 validation.
+A paper should state the highest achieved level and the exact claim family it supports. Subject-B P1 is bounded Level-1 behavioural evidence; it is not Level-2 repeated-run evidence or Level-6 validation.
