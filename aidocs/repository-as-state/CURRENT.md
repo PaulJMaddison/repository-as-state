@@ -1,50 +1,28 @@
 # Repository-as-State — CURRENT
 
-Updated: 2026-09-03 23:38 Europe/London
+Updated: 2026-09-03 23:58 Europe/London
 
 ## Programme status
 
 - Authoritative progress ledger: **59/67 complete**.
-- **Item 60 is ACTIVE:** implement and qualify genuine P2 semantic hidden verifiers for the already-frozen five-task corpus.
-- Item 59 remains complete.
+- **Item 60 is ACTIVE but paused for contract-to-history adjudication.**
+- Item 59 is **not reopened yet**.
 - P2 experimental agent runs: **0**.
 - P2 task-solving model invoked: **FALSE**.
 - P2 executed: **FALSE**.
+- P2 preregistered: **FALSE**.
 - P0 rerun: **FALSE**.
 - P1 rerun: **FALSE**.
 
-## ABSOLUTE ITEM-60 RULE — NO BUILD OR TEST EXECUTION
+## Absolute item-60 methodology rule
 
-The coordinator repeatedly and incorrectly reintroduced build/test activity into P2 verifier qualification after the user had already ruled it out.
+**NO BUILD, TEST, RESTORE OR COMPILER EXECUTION IS PERMITTED AS PART OF P2 VERIFIER QUALIFICATION.**
 
-This is now an absolute protocol rule for item 60:
+Forbidden includes full-solution, targeted-project, minimal-project, probe and candidate builds/tests/compilation. Compilation/test-runner success or failure is not PRE/POST qualification evidence.
 
-**DO NOT RUN BUILD OR TEST COMMANDS AS PART OF P2 VERIFIER QUALIFICATION.**
+Item 60 is semantic hidden-verifier qualification against frozen repository state.
 
-Forbidden includes, without exception:
-
-- `dotnet build`
-- `dotnet test`
-- full-solution builds/tests
-- targeted project builds/tests
-- minimal-project builds/tests
-- probe builds/tests
-- candidate compilation used as a qualification gate
-- any attempt to classify PRE/POST validity from compilation or test-runner success/failure.
-
-Do not rename build activity as a "semantic seam", "targeted compilation", "probe compilation", "dependency build", or similar.
-
-Item 60 is about **semantic behavioural verification**, not build verification.
-
-Historical PRE/POST identities remain frozen and valid under the accepted work-package boundary model. Whole-repository/project greenness is irrelevant to this gate.
-
-Any previous item-60 evidence whose conclusion depended on build/test success or failure is **NON-AUTHORITATIVE FOR QUALIFICATION**.
-
-## Public repository
-
-Repository: `PaulJMaddison/repository-as-state`
-
-Branch: `research/p0-subject-b-corpus-preregistration`
+## Immutable P1 state
 
 Historical P1 preregistration binding:
 
@@ -54,41 +32,28 @@ P1 interpretation manifest:
 
 `3952AC8FD23A95BAD54DB67300F701B14D53F27CC4D078FA68D25BACEF869BAF`
 
+P1 result:
+
+- persistent A: 18/30
+- fresh B: 18/30
+- matched behaviour agreement: 30/30
+- disagreement: 0/30
+
 P1 remains complete and immutable.
-
-## P1 result
-
-| Task | Persistent A | Fresh B | Difference |
-|---|---:|---:|---:|
-| WP04 | 8/8 | 8/8 | 0 |
-| WP05 | 10/10 | 10/10 | 0 |
-| WP06 | 0/12 | 0/12 | 0 |
-| Total | 18/30 | 18/30 | 0 |
-
-Matched behaviour-vector agreement: **30/30**.
-Matched disagreement: **0/30**.
-
-Bounded conclusion: no behavioural correctness difference was observed between persistent-session and fresh-session conditions in the three matched tasks. This is not proof of equivalence/non-inferiority or universal repository sufficiency.
 
 ## P2 accepted design
 
-P2 is a Level-2 same-repository descriptive replication.
-
-- historical candidates inventoried: 10
-- eligible and selected: 5
-- substitutions: 0
-- outcome-based exclusions: 0
+- 10 historical candidates inventoried
+- 5 objectively eligible/selected
+- 0 substitutions
+- 0 outcome-based exclusions
+- complexity: 3 LOW / 2 MEDIUM / 0 HIGH
 - repetitions: 3
-- Condition A: three independent five-task persistent chains = 15 runs
-- Condition B: fifteen fresh sessions = 15 runs
-- total planned runs: 30
+- planned A runs: 15
+- planned B runs: 15
+- planned total: 30
 - full-block blindness
-- no formal non-inferiority claim
-- durable resource telemetry
-
-Complexity composition: **3 LOW, 2 MEDIUM, 0 HIGH**.
-
-## P2 frozen task selection and contracts — VALID
+- descriptive replication; no formal non-inferiority claim
 
 Design-input manifest:
 
@@ -102,7 +67,7 @@ Private curation package:
 
 `5832646A66A37E7F47F124796EEE4E289F72584424E37E2E600970FDC929F6A6`
 
-| P2 task | Candidate | PRE | POST | Complexity | Behaviours |
+| Task | Candidate | PRE | POST | Complexity | Behaviours |
 |---|---|---|---|---|---:|
 | P2_T01 | C06 | `a120b02abf4dd2bef11ae621d7283282159622f3` | `ddb2d79c65342e8585ef5aefe966e7b2e70b9406` | MEDIUM | 4 |
 | P2_T02 | C07 | `5941869627443548a9042d900b1a4ffeda58dacb` | `c265580ac53a4e85a164a7f62a5b90f3ecf04cfe` | MEDIUM | 3 |
@@ -110,61 +75,93 @@ Private curation package:
 | P2_T04 | C09 | `c3b813d14973c28ed3bc063c2440224b26dc2a87` | `d7199f391983eb94bb48d8524915245898831a3a` | LOW | 4 |
 | P2_T05 | C10 | `e9eb063944d604ec0c4cf6b3534f5db87fff82c0` | `a64a727d1ce22dfb851419e46958f08014a48b04` | LOW | 4 |
 
-Totals:
+## Item 60 history
 
-- task-spec statements: 20
-- governing behaviours: 18
-- undisclosed governing requirements: 0
-- unmapped governing behaviours: 0
-- implementation-specific behavioural requirements: 0
-- fairness audits: 5/5 PASS
+### Fixture-only oracle
 
-## Item 60 verifier history
+Rejected. It encoded expected semantic state instead of deriving observations from frozen candidate state.
 
-### Attempt 1 — fixture-only oracle: REJECTED
+### Build-based stops
 
-The first verifier worker used hand-authored semantic-state JSON. It did not derive results from the actual frozen candidate semantics. Its apparent PRE/POST, negative-control, alternate-valid and self-test evidence is invalid.
+Rejected. Build/test activity is outside item 60.
 
-### Attempts 2/3 — build-based stops: REJECTED
+### No-build structural-oracle attempt — current state
 
-Subsequent workers were given bad coordinator prompts that reintroduced solution/project build activity. They stopped on compile errors around T03.
+The latest worker obeyed the corrected protocol:
 
-Those stops are rejected because build/test activity is outside the item-60 qualification protocol.
+- build commands executed: 0
+- test commands executed: 0
+- compiler commands executed: 0
+- experimental runs: 0
 
-They do not reopen item 59 and do not invalidate T03.
+It built a structural source-derived oracle and then returned Terminal B claiming PRE/POST materialisation inconsistency because some files were byte-identical across PRE and POST.
 
-## Active item 60 — correct task
+That Terminal-B diagnosis is **NOT YET ACCEPTED**.
 
-For each P2 task:
+Coordinator verification against authoritative Git history shows:
 
-1. read the frozen disclosed task specification and governing behaviours;
-2. derive an implementation-independent semantic verifier directly from those frozen behaviours;
-3. observe the relevant candidate semantics without invoking build/test commands;
-4. establish PRE overall FAIL and POST PASS for the frozen disclosed behaviours;
-5. create genuine per-behaviour semantic negative controls without using build/test as their verdict mechanism;
-6. create alternate-valid semantic implementations/structures sufficient to demonstrate verifier implementation independence;
-7. distinguish verifier/harness failure from behavioural failure;
-8. prove determinism;
-9. preserve hidden-material isolation;
-10. freeze final verifier packages only after every semantic qualification gate passes.
+### P2_T05 / C10
 
-The verifier may inspect repository state, source structure, public contract declarations, deterministic data/configuration and other behaviour-relevant artifacts as required, but must not reduce correctness to exact historical source text, patch identity, helper names, test names, commit identity or hand-authored expected-result files.
+POST `a64a727d...` is `Implement cross-instance acquisition host leases`.
 
-If a behaviour truly requires runtime execution that cannot be observed without prohibited build/test activity, stop and escalate to the coordinator **before inventing a new gate**. Do not silently convert the experiment into a build qualification study.
+The only changed production file is:
+
+`src/SearchForCars.Infrastructure/AcquisitionSourceRepositories.cs`
+
+The POST adds real in-memory and PostgreSQL implementations of `TryAcquireHostLeaseAsync` and `ReleaseHostLeaseAsync`.
+
+Therefore `src/SearchForCars.Application/AcquisitionAbstractions.cs` being byte-identical PRE/POST is **expected** and is not a materialisation defect. If the structural oracle treated interface equality as failure, that is an **oracle/behaviour-seam mapping defect**.
+
+### P2_T01 / C06
+
+PRE→POST `a120b02... -> ddb2d79...` changes:
+
+- `Dockerfile`
+- `src/SearchForCars.Infrastructure/TraderSubscriptionRepositories.cs`
+- `src/SearchForCars.Web/TraderEndpoints.cs`
+- regression/security/readiness test files
+
+It does **not** change `src/SearchForCars.Web/Program.cs` or `SellerReportService.cs`.
+
+Therefore those files being byte-identical in correctly materialised PRE/POST states is not itself corruption.
+
+However, this creates a genuine methodology question: if any of the frozen four T01 governing behaviours claim a behavioural delta in unchanged/pre-existing production semantics (for example production-startup refusal already present in PRE), then the frozen T01 contract may violate the P2 eligibility rule `PRE lacks behaviour; POST contains behaviour`.
+
+We must distinguish:
+
+1. **oracle mapping defect** — verifier inspected the wrong seam/file while the frozen behaviour is valid elsewhere in the actual POST delta; from
+2. **frozen contract defect** — the disclosed governing behaviour was already satisfied by PRE or is not introduced by the selected POST.
+
+Do not reopen item 59 until this adjudication is complete.
+
+## Active next work package
+
+Run a **NO-BUILD CONTRACT-TO-HISTORY ADJUDICATION** across all five P2 tasks, with special focus on T01 and T05.
+
+For every one of the 18 frozen governing behaviours, read the exact frozen statement and requirement mapping, then compare it to the authoritative PRE/POST Git objects and classify:
+
+- VALID_BEHAVIOURAL_DELTA — PRE lacks governed semantic property; POST introduces/satisfies it;
+- ORACLE_MAPPING_DEFECT — frozen behaviour is valid but previous verifier inspected the wrong semantic seam;
+- FROZEN_CONTRACT_DEFECT — frozen behaviour was already satisfied by PRE, is absent from POST, or is otherwise not a valid PRE→POST behavioural delta;
+- UNRESOLVED — evidence genuinely insufficient.
+
+No build/test/restore/compiler commands. No experimental model. No frozen artifact mutation during adjudication.
+
+If all 18 behaviours are VALID_BEHAVIOURAL_DELTA or ORACLE_MAPPING_DEFECT, item 59 remains complete and item 60 resumes with corrected semantic seams.
+
+If any behaviour is FROZEN_CONTRACT_DEFECT, then and only then reopen item 59 for methodology-controlled re-curation/selection repair.
 
 ## Remaining gates
 
-60. Implement and qualify genuine P2 semantic hidden verifiers for all five tasks — **ACTIVE**.
+60. Implement and qualify genuine P2 semantic hidden verifiers — **ACTIVE / adjudication substep**.
 61. Freeze P2 final preregistration/runtime/prompts/randomisation/execution lock.
 62. Execute 30-run P2 same-repository replication.
 63. Blind-adjudicate and scientifically interpret P2.
 64. Publish Level-2 P2 evidence and update paper claims/evidence.
 65. Select Subject C and perform cross-repository / Level-3 replication.
-66. Final hostile review, statistical/claims/limitations and reproducibility audit.
+66. Final hostile review, claims/statistics/limitations/reproducibility audit.
 67. Final paper + reproducibility package + submission-ready release.
 
 ## Coordinator/Codex rule
 
-**Never put build or test execution back into item 60.**
-
-Normal verifier engineering work remaining is not a valid terminal state. No new methodology gate may be introduced merely because it is convenient for the worker.
+Never reintroduce build/test/compile activity into item 60. A file being unchanged across PRE/POST is not automatically a defect; adjudicate against the actual frozen behaviour and actual historical delta.
