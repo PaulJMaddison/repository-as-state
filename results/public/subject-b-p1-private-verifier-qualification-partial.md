@@ -2,27 +2,37 @@
 
 The corrected P1 task-contract package remains valid and immutable.
 
-WP04_PR5 and WP05_PR6 have now completed semantic private-verifier qualification and are frozen.
+WP04_PR5 and WP05_PR6 remain qualified and frozen.
 
-WP04 remains frozen at `F61BEFEE8262FEE42D26DB3AC833E1BE8DB29E5555073CDCA30ABBE6DD996057`.
+WP06_PR7 has now completed its direct semantic-oracle implementation but is **not yet qualified or frozen**.
 
-WP05 qualification summary:
+Current WP06 aggregate evidence:
 
-- 10/10 frozen governing behaviours implemented as semantic oracles;
+- 12 frozen governing behaviours;
+- 12/12 semantic oracles implemented;
 - 0 test-method selectors;
-- 15 oracle self-test categories passing;
-- 10/10 targeted behavioural negative controls detected;
-- 10/10 semantics-preserving alternate implementations accepted;
-- 0 historical implementation-detail dependencies;
-- 0 unjustified implementation literals;
-- PRE FAIL in all three clean runs;
-- POST PASS in all three clean runs;
+- 0 source-text/diff assertions;
+- 0 commit-identity assertions;
+- 10 oracle self-test categories passing;
+- 12/12 targeted behavioural negative controls detected;
+- PRE FAIL in all three runs;
+- POST PASS in all three runs;
 - deterministic verdicts true;
-- private verifier isolation valid.
+- hidden-verifier isolation remains valid;
+- 0 unjustified implementation literals.
 
-The frozen WP05 verifier package SHA-256 is `5BBE8A480B2453B4EAE6B8AB7769753062E994602CE18F349ABB5B70E8329E4D`.
+The outstanding gate is implementation independence:
 
-The overall P1 verifier package remains unfrozen because WP06_PR7 is still pending semantic qualification.
+- required alternate implementations: 12;
+- executed: 0;
+- passed: 0;
+- implementation independence: NOT_QUALIFIED.
+
+A provisional WP06 archive was produced with SHA-256:
+
+`4D85312840983DE4FA60400A81B44C534B946B262CD6B35ADCB38BECAC01DB85`
+
+This hash is **not a frozen verifier package hash** and must be superseded after implementation-independence qualification and final re-freeze.
 
 Current state:
 
@@ -31,12 +41,15 @@ Current state:
 - `WP05_TASK_VERIFIER_QUALIFIED=true`
 - `WP05_VERIFIER_FROZEN=true`
 - `WP06_TASK_VERIFIER_QUALIFIED=false`
+- `WP06_VERIFIER_FROZEN=false`
 - `P1_PRIVATE_VERIFIERS_READY=false`
 - `P1_VERIFIER_PACKAGE_SHA256=NOT_FROZEN`
 - `P1_EXPERIMENTAL_AGENT_RUNS=0`
 - `P1_EXECUTED=false`
 - `P0_RERUN=false`
 
-The established SearchForCars historical chain and frozen P1 task contracts are unchanged.
+The established SearchForCars historical chain and frozen P1 task contracts remain unchanged.
 
-Current next step: `IMPLEMENT_SEMANTIC_PRIVATE_P1_ORACLES_AND_QUALIFY_WP06`.
+Current next step:
+
+`COMPLETE_WP06_IMPLEMENTATION_INDEPENDENCE_QUALIFICATION_BEFORE_FREEZE`
