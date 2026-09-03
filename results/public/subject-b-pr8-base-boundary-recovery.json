@@ -34,11 +34,10 @@
   "experimentalAgentRuns": 0,
   "p0Executed": false,
   "finalLockCreated": false,
-  "nextStep": "SUBJECT_B_CORPUS_REVIEW",
+  "nextStep": "AUDIT_FINAL_SEARCHFORCARS_RECOVERY_INTERVALS",
   "previousWorkerClassification": "UNRESOLVED_HISTORICAL_OBJECT",
   "previousWorkerClassificationValid": false,
   "previousWorkerError": "The worker queried the repository-as-state remote for SearchForCars historical objects instead of using the SearchForCars repository/remote.",
-  "sourceRepository": "PaulJMaddison/searchforcars",
   "sourceRepositoryLocalPath": "C:\\Sass\\searchforcars",
   "pr8ObjectReachable": true,
   "pr8BaseObjectReachable": true,
@@ -47,5 +46,28 @@
   "githubPr8Resolved": true,
   "githubPr8MergeSha": "575dc1e531c2a5e6bf39579869720fb8c6deff76",
   "githubPr8BaseSha": "b818d5e50c588113529c5545843446618dba4e4e",
-  "githubPr8HeadSha": "5658fa1ae922afa56ba76f1d8dffd9bd95d60209"
+  "githubPr8HeadSha": "5658fa1ae922afa56ba76f1d8dffd9bd95d60209",
+  "pr8BaseSplitRejected": true,
+  "pr8BaseSplitRejectionReason": "Exact PR8 base restores but fails deterministic build with two CA1512 analyzer errors; it is not an accepted boundary.",
+  "finalSearchForCarsRecoveryAudit": {
+    "status": "PENDING",
+    "allowedBoundariesOnly": [
+      "96aa7162faa48e47104916331a9ffcfd66af7171",
+      "575dc1e531c2a5e6bf39579869720fb8c6deff76",
+      "83b5b3c98213c13e2d81b33ade63891effcf204d"
+    ],
+    "candidateA": {
+      "id": "RC03_B4_TO_PR8_COMPOSITE",
+      "pre": "96aa7162faa48e47104916331a9ffcfd66af7171",
+      "post": "575dc1e531c2a5e6bf39579869720fb8c6deff76",
+      "status": "COHERENCE_AUDIT_REQUIRED"
+    },
+    "candidateB": {
+      "id": "RC04_PR8_TO_B5_REMAINDER",
+      "pre": "575dc1e531c2a5e6bf39579869720fb8c6deff76",
+      "post": "83b5b3c98213c13e2d81b33ade63891effcf204d",
+      "status": "COHERENCE_AUDIT_REQUIRED"
+    },
+    "rule": "No new SHA search. If either interval is not a defensible coherent work package, stop SearchForCars 3-task recovery rather than force a composite."
+  }
 }
