@@ -56,3 +56,23 @@ A rerun is potentially eligible only for an objectively frozen harness/provider/
 ## Results discipline
 
 P0 may end only as methodology failure, evidence against RaS, mixed/conditional evidence, or supportive pilot evidence. Never “proven”.
+
+## Subject-B isolated runtime gate
+
+For Subject-B Protocol v1, an unrestricted host is not an eligible P0 runtime.
+The current candidate boundary is specified in
+`experiments/P0/isolated-runtime-v2.md`.
+
+Before any experimental model invocation, the privileged local preparation
+worker must mechanically demonstrate:
+
+- enforced workspace/private-filesystem separation;
+- default-deny agent-tool networking with provider transport separated through
+  an allow-listed relay;
+- auditable condition-specific session persistence;
+- successful positive and negative leak/isolation controls;
+- a frozen timeout policy.
+
+The shared `ras.runtime_readiness` evaluator is the final fail-closed
+readiness predicate. It does not substitute for the local OS evidence.
+
