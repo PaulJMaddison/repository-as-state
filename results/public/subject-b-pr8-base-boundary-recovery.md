@@ -13,3 +13,7 @@ The historical base build fails deterministically with two analyzer errors (CA15
 No alternative SHA was searched and the broad B4-to-PR8 interval was not forced. This aggregate contains no private paths, source, hidden requirements, test names, traces, or proprietary material.
 
 Next step: `SUBJECT_B_CORPUS_REVIEW`.
+## Final SearchForCars recovery review
+
+The PR8-base split is closed because the exact base is not an accepted boundary. No new SHA search will be performed. The only remaining SearchForCars recovery review is a coherence audit of the already-accepted endpoint intervals B4 -> PR8 and PR8 -> B5. These intervals will not be accepted merely because they recover chain length: each must be defensible as a genuine historical work package before any contract is frozen. If either fails coherence, SearchForCars three-task recovery stops.
+
