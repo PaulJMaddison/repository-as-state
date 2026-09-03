@@ -1,6 +1,6 @@
 # P1 — corrected Repository-as-State causal study
 
-Status: **PROTOCOL FRAMEWORK READY; SEARCHFORCARS CHAIN ESTABLISHED; P1 TASK CONTRACTS NOT YET FROZEN.**
+Status: **SEARCHFORCARS CHAIN AND P1 TASK CONTRACTS ESTABLISHED; PRIVATE P1 VERIFIERS NOT YET FROZEN.**
 
 P1 is a new experiment version created after the completed Subject-B P0 pilot
 exposed material methodology/runtime confounds.
@@ -59,8 +59,8 @@ No P1 task-solving model has run.
 
 Current next step:
 
-`P1_TASK_CONTRACT_REMEDIATION_AND_VERIFIER_FREEZE`.
+`BUILD_AND_FREEZE_PRIVATE_P1_VERIFIERS`.
 
-This step does not re-prove SearchForCars corpus feasibility. It makes the P1
-neutral task specifications and governing verifier contracts fair and complete
-for the same already-established historical chain.
+All three corrected task contracts are now eligible and frozen by private hash.
+The next step is private verifier implementation and PRE/POST/negative-control
+qualification against those frozen contracts before P1 execution.
