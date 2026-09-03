@@ -16,12 +16,12 @@
   "NEGATIVE_CONTROLS": {
     "WP04_PR5": {"total": 8, "detected": 8},
     "WP05_PR6": {"total": 10, "detected": 10},
-    "WP06_PR7": {"total": 0, "detected": 0}
+    "WP06_PR7": {"total": 12, "detected": 12}
   },
   "IMPLEMENTATION_INDEPENDENCE": {
     "WP04_PR5": "PASS",
     "WP05_PR6": "PASS",
-    "WP06_PR7": "PARTIAL_WITH_REASON"
+    "WP06_PR7": "NOT_QUALIFIED"
   },
   "WP04_SEMANTIC_VERIFIER": {
     "governing_behaviours": 8,
@@ -31,35 +31,41 @@
   },
   "WP05_SEMANTIC_VERIFIER": {
     "governing_behaviours": 10,
-    "semantic_oracles_implemented": 10,
+    "qualified": true,
+    "frozen": true,
+    "verifier_package_sha256": "5BBE8A480B2453B4EAE6B8AB7769753062E994602CE18F349ABB5B70E8329E4D"
+  },
+  "WP06_SEMANTIC_VERIFIER": {
+    "governing_behaviours": 12,
+    "semantic_oracles_implemented": 12,
     "test_method_selectors_remaining": 0,
-    "oracle_self_test_count": 15,
+    "oracle_self_test_count": 10,
     "oracle_self_tests_pass": true,
-    "alternate_implementations_required": 10,
-    "alternate_implementations_run": 10,
-    "alternate_implementations_pass": 10,
+    "negative_controls_required": 12,
+    "negative_controls_run": 12,
+    "negative_controls_detected": 12,
+    "alternate_implementations_required": 12,
+    "alternate_implementations_run": 0,
+    "alternate_implementations_pass": 0,
     "historical_implementation_detail_dependencies": 0,
     "unjustified_implementation_literal_count": 0,
     "pre_runs": ["FAIL", "FAIL", "FAIL"],
     "post_runs": ["PASS", "PASS", "PASS"],
     "deterministic": true,
-    "verifier_package_sha256": "5BBE8A480B2453B4EAE6B8AB7769753062E994602CE18F349ABB5B70E8329E4D",
-    "qualified": true,
-    "frozen": true
+    "provisional_package_sha256": "4D85312840983DE4FA60400A81B44C534B946B262CD6B35ADCB38BECAC01DB85",
+    "qualified": false,
+    "frozen": false
   },
-  "UNJUSTIFIED_EXACT_LITERAL_ASSERTIONS": "UNRESOLVED_FOR_WP06",
   "P1_HIDDEN_VERIFIER_INACCESSIBLE_TO_EXPERIMENTAL_USERS": true,
   "P1_PRIVATE_VERIFIERS_READY": false,
   "P1_VERIFIER_PACKAGE_SHA256": "NOT_FROZEN",
   "P1_EXPERIMENTAL_AGENT_RUNS": 0,
   "P1_EXECUTED": false,
   "P0_RERUN": false,
-  "STATUS": "WP04_WP05_QUALIFIED_AND_FROZEN_WP06_PENDING",
+  "STATUS": "WP04_WP05_FROZEN_WP06_SEMANTIC_COMPLETE_INDEPENDENCE_PENDING",
   "REMAINING_DEFECTS": [
-    "WP06_NO_PER_BEHAVIOUR_NEGATIVE_CONTROLS",
-    "WP06_IMPLEMENTATION_INDEPENDENCE_ONLY_PARTIAL",
-    "WP06_IMPLEMENTATION_SPECIFIC_TEST_METHOD_NAME_SELECTION",
-    "WP06_ORACLE_SELF_TESTS_NOT_COMPLETE"
+    "WP06_IMPLEMENTATION_INDEPENDENCE_NOT_QUALIFIED",
+    "WP06_ALTERNATE_IMPLEMENTATIONS_NOT_EXECUTED"
   ],
-  "NEXT_STEP": "IMPLEMENT_SEMANTIC_PRIVATE_P1_ORACLES_AND_QUALIFY_WP06"
+  "NEXT_STEP": "COMPLETE_WP06_IMPLEMENTATION_INDEPENDENCE_QUALIFICATION_BEFORE_FREEZE"
 }
