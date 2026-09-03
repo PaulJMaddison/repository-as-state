@@ -5,7 +5,11 @@ import subprocess
 
 import pytest
 
-from ras.git_isolation import create_truncated_workspace, future_history_leak_gate
+from ras.git_isolation import (
+    EXPERIMENT_BRANCH_NAME,
+    create_truncated_workspace,
+    future_history_leak_gate,
+)
 
 
 def git(repo: Path, *args: str, check: bool = True) -> str:
@@ -54,6 +58,82 @@ def test_clean_genuinely_truncated_history_passes(tmp_path):
     assert result.action == "PROCEED_TO_MODEL_INVOCATION"
 
 
+
+def test_materialized_workspace_uses_normal_writable_experiment_branch(tmp_path):
+    _, dest, allowed, future = clean_workspace(tmp_path)
+
+    assert git(dest, "rev-parse", "HEAD") == allowed
+    assert git(dest, "symbolic-ref", "--short", "HEAD") == EXPERIMENT_BRANCH_NAME
+    assert git(dest, "remote") == ""
+    assert git(dest, "fsck", "--unreachable", check=False) == ""
+
+    probe = dest / "synthetic-edit.txt"
+    probe.write_text("editable\n", encoding="utf-8")
+    assert "?? synthetic-edit.txt" in git(dest, "status", "--porcelain")
+    probe.unlink()
+
+    result = future_history_leak_gate(
+        dest, [future], network_isolation_asserted=True
+    )
+    assert result.passed
+
+
+def test_detached_head_fails_closed(tmp_path):
+    _, dest, allowed, future = clean_workspace(tmp_path)
+    git(dest, "checkout", "--detach", allowed)
+
+    result = future_history_leak_gate(
+        dest, [future], network_isolation_asserted=True
+    )
+
+    assert not result.passed
+    assert "detached_head" in result.failures
+    assert result.action == "STOP_BEFORE_MODEL_INVOCATION"
+
+
+def test_wrong_current_branch_fails_even_when_ref_is_local(tmp_path):
+    _, dest, allowed, future = clean_workspace(tmp_path)
+    git(dest, "branch", "other", allowed)
+    git(dest, "symbolic-ref", "HEAD", "refs/heads/other")
+    git(dest, "reset", "--hard", allowed)
+
+    result = future_history_leak_gate(
+        dest,
+        [future],
+        allowed_refs=(f"refs/heads/{EXPERIMENT_BRANCH_NAME}", "refs/heads/other"),
+        network_isolation_asserted=True,
+    )
+
+    # Multiple allowed refs are supported by the generic gate, but the active
+    # branch must still be one of the explicitly allowed refs.
+    assert result.passed
+
+
+def test_unexpected_current_branch_fails(tmp_path):
+    _, dest, allowed, future = clean_workspace(tmp_path)
+    git(dest, "branch", "other", allowed)
+    git(dest, "symbolic-ref", "HEAD", "refs/heads/other")
+    git(dest, "reset", "--hard", allowed)
+
+    result = future_history_leak_gate(
+        dest, [future], network_isolation_asserted=True
+    )
+
+    assert not result.passed
+    assert "head_ref_not_allowed" in result.failures
+    assert "unexpected_refs_or_tags" in result.failures
+
+
+def test_export_refuses_invalid_branch_name(tmp_path):
+    source, allowed, _ = init_source(tmp_path)
+    with pytest.raises(ValueError, match="invalid experiment branch name"):
+        create_truncated_workspace(
+            source,
+            allowed,
+            tmp_path / "dest",
+            branch_name="bad branch name",
+        )
+
 def test_duplicate_forbidden_oids_are_deduplicated(tmp_path):
     _, dest, _, future = clean_workspace(tmp_path)
     result = future_history_leak_gate(
@@ -98,7 +178,7 @@ def test_future_tag_fails(tmp_path):
 def test_future_commit_in_reflog_fails(tmp_path):
     source, dest, allowed, future = clean_workspace(tmp_path)
     git(dest, "fetch", "--no-tags", "--no-write-fetch-head", str(source), future)
-    git(dest, "update-ref", "refs/heads/p0", future)
+    git(dest, "update-ref", f"refs/heads/{EXPERIMENT_BRANCH_NAME}", future)
     git(dest, "reset", "--hard", allowed)
     result = future_history_leak_gate(dest, [future], network_isolation_asserted=True)
     assert "reflog_exposes_unreachable_history" in result.failures
