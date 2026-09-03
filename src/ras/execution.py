@@ -13,6 +13,7 @@ from enum import Enum
 import os
 from pathlib import Path
 import queue
+import signal
 import subprocess
 import threading
 import time
@@ -35,6 +36,7 @@ class SupervisionPolicy:
     poll_interval_s: float = 0.10
     terminate_grace_s: float = 2.0
     completion_file: Path | None = None
+    progress_file: Path | None = None
     max_output_lines: int = 200
 
     def __post_init__(self) -> None:
@@ -63,10 +65,18 @@ class SupervisedProcessResult:
 
     @property
     def succeeded(self) -> bool:
+        """Whether the child itself exited successfully."""
+
+        return self.status is ProcessStatus.COMPLETED and self.returncode == 0
+
+    @property
+    def result_available(self) -> bool:
+        """Whether the caller can now inspect the child's structured result."""
+
         return self.status in {
             ProcessStatus.COMPLETED,
             ProcessStatus.COMPLETION_SIGNAL,
-        } and self.returncode in {0, None}
+        }
 
 
 @dataclass(frozen=True)
@@ -84,14 +94,61 @@ def _pump_lines(stream, name: str, events: "queue.Queue[_OutputEvent]") -> None:
         stream.close()
 
 
-def _terminate_process(process: subprocess.Popen[str], grace_s: float) -> None:
+def _file_signature(path: Path | None) -> tuple[int, int] | None:
+    if path is None:
+        return None
+    try:
+        stat = path.stat()
+    except FileNotFoundError:
+        return None
+    return (stat.st_mtime_ns, stat.st_size)
+
+
+def _terminate_process_tree(process: subprocess.Popen[str], grace_s: float) -> None:
+    """Terminate the supervised process and its descendants where supported."""
+
     if process.poll() is not None:
         return
-    process.terminate()
+
+    if os.name == "nt":
+        # dotnet test and similar commands commonly spawn testhost children.
+        # taskkill /T prevents a timed-out supervisor from leaving them behind.
+        completed = subprocess.run(
+            ["taskkill", "/PID", str(process.pid), "/T", "/F"],
+            stdout=subprocess.DEVNULL,
+            stderr=subprocess.DEVNULL,
+            check=False,
+        )
+        if completed.returncode == 0:
+            try:
+                process.wait(timeout=max(grace_s, 0.1))
+            except subprocess.TimeoutExpired:
+                process.kill()
+                process.wait()
+            return
+
+        # Fallback for environments where taskkill is unavailable or denied.
+        process.terminate()
+        try:
+            process.wait(timeout=grace_s)
+        except subprocess.TimeoutExpired:
+            process.kill()
+            process.wait()
+        return
+
+    try:
+        process_group = os.getpgid(process.pid)
+    except ProcessLookupError:
+        return
+
+    os.killpg(process_group, signal.SIGTERM)
     try:
         process.wait(timeout=grace_s)
     except subprocess.TimeoutExpired:
-        process.kill()
+        try:
+            os.killpg(process_group, signal.SIGKILL)
+        except ProcessLookupError:
+            pass
         process.wait()
 
 
@@ -104,15 +161,27 @@ def run_supervised(
 ) -> SupervisedProcessResult:
     """Run *command* under bounded deterministic supervision.
 
-    Progress is any stdout/stderr line or a change to the configured completion
-    file. A completion file is an explicit signal owned by the child process;
-    when it appears, the supervisor terminates any irrelevant process tail and
-    returns immediately rather than forcing a reasoning agent to keep waiting.
+    Progress is any stdout/stderr line or a change to the configured progress
+    file. A completion file is an explicit signal owned by the child process.
+    Existing/stale files are baselined before launch so they cannot complete a
+    later invocation accidentally.
+
+    A completion signal means "structured result is ready", not "the verifier
+    passed". The caller must inspect that result independently.
     """
 
     if not command:
         raise ValueError("command must not be empty")
     policy = policy or SupervisionPolicy()
+
+    completion_signature = _file_signature(policy.completion_file)
+    progress_signature = _file_signature(policy.progress_file)
+
+    popen_kwargs: dict[str, object] = {}
+    if os.name == "nt":
+        popen_kwargs["creationflags"] = subprocess.CREATE_NEW_PROCESS_GROUP
+    else:
+        popen_kwargs["start_new_session"] = True
 
     started = time.monotonic()
     process = subprocess.Popen(
@@ -123,6 +192,7 @@ def run_supervised(
         stderr=subprocess.PIPE,
         text=True,
         bufsize=1,
+        **popen_kwargs,
     )
     assert process.stdout is not None
     assert process.stderr is not None
@@ -147,8 +217,6 @@ def run_supervised(
     stderr_tail: deque[str] = deque(maxlen=policy.max_output_lines)
     last_progress_at = started
     last_progress_kind = "started"
-    completion_seen = False
-    completion_signature: tuple[int, int] | None = None
 
     while True:
         now = time.monotonic()
@@ -165,17 +233,34 @@ def run_supervised(
             last_progress_at = event.at
             last_progress_kind = event.stream
 
-        if policy.completion_file is not None:
-            try:
-                stat = policy.completion_file.stat()
-                signature = (stat.st_mtime_ns, stat.st_size)
-            except FileNotFoundError:
-                signature = None
-            if signature is not None and signature != completion_signature:
-                completion_signature = signature
-                last_progress_at = now
-                last_progress_kind = "completion_file"
-                completion_seen = True
+        current_progress_signature = _file_signature(policy.progress_file)
+        if (
+            policy.progress_file is not None
+            and current_progress_signature is not None
+            and current_progress_signature != progress_signature
+        ):
+            progress_signature = current_progress_signature
+            last_progress_at = now
+            last_progress_kind = "progress_file"
+
+        current_completion_signature = _file_signature(policy.completion_file)
+        if (
+            policy.completion_file is not None
+            and current_completion_signature is not None
+            and current_completion_signature != completion_signature
+        ):
+            _terminate_process_tree(process, policy.terminate_grace_s)
+            ended = time.monotonic()
+            return SupervisedProcessResult(
+                status=ProcessStatus.COMPLETION_SIGNAL,
+                returncode=None,
+                pid=process.pid,
+                duration_s=ended - started,
+                last_progress_age_s=0.0,
+                last_progress_kind="completion_file",
+                stdout_tail=tuple(stdout_tail),
+                stderr_tail=tuple(stderr_tail),
+            )
 
         returncode = process.poll()
         if returncode is not None:
@@ -200,22 +285,8 @@ def run_supervised(
                 stderr_tail=tuple(stderr_tail),
             )
 
-        if completion_seen:
-            _terminate_process(process, policy.terminate_grace_s)
-            ended = time.monotonic()
-            return SupervisedProcessResult(
-                status=ProcessStatus.COMPLETION_SIGNAL,
-                returncode=None,
-                pid=process.pid,
-                duration_s=ended - started,
-                last_progress_age_s=max(0.0, ended - last_progress_at),
-                last_progress_kind=last_progress_kind,
-                stdout_tail=tuple(stdout_tail),
-                stderr_tail=tuple(stderr_tail),
-            )
-
         if now - started >= policy.hard_timeout_s:
-            _terminate_process(process, policy.terminate_grace_s)
+            _terminate_process_tree(process, policy.terminate_grace_s)
             ended = time.monotonic()
             return SupervisedProcessResult(
                 status=ProcessStatus.HARD_TIMEOUT,
@@ -229,7 +300,7 @@ def run_supervised(
             )
 
         if now - last_progress_at >= policy.stall_timeout_s:
-            _terminate_process(process, policy.terminate_grace_s)
+            _terminate_process_tree(process, policy.terminate_grace_s)
             ended = time.monotonic()
             return SupervisedProcessResult(
                 status=ProcessStatus.STALL_TIMEOUT,
