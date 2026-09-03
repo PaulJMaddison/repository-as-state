@@ -1,0 +1,42 @@
+{
+  "SUBJECT": "SEARCHFORCARS",
+  "EXPERIMENT_VERSION": "P1",
+  "PUBLIC_PROTOCOL_COMMIT": "8765b93686dab9d7b1c031778a5e4a18cadccf30",
+  "HISTORICAL_CHAIN_IDENTITY_VALID": true,
+  "P0_OUTPUTS_READ": false,
+  "TASKS": {
+    "WP04_PR5": {
+      "requirement_count": 8,
+      "governing_behaviour_count": 8,
+      "task_spec_sha256": "e5edbed6c5fe2c4a0d8d0cd4bf497e4056a7140bd4cf888e93d53d9bee552201",
+      "task_contract_sha256": "60bbb850a26f4173dedf591f3acd64aa2da07b47cd8d7777828a743edac2560a",
+      "eligible": true,
+      "engineer_fairness_review": "PASS"
+    },
+    "WP05_PR6": {
+      "requirement_count": 10,
+      "governing_behaviour_count": 10,
+      "task_spec_sha256": "b85af46eaa5e3673703dd139b5e27fd88c087a132f661a6fbdb02fa972f39555",
+      "task_contract_sha256": "5027b39a373632c4c4db8b24d8a1472d121ae8f917e47950e64bc68b4debee2f",
+      "eligible": true,
+      "engineer_fairness_review": "PASS"
+    },
+    "WP06_PR7": {
+      "requirement_count": 12,
+      "governing_behaviour_count": 12,
+      "task_spec_sha256": "a32a2e1e244d846aef535a66ef5aaadad997bb72de231647c8e185c0f50133dd",
+      "task_contract_sha256": "b2f6dfd4dda8484acd9fd01a96d8f0c6433e9c8d2de4065db61a73d484a56e40",
+      "eligible": true,
+      "engineer_fairness_review": "PASS"
+    }
+  },
+  "ALL_GOVERNING_BEHAVIOURS_MAPPED": true,
+  "ALL_DERIVATION_CLASSES_ALLOWED": true,
+  "NO_UNJUSTIFIED_EXACT_COPY_ACCEPTANCE": true,
+  "CONTRACT_AUTHORITY_DIRECTION_VALID": true,
+  "P1_SEARCHFORCARS_CORPUS_ELIGIBLE": true,
+  "PRIVATE_P1_CURATION_PACKAGE_SHA256": "11a883bc0f5346e9dd87ddb9fbc30bb072e5bcf35edb6239e8e0d4c73bc0b041",
+  "P1_EXPERIMENTAL_AGENT_RUNS": 0,
+  "P1_EXECUTED": false,
+  "NEXT_STEP": "BUILD_AND_FREEZE_PRIVATE_P1_VERIFIERS"
+}
