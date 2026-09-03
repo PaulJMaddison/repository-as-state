@@ -2,7 +2,7 @@
 
 Authoritative normalized ledger established 2026-09-03.
 
-Status at creation: **58 complete / 67 total**. Item **59 active**.
+Current status: **59 complete / 67 total**. Item **60 active**.
 
 The earlier ~48/67 and ~58/67 counts were working conversational estimates. This file is now the durable numbered ledger to prevent future count drift. Future progress updates should change explicit item statuses here rather than recalculate from grouped summaries.
 
@@ -68,8 +68,8 @@ Legend: ✅ complete · 🟡 active · ⬜ pending
 | 56 | P1 public-safe results, README, evidence roadmap and claims register published | ✅ |
 | 57 | P2 candidate inventory / anti-cherry-picking / complexity / telemetry design completed | ✅ |
 | 58 | P2 recommended Level-2 design accepted: 5 tasks × 3 reps × 2 conditions = 30 runs | ✅ |
-| 59 | Freeze exact P2 five-task selection + complexity strata + neutral contracts | 🟡 |
-| 60 | Implement and qualify P2 semantic hidden verifiers for all five tasks | ⬜ |
+| 59 | Freeze exact P2 five-task selection + complexity strata + neutral contracts | ✅ |
+| 60 | Implement and qualify P2 semantic hidden verifiers for all five tasks | 🟡 |
 | 61 | Freeze P2 final preregistration/runtime/prompts/randomisation/execution lock | ⬜ |
 | 62 | Execute 30-run P2 same-repository replication | ⬜ |
 | 63 | Blind-adjudicate and scientifically interpret P2 | ⬜ |
@@ -80,9 +80,9 @@ Legend: ✅ complete · 🟡 active · ⬜ pending
 
 ## Current count
 
-- Complete: **58**
-- Active: **1** (`#59`)
-- Pending after active item: **8**
+- Complete: **59**
+- Active: **1** (`#60`)
+- Pending after active item: **7**
 - Total: **67**
 
 ## Count rule
