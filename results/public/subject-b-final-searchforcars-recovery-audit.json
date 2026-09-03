@@ -33,5 +33,21 @@
   "experimentalAgentRuns": 0,
   "p0Executed": false,
   "finalLockCreated": false,
-  "nextStep": "NEW_CORPUS_PROTOCOL_DESIGN"
+  "nextStep": "PROTOCOL_VERSION_DECISION_FOR_SUBJECT_B",
+  "originalSubjectBCorpusFeasibilityProven": true,
+  "originalSubjectBNarrowChain": [
+    "WP04_PR5",
+    "WP05_PR6",
+    "WP06_PR7"
+  ],
+  "originalSubjectBNarrowChainLength": 3,
+  "originalSubjectBNarrowVerifierValidCandidates": 4,
+  "originalSubjectBNarrowPreFailPostPassCount": 4,
+  "originalSubjectBNarrowNegativeControlsDetected": 4,
+  "comprehensiveProtocolAmendmentApplied": true,
+  "comprehensiveAmendmentWp04Valid": false,
+  "finalRecoveryPathValid": false,
+  "subjectBClosed": false,
+  "replacementSubjectSelected": false,
+  "subjectBStatus": "CORPUS_FEASIBLE_UNDER_ORIGINAL_NARROW_PROTOCOL__NOT_FINAL_LOCK_READY_UNDER_LATER_COMPREHENSIVE_PROTOCOL"
 }
