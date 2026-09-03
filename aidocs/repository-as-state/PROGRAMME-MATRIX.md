@@ -2,7 +2,7 @@
 
 Authoritative normalized ledger established 2026-09-03.
 
-Current status: **59 complete / 67 total**. Item **60 active**.
+Current status: **58 complete / 67 total**. Item **59 reopened and active**.
 
 The earlier ~48/67 and ~58/67 counts were working conversational estimates. This file is now the durable numbered ledger to prevent future count drift. Future progress updates should change explicit item statuses here rather than recalculate from grouped summaries.
 
@@ -67,11 +67,11 @@ Legend: ✅ complete · 🟡 active · ⬜ pending
 | 55 | P1 scientific interpretation completed | ✅ |
 | 56 | P1 public-safe results, README, evidence roadmap and claims register published | ✅ |
 | 57 | P2 candidate inventory / anti-cherry-picking / complexity / telemetry design completed | ✅ |
-| 58 | P2 recommended Level-2 design accepted: 5 tasks × 3 reps × 2 conditions = 30 runs | ✅ |
-| 59 | Freeze exact P2 five-task selection + complexity strata + neutral contracts | ✅ |
-| 60 | Implement and qualify P2 semantic hidden verifiers for all five tasks | 🟡 |
+| 58 | P2 recommended Level-2 design accepted | ✅ |
+| 59 | Freeze valid P2 task selection + accepted PRE/POST boundaries + complexity + neutral contracts | 🟡 |
+| 60 | Implement and qualify P2 semantic hidden verifiers against corrected frozen corpus | ⬜ |
 | 61 | Freeze P2 final preregistration/runtime/prompts/randomisation/execution lock | ⬜ |
-| 62 | Execute 30-run P2 same-repository replication | ⬜ |
+| 62 | Execute P2 same-repository replication | ⬜ |
 | 63 | Blind-adjudicate and scientifically interpret P2 | ⬜ |
 | 64 | Publish Level-2 P2 evidence and update paper claims/evidence | ⬜ |
 | 65 | Select Subject C and perform cross-repository / Level-3 replication | ⬜ |
@@ -80,17 +80,21 @@ Legend: ✅ complete · 🟡 active · ⬜ pending
 
 ## Current count
 
-- Complete: **59**
-- Active: **1** (`#60`)
-- Pending after active item: **7**
+- Complete: **58**
+- Active: **1** (`#59`, reopened)
+- Pending after active item: **8**
 - Total: **67**
 
-## Item 60 note — 2026-09-03 23:19
+## Why item 59 was reopened — 2026-09-03 23:27
 
-A provisional verifier attempt was rejected before freeze. It evaluated hand-authored semantic-state JSON rather than the actual candidate workspaces. Its PRE/POST, 18/18 negative-control and alternate-valid results are **not valid evidence** and must never enter P2 preregistration.
+During genuine candidate-workspace verifier remediation, the exact frozen P2_T03/C08 POST `a740ce1965ba26ab5e06ed5c466430f1e28c5ac5` failed compilation with `CS0535`: the two market-inventory repository implementations do not implement the newly declared `IMarketInventoryRepository.ReconcileCompleteSourceSnapshotAsync(...)` contract.
 
-Item 60 remains active. The next implementation must execute/observe real candidate code through implementation-independent semantic seams and use real candidate-code negative/alternate controls.
+A non-buildable POST cannot be treated as a validated accepted boundary under the already-approved P2 eligibility methodology. Therefore the earlier five-task freeze is superseded pending corpus repair, and item 60 cannot continue to final qualification yet.
+
+The next worker must determine whether C08 has a different legitimate historical accepted POST boundary or must be reclassified ineligible. It must then mechanically revalidate all selected POST boundaries before a corrected freeze is accepted.
+
+No P2 model run has occurred.
 
 ## Count rule
 
-An item becomes ✅ only after the coordinator accepts the evidence for that gate. Starting a Codex prompt, or producing deterministic but methodologically invalid evidence, does not complete the item.
+An item becomes ✅ only after the coordinator accepts the evidence for that gate. A previously completed item may be reopened when later evidence demonstrates that its accepted evidence package was methodologically invalid.
