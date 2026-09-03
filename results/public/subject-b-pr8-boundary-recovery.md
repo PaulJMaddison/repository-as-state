@@ -6,8 +6,8 @@ The earlier reported discovery count of 302 is now classified as a **measurement
 
 This corrected count is independently consistent with the contemporaneous PR #8 validation record, which recorded 300 tests passed, 0 failed and 0 skipped before merge.
 
-The monolithic project run still remains unresolved: it produced 292 terminal passing results and no failures or skips before stalling. Against the corrected 300-test inventory, 8 tests remain unaccounted for in that monolithic run. The monolithic stall remains preserved as a harness caveat; it is not rewritten as a pass.
+The monolithic project run remains disclosed as a harness caveat: it produced 292 terminal passing results and no failures or skips before stalling, leaving 8 of the corrected 300-test inventory unaccounted for in that monolithic run. It is not rewritten as a pass.
 
-PR8 remains neither accepted nor rejected on product-behaviour grounds. The next step is the frozen v2 partitioned replay of the exact 300-test inventory. No replacement candidate contracts are frozen and no new discriminator has run.
+The frozen v2 partitioned replay completed all 12 consecutive batches. One top-level batch stalled and was resolved by the required midpoint bisect; its two child runs accounted for all members. Leaf TRX outcomes account for exactly 300/300 tests: 300 passed, 0 failed and 0 skipped. PR8 is therefore **ACCEPTED_WITH_HARNESS_CAVEAT**. The next step is to freeze PR8 split task contracts. No replacement candidate contracts are frozen and no new discriminator has run.
 
 This aggregate contains no private paths, source, hidden requirements, or proprietary test traces.
