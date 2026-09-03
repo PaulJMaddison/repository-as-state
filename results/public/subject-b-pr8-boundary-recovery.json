@@ -7,16 +7,25 @@
   "pr8IsAncestorOfB5": true,
   "restorePass": true,
   "buildPass": true,
-  "testSuitePass": false,
+  "testSuitePass": null,
   "testsPassedBeforeStall": 292,
   "testsFailedBeforeStall": 0,
   "testsSkippedBeforeStall": 0,
   "boundaryHarnessValid": false,
-  "pr8AcceptedBoundary": false,
+  "pr8AcceptedBoundary": null,
   "candidateContractsFrozen": false,
   "newDiscriminatorRuns": 0,
   "experimentalAgentRuns": 0,
   "p0Executed": false,
   "finalLockCreated": false,
-  "nextStep": "SUBJECT_B_CORPUS_REVIEW"
+  "nextStep": "DIAGNOSE_PR8_TEST_COMPLETION_STALL",
+  "boundaryStatus": "UNRESOLVED_HARNESS_STALL",
+  "acceptanceEstablished": false,
+  "rejectionEstablished": false,
+  "observedTestProgress": {
+    "passed": 292,
+    "failed": 0,
+    "skipped": 0,
+    "completionObserved": false
+  }
 }

@@ -2,6 +2,10 @@
 
 Ancestry was reproduced: B4 is an ancestor of PR8, and PR8 is an ancestor of B5. A fresh PR8 workspace restored successfully and built successfully with zero warnings and errors.
 
-The full deterministic suite did not complete before the prescribed 45-second stall timeout. It reported 292 passing tests and no failures or skips before stalling, but this is not a passing accepted-boundary result. PR8 was therefore rejected as an accepted boundary for this run.
+The full deterministic suite did not emit a terminal completion result before the prescribed 45-second stall timeout. It had reported 292 passing tests and no failures or skips before the stall.
 
-No replacement candidate contracts were frozen, no new discriminator was run, and no arbitrary SHA was searched. This aggregate contains no private paths, source, hidden requirements, or test traces.
+That evidence does **not** establish a passing accepted boundary, but it also does not establish a failing repository boundary. The observed failure is currently a harness/completion failure. PR8 is therefore classified as `UNRESOLVED_HARNESS_STALL`, not accepted and not scientifically rejected.
+
+No replacement candidate contracts are frozen and no new discriminator has run. The next step is a narrow diagnostic of the test-run completion path: establish the expected discovered test count, isolate any non-terminating test/project or post-test teardown process, and then rerun the accepted-boundary gate without changing PR8.
+
+This aggregate contains no private paths, source, hidden requirements, or test traces.
