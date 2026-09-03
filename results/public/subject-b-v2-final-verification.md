@@ -46,4 +46,11 @@ See:
 
 - `results/public/subject-b-wp04-comprehensive-status.md`
 - `results/public/subject-b-wp04-comprehensive-status.json`
+## Chain status after WP04 direct discriminator probes
+
+WP04_PR5 is now comprehensively rejected for P0 task discrimination: all eight already-frozen requirements produced PRE=PASS and POST=PASS under direct supervised micro-probes. No v3 was created. The previous three-task review chain is therefore no longer valid; the surviving contiguous main-boundary chain is WP05_PR6 -> WP06_PR7 (length 2).
+
+A transparent recovery candidate exists in the already-recorded historical development graph: merged PR #8 (`575dc1e531c2a5e6bf39579869720fb8c6deff76`) is a pre-existing reviewed work-package boundary that is a descendant of B4/PR6 merge (`96aa7162...`) and an ancestor of B5/PR7 merge (`83b5b3c...`). It may allow the broad B4->B5 interval to be split into two natural accepted transitions.
+
+This is **not yet a valid task**. The next corpus-preparation step is to validate PR #8 as an accepted engineering boundary and, only if accepted, freeze neutral task contracts for the two natural intervals before running any new behavioural verifier. Arbitrary internal commits must not be searched for merely to manufacture a third task.
 

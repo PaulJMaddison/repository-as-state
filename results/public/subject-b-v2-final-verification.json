@@ -4,16 +4,43 @@
   "frozen_remote_main": "83b5b3c98213c13e2d81b33ade63891effcf204d",
   "frozen_tree": "96aafb77cc02008413115013d3411b6c83103965",
   "first_parent_history_digest": "ffbb95eeedb3304f1156c6c84a926fda030bacc500dde746c788108b080b0f85",
-  "narrow_verifier_valid_candidates": ["WP02_PR2", "WP04_PR5", "WP05_PR6", "WP06_PR7"],
+  "narrow_verifier_valid_candidates": [
+    "WP02_PR2",
+    "WP04_PR5",
+    "WP05_PR6",
+    "WP06_PR7"
+  ],
   "rejected_candidate": "WP03_PR4",
-  "review_chain": ["WP04_PR5", "WP05_PR6", "WP06_PR7"],
-  "review_chain_length": 3,
-  "chain_state_identity": {"wp04_post_equals_wp05_pre": true, "wp05_post_equals_wp06_pre": true},
-  "comprehensive_requirement_counts": {"WP04_PR5": 8, "WP05_PR6": 9, "WP06_PR7": 12},
+  "review_chain": [
+    "WP05_PR6",
+    "WP06_PR7"
+  ],
+  "review_chain_length": 2,
+  "chain_state_identity": {
+    "wp04_post_equals_wp05_pre": true,
+    "wp05_post_equals_wp06_pre": true
+  },
+  "comprehensive_requirement_counts": {
+    "WP04_PR5": 8,
+    "WP05_PR6": 9,
+    "WP06_PR7": 12
+  },
   "all_final_chain_frozen_requirements_covered": false,
   "corpus_ready_for_final_lock": false,
   "experimental_agent_runs": 0,
   "p0_executed": false,
   "final_lock_created": false,
-  "public_artifact_scope": "sanitized aggregate; hidden verifier implementations and private snapshots excluded"
+  "public_artifact_scope": "sanitized aggregate; hidden verifier implementations and private snapshots excluded",
+  "comprehensive_rejected_candidates": [
+    "WP04_PR5"
+  ],
+  "chain_status": "BROKEN_AFTER_WP04_COMPREHENSIVE_REJECTION",
+  "replacement_boundary_candidate": {
+    "source": "pre-existing merged PR/work-package boundary",
+    "pr_number": 8,
+    "merge_commit": "575dc1e531c2a5e6bf39579869720fb8c6deff76",
+    "relation": "descendant of B4/PR6 merge and ancestor of B5/PR7 merge",
+    "purpose": "candidate split of existing B4->B5 interval; not yet verifier-valid"
+  },
+  "next_step": "VALIDATE_PR8_ACCEPTED_BOUNDARY_AND_FREEZE_CHAIN_RECOVERY_CANDIDATES"
 }
