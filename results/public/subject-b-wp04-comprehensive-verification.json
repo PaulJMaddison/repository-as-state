@@ -1,0 +1,18 @@
+{
+  "candidateId": "WP04_PR5",
+  "preCommit": "e7f53f17dd7d46050f7836a92a8918c27b6cd01b",
+  "postCommit": "b364a51ace47a8c73dc5e2affcb8fbcd156db1bf",
+  "frozenTaskSpecSha256": "1f5ed2d31a0609e3aff2b3fb82868ac4c368825366f70537267f25df5b85180a",
+  "frozenRequirementsSha256": "aa327ab1770fc22050e9ae6e956b20912f3205317696f3d84e900578a8bcd418",
+  "frozenRequirementCount": 8,
+  "requirementsEvaluated": 8,
+  "pre": { "harnessValid": true, "passing": 8, "failing": 0, "overallTaskResult": "NOT_DISCRIMINATED" },
+  "post": { "harnessValid": true, "passing": 8, "failing": 0, "allFrozenRequirementsPass": true },
+  "verifierVersion": "WP04-comprehensive-v2",
+  "verifierSha256": "CA37A478458E32DEB48F896E4593664D31FA53D86F0BD11C47225CEE52DCE577",
+  "negativeControls": { "run": 1, "detected": 1, "discriminationSufficient": false },
+  "comprehensiveCandidateValid": false,
+  "p0Executed": false,
+  "finalLockCreated": false,
+  "nextStep": "WP04_RESEARCH_REVIEW"
+}
