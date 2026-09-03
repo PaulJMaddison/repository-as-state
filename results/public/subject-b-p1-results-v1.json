@@ -1,0 +1,44 @@
+{
+  "experiment": "P1",
+  "subject": "SearchForCars / Subject-B",
+  "date": "2026-09-03",
+  "status": "EXECUTED_ADJUDICATED_INTERPRETED_PUBLIC_SAFE",
+  "preregistration_state_commit": "d95e2cdc47f8082a805fa2d5b09cdb272cf977ef",
+  "overall_private_verifier_sha256": "DD8A85151DED2EE5DD11BF27109A5A0823BA2F815474DDE25DCEB33B873784AB",
+  "execution_lock_sha256": "9222FBC10DE1977A565EA04CC9EEFE3077F18B58944383851051849DCA466328",
+  "public_preregistration_binding_sha256": "8BC653E42A4B5049F2BBDA6AE0B92D25A8980C03C5E3DE34F3514103612B4A5D",
+  "six_run_blinded_freeze_manifest_sha256": "F426272137C6A39E6D1B60361B1792365853C70DD979036BB92C539768822D3C",
+  "raw_adjudication_manifest_sha256": "5B80CB2655B974149C89F086A1135F47C6427009A2525EB5ABA5F9A686710DF5",
+  "interpretation_manifest_sha256": "3952AC8FD23A95BAD54DB67300F701B14D53F27CC4D078FA68D25BACEF869BAF",
+  "model": "gpt-5.6-luna",
+  "run_order": ["B1", "A1", "A2", "B2", "B3", "A3"],
+  "conditions": {
+    "A": "persistent predecessor reasoning-session continuity; fresh historical PRE repository per task; no generated code carryover",
+    "B": "fresh independent reasoning session per task; fresh historical PRE repository per task; no generated code carryover"
+  },
+  "tasks": [
+    {"task": "WP04_PR5", "condition_a_pass": 8, "condition_b_pass": 8, "total": 8},
+    {"task": "WP05_PR6", "condition_a_pass": 10, "condition_b_pass": 10, "total": 10},
+    {"task": "WP06_PR7", "condition_a_pass": 0, "condition_b_pass": 0, "total": 12}
+  ],
+  "condition_a": {"behaviours_pass": 18, "behaviours_total": 30, "tasks_pass": 2, "tasks_total": 3},
+  "condition_b": {"behaviours_pass": 18, "behaviours_total": 30, "tasks_pass": 2, "tasks_total": 3},
+  "paired_behaviour_agreement": 30,
+  "paired_behaviour_disagreement": 0,
+  "observed_correctness_difference": 0,
+  "wp06_public_classification": "COMMON_FOUNDATIONAL_CAPABILITY_OMISSION",
+  "wp06_classification_confidence": "HIGH",
+  "a1_interruption": "INTERRUPTED_AFTER_MODEL_ACTIVITY; frozen without retry under preregistered rule; adjudicated 8/8",
+  "resource_finding": "INCOMPLETE_MIXED; no cost superiority or equivalence claim",
+  "bounded_interpretation": "SUPPORTIVE_WITH_LIMITATIONS",
+  "claims": {
+    "observed_persistent_correctness_advantage": false,
+    "observed_fresh_correctness_disadvantage": false,
+    "formal_equivalence_established": false,
+    "formal_non_inferiority_established": false,
+    "universal_repository_sufficiency_established": false,
+    "resource_cost_advantage_established": false,
+    "replication_required": true
+  },
+  "p0_reinterpreted": false
+}
