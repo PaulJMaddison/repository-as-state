@@ -186,3 +186,14 @@ state as far as the client/runtime makes it observable, and validate metrics
 capture. P0 remains blocked until those gates and the separately approved task
 timeout are frozen.
 
+## Authenticated validation result
+
+The dedicated runtime now passes authenticated provider transport, explicit
+resume continuity, fresh-session history negative control, local session-state
+separation, restart-persistent default-deny networking and authenticated metrics
+capture. The provider allow-list is frozen to `chatgpt.com:443`.
+
+The only remaining pre-P0 readiness field is the task timeout. No experimental
+Subject-B model invocation is permitted until that timeout is human-approved and
+frozen.
+
