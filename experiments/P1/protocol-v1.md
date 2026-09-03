@@ -71,9 +71,14 @@ Required runtime-v3 public/private evidence includes:
 - successful synthetic repository edit/status probe;
 - A/B runtime parity.
 
-## 5. Task eligibility
+## 5. P1 task-contract eligibility
 
-A candidate task is eligible only if:
+The SearchForCars WP04/WP05/WP06 historical chain is already established. This
+section does not re-adjudicate corpus feasibility. It determines whether each
+P1 neutral task specification and governing behavioural contract is fair enough
+to use in the corrected experiment.
+
+For each fixed historical transition, the P1 task contract is ready only if:
 
 1. it is a real historical engineering requirement;
 2. it has a credible accepted PRE and accepted POST boundary;
@@ -96,7 +101,7 @@ The shared `ras.task_contract` evaluator must return:
 
 `ELIGIBLE_FOR_PREREGISTRATION`
 
-before the task may enter the final P1 corpus.
+before the corrected task contract may be frozen for P1 execution.
 
 ## 6. Curator contamination rule
 
@@ -219,6 +224,6 @@ P1 must receive a new:
 
 The framework is ready, but task-specific execution is prohibited until:
 
-`P1_CORPUS_AND_TASK_CONTRACTS_FROZEN=true`
+`P1_TASK_CONTRACTS_AND_VERIFIERS_FROZEN=true`
 
 and a public-safe P1 preregistration commitment exists.
