@@ -1,0 +1,58 @@
+{
+  "SUBJECT": "SEARCHFORCARS",
+  "PROTOCOL_VERSION": "SUBJECT_B_PROTOCOL_V1",
+  "MODEL_IDENTIFIER": "gpt-5.6-luna",
+  "EXECUTION_ORDER": [
+    "A1",
+    "B1",
+    "B2",
+    "A2",
+    "A3",
+    "B3"
+  ],
+  "A_SESSION_PERSISTENT": true,
+  "B_SESSIONS_FRESH_AND_DISTINCT": true,
+  "TASK_PAIR_PROMPT_BYTES_IDENTICAL": true,
+  "RUNS": {
+    "A1": {
+      "outcome": "COMPLETED",
+      "behavioural_pass": false,
+      "timeout": false
+    },
+    "B1": {
+      "outcome": "COMPLETED",
+      "behavioural_pass": false,
+      "timeout": false
+    },
+    "B2": {
+      "outcome": "COMPLETED",
+      "behavioural_pass": false,
+      "timeout": false
+    },
+    "A2": {
+      "outcome": "COMPLETED",
+      "behavioural_pass": false,
+      "timeout": false
+    },
+    "A3": {
+      "outcome": "COMPLETED",
+      "behavioural_pass": false,
+      "timeout": false
+    },
+    "B3": {
+      "outcome": "COMPLETED",
+      "behavioural_pass": false,
+      "timeout": false
+    }
+  },
+  "ALL_SIX_RAW_OUTPUTS_FROZEN": true,
+  "ALL_SIX_VERIFIER_RUNS_COMPLETE": true,
+  "P0_RAW_EXPERIMENT_SHA256": "fcce7545f5997d78e50319a4cdd7952b97299ad8b14b784c5664d8e44a99c642",
+  "FINAL_P0_EXPERIMENT_LOCK_CREATED": true,
+  "FINAL_P0_EXPERIMENT_SHA256": "bd6cdbd0e6ffba07f6f72d33e13ad9262e2807dddb42ba9d29435aa4281365ad",
+  "EXPERIMENTAL_AGENT_RUNS": 6,
+  "P0_EXECUTED": true,
+  "PRIMARY_CORRECTNESS_RESULT": "NON_DISCRIMINATING_ALL_FAIL",
+  "INTERPRETATION_STATUS": "ANALYSIS_PENDING",
+  "NEXT_STEP": "POST_P0_FAILURE_FORENSICS"
+}
