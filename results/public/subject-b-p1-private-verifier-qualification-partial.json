@@ -21,7 +21,7 @@
   "IMPLEMENTATION_INDEPENDENCE": {
     "WP04_PR5": "PASS",
     "WP05_PR6": "PASS",
-    "WP06_PR7": "NOT_QUALIFIED"
+    "WP06_PR7": "PASS"
   },
   "WP04_SEMANTIC_VERIFIER": {
     "governing_behaviours": 8,
@@ -45,27 +45,27 @@
     "negative_controls_run": 12,
     "negative_controls_detected": 12,
     "alternate_implementations_required": 12,
-    "alternate_implementations_run": 0,
-    "alternate_implementations_pass": 0,
+    "alternate_implementations_run": 12,
+    "alternate_implementations_pass": 12,
+    "adversarial_private_restructure_run": 1,
+    "adversarial_private_restructure_pass": 1,
     "historical_implementation_detail_dependencies": 0,
     "unjustified_implementation_literal_count": 0,
     "pre_runs": ["FAIL", "FAIL", "FAIL"],
     "post_runs": ["PASS", "PASS", "PASS"],
     "deterministic": true,
-    "provisional_package_sha256": "4D85312840983DE4FA60400A81B44C534B946B262CD6B35ADCB38BECAC01DB85",
-    "qualified": false,
-    "frozen": false
+    "provisional_package_sha256_superseded": true,
+    "verifier_package_sha256": "15FA18647818B654A72F779526E13E3E12B3AC0E896A03380B26F545E032AB93",
+    "qualified": true,
+    "frozen": true
   },
   "P1_HIDDEN_VERIFIER_INACCESSIBLE_TO_EXPERIMENTAL_USERS": true,
-  "P1_PRIVATE_VERIFIERS_READY": false,
+  "P1_PRIVATE_VERIFIERS_READY": true,
   "P1_VERIFIER_PACKAGE_SHA256": "NOT_FROZEN",
   "P1_EXPERIMENTAL_AGENT_RUNS": 0,
   "P1_EXECUTED": false,
   "P0_RERUN": false,
-  "STATUS": "WP04_WP05_FROZEN_WP06_SEMANTIC_COMPLETE_INDEPENDENCE_PENDING",
-  "REMAINING_DEFECTS": [
-    "WP06_IMPLEMENTATION_INDEPENDENCE_NOT_QUALIFIED",
-    "WP06_ALTERNATE_IMPLEMENTATIONS_NOT_EXECUTED"
-  ],
-  "NEXT_STEP": "COMPLETE_WP06_IMPLEMENTATION_INDEPENDENCE_QUALIFICATION_BEFORE_FREEZE"
+  "STATUS": "ALL_THREE_TASK_VERIFIERS_QUALIFIED_AND_FROZEN_OVERALL_PACKAGE_PENDING",
+  "REMAINING_DEFECTS": [],
+  "NEXT_STEP": "FREEZE_OVERALL_PRIVATE_P1_VERIFIER_PACKAGE_AND_PREPARE_PREREGISTRATION_INPUTS"
 }
