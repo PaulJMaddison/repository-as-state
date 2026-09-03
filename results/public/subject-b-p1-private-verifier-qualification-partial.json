@@ -15,45 +15,51 @@
   },
   "NEGATIVE_CONTROLS": {
     "WP04_PR5": {"total": 8, "detected": 8},
-    "WP05_PR6": {"total": 0, "detected": 0},
+    "WP05_PR6": {"total": 10, "detected": 10},
     "WP06_PR7": {"total": 0, "detected": 0}
   },
   "IMPLEMENTATION_INDEPENDENCE": {
     "WP04_PR5": "PASS",
-    "WP05_PR6": "PARTIAL_WITH_REASON",
+    "WP05_PR6": "PASS",
     "WP06_PR7": "PARTIAL_WITH_REASON"
   },
   "WP04_SEMANTIC_VERIFIER": {
     "governing_behaviours": 8,
-    "semantic_oracles_implemented": 8,
+    "qualified": true,
+    "frozen": true,
+    "verifier_package_sha256": "F61BEFEE8262FEE42D26DB3AC833E1BE8DB29E5555073CDCA30ABBE6DD996057"
+  },
+  "WP05_SEMANTIC_VERIFIER": {
+    "governing_behaviours": 10,
+    "semantic_oracles_implemented": 10,
     "test_method_selectors_remaining": 0,
-    "oracle_self_test_count": 12,
+    "oracle_self_test_count": 15,
     "oracle_self_tests_pass": true,
-    "alternate_implementations_required": 8,
-    "alternate_implementations_run": 8,
-    "alternate_implementations_pass": 8,
+    "alternate_implementations_required": 10,
+    "alternate_implementations_run": 10,
+    "alternate_implementations_pass": 10,
     "historical_implementation_detail_dependencies": 0,
     "unjustified_implementation_literal_count": 0,
     "pre_runs": ["FAIL", "FAIL", "FAIL"],
     "post_runs": ["PASS", "PASS", "PASS"],
     "deterministic": true,
-    "verifier_package_sha256": "F61BEFEE8262FEE42D26DB3AC833E1BE8DB29E5555073CDCA30ABBE6DD996057",
+    "verifier_package_sha256": "5BBE8A480B2453B4EAE6B8AB7769753062E994602CE18F349ABB5B70E8329E4D",
     "qualified": true,
     "frozen": true
   },
-  "UNJUSTIFIED_EXACT_LITERAL_ASSERTIONS": "UNRESOLVED_FOR_WP05_WP06",
+  "UNJUSTIFIED_EXACT_LITERAL_ASSERTIONS": "UNRESOLVED_FOR_WP06",
   "P1_HIDDEN_VERIFIER_INACCESSIBLE_TO_EXPERIMENTAL_USERS": true,
   "P1_PRIVATE_VERIFIERS_READY": false,
   "P1_VERIFIER_PACKAGE_SHA256": "NOT_FROZEN",
   "P1_EXPERIMENTAL_AGENT_RUNS": 0,
   "P1_EXECUTED": false,
   "P0_RERUN": false,
-  "STATUS": "WP04_QUALIFIED_AND_FROZEN_WP05_WP06_PENDING",
+  "STATUS": "WP04_WP05_QUALIFIED_AND_FROZEN_WP06_PENDING",
   "REMAINING_DEFECTS": [
-    "WP05_WP06_NO_PER_BEHAVIOUR_NEGATIVE_CONTROLS",
-    "WP05_WP06_IMPLEMENTATION_INDEPENDENCE_ONLY_PARTIAL",
-    "WP05_WP06_IMPLEMENTATION_SPECIFIC_TEST_METHOD_NAME_SELECTION",
-    "WP05_WP06_ORACLE_SELF_TESTS_NOT_COMPLETE"
+    "WP06_NO_PER_BEHAVIOUR_NEGATIVE_CONTROLS",
+    "WP06_IMPLEMENTATION_INDEPENDENCE_ONLY_PARTIAL",
+    "WP06_IMPLEMENTATION_SPECIFIC_TEST_METHOD_NAME_SELECTION",
+    "WP06_ORACLE_SELF_TESTS_NOT_COMPLETE"
   ],
-  "NEXT_STEP": "IMPLEMENT_SEMANTIC_PRIVATE_P1_ORACLES_AND_QUALIFY_WP05"
+  "NEXT_STEP": "IMPLEMENT_SEMANTIC_PRIVATE_P1_ORACLES_AND_QUALIFY_WP06"
 }
