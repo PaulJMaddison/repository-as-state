@@ -1,0 +1,37 @@
+{
+  "candidateA": {
+    "id": "RC03_B4_TO_PR8_COMPOSITE",
+    "pre": "96aa7162faa48e47104916331a9ffcfd66af7171",
+    "post": "575dc1e531c2a5e6bf39579869720fb8c6deff76",
+    "coherent": false,
+    "primaryObjective": null,
+    "unrelatedProgrammeCount": 1,
+    "requirementCount": null,
+    "taskSpecSha256": null,
+    "hiddenRequirementsSha256": null,
+    "contractFrozen": false
+  },
+  "candidateB": {
+    "id": "RC04_PR8_TO_B5_REMAINDER",
+    "pre": "575dc1e531c2a5e6bf39579869720fb8c6deff76",
+    "post": "83b5b3c98213c13e2d81b33ade63891effcf204d",
+    "coherent": false,
+    "primaryObjective": null,
+    "unrelatedProgrammeCount": 3,
+    "requirementCount": null,
+    "taskSpecSha256": null,
+    "hiddenRequirementsSha256": null,
+    "contractFrozen": false
+  },
+  "chainEdge1Identity": true,
+  "chainEdge2Identity": true,
+  "proposedChainLength": 3,
+  "searchForCarsThreeTaskRecoveryValid": false,
+  "candidateContractsFrozen": false,
+  "noNewShaSearched": true,
+  "newDiscriminatorRuns": 0,
+  "experimentalAgentRuns": 0,
+  "p0Executed": false,
+  "finalLockCreated": false,
+  "nextStep": "NEW_CORPUS_PROTOCOL_DESIGN"
+}
