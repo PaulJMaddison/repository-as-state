@@ -1,9 +1,26 @@
 # Subject-B PR8-base boundary recovery
 
-Status: boundary validation unresolved; contract curation did not proceed.
+Status: **retry required because the previous worker queried the wrong repository remote**.
 
-The requested exact PR8 first-parent base was `b818d5e50c588113529c5545843446618dba4e4e`. The required curation state was restored at `bfc55ebd8ffb9e7492cd91106b372cb7e489a7fb`, but the named PR8 merge, base, second-parent, and predecessor objects were not reachable from the repository's available refs or remote object service. Consequently the exact base could not be materialised in a disposable workspace, and no restore, build, test discovery, partition execution, or ancestry/tree identity claim was made for that base.
+The previous worker classified PR8 base as `UNRESOLVED_HISTORICAL_OBJECT` after looking for the SearchForCars historical objects through the `repository-as-state` remote. That classification is invalid.
 
-No alternative SHA was searched, no broad B4-to-PR8 composite was forced, no candidate task contract was frozen, and no discriminator or experimental agent ran. This result contains no private paths, source, hidden requirements, test names, traces, or proprietary material.
+The authoritative historical source repository is:
 
-Next step: `SUBJECT_B_CORPUS_REVIEW`.
+`PaulJMaddison/searchforcars`
+
+Local source repository:
+
+`C:\Sass\searchforcars`
+
+The required historical objects are available in the SearchForCars repository/hosting API:
+
+- PR8 merge: `575dc1e531c2a5e6bf39579869720fb8c6deff76`
+- PR8 first parent/base: `b818d5e50c588113529c5545843446618dba4e4e`
+- PR8 reviewed head/second parent: `5658fa1ae922afa56ba76f1d8dffd9bd95d60209`
+- B4 predecessor: `96aa7162faa48e47104916331a9ffcfd66af7171`
+
+GitHub PR #8 also resolves and records the same merge/base/head identities.
+
+No boundary acceptance claim is made by this correction. The exact PR8-base state still needs to be materialised from the SearchForCars repository and subjected to the restore/build/test accepted-boundary gate. Candidate contracts remain unfrozen and no discriminator or P0 run has occurred.
+
+Next step: `VALIDATE_PR8_BASE_FROM_SEARCHFORCARS_SOURCE`.
