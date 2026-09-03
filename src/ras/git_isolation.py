@@ -15,6 +15,7 @@ from typing import Iterable, Sequence
 
 _OID_RE = re.compile(r"^[0-9a-fA-F]{40}([0-9a-fA-F]{24})?$")
 _SIDECAR_SUFFIXES = (".patch", ".diff", ".bundle", ".zip", ".tar", ".tgz", ".tar.gz", ".7z")
+EXPERIMENT_BRANCH_NAME = "ras-experiment"
 
 
 @dataclass(frozen=True)
@@ -126,7 +127,7 @@ def create_truncated_workspace(
     source_repo: str | Path,
     allowed_commit: str,
     destination: str | Path,
-    branch_name: str = "p0",
+    branch_name: str = EXPERIMENT_BRANCH_NAME,
 ) -> Path:
     """Create a fresh repo containing only objects needed by allowed_commit ancestry.
 
@@ -136,6 +137,15 @@ def create_truncated_workspace(
     """
     source = _validate_repo_path(Path(source_repo))
     allowed = _normalise_oids([allowed_commit])[0]
+    branch_check = subprocess.run(
+        ["git", "check-ref-format", "--branch", branch_name],
+        text=True,
+        stdout=subprocess.PIPE,
+        stderr=subprocess.PIPE,
+        check=False,
+    )
+    if branch_check.returncode != 0:
+        raise ValueError(f"invalid experiment branch name: {branch_name!r}")
     destination_path = Path(destination)
     if destination_path.exists():
         raise ValueError("destination already exists")
@@ -171,9 +181,26 @@ def create_truncated_workspace(
         shutil.rmtree(destination_path, ignore_errors=True)
         raise ValueError(f"history export failed: {fetch.stderr.strip()}")
 
-    _run_git(destination_path, "update-ref", f"refs/heads/{branch_name}", allowed)
-    _run_git(destination_path, "symbolic-ref", "HEAD", f"refs/heads/{branch_name}")
+    branch_ref = f"refs/heads/{branch_name}"
+    _run_git(destination_path, "update-ref", branch_ref, allowed)
+    _run_git(destination_path, "symbolic-ref", "HEAD", branch_ref)
     _run_git(destination_path, "reset", "--hard", allowed)
+
+    # Make the workspace deliberately boring: one local branch, no remote,
+    # no fetch metadata and no unreachable object residue.  The subsequent
+    # leak gate independently proves these invariants before model invocation.
+    for transient in ("FETCH_HEAD", "ORIG_HEAD"):
+        transient_path = destination_path / ".git" / transient
+        if transient_path.exists():
+            transient_path.unlink()
+    _run_git(destination_path, "reflog", "expire", "--expire=now", "--all")
+    _run_git(destination_path, "gc", "--prune=now")
+
+    actual_head = _run_git(destination_path, "rev-parse", "HEAD").stdout.strip().lower()
+    actual_ref = _run_git(destination_path, "symbolic-ref", "-q", "HEAD").stdout.strip()
+    if actual_head != allowed or actual_ref != branch_ref:
+        shutil.rmtree(destination_path, ignore_errors=True)
+        raise ValueError("materialised workspace did not preserve the requested writable branch")
     return destination_path
 
 
@@ -181,7 +208,7 @@ def future_history_leak_gate(
     repo: str | Path,
     forbidden_future_oids: Sequence[str],
     *,
-    allowed_refs: Sequence[str] = ("refs/heads/p0",),
+    allowed_refs: Sequence[str] = (f"refs/heads/{EXPERIMENT_BRANCH_NAME}",),
     network_isolation_asserted: bool,
     sidecar_roots: Sequence[str | Path] = (),
 ) -> LeakGateResult:
@@ -219,6 +246,15 @@ def future_history_leak_gate(
             else:
                 if alternate_text:
                     failures.append("git_alternates_present")
+
+        head_ref_result = _run_git(root, "symbolic-ref", "-q", "HEAD", check=False)
+        if head_ref_result.returncode != 0:
+            failures.append("detached_head")
+        else:
+            head_ref = head_ref_result.stdout.strip()
+            details.append(f"head_ref={head_ref}")
+            if head_ref not in allowed_ref_set:
+                failures.append("head_ref_not_allowed")
 
         refs = _refs(root)
         unexpected_refs = sorted(set(refs) - allowed_ref_set)
