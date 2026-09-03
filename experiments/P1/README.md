@@ -1,6 +1,6 @@
 # P1 — corrected Repository-as-State causal study
 
-Status: **SEARCHFORCARS CHAIN AND P1 TASK CONTRACTS ESTABLISHED; PRIVATE P1 VERIFIERS NOT YET FROZEN.**
+Status: **SEARCHFORCARS CHAIN AND P1 TASK CONTRACTS ESTABLISHED; PRIVATE P1 VERIFIER REMEDIATION IN PROGRESS.**
 
 P1 is a new experiment version created after the completed Subject-B P0 pilot
 exposed material methodology/runtime confounds.
@@ -55,12 +55,23 @@ The shared task-contract evaluator has been independently validated and merged.
 
 Runtime-v3 remediation is green.
 
+All three corrected task contracts are eligible and frozen by private hash.
+
+The candidate private P1 verifiers now reproduce the required historical
+PRE-fail / POST-pass separation and are deterministic across the required
+three-run control matrix. Hidden-material ACLs have also been corrected.
+
+They are **not yet qualified for freeze** because implementation-specific test
+method-name selection remains, per-behaviour negative controls have not yet been
+implemented, implementation-independence evidence is only partial, and oracle
+self-tests are incomplete.
+
 No P1 task-solving model has run.
 
 Current next step:
 
-`BUILD_AND_FREEZE_PRIVATE_P1_VERIFIERS`.
+`REMEDIATE_PRIVATE_P1_VERIFIER_IMPLEMENTATION`.
 
-All three corrected task contracts are now eligible and frozen by private hash.
-The next step is private verifier implementation and PRE/POST/negative-control
-qualification against those frozen contracts before P1 execution.
+The frozen task contracts must not change. The remaining work is only to make
+the private oracles direct, semantic, implementation-independent and robust
+before final verifier-package freeze and P1 preregistration.
