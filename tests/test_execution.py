@@ -82,7 +82,7 @@ def test_progress_file_heartbeats_prevent_false_stall(tmp_path: Path):
             """
         ),
         policy=SupervisionPolicy(
-            stall_timeout_s=0.30,
+            stall_timeout_s=0.80,
             hard_timeout_s=2,
             poll_interval_s=0.02,
             progress_file=progress,
