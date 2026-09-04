@@ -1,0 +1,61 @@
+{
+  "schema_version": "subject-b-p2-semantic-verifier-qualification-v1",
+  "terminal_state": "VALID_TERMINAL_A_ITEM60_SEMANTIC_VERIFIERS_QUALIFIED",
+  "task_total": 4,
+  "governing_behaviour_total": 13,
+  "historical_controls": {
+    "P2V2_T01": {"pre_overall_pass": false, "post_overall_pass": true},
+    "P2V2_T02": {"pre_overall_pass": false, "post_overall_pass": true},
+    "P2V2_T03": {"pre_overall_pass": false, "post_overall_pass": true},
+    "P2V2_T04": {"pre_overall_pass": false, "post_overall_pass": true}
+  },
+  "qualification": {
+    "all_13_governing_behaviours_implemented": true,
+    "arbitrary_candidate_root_supported": true,
+    "commit_identity_used_as_verdict": false,
+    "historical_source_hash_used_as_verdict": false,
+    "negative_control_total": 13,
+    "negative_controls_detected": 13,
+    "false_positive_decoys_accepted_as_pass": 0,
+    "implementation_independence_audit_complete": true,
+    "unjustified_historical_implementation_coupling": 0,
+    "alternate_valid_controls_total": 13,
+    "alternate_valid_controls_accepted": 13,
+    "verifier_self_tests_pass": true,
+    "self_test_fixtures_used_as_candidate_verdict_evidence": false,
+    "determinism_runs_per_control": 3,
+    "historical_determinism_invocations": 24,
+    "all_verifier_verdict_vectors_deterministic": true,
+    "c10_previous_oracle_mapping_defects_reintroduced": 0,
+    "hidden_verifier_private": true,
+    "experimental_agent_access_to_hidden_verifier": false,
+    "item59_contract_bytes_unchanged": true,
+    "item59_freeze_identity_unchanged": true
+  },
+  "prohibited_activity": {
+    "build_commands_executed": 0,
+    "test_commands_executed": 0,
+    "restore_commands_executed": 0,
+    "compiler_commands_executed": 0,
+    "p2_experimental_agent_runs": 0,
+    "p2_task_solving_model_invoked": false,
+    "p2_executed": false,
+    "p2_preregistered": false,
+    "p0_rerun": false,
+    "p1_rerun": false
+  },
+  "private_identities": {
+    "semantic_verifier_manifest_sha256": "B2526D4AC1B8FE5D88E373B6728E1A6A64C260303A3E9F41D2F1CE1924268034",
+    "semantic_seam_manifest_sha256": "18B72556F1F0BBE22C77F64708C5222C14E90D5C06C4DEDDBF1F18DFD86F64EC",
+    "negative_control_manifest_sha256": "E683673C1AE090F5385FA64398AC20F4FFC7B93FC23DEC7C06424945D8D835AA",
+    "alternate_valid_qualification_sha256": "DF3C9EBC74F039AA13740E97D75B251F93A170C835AB32197C8C098785B138AA",
+    "determinism_audit_sha256": "3C3934EA95AAFF202DF27EEA10A690F8388C13A9978F0092638E3BDBB281734A",
+    "qualification_summary_sha256": "230EBC784773BC35771533305F7588000BCDB490EC7FA56CCD5D541933FFD22A",
+    "verifier_freeze_sha256": "EF4DEAFBD34E3411C316241AB02A1F19C14A852031B722BAB75CC8DAB97553E1",
+    "verifier_package_sha256": "D3C77EDE2D3B41716035F0EEB5977F69898D97C46D9015E4C74C61EA244FDD48",
+    "all_sha256_lengths_64": true,
+    "all_sha256_repeat_matches": true,
+    "package_internal_bindings_valid": true
+  },
+  "interpretation": "The four execution-authoritative P2 tasks now have privately frozen source-only semantic hidden verifiers covering all 13 disclosed governing behaviours. This qualification does not reveal experimental correctness outcomes because no P2 experimental task-solving run has occurred."
+}
