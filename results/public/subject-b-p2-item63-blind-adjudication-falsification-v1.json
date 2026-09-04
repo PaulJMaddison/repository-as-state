@@ -1,0 +1,23 @@
+{
+  "schema": "subject-b-p2-item63-blind-adjudication-falsification-v1",
+  "item": 63,
+  "status": "ITEM63_REMAINS_ACTIVE",
+  "accepted_p2_candidates_affected": 0,
+  "item62_candidates_rerun": 0,
+  "item62_candidates_modified": 0,
+  "task_solving_model_runs": 0,
+  "initial_stage_a_placeholder_calls": 24,
+  "initial_stage_a_valid_adjudications": 0,
+  "initial_stage_a_correctness_outputs": 0,
+  "diagnostic_real_verifier_calls_after_unblinding": 1,
+  "diagnostic_call_accepted_as_blind_adjudication": false,
+  "failed_item63_attempt_accepted": false,
+  "failed_item63_attempt_quarantined": true,
+  "cause": "The first 24 Stage-A calls targeted coordinator-side placeholder verifier entrypoints and produced no adjudication output. The worker then unblinded before discovering the path mismatch and made one diagnostic call to the sealed verifier after condition information was available. Therefore that Item-63 attempt cannot satisfy the required blind Stage-A ordering.",
+  "recovery": "Preserve and quarantine the failed Item-63 attempt. Reuse the unchanged 24 frozen Item-62 candidates. Build a neutral blind-ID-only adjudication bundle and execute the sealed verifier through a scoring process that cannot access the condition mapping. Freeze all 24 accepted blinded adjudications before the permitted unblinding and matched analysis.",
+  "p0_rerun": false,
+  "p1_rerun": false,
+  "p2_execution_rerun": false,
+  "item63_complete": false,
+  "item64_allowed_to_start": false
+}
