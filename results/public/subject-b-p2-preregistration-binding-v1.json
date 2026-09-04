@@ -1,6 +1,6 @@
 {
   "schema_version": "subject-b-p2-preregistration-binding-v1",
-  "status": "PUBLIC_PREREGISTRATION_BINDING_PUBLISHED_PHASE_A",
+  "status": "PUBLIC_PREREGISTRATION_BINDING_CORRECTED_AND_REPUBLISHED",
   "programme_state": {
     "complete": 60,
     "total": 67,
@@ -27,7 +27,9 @@
   "model_runtime": {
     "target_model": "gpt-5.6-luna",
     "codex_cli_version": "0.153.0-alpha.5",
-    "codex_config_sha256": "4FC602F42CA6974BFF0AC13AA4D06FF8FA0831790398F05D55EEFBCB66239674",
+    "codex_config_sha256": "8249A208C5DED9B173BBC6B22B8EA6E1A11AB8E29BFF4B7B006A396BF8FA0093",
+    "codex_config_identity_scope": "canonical execution-relevant effective configuration frozen in P2V2-RUNTIME-MANIFEST-v1.json; this is not the raw config.toml file hash",
+    "runtime_manifest_sha256": "4FC602F42CA6974BFF0AC13AA4D06FF8FA0831790398F05D55EEFBCB66239674",
     "run_timeout_seconds": 1800
   },
   "phase_a_commitments": {
@@ -60,6 +62,25 @@
     "hidden_verifier_implementation_published": false,
     "correctness_results_published": false
   },
+  "correction": {
+    "reason": "Phase-B integrity audit proved the original public codex_config_sha256 value was the SHA-256 of P2V2-RUNTIME-MANIFEST-v1.json rather than the execution-relevant effective Codex configuration identity embedded in that manifest.",
+    "original_publication_commit": "7ebb0705d78a52b4144107a323ea240fe31567e6",
+    "original_json_blob_sha": "8b7355db2db8f519f2cd4096b1801ee14e325f74",
+    "original_incorrect_codex_config_sha256": "4FC602F42CA6974BFF0AC13AA4D06FF8FA0831790398F05D55EEFBCB66239674",
+    "correct_effective_codex_config_sha256": "8249A208C5DED9B173BBC6B22B8EA6E1A11AB8E29BFF4B7B006A396BF8FA0093",
+    "runtime_manifest_sha256": "4FC602F42CA6974BFF0AC13AA4D06FF8FA0831790398F05D55EEFBCB66239674",
+    "raw_config_toml_sha256_observed_during_phase_b": "B321C224F46DCE5C01F500AD813D626D34513738F446644450D0A4D1DF16DF1E",
+    "private_phase_a_preregistration_manifest_changed": false,
+    "private_phase_a_preregistration_package_changed": false,
+    "prompts_changed": false,
+    "randomisation_changed": false,
+    "schedule_changed": false,
+    "blind_mapping_changed": false,
+    "model_changed": false,
+    "timeout_changed": false,
+    "p2_experimental_runs_at_correction": 0
+  },
   "phase_a_terminal": "VALID_TERMINAL_A_ITEM61_PHASE_A_READY_FOR_PUBLIC_BINDING",
-  "next_gate": "ITEM61_PHASE_B_FINAL_ZERO_MODEL_EXECUTION_LOCK"
+  "phase_b_integrity_terminal": "VALID_TERMINAL_B_PUBLIC_BINDING_REPUBLICATION_REQUIRED",
+  "next_gate": "ITEM61_PHASE_B_FINAL_ZERO_MODEL_EXECUTION_LOCK_AGAINST_CORRECTED_PUBLIC_BINDING"
 }
