@@ -1,0 +1,84 @@
+{
+  "schema_version": "subject-b-p2-item60-isolation-repair-v2",
+  "status": "ACCEPTED",
+  "worker_terminal_state": "VALID_TERMINAL_A_ITEM60_HIDDEN_MATERIAL_ISOLATION_REPAIRED_AND_QUALIFIED",
+  "scope": "Hidden-material OS isolation repair only; item-60 semantic verifier logic and item-59 contracts unchanged.",
+  "root_cause": "The contaminated execution process shared the coordinator Windows identity, so absolute-path reads lacked an OS authorization deny boundary.",
+  "experimental_identity": {
+    "separate_from_coordinator": true,
+    "administrator": false,
+    "dedicated_restricted_windows_identity": true,
+    "future_workspace_outside_private_tree": true,
+    "dedicated_experimental_codex_home": true
+  },
+  "access_qualification": {
+    "private_ras_root_denied": true,
+    "public_research_repo_denied": true,
+    "coordinator_codex_profile_denied": true,
+    "sealed_methodology_roots_denied": true,
+    "contaminated_execution_root_denied": true,
+    "negative_access_probes_total": 14,
+    "negative_access_probes_denied": 14,
+    "private_file_bytes_returned": 0,
+    "absolute_path_private_read_attempts": 6,
+    "absolute_path_private_read_successes": 0,
+    "private_directory_enumeration_attempts": 5,
+    "private_directory_enumeration_successes": 0,
+    "positive_workspace_probes_total": 8,
+    "positive_workspace_probes_pass": 8,
+    "coordinator_private_access_retained": true,
+    "tool_child_not_more_privileged_than_experimental_parent": true,
+    "privileged_filesystem_broker_bypass_present": false
+  },
+  "semantic_verifier": {
+    "identities_valid": true,
+    "artifact_bytes_changed": false,
+    "behaviour_logic_changed": false,
+    "item59_contract_bytes_changed": false
+  },
+  "contaminated_execution": {
+    "preserved": true,
+    "reused": false,
+    "experimental_identity_access": false,
+    "used_for_correctness_analysis": false,
+    "used_for_future_schedule_selection": false
+  },
+  "superseded_execution_state": {
+    "old_item61_lock_execution_authoritative": false,
+    "fresh_item61_preregistration_required": true,
+    "fresh_public_preregistration_binding_required": true,
+    "fresh_execution_lock_required": true
+  },
+  "scientific_choices_changed": {
+    "task_set": false,
+    "contract": false,
+    "model": false,
+    "repetition_count": false,
+    "condition_definition": false
+  },
+  "zero_activity_during_repair": {
+    "model_completions": 0,
+    "p2_experimental_agent_runs": 0,
+    "p2_task_solving_model_invoked": false,
+    "hidden_verifier_experimental_adjudications": 0,
+    "p2_executed": false,
+    "p0_rerun": false,
+    "p1_rerun": false
+  },
+  "private_freeze_identities": {
+    "isolation_root_cause_sha256": "8F27A0F784505F7EDE229E5D8B230CC756DA9743C9B2CD9F06AAE9A59AD480BF",
+    "experimental_identity_manifest_sha256": "9E1F6C394542F40807F195C9A93A697A7DB9079D68A8B92450EAE9C2CB2BAA6B",
+    "negative_access_probe_manifest_sha256": "AD6A2F4CB49CE68A9DDF95063461C338FFC79A6F0AF07CE144A6A428BB19069A",
+    "positive_workspace_probe_manifest_sha256": "3C12BC74661D01B48E33BA5A0FCD7B3802CED763543D167FF82C080BBC052775",
+    "process_token_audit_sha256": "7A03DBF35EDF8200A92CF109FC239BA29D8936C4FF3662503BAF27CB77E5927C",
+    "isolation_qualification_summary_sha256": "2B0DF0851AC5FBEDBCBA04A1BE450F5C8C5587FEB7C089BEF22A5223A4047DA7",
+    "item60_isolation_freeze_sha256": "9CD6FE3E1F2B204864B6973B115831411CD911EF4363A5F1139DBFBE795AE266",
+    "item60_isolation_package_sha256": "CF652E017FE9E84B95EB671087537294C1953611B2D705BD74BFB55791FB5895"
+  },
+  "hash_checks": {
+    "all_lengths_64": true,
+    "all_repeat_matches": true,
+    "package_internal_bindings_valid": true
+  },
+  "next_step": "Fresh item-61 post-repair preregistration, public binding and execution lock before any new P2 experimental model activity."
+}
