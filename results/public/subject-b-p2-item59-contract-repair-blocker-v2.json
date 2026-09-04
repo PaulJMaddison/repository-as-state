@@ -1,0 +1,53 @@
+{
+  "experiment": "P2",
+  "subject": "SearchForCars",
+  "stage": "item59_contract_repair_blocked",
+  "worker_terminal_state": "VALID_TERMINAL_B",
+  "accepted_contract_to_history_audit_sha256": "4A57493EC8B70732C5AFABC71F055153DA423867F32564233FBD1EF59A17D5F5",
+  "contract_repair_blocker_sha256": "667E9CA48B9FF69F7548C1CB0916A2C93240470E29C218452191E3005E458668",
+  "frozen_contract_defect_behaviour_ids": [
+    "P2_T01_B01",
+    "P2_T01_B02",
+    "P2_T01_B03",
+    "P2_T01_B04",
+    "P2_T02_B02"
+  ],
+  "oracle_mapping_defect_behaviour_ids": [
+    "P2_T05_B01",
+    "P2_T05_B02",
+    "P2_T05_B03",
+    "P2_T05_B04"
+  ],
+  "valid_behavioural_delta_ids": [
+    "P2_T02_B01",
+    "P2_T02_B03",
+    "P2_T03_B01",
+    "P2_T03_B02",
+    "P2_T03_B03",
+    "P2_T04_B01",
+    "P2_T04_B02",
+    "P2_T04_B03",
+    "P2_T04_B04"
+  ],
+  "repair_result": {
+    "repaired_behaviours": 0,
+    "current_five_task_freeze_repairable_as_written": false,
+    "v2_curation_package_created": false,
+    "v2_item59_refreeze_created": false
+  },
+  "methodology": {
+    "build_commands_executed": 0,
+    "test_commands_executed": 0,
+    "compiler_commands_executed": 0,
+    "p2_experimental_agent_runs": 0,
+    "p2_task_solving_model_invoked": false,
+    "public_repository_modified_by_worker": false
+  },
+  "coordinator_ruling": "Do not substitute a replacement task ad hoc. Re-audit eligibility for all ten historical candidates under the original frozen eligibility and anti-cherry-picking rules, determine whether C07 remains eligible with its two genuine deltas, and determine whether any originally excluded candidate was objectively misclassified. Reopen item 58 only if the corrected eligible task count changes the accepted five-task Level-2 design.",
+  "programme_state": {
+    "complete": 58,
+    "total": 67,
+    "active_item": 59,
+    "item60": "blocked"
+  }
+}
