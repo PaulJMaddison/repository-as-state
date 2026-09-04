@@ -1,0 +1,61 @@
+{
+  "status": "PUBLIC_EXECUTION_LOCK_V3_ACCEPTED",
+  "item": 61,
+  "purpose": "Superseding post-runtime-repair execution lock for fresh Subject-B P2 execution",
+  "supersedes_for_execution": "results/public/subject-b-p2-execution-lock-v2.json",
+  "historical_v2_preserved": true,
+  "runtime_repair": {
+    "restricted_runtime_access_repaired": true,
+    "experimental_runtime_root": "C:\\Kyntic\\ras-p2-experimental-runtime-v2",
+    "codex_cli_version": "codex-cli 0.153.0-alpha.5",
+    "target_model": "gpt-5.6-luna",
+    "experimental_identity": "DESKTOP-BFTREBH\\ras-p2-experimental",
+    "experimental_identity_is_administrator": false,
+    "experimental_process_elevated": false,
+    "runtime_depends_on_coordinator_profile_paths": false
+  },
+  "isolation_requalification": {
+    "protected_private_root_access_denied": true,
+    "protected_coordinator_root_access_denied": true,
+    "protected_coordinator_codex_home_access_denied": true,
+    "experimental_workspace_access_pass": true
+  },
+  "frozen_choices_unchanged": {
+    "prompt_bytes_changed": false,
+    "randomisation_changed": false,
+    "schedule_changed": false,
+    "blind_mapping_changed": false,
+    "pre_workspaces_changed": false,
+    "model_changed": false
+  },
+  "pre_execution_state": {
+    "scheduled_item62_units_with_model_activity": 0,
+    "item62_accepted_units": 0,
+    "hidden_verifier_runs": 0,
+    "p2_correctness_adjudications": 0,
+    "item62_executed": false
+  },
+  "credential_hygiene": {
+    "plaintext_credentials_in_artifacts": 0,
+    "plaintext_credentials_in_command_templates": 0,
+    "plaintext_credentials_in_public_drafts": 0
+  },
+  "private_v3_identities": {
+    "execution_lock_manifest_sha256": "A0A8D89CDC226EE5619C9AA0BE80F936EC84B6218EA14E84F992B650699844DD",
+    "execution_lock_contents_manifest_sha256": "C774396F9F56DD94CFE0194E2916F891CF5D9CF6DD29D63F6E97AE48A9FBFC73",
+    "execution_lock_package_sha256": "908CCB709B08379E616EF62C04B996DB7A526ED91BB66E73491CDE3D8C377D99",
+    "all_sha256_lengths_64": true,
+    "all_sha256_repeat_matches": true,
+    "package_internal_bindings_valid": true
+  },
+  "sealed_material": {
+    "seed_published": false,
+    "private_schedule_published": false,
+    "blind_mapping_published": false,
+    "hidden_verifier_published": false,
+    "credentials_published": false,
+    "correctness_results_published": false
+  },
+  "p0_rerun": false,
+  "p1_rerun": false
+}
