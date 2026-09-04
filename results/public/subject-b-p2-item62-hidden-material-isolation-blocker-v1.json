@@ -1,0 +1,41 @@
+{
+  "schema_version": "subject-b-p2-item62-hidden-material-isolation-blocker-v1",
+  "status": "EXECUTION_METHODOLOGY_BLOCKER",
+  "worker_terminal": "VALID_TERMINAL_B_ITEM62_EXECUTION_METHODOLOGY_BLOCKER",
+  "programme_effect": {
+    "previous_complete": 61,
+    "corrected_complete": 59,
+    "reopened_item": 60,
+    "invalidated_downstream_item": 61,
+    "blocked_item": 62
+  },
+  "execution_state": {
+    "experimental_units_completed": 0,
+    "units_with_genuine_model_activity": 1,
+    "units_not_executed": 23,
+    "p2_execution_accepted": false,
+    "contaminated_attempt_excluded_from_scientific_evidence": true,
+    "retry_under_existing_preregistration_allowed": false
+  },
+  "blocker": {
+    "hidden_material_isolation_failed": true,
+    "experimental_agent_accessed_private_hidden_verifier_material": true,
+    "correctness_related_information_exposed_to_experimental_session": true,
+    "hidden_verifier_executed": false,
+    "partial_correctness_adjudication_performed": false,
+    "public_hidden_verifier_details_disclosed": false
+  },
+  "methodology_ruling": {
+    "item60_semantic_verifier_logic_reopened": false,
+    "item60_hidden_access_isolation_reopened": true,
+    "item61_old_execution_lock_reusable": false,
+    "item62_may_continue_from_next_slot": false,
+    "entire_execution_instance_must_be_reset": true,
+    "new_preregistration_and_execution_lock_required_after_isolation_repair": true
+  },
+  "preserved_private_evidence": {
+    "event_log_sha256": "CB8CB6A38424A4D8BFADDAFCCB943BF600775F727A00B9FD7EC51DB03026CBCA",
+    "partial_candidate_manifest_sha256": "7E72A6004BA07C43A61765E84CC6A3A43CAB445B0945516587DDCF03B0DA31D3"
+  },
+  "next_gate": "REPAIR_AND_PROVE_ITEM60_HIDDEN_MATERIAL_ISOLATION_USING_THE_ACTUAL_EXPERIMENTAL_IDENTITY_BEFORE_NEW_ITEM61_PREREGISTRATION"
+}
