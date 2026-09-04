@@ -1,0 +1,102 @@
+{
+  "schema_version": "subject-b-p2-execution-lock-v2",
+  "status": "PUBLIC_EXECUTION_LOCK_V2_PUBLISHED_ITEM61_COMPLETE",
+  "programme_state": {
+    "complete": 61,
+    "total": 67,
+    "item_61_complete": true,
+    "active_item": 62,
+    "fresh_p2_accepted_experimental_units": 0,
+    "fresh_model_completions_generated": 0,
+    "p2_correctness_adjudications": 0,
+    "hidden_verifier_runs_against_fresh_experimental_candidates": 0,
+    "p2_executed": false
+  },
+  "coordinator_acceptance": {
+    "accepted_worker_terminal": "VALID_TERMINAL_A_ITEM61_POST_ISOLATION_PHASE_B_FINAL_ZERO_MODEL_LOCK_READY_FOR_COORDINATOR_ACCEPTANCE",
+    "phase_b_public_head": "74fe1a64c4dfeb618f15f9cea59ed4f04efbf9de",
+    "public_repository_modified_by_worker": false,
+    "public_binding_matches_private_phase_a": true,
+    "phase_a_execution_authoritative_bytes_changed_after_publication": false,
+    "public_correction_history_present": true
+  },
+  "public_preregistration_v2": {
+    "json_sha256": "156A41127AAD0C2FD7FCD656F9B75D1ACE3CF43594798135071B7EF223B5C5C1",
+    "markdown_sha256": "AEF7DEFC69E7CCE4ACB4546897D25335AA4952EBD4CB6A3884B4111564E82C6D",
+    "corrected_model_binding_sha256": "28705DB131283F57853578076830DBCADE2E90695198B289A5BD6645C2CC1DA4"
+  },
+  "execution_lock_commitments": {
+    "manifest_sha256": "A1D0B4837228E7A2F115FCB6E8A6D8A65930FA88BC031D600382C69A1E492094",
+    "package_sha256": "A48928533D173C9AEEF31CA9CDFE92D884788A6A3482D9D7B646C6696C8F53F8",
+    "all_sha256_lengths_64": true,
+    "all_sha256_repeat_matches": true,
+    "package_internal_bindings_valid": true
+  },
+  "execution_boundary": {
+    "target_model": "gpt-5.6-luna",
+    "target_model_available": true,
+    "model_availability_check_generated_completion": false,
+    "experimental_identity": "DESKTOP-BFTREBH\\ras-p2-experimental",
+    "experimental_identity_is_administrator": false,
+    "coordinator_and_experimental_identities_separate": true,
+    "restricted_private_access_denial_pass": true,
+    "restricted_workspace_access_pass": true,
+    "restricted_launcher_sha256": "6D1DECCD2DB3B29D32D736C5930D0724669B500324CA53BEBA7175BC33B33687",
+    "restricted_launcher_stores_password": false,
+    "restricted_launcher_runs_task_model_as_admin": false,
+    "persistent_session_resume_mechanism_valid": true,
+    "fresh_workspace_on_session_resume_supported": true
+  },
+  "frozen_experiment": {
+    "tasks": 4,
+    "governing_behaviours": 13,
+    "repetitions": 3,
+    "conditions": 2,
+    "total_runs": 24,
+    "matched_task_x_repetition_units": 12,
+    "fresh_pre_workspace_total": 24,
+    "future_history_leak_gate_pass": 24,
+    "private_material_leak_gate_pass": 24,
+    "reparse_point_escape_gate_pass": 24,
+    "schedule_unit_total": 24,
+    "schedule_repeat_match": true,
+    "condition_a_order_preserved_all_repetitions": true,
+    "outcome_information_used_for_scheduling": false,
+    "blind_id_total": 24,
+    "condition_mapping_sealed": true,
+    "run_timeout_seconds": 1800,
+    "repetitions_are_retries": false,
+    "best_of_n_selection": false,
+    "model_quality_retry_allowed": false,
+    "human_rescue_allowed": false,
+    "full_block_blindness": true,
+    "outputs_required_before_adjudication": 24,
+    "resource_telemetry_schema_frozen": true,
+    "hidden_correctness_fields_in_telemetry": 0
+  },
+  "contamination_exclusion": {
+    "contaminated_execution_reused": false,
+    "contaminated_candidate_code_reused": false,
+    "contaminated_session_resumed": false,
+    "contaminated_correctness_inspected": false,
+    "contaminated_output_used_for_schedule_selection": false
+  },
+  "zero_model_gate": {
+    "fresh_p2_accepted_experimental_units": 0,
+    "model_completions_generated": 0,
+    "p2_task_solving_model_invoked": false,
+    "p2_experimental_agent_runs": 0,
+    "hidden_verifier_runs_against_fresh_experimental_candidates": 0,
+    "p2_correctness_adjudications": 0,
+    "p2_executed": false
+  },
+  "sealed_material": {
+    "randomisation_seed_published": false,
+    "execution_schedule_published": false,
+    "blind_condition_mapping_published": false,
+    "hidden_verifier_implementation_published": false,
+    "correctness_results_published": false,
+    "credentials_published": false
+  },
+  "next_gate": "ITEM62_FRESH_CONTROLLED_24_RUN_P2_EXECUTION"
+}
