@@ -2,7 +2,7 @@
 
 Authoritative normalized ledger established 2026-09-03.
 
-Current status: **60 complete / 67 total**. Item **61 active (fresh post-repair preregistration)**.
+Current status: **60 complete / 67 total**. Item **61 active — Phase A and fresh public v2 preregistration binding accepted; Phase B final zero-model execution lock pending**.
 
 Legend: ✅ complete · 🟡 active · ⬜ pending/blocked
 
@@ -68,7 +68,7 @@ Legend: ✅ complete · 🟡 active · ⬜ pending/blocked
 | 58 | Repair and freeze P2 Level-2 design from corrected four-task corpus: 4 × 3 × 2 = 24 runs | ✅ |
 | 59 | Freeze corrected four-task P2 selection and neutral disclosed contracts | ✅ |
 | 60 | Implement/qualify P2 semantic hidden verifiers and prove hard hidden-material isolation against actual restricted experimental identity | ✅ |
-| 61 | Freeze fresh post-repair P2 preregistration/runtime/prompts/randomisation/public binding/execution lock | 🟡 |
+| 61 | Freeze fresh post-repair P2 preregistration/runtime/prompts/randomisation/public binding/execution lock — Phase A + public binding done; Phase B lock pending | 🟡 |
 | 62 | Execute fresh accepted 24-run P2 same-repository replication | ⬜ |
 | 63 | Blind-adjudicate and scientifically interpret P2 | ⬜ |
 | 64 | Publish Level-2 P2 evidence and update paper claims/evidence | ⬜ |
@@ -79,7 +79,7 @@ Legend: ✅ complete · 🟡 active · ⬜ pending/blocked
 ## Current count
 
 - Complete: **60**
-- Active: **1** (`#61`, fresh post-repair preregistration/execution lock)
+- Active: **1** (`#61`, final post-isolation execution lock)
 - Blocked/pending after active item: **6**
 - Total: **67**
 
@@ -127,11 +127,41 @@ The contaminated attempt remains historical methodology evidence only:
 
 It is quarantined, cannot be selectively retried, and cannot influence correctness analysis or the future schedule.
 
-## Item 61 reset rule
+## Item 61 Phase A — accepted
 
-The old item-61 lock remains superseded. Item 61 must be recreated fresh after the accepted isolation repair.
+Fresh post-isolation Phase A completed with terminal:
 
-The fresh item-61 package must bind the repaired isolation identities, use fresh source-only PRE workspaces under the dedicated experimental workspace root, preserve the 4×3×2 causal design, use the restricted experimental identity, and create a new deterministic randomisation instance derived only from pre-execution frozen identities. A new public preregistration commitment must exist before a new final zero-model execution lock is accepted.
+`VALID_TERMINAL_A_ITEM61_POST_ISOLATION_PHASE_A_READY_FOR_PUBLIC_BINDING`
+
+Coordinator acceptance established:
+
+- public pre-binding head matched `6728caf881b3ba0aed7fab9a71706ed6ddfd2484`
+- exact target model `gpt-5.6-luna` available without a model completion
+- fresh model completions: **0**
+- fresh P2 agent runs: **0**
+- prompt files: **4**, exact pre-contamination bytes, hidden requirements: **0**
+- fresh PRE workspaces: **24**
+- future-history/private-material/reparse escape gates: **24/24 each**
+- restricted launcher: created; password stored: **false**; admin task-model execution: **false**
+- fresh deterministic schedule: **24 units**, one seed candidate only, repeat match **true**, no outcome influence
+- fresh blind IDs: **24**, old IDs reused **false**, mapping sealed
+- pre-model readiness: **pass**
+- preregistration package bindings: **valid**
+
+Fresh public commitment is now published:
+
+- `results/public/subject-b-p2-preregistration-binding-v2.json`
+- `results/public/subject-b-p2-preregistration-binding-v2.md`
+
+The fresh seed, schedule, blind mapping and hidden verifier remain sealed.
+
+## Item 61 current gate — Phase B only
+
+Item 61 remains 🟡 because the public commitment is necessary but not sufficient. The next worker must be a **zero-model Phase-B integrity and execution-lock worker**.
+
+It must verify the public v2 commitment against the exact private Phase-A package, recheck the restricted execution identity/runtime/workspaces/prompts/schedule/blind mapping without changing them, create the final execution-lock package, publish public-safe lock evidence, and terminate with zero model completions and zero fresh P2 task-solving runs.
+
+Only coordinator acceptance of that final lock changes the ledger to **61/67** and activates item 62.
 
 ## Count rule
 
