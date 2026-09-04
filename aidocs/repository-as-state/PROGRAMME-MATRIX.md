@@ -2,7 +2,7 @@
 
 Authoritative normalized ledger established 2026-09-03.
 
-Current status: **60 complete / 67 total**. Item **61 active**.
+Current status: **61 complete / 67 total**. Item **62 active**.
 
 Legend: ✅ complete · 🟡 active · ⬜ pending
 
@@ -68,8 +68,8 @@ Legend: ✅ complete · 🟡 active · ⬜ pending
 | 58 | Repair and freeze P2 Level-2 design from corrected four-task corpus: 4 × 3 × 2 = 24 runs | ✅ |
 | 59 | Freeze corrected four-task P2 selection and neutral disclosed contracts | ✅ |
 | 60 | Implement and qualify P2 semantic hidden verifiers for final selected tasks | ✅ |
-| 61 | Freeze P2 final preregistration/runtime/prompts/randomisation/execution lock | 🟡 |
-| 62 | Execute accepted 24-run P2 same-repository replication | ⬜ |
+| 61 | Freeze P2 final preregistration/runtime/prompts/randomisation/execution lock | ✅ |
+| 62 | Execute accepted 24-run P2 same-repository replication | 🟡 |
 | 63 | Blind-adjudicate and scientifically interpret P2 | ⬜ |
 | 64 | Publish Level-2 P2 evidence and update paper claims/evidence | ⬜ |
 | 65 | Select Subject C and perform cross-repository / Level-3 replication | ⬜ |
@@ -78,57 +78,46 @@ Legend: ✅ complete · 🟡 active · ⬜ pending
 
 ## Current count
 
-- Complete: **60**
-- Active: **1** (`#61`)
-- Pending after active item: **6**
+- Complete: **61**
+- Active: **1** (`#62`)
+- Pending after active item: **5**
 - Total: **67**
 
-## Accepted P2 design and corpus
+## Authoritative P2 design
 
 - final candidates: `C07,C08,C09,C10`
-- task mapping: `P2V2_T01=C07`, `P2V2_T02=C08`, `P2V2_T03=C09`, `P2V2_T04=C10`
-- final governing behaviours: **13** (`2 + 3 + 4 + 4`)
+- final behaviours: **13** (`2 + 3 + 4 + 4`)
 - design: **4 × 3 × 2 = 24 runs**
 - matched task×repetition units: **12**
 - complexity: **3 LOW / 1 MEDIUM / 0 HIGH**
-- historical `P2_T02_B02` removed as over-curated non-delta; no replacement
-- C06 remains excluded
+- exact model: `gpt-5.6-luna`
+- exact Codex CLI: `0.153.0-alpha.5`
+- timeout: 1800 seconds
+- full-block blindness: all 24 outputs before hidden adjudication
 
-## Accepted item-60 semantic verifier qualification
+## Accepted item-61 execution lock
 
-- PRE/POST historical separation: 4/4 tasks fail/pass as expected
-- governing behaviours implemented: **13/13**
-- negative controls detected: **13/13**
-- alternate-valid controls accepted: **13/13**
-- false-positive decoys accepted: **0**
-- unjustified historical implementation coupling: **0**
-- self-tests: **PASS**
-- historical determinism invocations: **24**, all verdict vectors identical across repeats
-- C10 previous oracle-mapping defects reintroduced: **0**
-- hidden verifier private: **TRUE**
-- experimental-agent access to hidden verifier: **FALSE**
-- item-59 contract/freeze unchanged: **TRUE**
-- build/test/restore/compiler commands: **0**
-- P2 experimental task-solving runs: **0**
+Corrected public preregistration commitment:
 
-Item-60 deterministic identities:
+- two-file commit: `a3da5fb11df577034ef364c4790deb170ef37f77`
+- corrected JSON blob: `e4f8419238c336833ee5aec306f0734406091ada`
+- effective Codex configuration identity: `8249A208C5DED9B173BBC6B22B8EA6E1A11AB8E29BFF4B7B006A396BF8FA0093`
+- runtime-manifest SHA-256: `4FC602F42CA6974BFF0AC13AA4D06FF8FA0831790398F05D55EEFBCB66239674`
 
-- semantic verifier manifest: `B2526D4AC1B8FE5D88E373B6728E1A6A64C260303A3E9F41D2F1CE1924268034`
-- semantic seam manifest: `18B72556F1F0BBE22C77F64708C5222C14E90D5C06C4DEDDBF1F18DFD86F64EC`
-- negative-control manifest: `E683673C1AE090F5385FA64398AC20F4FFC7B93FC23DEC7C06424945D8D835AA`
-- alternate-valid qualification: `DF3C9EBC74F039AA13740E97D75B251F93A170C835AB32197C8C098785B138AA`
-- determinism audit: `3C3934EA95AAFF202DF27EEA10A690F8388C13A9978F0092638E3BDBB281734A`
-- qualification summary: `230EBC784773BC35771533305F7588000BCDB490EC7FA56CCD5D541933FFD22A`
-- verifier freeze: `EF4DEAFBD34E3411C316241AB02A1F19C14A852031B722BAB75CC8DAB97553E1`
-- verifier package: `D3C77EDE2D3B41716035F0EEB5977F69898D97C46D9015E4C74C61EA244FDD48`
+Execution-lock identities:
 
-All identities are 64-character SHA-256 values with repeat matches and the verifier-package internal bindings validate.
+- public-binding audit: `D02218A1206BF2C7B2CC4730523D48E99EF02E949C608FB9CCA160DD8D747E41`
+- Phase-A integrity audit: `816388AC58FE331CC3924F4DE21F051410B22419A6B514FB04DD4658A78284FC`
+- final zero-model gate: `8344F950C7AF7820C088C2761194FDAA6F0F4780D9590F397B5B644E3063DFF3`
+- execution-lock manifest: `3E3760D3B57C2BBA4D62B45B154C84633A44DB13025E618E66CE061C92924E9E`
+- execution-lock freeze: `9FC8D4B6011BF5A7CDD5C956C0E08D105890AD345577A0A06488A1AA1F424890`
+- execution-lock package: `CD8E28A9CAECEFF95B666FD19BD7CB64D19D71F93401CCEBA1C5DC60520AA3C6`
 
-## Item 61 gate
+All execution-lock identities are 64-character SHA-256 values with repeat matches; package internal bindings validate. At freeze: model completions 0, P2 experimental runs 0, P2 task-solving model invoked false, P2 executed false, hidden-verifier experimental adjudications 0.
 
-Before any P2 task-solving model activity, freeze the exact model/runtime/toolchain, neutral prompt bytes, A/B session plan, random seed/interleaving, fresh-PRE/no-code-carry rules, timeout/retry discipline, telemetry, full-block blindness, hidden-verifier boundary and execution lock/public binding.
+## Item 62 gate
 
-Exact model target is `gpt-5.6-luna`; if that exact identity is unavailable, stop for methodology review rather than silently substituting another model.
+Execute the already-frozen 24-unit schedule exactly. No schedule, prompt, model, timeout, retry, workspace, session-treatment or verifier-boundary change is allowed. Every output must be frozen before any hidden correctness adjudication.
 
 ## Count rule
 
