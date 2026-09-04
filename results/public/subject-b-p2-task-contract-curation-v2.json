@@ -1,0 +1,64 @@
+{
+  "schema_version": "subject-b-p2-task-contract-curation-v2",
+  "status": "ACCEPTED",
+  "selected_candidates": ["C07", "C08", "C09", "C10"],
+  "selected_order": ["C07", "C08", "C09", "C10"],
+  "v2_task_mapping": {
+    "P2V2_T01": "C07",
+    "P2V2_T02": "C08",
+    "P2V2_T03": "C09",
+    "P2V2_T04": "C10"
+  },
+  "historical_behaviour_counts": {
+    "C07": 2,
+    "C08": 3,
+    "C09": 4,
+    "C10": 4
+  },
+  "governing_behaviour_total": 13,
+  "removed_historical_behaviour_ids": ["P2_T02_B02"],
+  "invented_replacement_behaviours": 0,
+  "c06_reintroduced": false,
+  "fairness": {
+    "audits": 4,
+    "pass": 4,
+    "undisclosed_requirements": 0,
+    "future_history_requirements": 0,
+    "verifier_only_requirements": 0,
+    "implementation_specific_governing_requirements": 0
+  },
+  "contract_to_history": {
+    "behaviours_audited": 13,
+    "pre_false": 13,
+    "post_true": 13,
+    "frozen_contract_defects": 0,
+    "unresolved": 0,
+    "all_pre_false_post_true": true
+  },
+  "materialisations_match_exact_git_objects": true,
+  "anti_cherry_picking": {
+    "outcome_based_task_selection": false,
+    "model_performance_information_used": false,
+    "verifier_difficulty_used_to_change_contracts": false,
+    "desired_sample_size_used": false,
+    "desired_complexity_balance_used": false,
+    "ad_hoc_task_substitutions": 0
+  },
+  "identities": {
+    "task_selection_freeze_v2_sha256": "02025A0BBE6913DB280F0E830F4E5932729910C7FCD3150DCC551F8AFA1283DA",
+    "contract_repair_manifest_v2_sha256": "2FB6FAE1FAEC520CC2CEC2BDD0A56E3834E9475FF26724E8919C871EE74BD973",
+    "final_contract_history_audit_v2_sha256": "22BB4E333C78C1FC02F189994F207AA67B669A58DEDA58258E1D32B1D7C1D911",
+    "curation_package_v2_sha256": "FC6CFDAEF1B5599FE2242C88B1B82985D423F4F64732497F65FAFD3BFAD8C867",
+    "item59_freeze_v2_sha256": "FE254B6786D9F800674B88576A99336EA118784481FD8252CC76BEE8F102A9E9"
+  },
+  "all_sha256_lengths": 64,
+  "all_repeat_matches": true,
+  "curation_package_internal_bindings_valid": true,
+  "build_commands_executed": 0,
+  "test_commands_executed": 0,
+  "compiler_commands_executed": 0,
+  "p2_experimental_agent_runs": 0,
+  "p2_task_solving_model_invoked": false,
+  "p2_executed": false,
+  "p2_preregistered": false
+}
