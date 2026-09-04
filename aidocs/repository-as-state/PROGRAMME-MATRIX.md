@@ -2,7 +2,7 @@
 
 Authoritative normalized ledger established 2026-09-03.
 
-Current status: **59 complete / 67 total**. Item **60 active**.
+Current status: **60 complete / 67 total**. Item **61 active**.
 
 Legend: ✅ complete · 🟡 active · ⬜ pending
 
@@ -67,8 +67,8 @@ Legend: ✅ complete · 🟡 active · ⬜ pending
 | 57 | P2 candidate inventory / anti-cherry-picking / complexity / telemetry design completed | ✅ |
 | 58 | Repair and freeze P2 Level-2 design from corrected four-task corpus: 4 × 3 × 2 = 24 runs | ✅ |
 | 59 | Freeze corrected four-task P2 selection and neutral disclosed contracts | ✅ |
-| 60 | Implement and qualify P2 semantic hidden verifiers for final selected tasks | 🟡 |
-| 61 | Freeze P2 final preregistration/runtime/prompts/randomisation/execution lock | ⬜ |
+| 60 | Implement and qualify P2 semantic hidden verifiers for final selected tasks | ✅ |
+| 61 | Freeze P2 final preregistration/runtime/prompts/randomisation/execution lock | 🟡 |
 | 62 | Execute accepted 24-run P2 same-repository replication | ⬜ |
 | 63 | Blind-adjudicate and scientifically interpret P2 | ⬜ |
 | 64 | Publish Level-2 P2 evidence and update paper claims/evidence | ⬜ |
@@ -78,50 +78,57 @@ Legend: ✅ complete · 🟡 active · ⬜ pending
 
 ## Current count
 
-- Complete: **59**
-- Active: **1** (`#60`)
-- Pending after active item: **7**
+- Complete: **60**
+- Active: **1** (`#61`)
+- Pending after active item: **6**
 - Total: **67**
 
-## Accepted item-58 design
+## Accepted P2 design and corpus
 
 - final candidates: `C07,C08,C09,C10`
+- task mapping: `P2V2_T01=C07`, `P2V2_T02=C08`, `P2V2_T03=C09`, `P2V2_T04=C10`
+- final governing behaviours: **13** (`2 + 3 + 4 + 4`)
 - design: **4 × 3 × 2 = 24 runs**
 - matched task×repetition units: **12**
 - complexity: **3 LOW / 1 MEDIUM / 0 HIGH**
-- design freeze: `782ADD46591FCCDCABB796D25DC3BE71B03627FCC082372B1FD018875DE1248A`
-- design package: `C5124105BD1701A2336211776AF1E3D7E1ED98270665ABAA39910385B81C41F3`
+- historical `P2_T02_B02` removed as over-curated non-delta; no replacement
+- C06 remains excluded
 
-## Accepted item-59 contract freeze
+## Accepted item-60 semantic verifier qualification
 
-Final execution identities:
+- PRE/POST historical separation: 4/4 tasks fail/pass as expected
+- governing behaviours implemented: **13/13**
+- negative controls detected: **13/13**
+- alternate-valid controls accepted: **13/13**
+- false-positive decoys accepted: **0**
+- unjustified historical implementation coupling: **0**
+- self-tests: **PASS**
+- historical determinism invocations: **24**, all verdict vectors identical across repeats
+- C10 previous oracle-mapping defects reintroduced: **0**
+- hidden verifier private: **TRUE**
+- experimental-agent access to hidden verifier: **FALSE**
+- item-59 contract/freeze unchanged: **TRUE**
+- build/test/restore/compiler commands: **0**
+- P2 experimental task-solving runs: **0**
 
-- `P2V2_T01=C07`
-- `P2V2_T02=C08`
-- `P2V2_T03=C09`
-- `P2V2_T04=C10`
+Item-60 deterministic identities:
 
-Final governing behaviours: **13** (`2 + 3 + 4 + 4`). Historical `P2_T02_B02` is removed as an over-curated non-delta and is not replaced. C06 remains excluded.
+- semantic verifier manifest: `B2526D4AC1B8FE5D88E373B6728E1A6A64C260303A3E9F41D2F1CE1924268034`
+- semantic seam manifest: `18B72556F1F0BBE22C77F64708C5222C14E90D5C06C4DEDDBF1F18DFD86F64EC`
+- negative-control manifest: `E683673C1AE090F5385FA64398AC20F4FFC7B93FC23DEC7C06424945D8D835AA`
+- alternate-valid qualification: `DF3C9EBC74F039AA13740E97D75B251F93A170C835AB32197C8C098785B138AA`
+- determinism audit: `3C3934EA95AAFF202DF27EEA10A690F8388C13A9978F0092638E3BDBB281734A`
+- qualification summary: `230EBC784773BC35771533305F7588000BCDB490EC7FA56CCD5D541933FFD22A`
+- verifier freeze: `EF4DEAFBD34E3411C316241AB02A1F19C14A852031B722BAB75CC8DAB97553E1`
+- verifier package: `D3C77EDE2D3B41716035F0EEB5977F69898D97C46D9015E4C74C61EA244FDD48`
 
-All 13 final behaviours are PRE=false / POST=true under the accepted no-build contract-to-history audit. Fairness audits pass 4/4; undisclosed, future-history, verifier-only and implementation-specific governing requirements are all zero.
+All identities are 64-character SHA-256 values with repeat matches and the verifier-package internal bindings validate.
 
-Deterministic item-59 identities:
+## Item 61 gate
 
-- task-selection freeze v2: `02025A0BBE6913DB280F0E830F4E5932729910C7FCD3150DCC551F8AFA1283DA`
-- contract-repair manifest v2: `2FB6FAE1FAEC520CC2CEC2BDD0A56E3834E9475FF26724E8919C871EE74BD973`
-- final contract-to-history audit v2: `22BB4E333C78C1FC02F189994F207AA67B669A58DEDA58258E1D32B1D7C1D911`
-- curation package v2: `FC6CFDAEF1B5599FE2242C88B1B82985D423F4F64732497F65FAFD3BFAD8C867`
-- item-59 freeze v2: `FE254B6786D9F800674B88576A99336EA118784481FD8252CC76BEE8F102A9E9`
+Before any P2 task-solving model activity, freeze the exact model/runtime/toolchain, neutral prompt bytes, A/B session plan, random seed/interleaving, fresh-PRE/no-code-carry rules, timeout/retry discipline, telemetry, full-block blindness, hidden-verifier boundary and execution lock/public binding.
 
-All returned SHA-256 values are 64 hex characters, repeat-match true, and the curation package internal bindings validate.
-
-## Absolute item-60 rule
-
-No `dotnet build`, `dotnet test`, `dotnet restore`, compiler, project/solution build/test or probe compilation may be used for item-60 semantic verifier qualification.
-
-Verifier verdicts must derive from actual candidate repository semantics, not hand-authored expected-state fixtures, exact historical patch text, exact line matching or commit identity.
-
-No P2 experimental model run may occur before items 60 and 61 are accepted.
+Exact model target is `gpt-5.6-luna`; if that exact identity is unavailable, stop for methodology review rather than silently substituting another model.
 
 ## Count rule
 
