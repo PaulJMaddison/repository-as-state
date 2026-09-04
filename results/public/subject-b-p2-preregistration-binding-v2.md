@@ -1,6 +1,6 @@
 # Subject-B P2 preregistration binding v2
 
-Status: **fresh post-isolation public preregistration commitment published; item 61 is not yet complete.**
+Status: **fresh post-isolation public preregistration commitment corrected and republished; item 61 is not yet complete.**
 
 This record commits the fresh Subject-B P2 execution instance after the accepted item-60 hidden-material isolation repair and before any new P2 task-solving model activity.
 
@@ -42,7 +42,7 @@ The old v1 preregistration/public binding/execution lock remains historical meth
 ## Public commitments to fresh private Phase-A state
 
 - runtime manifest: `5FC248F380A623BEF2D83C960FFBEC14F59B58A60C3846165D90F400384FA191`
-- model binding: `28705DB131283F57853578076830DBCADE2E90695198B289A5BD6645C2CC1DA`
+- model binding: `28705DB131283F57853578076830DBCADE2E90695198B289A5BD6645C2CC1DA4`
 - prompt manifest: `DE05F68970B7E4DDE86990335C3621C88C36FB880C86591FC207131ACF164CC4`
 - randomisation manifest: `6878648FBB56E03F2BA7EECA6AD17FAB8760203F115CAA515CD3736CAB7D3947`
 - experimental-unit manifest: `73DD340957D5850FE059E07F25DAFB84101E9E72C03B3245C5009D07DB6F82BF`
@@ -108,6 +108,30 @@ At Phase-A acceptance and publication:
 - hidden verifier runs against fresh experimental candidates: **0**
 - P2 executed: **false**
 
+## Public commitment correction history
+
+The first Phase-B integrity audit stopped with:
+
+`VALID_TERMINAL_B_ITEM61_PHASE_B_PUBLIC_PHASE_A_MODEL_BINDING_MISMATCH`
+
+It proved that the first coordinator-published v2 binding contained a transcription defect in the model-binding commitment. The public value was:
+
+`28705DB131283F57853578076830DBCADE2E90695198B289A5BD6645C2CC1DA`
+
+which is 63 hexadecimal characters. The unchanged private Phase-A artifact hashes to:
+
+`28705DB131283F57853578076830DBCADE2E90695198B289A5BD6645C2CC1DA4`
+
+which is the correct 64-character SHA-256 and matches the original Phase-A terminal record.
+
+Audit identities for the erroneous publication:
+
+- pre-correction public branch HEAD: `cd43146f5e27ace334c1ef30ab3ce3d154bbe924`
+- pre-correction JSON blob SHA: `04c3019dc427b794cd025b8e5d23a5fc7e6a5c62`
+- pre-correction Markdown blob SHA: `f6d0a70acf0e7ef27954049a11c54034c8891d05`
+
+This correction changes only the coordinator-published transcription. It does **not** alter the private Phase-A preregistration package, prompt bytes, model choice, randomisation seed, schedule, blind mapping, timeout or workspaces. At detection and correction there were still zero fresh model completions, zero accepted P2 experimental units and zero correctness adjudications.
+
 ## Next gate
 
-Item 61 remains active. Phase B must now validate this public v2 binding against the private Phase-A package and create the fresh final zero-model execution lock. Only after coordinator acceptance of that lock may item 61 become complete and item 62 begin.
+Item 61 remains active. Phase B must now validate this **corrected** public v2 binding against the unchanged private Phase-A package and create the fresh final zero-model execution lock. Only after coordinator acceptance of that lock may item 61 become complete and item 62 begin.
