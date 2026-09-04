@@ -2,7 +2,7 @@
 
 Authoritative normalized ledger established 2026-09-03.
 
-Current status: **58 complete / 67 total**. Item **59 active**.
+Current status: **59 complete / 67 total**. Item **60 active**.
 
 Legend: ✅ complete · 🟡 active · ⬜ pending
 
@@ -66,8 +66,8 @@ Legend: ✅ complete · 🟡 active · ⬜ pending
 | 56 | P1 public-safe results, README, evidence roadmap and claims register published | ✅ |
 | 57 | P2 candidate inventory / anti-cherry-picking / complexity / telemetry design completed | ✅ |
 | 58 | Repair and freeze P2 Level-2 design from corrected four-task corpus: 4 × 3 × 2 = 24 runs | ✅ |
-| 59 | Freeze corrected four-task P2 selection and neutral disclosed contracts | 🟡 |
-| 60 | Implement and qualify P2 semantic hidden verifiers for final selected tasks | ⬜ |
+| 59 | Freeze corrected four-task P2 selection and neutral disclosed contracts | ✅ |
+| 60 | Implement and qualify P2 semantic hidden verifiers for final selected tasks | 🟡 |
 | 61 | Freeze P2 final preregistration/runtime/prompts/randomisation/execution lock | ⬜ |
 | 62 | Execute accepted 24-run P2 same-repository replication | ⬜ |
 | 63 | Blind-adjudicate and scientifically interpret P2 | ⬜ |
@@ -78,62 +78,51 @@ Legend: ✅ complete · 🟡 active · ⬜ pending
 
 ## Current count
 
-- Complete: **58**
-- Active: **1** (`#59`)
-- Pending after active item: **8**
+- Complete: **59**
+- Active: **1** (`#60`)
+- Pending after active item: **7**
 - Total: **67**
 
-## Accepted corrected P2 corpus
+## Accepted item-58 design
 
-Corrected eligible set: `C07,C08,C09,C10`.
-
-- tasks: **4**
-- governing behaviours: **13**
+- final candidates: `C07,C08,C09,C10`
+- design: **4 × 3 × 2 = 24 runs**
+- matched task×repetition units: **12**
 - complexity: **3 LOW / 1 MEDIUM / 0 HIGH**
-- eligibility re-audit: `D55B610B6E2FFB1B032137F30C348FEFE9EF3542321720090C6690885D749E41`
-
-C06 is ineligible. C07 retains two genuine behaviours; its historical B02 is removed as an over-curated non-delta.
-
-## Accepted item-58 Level-2 design v2
-
-Design: **4 tasks × 3 repetitions × 2 conditions = 24 runs**.
-
-- A: 3 independent persistent chains × 4 chronological tasks = 12 runs
-- B: 12 fresh independent sessions
-- matched task×repetition units: 12
-- full-block blindness: 24 outputs before hidden adjudication
-- fresh exact PRE every run
-- generated code does not carry
-- repetitions are independent replications, not retries
-- telemetry remains separate from correctness
-- no-human-rescue and no post-activity model-quality retry retained
-- descriptive replication only
-- formal equivalence/non-inferiority unsupported
-
-Deterministic identities:
-
-- design repair: `D4CCB92E84CC8112EF304E1A674F5E6D98185CD0B212390514B49563632311A4`
-- invariant audit: `E7D6D969B24F7158DEADE121DEB91352DDFFCB32AF06E7C5752BA81B74FF6BD1`
 - design freeze: `782ADD46591FCCDCABB796D25DC3BE71B03627FCC082372B1FD018875DE1248A`
 - design package: `C5124105BD1701A2336211776AF1E3D7E1ED98270665ABAA39910385B81C41F3`
 
-All identities are verified 64-character SHA-256 values and the package's internal bindings validate. The earlier short invariant-audit value was a terminal-response transcription defect only.
+## Accepted item-59 contract freeze
 
-Public-safe evidence:
+Final execution identities:
 
-- `results/public/subject-b-p2-level2-design-repair-v2.md`
-- `results/public/subject-b-p2-level2-design-repair-v2.json`
+- `P2V2_T01=C07`
+- `P2V2_T02=C08`
+- `P2V2_T03=C09`
+- `P2V2_T04=C10`
 
-## Item 59 gate
+Final governing behaviours: **13** (`2 + 3 + 4 + 4`). Historical `P2_T02_B02` is removed as an over-curated non-delta and is not replaced. C06 remains excluded.
 
-Item 59 must create an execution-authoritative corrected four-task selection and neutral contract freeze from `C07,C08,C09,C10` only, with 13 genuine governing behaviours, no C06, and no invented replacement for removed C07 B02.
+All 13 final behaviours are PRE=false / POST=true under the accepted no-build contract-to-history audit. Fairness audits pass 4/4; undisclosed, future-history, verifier-only and implementation-specific governing requirements are all zero.
 
-## Absolute P2 contract/verifier rule
+Deterministic item-59 identities:
 
-No `dotnet build`, `dotnet test`, `dotnet restore`, compiler, project/solution build/test or probe compilation may be used as contract or verifier qualification evidence at this stage.
+- task-selection freeze v2: `02025A0BBE6913DB280F0E830F4E5932729910C7FCD3150DCC551F8AFA1283DA`
+- contract-repair manifest v2: `2FB6FAE1FAEC520CC2CEC2BDD0A56E3834E9475FF26724E8919C871EE74BD973`
+- final contract-to-history audit v2: `22BB4E333C78C1FC02F189994F207AA67B669A58DEDA58258E1D32B1D7C1D911`
+- curation package v2: `FC6CFDAEF1B5599FE2242C88B1B82985D423F4F64732497F65FAFD3BFAD8C867`
+- item-59 freeze v2: `FE254B6786D9F800674B88576A99336EA118784481FD8252CC76BEE8F102A9E9`
 
-No P2 experimental model run may occur before items 59, 60 and 61 are accepted.
+All returned SHA-256 values are 64 hex characters, repeat-match true, and the curation package internal bindings validate.
+
+## Absolute item-60 rule
+
+No `dotnet build`, `dotnet test`, `dotnet restore`, compiler, project/solution build/test or probe compilation may be used for item-60 semantic verifier qualification.
+
+Verifier verdicts must derive from actual candidate repository semantics, not hand-authored expected-state fixtures, exact historical patch text, exact line matching or commit identity.
+
+No P2 experimental model run may occur before items 60 and 61 are accepted.
 
 ## Count rule
 
-An item becomes ✅ only after the coordinator accepts all evidence for that gate. Later falsification may reopen a completed gate before execution; that is expected scientific bookkeeping rather than count drift.
+An item becomes ✅ only after coordinator acceptance of its complete evidence package. Later pre-execution falsification may reopen an earlier item; that is expected scientific bookkeeping rather than count drift.
