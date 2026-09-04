@@ -1,13 +1,13 @@
 # Repository-as-State — CURRENT
 
-Updated: 2026-09-04 14:02 Europe/London
+Updated: 2026-09-04 14:25 Europe/London
 
 ## Programme status
 
 - Authoritative progress ledger: **60/67 complete**.
 - Items 58, 59 and 60 are **COMPLETE**.
-- **Item 61 is ACTIVE** and must be recreated fresh after the item-60 OS-isolation repair.
-- Item 62 is **BLOCKED** until the fresh post-repair item-61 preregistration/public commitment/execution lock is accepted.
+- **Item 61 is ACTIVE — fresh post-isolation Phase A accepted and public preregistration v2 binding published; Phase B final zero-model execution lock is next.**
+- Item 62 is **BLOCKED** until the fresh item-61 Phase-B execution lock is accepted.
 - Item 63+ remain pending.
 - P2 accepted experimental units completed: **0**.
 - One prior item-62 attempt reached genuine model activity but was contaminated by hidden-material exposure and is permanently excluded from scientific evidence.
@@ -157,28 +157,60 @@ The old item-61 preregistration/public binding/execution lock is retained only a
 
 Do not resume the old schedule or retry the contaminated slot.
 
-## Active item 61 — fresh post-repair preregistration
+## Active item 61 — Phase A accepted, public v2 binding published
 
-Item 61 must now create a completely fresh execution-authoritative preregistration/public commitment/execution lock downstream of the repaired item-60 isolation freeze.
+Fresh post-isolation Phase A terminated as:
 
-Required properties include:
+`VALID_TERMINAL_A_ITEM61_POST_ISOLATION_PHASE_A_READY_FOR_PUBLIC_BINDING`
 
-- bind all accepted item-58, item-59, semantic item-60 and isolation-repair identities;
-- exact `gpt-5.6-luna` or stop if unavailable;
-- preserve the 4×3×2 design and neutral task contracts;
-- create fresh canonical prompt bindings if the old prompt package is not explicitly re-adopted under a new freeze;
-- materialise fresh 24 PRE workspaces under the dedicated experimental workspace root, outside private methodology;
-- use the restricted experimental identity for future task-solving execution;
-- prove hidden/private roots inaccessible from that identity before model activity;
-- generate a **new deterministic randomisation instance** derived only from pre-execution frozen identities and not from contaminated outcome information;
-- seal blind mappings and schedule;
-- public preregistration commitment before execution;
-- final zero-model execution lock after public binding;
-- full-block blindness and zero correctness before all 24 outputs freeze.
+Coordinator acceptance:
+
+- required public pre-binding branch head matched `6728caf881b3ba0aed7fab9a71706ed6ddfd2484`
+- item-58 identities valid: **TRUE**
+- item-59 identities valid: **TRUE**
+- item-60 semantic identities valid: **TRUE**
+- item-60 isolation identities valid: **TRUE**
+- fresh task-solving model completions: **0**
+- fresh P2 experimental agent runs: **0**
+- target model: exact `gpt-5.6-luna`, available without generating a completion
+- prompt files: **4**, exact pre-contamination bytes retained, hidden requirements: **0**
+- fresh PRE workspaces: **24**
+- future-history leak gate: **24/24**
+- private-material leak gate: **24/24**
+- reparse-point escape gate: **24/24**
+- restricted launcher targets non-admin `ras-p2-experimental` and stores no password
+- persistent-session resume mechanism supports a fresh PRE workspace
+- one deterministic fresh randomisation candidate only; no human selection and no contaminated output influence
+- fresh schedule units: **24**, deterministic repeat match, A-chain chronology preserved for all repetitions
+- fresh blind IDs: **24**, old IDs not reused, condition mapping sealed
+- full-block blindness retained
+- Phase-A preregistration package internal bindings valid
+- all recorded Phase-A SHA-256 identities are 64-character values with repeat matches
+
+Fresh public commitment now exists:
+
+- `results/public/subject-b-p2-preregistration-binding-v2.json`
+- `results/public/subject-b-p2-preregistration-binding-v2.md`
+
+Fresh private commitment identities published by the binding include:
+
+- runtime manifest: `5FC248F380A623BEF2D83C960FFBEC14F59B58A60C3846165D90F400384FA191`
+- model binding: `28705DB131283F57853578076830DBCADE2E90695198B289A5BD6645C2CC1DA`
+- prompt manifest: `DE05F68970B7E4DDE86990335C3621C88C36FB880C86591FC207131ACF164CC4`
+- randomisation manifest: `6878648FBB56E03F2BA7EECA6AD17FAB8760203F115CAA515CD3736CAB7D3947`
+- experimental-unit manifest: `73DD340957D5850FE059E07F25DAFB84101E9E72C03B3245C5009D07DB6F82BF`
+- blind-ID mapping: `CB6AB22AA185E45FF085C89104086743DA26262274BE053ECF40768646A9D498`
+- PRE-workspace manifest: `209FA8ADA0282569B43A4A626DE3750853671CAC268CA5D5A19DC388ED980456`
+- restricted execution launcher: `6D1DECCD2DB3B29D32D736C5930D0724669B500324CA53BEBA7175BC33B33687`
+- pre-model readiness audit: `5C1D8B7C4332D50EC3B51C335C1DE90321FB5598D15587C49A25FAAA07B7D99D`
+- preregistration manifest: `808253DC67896B108BA1B94EE3F9E8243A22BFA02738D3F95D36AA25658F0447`
+- preregistration package: `132C3D38170518458FFC8D2F81E458420AFDAE5E2F7CF14FD80F17D2372997B3`
+
+The fresh randomisation seed, private schedule, blind mapping and hidden-verifier implementation remain sealed and are not public repository state.
 
 ## Remaining gates
 
-61. Fresh post-repair preregistration/public binding/execution lock — **ACTIVE**.
+61. Fresh post-repair preregistration/public binding/execution lock — **ACTIVE; Phase A + public v2 binding accepted, Phase B lock pending**.
 62. Fresh controlled 24-run P2 same-repository replication — blocked until item 61 completes.
 63. Blind adjudication and scientific interpretation — pending.
 64. Publish Level-2 P2 evidence/update paper — pending.
@@ -188,4 +220,4 @@ Required properties include:
 
 ## Coordinator/Codex rule
 
-Persist authoritative state; reconstruct computation. The isolation failure was treated as methodology evidence, the invalid execution was abandoned, and the boundary has now been repaired empirically. The next experiment must be freshly preregistered against the repaired boundary before any new model invocation.
+Persist authoritative state; reconstruct computation. The isolation failure remains preserved as methodology evidence; the contaminated execution is excluded; the repaired boundary is accepted; and the fresh v2 experiment is now publicly committed. The next action is a **zero-model Phase-B integrity/lock worker only**. No item-62 task-solving model may run until that lock is accepted.
