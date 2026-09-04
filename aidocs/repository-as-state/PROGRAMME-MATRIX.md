@@ -2,7 +2,7 @@
 
 Authoritative normalized ledger established 2026-09-03.
 
-Current status: **61 complete / 67 total**. Item **62 active — fresh locked post-isolation 24-run P2 execution**.
+Current status: **60 complete / 67 total**. Item **61 active — restricted Codex runtime-access repair and superseding execution relock**. Item **62 blocked until that repair is accepted**.
 
 Legend: ✅ complete · 🟡 active · ⬜ pending/blocked
 
@@ -68,8 +68,8 @@ Legend: ✅ complete · 🟡 active · ⬜ pending/blocked
 | 58 | Repair and freeze P2 Level-2 design from corrected four-task corpus: 4 × 3 × 2 = 24 runs | ✅ |
 | 59 | Freeze corrected four-task P2 selection and neutral disclosed contracts | ✅ |
 | 60 | Implement/qualify P2 semantic hidden verifiers and prove hard hidden-material isolation against actual restricted experimental identity | ✅ |
-| 61 | Freeze fresh post-repair P2 preregistration/runtime/prompts/randomisation/public binding/execution lock | ✅ |
-| 62 | Execute fresh accepted 24-run P2 same-repository replication | 🟡 |
+| 61 | Freeze fresh post-repair P2 preregistration/runtime/prompts/randomisation/public binding/execution lock | 🟡 |
+| 62 | Execute fresh accepted 24-run P2 same-repository replication | ⬜ |
 | 63 | Blind-adjudicate and scientifically interpret P2 | ⬜ |
 | 64 | Publish Level-2 P2 evidence and update paper claims/evidence | ⬜ |
 | 65 | Select Subject C and perform cross-repository / Level-3 replication | ⬜ |
@@ -78,85 +78,37 @@ Legend: ✅ complete · 🟡 active · ⬜ pending/blocked
 
 ## Current count
 
-- Complete: **61**
-- Active: **1** (`#62`, fresh locked 24-run P2 execution)
-- Pending after active item: **5**
+- Complete: **60**
+- Active: **1** (`#61`, runtime-access repair and superseding relock)
+- Blocked/pending after active item: **6**
 - Total: **67**
 
-## Item 60 isolation repair — accepted
+## Why Item 61 reopened
 
-The first live item-62 attempt under the superseded same-user boundary empirically falsified the hidden-material isolation assumption. It was stopped with zero accepted units and zero hidden-verifier adjudications.
+The first live Item-62 preflight proved that the restricted non-admin identity could authenticate but could not execute the frozen Codex runtime: Windows returned `Access is denied` before any model process started.
 
-The repair introduced a separate non-administrator Windows experimental identity and live-qualified the boundary:
+This did not consume an experimental attempt and did not contaminate Item 62:
 
-- forbidden access probes: **14/14 denied**
-- private bytes returned: **0**
-- absolute-path private reads: **0/6 succeeded**
-- private directory-enumeration attempts: **0/5 succeeded**
-- positive workspace probes: **8/8 passed**
-- tool child more privileged than experimental parent: **false**
-- privileged filesystem broker bypass: **false**
-- semantic verifier bytes changed: **false**
-- model completions during repair: **0**
-
-Accepted isolation identities:
-
-- root-cause audit: `8F27A0F784505F7EDE229E5D8B230CC756DA9743C9B2CD9F06AAE9A59AD480BF`
-- experimental-identity manifest: `9E1F6C394542F40807F195C9A93A697A7DB9079D68A8B92450EAE9C2CB2BAA6B`
-- negative-access probes: `AD6A2F4CB49CE68A9DDF95063461C338FFC79A6F0AF07CE144A6A428BB19069A`
-- positive-workspace probes: `3C12BC74661D01B48E33BA5A0FCD7B3802CED763543D167FF82C080BBC052775`
-- process-token audit: `7A03DBF35EDF8200A92CF109FC239BA29D8936C4FF3662503BAF27CB77E5927C`
-- isolation qualification summary: `2B0DF0851AC5FBEDBCBA04A1BE450F5C8C5587FEB7C089BEF22A5223A4047DA7`
-- isolation freeze: `9CD6FE3E1F2B204864B6973B115831411CD911EF4363A5F1139DBFBE795AE266`
-- isolation package: `CF652E017FE9E84B95EB671087537294C1953611B2D705BD74BFB55791FB5895`
-
-The contaminated attempt remains historical methodology evidence only and cannot influence correctness analysis, prompts, scheduling, blind mapping or execution.
-
-## Item 61 — complete
-
-Fresh post-isolation Phase A completed and was publicly committed with exact model `gpt-5.6-luna`, 24 fresh PRE workspaces, a fresh deterministic schedule, 24 new blind IDs, the restricted non-admin task-solving identity and full-block blindness.
-
-The first Phase-B integrity worker then correctly detected a one-character coordinator transcription error in the public model-binding SHA. The private Phase-A experiment had not changed and no fresh model activity had occurred. The public commitment was corrected with explicit audit history.
-
-The final Phase-B worker terminated:
-
-`VALID_TERMINAL_A_ITEM61_POST_ISOLATION_PHASE_B_FINAL_ZERO_MODEL_LOCK_READY_FOR_COORDINATOR_ACCEPTANCE`
-
-Coordinator acceptance established:
-
-- corrected public binding matched private Phase A: **true**
-- Phase-A authoritative bytes changed: **false**
-- exact target model still available without completion
-- prompts unchanged
-- workspace gates: **24/24 each**
-- restricted identity/launcher still valid
-- frozen schedule deterministic repeat match: **true**
-- A-chain chronology preserved all repetitions
-- blind IDs unchanged and mapping sealed
-- contaminated execution/session/code/correctness unused
-- fresh accepted P2 units: **0**
-- model completions: **0**
-- P2 task-solving runs: **0**
-- hidden candidate adjudications: **0**
+- fresh scheduled units with model activity: **0/24**
+- fresh accepted units: **0**
+- hidden verifier runs: **0**
 - correctness adjudications: **0**
+- Item 62 executed: **false**
 
-Final private execution-lock identities:
+However, it empirically falsified the Item-61 execution-readiness claim. The previous execution lock is preserved as historical evidence but superseded for runtime readiness.
 
-- manifest: `A1D0B4837228E7A2F115FCB6E8A6D8A65930FA88BC031D600382C69A1E492094`
-- package: `A48928533D173C9AEEF31CA9CDFE92D884788A6A3482D9D7B646C6696C8F53F8`
+Public evidence:
 
-Public-safe execution-lock evidence:
+- `results/public/subject-b-p2-item61-runtime-access-falsification-v2.json`
+- `results/public/subject-b-p2-item61-runtime-access-falsification-v2.md`
 
-- `results/public/subject-b-p2-execution-lock-v2.json`
-- `results/public/subject-b-p2-execution-lock-v2.md`
+## Repair rule
 
-Therefore Item 61 is ✅ and Item 62 is now the only active programme item.
+Repair only runtime accessibility. Do not change task selection, prompts, PRE states, model, randomisation, schedule, blind IDs/mapping, timeout, retry discipline or blindness.
 
-## Item 62 execution rule
+The preferred repair is an isolated experimental-readable Codex runtime under an experimental runtime root, not weakening ACLs on coordinator/private roots. The repaired runtime must be live-tested under `DESKTOP-BFTREBH\ras-p2-experimental` with zero scheduled task-model executions, while the private-material deny boundary is re-proved.
 
-Execute the exact locked 24-run fresh post-isolation P2 experiment. Do not change the model, prompts, PRE states, schedule, blind IDs/mapping, timeout, retry discipline or isolation boundary.
-
-Task-solving processes run only under `DESKTOP-BFTREBH\ras-p2-experimental`, never as coordinator or Administrator. All 24 outputs must freeze before any hidden correctness adjudication. Repetitions remain independent replications, not retries, and a unit that reaches genuine model activity is not selectively rerun for quality.
+After a fresh zero-model execution lock is accepted, Item 61 returns to ✅ and Item 62 resumes.
 
 ## Count rule
 
