@@ -2,7 +2,7 @@
 
 Authoritative normalized ledger established 2026-09-03.
 
-Current status: **59 complete / 67 total**. Item **60 active**.
+Current status: **58 complete / 67 total**. Item **59 active**.
 
 The earlier ~48/67 and ~58/67 counts were working conversational estimates. This file is now the durable numbered ledger to prevent future count drift. Future progress updates should change explicit item statuses here rather than recalculate from grouped summaries.
 
@@ -68,8 +68,8 @@ Legend: ✅ complete · 🟡 active · ⬜ pending
 | 56 | P1 public-safe results, README, evidence roadmap and claims register published | ✅ |
 | 57 | P2 candidate inventory / anti-cherry-picking / complexity / telemetry design completed | ✅ |
 | 58 | P2 recommended Level-2 design accepted: 5 tasks × 3 reps × 2 conditions = 30 runs | ✅ |
-| 59 | Freeze exact P2 five-task selection + complexity strata + neutral contracts | ✅ |
-| 60 | Implement and qualify P2 semantic hidden verifiers for all five tasks | 🟡 |
+| 59 | Repair and re-freeze exact P2 five-task selection/contracts after accepted contract-to-history audit | 🟡 |
+| 60 | Implement and qualify P2 semantic hidden verifiers for all five tasks | ⬜ |
 | 61 | Freeze P2 final preregistration/runtime/prompts/randomisation/execution lock | ⬜ |
 | 62 | Execute 30-run P2 same-repository replication | ⬜ |
 | 63 | Blind-adjudicate and scientifically interpret P2 | ⬜ |
@@ -80,21 +80,36 @@ Legend: ✅ complete · 🟡 active · ⬜ pending
 
 ## Current count
 
-- Complete: **59**
-- Active: **1** (`#60`)
-- Pending after active item: **7**
+- Complete: **58**
+- Active: **1** (`#59`)
+- Pending after active item: **8**
 - Total: **67**
 
-## Item 60 absolute methodology rule — corrected 2026-09-03 23:38
+## Accepted P2 contract-to-history adjudication — 2026-09-04
 
-**NO BUILD OR TEST EXECUTION IS PERMITTED AS PART OF ITEM 60 VERIFIER QUALIFICATION.**
+The no-build/no-test/no-compile audit of the previously frozen 18 P2 governing behaviours completed with:
 
-Do not run full-solution, targeted-project, minimal-project, probe, or candidate builds/tests. Do not use compilation/test-runner success or failure as PRE/POST qualification evidence.
+- valid behavioural deltas: **9**
+- oracle-mapping defects: **4**
+- frozen contract defects: **5**
+- unresolved: **0**
 
-The prior fixture-only oracle is invalid because it encoded expected verdict state instead of deriving semantic evidence from the frozen candidate. The later T03 build-based stops are also non-authoritative because build/test activity is outside this gate.
+Private audit SHA256:
 
-Item 59 remains complete. Item 60 remains active. P2 experimental runs remain zero.
+`4A57493EC8B70732C5AFABC71F055153DA423867F32564233FBD1EF59A17D5F5`
+
+Repeat match: **TRUE**.
+
+Because five exact frozen behaviours fail the required historical PRE→POST behavioural-delta condition, the previous completion of item 59 is withdrawn and item 59 is reopened for exact methodology-controlled contract repair.
+
+The nine valid behaviours and four oracle-mapping-defect behaviours are not invalidated. Item 60 must not resume until the five contract defects are repaired, all final behaviours re-audited PRE=false/POST=true, and a new superseding item-59 freeze is accepted.
+
+## Absolute P2 repair/verifier rule
+
+No `dotnet build`, `dotnet test`, `dotnet restore`, compiler, project build/test, solution build/test or probe compilation may be used as contract or verifier qualification evidence in this stage.
+
+No P2 experimental model run may occur before item 59 is re-frozen and item 60 subsequently completes.
 
 ## Count rule
 
-An item becomes ✅ only after the coordinator accepts the evidence for that gate. Starting a Codex prompt, or producing deterministic but methodologically invalid evidence, does not complete the item.
+An item becomes ✅ only after the coordinator accepts the evidence for that gate. If later falsification evidence invalidates a completed gate before execution, that item is reopened and the complete count decreases accordingly. This is expected scientific bookkeeping, not count drift.
