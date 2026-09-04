@@ -2,7 +2,7 @@
 
 Authoritative normalized ledger established 2026-09-03.
 
-Current status: **57 complete / 67 total**. Item **58 active**.
+Current status: **58 complete / 67 total**. Item **59 active**.
 
 Legend: ✅ complete · 🟡 active · ⬜ pending
 
@@ -65,11 +65,11 @@ Legend: ✅ complete · 🟡 active · ⬜ pending
 | 55 | P1 scientific interpretation completed | ✅ |
 | 56 | P1 public-safe results, README, evidence roadmap and claims register published | ✅ |
 | 57 | P2 candidate inventory / anti-cherry-picking / complexity / telemetry design completed | ✅ |
-| 58 | Repair and freeze P2 Level-2 design from corrected four-task corpus; verify deterministic freeze identities | 🟡 |
-| 59 | Freeze corrected P2 task selection and neutral contracts from accepted item-58 design | ⬜ |
+| 58 | Repair and freeze P2 Level-2 design from corrected four-task corpus: 4 × 3 × 2 = 24 runs | ✅ |
+| 59 | Freeze corrected four-task P2 selection and neutral disclosed contracts | 🟡 |
 | 60 | Implement and qualify P2 semantic hidden verifiers for final selected tasks | ⬜ |
 | 61 | Freeze P2 final preregistration/runtime/prompts/randomisation/execution lock | ⬜ |
-| 62 | Execute accepted P2 same-repository replication | ⬜ |
+| 62 | Execute accepted 24-run P2 same-repository replication | ⬜ |
 | 63 | Blind-adjudicate and scientifically interpret P2 | ⬜ |
 | 64 | Publish Level-2 P2 evidence and update paper claims/evidence | ⬜ |
 | 65 | Select Subject C and perform cross-repository / Level-3 replication | ⬜ |
@@ -78,52 +78,62 @@ Legend: ✅ complete · 🟡 active · ⬜ pending
 
 ## Current count
 
-- Complete: **57**
-- Active: **1** (`#58`)
-- Pending after active item: **9**
+- Complete: **58**
+- Active: **1** (`#59`)
+- Pending after active item: **8**
 - Total: **67**
 
-## Corrected P2 corpus
+## Accepted corrected P2 corpus
 
-Accepted eligible set: `C07, C08, C09, C10`.
-
-Corrected corpus:
+Corrected eligible set: `C07,C08,C09,C10`.
 
 - tasks: **4**
-- genuine governing behaviours: **13**
+- governing behaviours: **13**
 - complexity: **3 LOW / 1 MEDIUM / 0 HIGH**
-- eligibility re-audit SHA256: `D55B610B6E2FFB1B032137F30C348FEFE9EF3542321720090C6690885D749E41`
+- eligibility re-audit: `D55B610B6E2FFB1B032137F30C348FEFE9EF3542321720090C6690885D749E41`
 
-## Item-58 substantive design audit
+C06 is ineligible. C07 retains two genuine behaviours; its historical B02 is removed as an over-curated non-delta.
 
-The latest worker substantively validated the repaired design:
+## Accepted item-58 Level-2 design v2
 
-- 4 tasks × 3 repetitions × 2 conditions = **24 runs**
-- 18 design invariants audited
-- 3 independent persistent A chains of four chronological tasks
-- 12 fresh B sessions
-- 12 matched task×repetition units
+Design: **4 tasks × 3 repetitions × 2 conditions = 24 runs**.
+
+- A: 3 independent persistent chains × 4 chronological tasks = 12 runs
+- B: 12 fresh independent sessions
+- matched task×repetition units: 12
+- full-block blindness: 24 outputs before hidden adjudication
 - fresh exact PRE every run
-- no generated-code carry
-- full-block blindness across 24 outputs
-- telemetry/retry/no-human-rescue principles preserved
-- descriptive interpretation retained
-- no formal equivalence/non-inferiority claim
-- zero build/test/compiler commands
-- zero P2 experimental runs
+- generated code does not carry
+- repetitions are independent replications, not retries
+- telemetry remains separate from correctness
+- no-human-rescue and no post-activity model-quality retry retained
+- descriptive replication only
+- formal equivalence/non-inferiority unsupported
 
-However, item 58 is **not yet complete** because the terminal response reported the invariant-audit SHA256 as only 48 hex characters:
-
-`E7D6D969B24F7152DDFFCB32AF06E7C5752BA81B74FF6BD1`
-
-A SHA-256 digest must contain 64 hexadecimal characters. The worker simultaneously claimed a repeat match, so the coordinator requires direct verification of the private artifact and all dependent freeze/package bindings before accepting the freeze.
-
-Other reported identities were structurally valid 64-character SHA256 values:
+Deterministic identities:
 
 - design repair: `D4CCB92E84CC8112EF304E1A674F5E6D98185CD0B212390514B49563632311A4`
+- invariant audit: `E7D6D969B24F7158DEADE121DEB91352DDFFCB32AF06E7C5752BA81B74FF6BD1`
 - design freeze: `782ADD46591FCCDCABB796D25DC3BE71B03627FCC082372B1FD018875DE1248A`
 - design package: `C5124105BD1701A2336211776AF1E3D7E1ED98270665ABAA39910385B81C41F3`
 
+All identities are verified 64-character SHA-256 values and the package's internal bindings validate. The earlier short invariant-audit value was a terminal-response transcription defect only.
+
+Public-safe evidence:
+
+- `results/public/subject-b-p2-level2-design-repair-v2.md`
+- `results/public/subject-b-p2-level2-design-repair-v2.json`
+
+## Item 59 gate
+
+Item 59 must create an execution-authoritative corrected four-task selection and neutral contract freeze from `C07,C08,C09,C10` only, with 13 genuine governing behaviours, no C06, and no invented replacement for removed C07 B02.
+
+## Absolute P2 contract/verifier rule
+
+No `dotnet build`, `dotnet test`, `dotnet restore`, compiler, project/solution build/test or probe compilation may be used as contract or verifier qualification evidence at this stage.
+
+No P2 experimental model run may occur before items 59, 60 and 61 are accepted.
+
 ## Count rule
 
-An item becomes ✅ only after the coordinator accepts all evidence for that gate, including deterministic artifact identities. A substantively valid design with an unresolved freeze hash remains active rather than being counted complete.
+An item becomes ✅ only after the coordinator accepts all evidence for that gate. Later falsification may reopen a completed gate before execution; that is expected scientific bookkeeping rather than count drift.
