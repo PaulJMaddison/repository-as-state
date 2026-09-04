@@ -1,0 +1,93 @@
+{
+  "schema_version": "subject-b-p2-execution-lock-v1",
+  "status": "ITEM61_FINAL_EXECUTION_LOCK_ACCEPTED",
+  "programme_state": {
+    "complete": 61,
+    "total": 67,
+    "active_item": 62,
+    "p2_preregistered": true,
+    "p2_executed": false,
+    "p2_experimental_agent_runs": 0,
+    "model_completions_before_lock": 0
+  },
+  "design": {
+    "tasks": 4,
+    "governing_behaviours": 13,
+    "repetitions": 3,
+    "conditions": 2,
+    "total_runs": 24,
+    "matched_task_x_repetition_units": 12,
+    "full_block_blindness": true,
+    "outputs_required_before_hidden_adjudication": 24
+  },
+  "runtime": {
+    "target_model": "gpt-5.6-luna",
+    "codex_cli_version": "0.153.0-alpha.5",
+    "effective_codex_config_sha256": "8249A208C5DED9B173BBC6B22B8EA6E1A11AB8E29BFF4B7B006A396BF8FA0093",
+    "runtime_manifest_sha256": "4FC602F42CA6974BFF0AC13AA4D06FF8FA0831790398F05D55EEFBCB66239674",
+    "run_timeout_seconds": 1800
+  },
+  "corrected_public_binding": {
+    "two_file_commit": "a3da5fb11df577034ef364c4790deb170ef37f77",
+    "json_blob_sha": "e4f8419238c336833ee5aec306f0734406091ada",
+    "matches_private_phase_a_commitments": true,
+    "republication_required": false
+  },
+  "pre_execution_integrity": {
+    "phase_a_private_package_changed": false,
+    "prompts_unchanged": true,
+    "randomisation_regenerated": false,
+    "randomisation_manifest_unchanged": true,
+    "schedule_unchanged": true,
+    "blind_mapping_unchanged": true,
+    "pre_workspaces_present": 24,
+    "pre_workspaces_clean": 24,
+    "pre_workspaces_future_history_safe": 24,
+    "pre_workspaces_hidden_verifier_free": 24,
+    "pre_workspaces_sealed_mapping_free": 24,
+    "persistent_session_resume_mechanism_valid": true,
+    "fresh_workspace_on_session_resume_supported": true,
+    "hidden_verifier_private": true,
+    "experimental_agent_access_to_hidden_verifier": false,
+    "experimental_agent_access_to_sealed_mapping": false
+  },
+  "execution_discipline": {
+    "repetitions_are_retries": false,
+    "best_of_n_selection": false,
+    "model_quality_retry_allowed": false,
+    "human_rescue_allowed": false,
+    "mid_run_prompt_injection_allowed": false,
+    "verifier_feedback_during_execution_allowed": false,
+    "partial_hidden_adjudication_allowed": false
+  },
+  "execution_lock_identities": {
+    "public_binding_audit_sha256": "D02218A1206BF2C7B2CC4730523D48E99EF02E949C608FB9CCA160DD8D747E41",
+    "phase_a_integrity_audit_sha256": "816388AC58FE331CC3924F4DE21F051410B22419A6B514FB04DD4658A78284FC",
+    "final_zero_model_gate_sha256": "8344F950C7AF7820C088C2761194FDAA6F0F4780D9590F397B5B644E3063DFF3",
+    "execution_lock_manifest_sha256": "3E3760D3B57C2BBA4D62B45B154C84633A44DB13025E618E66CE061C92924E9E",
+    "execution_lock_freeze_sha256": "9FC8D4B6011BF5A7CDD5C956C0E08D105890AD345577A0A06488A1AA1F424890",
+    "execution_lock_package_sha256": "CD8E28A9CAECEFF95B666FD19BD7CB64D19D71F93401CCEBA1C5DC60520AA3C6",
+    "all_sha256_lengths_64": true,
+    "all_repeat_matches": true,
+    "package_internal_bindings_valid": true
+  },
+  "zero_model_gate": {
+    "pass": true,
+    "model_completions_generated": 0,
+    "p2_experimental_agent_runs": 0,
+    "p2_task_solving_model_invoked": false,
+    "p2_executed": false,
+    "hidden_verifier_experimental_adjudications": 0,
+    "preexisting_experimental_outputs": 0,
+    "preexisting_correctness_results": 0
+  },
+  "sealed_material": {
+    "private_schedule_published": false,
+    "randomisation_seed_published": false,
+    "blind_condition_mapping_published": false,
+    "hidden_verifier_implementation_published": false,
+    "correctness_results_published": false
+  },
+  "worker_terminal": "VALID_TERMINAL_A_ITEM61_FINAL_EXECUTION_LOCKED",
+  "next_gate": "ITEM62_CONTROLLED_24_RUN_EXECUTION"
+}
