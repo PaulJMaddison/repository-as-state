@@ -1,18 +1,19 @@
 # Repository-as-State — CURRENT
 
-Updated: 2026-09-04 15:58 Europe/London
+Updated: 2026-09-04 16:29 Europe/London
 
 ## Programme status
 
-- Authoritative progress ledger: **61/67 complete**.
-- Items 58, 59, 60 and 61 are **COMPLETE**.
-- **Item 62 is ACTIVE — execute the fresh locked post-isolation 24-run P2 replication using the accepted isolated runtime and v3 execution lock.**
-- Items 63–67 remain pending.
-- Fresh accepted P2 experimental units: **0**.
-- Fresh scheduled P2 units with genuine model activity: **0/24**.
-- Fresh P2 correctness adjudications: **0**.
-- Hidden verifier executions against fresh experimental candidates: **0**.
-- P2 fresh experiment executed: **FALSE**.
+- Authoritative progress ledger: **62/67 complete**.
+- Items 58, 59, 60, 61 and 62 are **COMPLETE**.
+- **Item 63 is ACTIVE — blind-adjudicate all 24 frozen P2 outputs and produce the scientific interpretation.**
+- Items 64–67 remain pending.
+- Fresh accepted P2 experimental units: **24**.
+- Fresh scheduled P2 units with genuine model activity: **24/24**.
+- Fresh P2 correctness adjudications completed so far: **0**.
+- Hidden verifier executions against fresh P2 candidates completed so far: **0**.
+- P2 fresh execution completed: **TRUE**.
+- P2 output freeze completed: **TRUE**.
 - P0 rerun: **FALSE**.
 - P1 rerun: **FALSE**.
 
@@ -38,8 +39,7 @@ Updated: 2026-09-04 15:58 Europe/London
 - no best-of-N
 - no human rescue
 - no post-model quality retry
-- full-block blindness
-- all 24 outputs freeze before hidden adjudication
+- full-block blindness through Item 62
 - resource telemetry separate from correctness
 
 ## Accepted upstream identities
@@ -64,85 +64,22 @@ Item 60 isolation:
 - isolation freeze: `9CD6FE3E1F2B204864B6973B115831411CD911EF4363A5F1139DBFBE795AE266`
 - isolation package: `CF652E017FE9E84B95EB671087537294C1953611B2D705BD74BFB55791FB5895`
 
-Dedicated experimental identity:
-
-`DESKTOP-BFTREBH\ras-p2-experimental`
-
-It is separate from the coordinator identity, non-Administrator and non-elevated. Protected private/coordinator roots remain inaccessible while the experimental workspace and isolated runtime remain usable.
-
-## Contaminated historical Item-62 attempt
-
-The superseded same-user attempt remains permanently excluded:
-
-- accepted units: **0**
-- units with genuine model activity: **1**
-- hidden verifier runs: **0**
-- correctness adjudications: **0**
-- private correctness-related material exposed: **TRUE**
-
-Evidence:
-
-- event log: `CB8CB6A38424A4D8BFADDAFCCB943BF600775F727A00B9FD7EC51DB03026CBCA`
-- partial candidate manifest: `7E72A6004BA07C43A61765E84CC6A3A43CAB445B0945516587DDCF03B0DA31D3`
-
-Never reuse its session, candidate, schedule, blind mapping, execution lock or correctness.
-
-## Fresh Phase-A commitments — unchanged
-
-- runtime manifest: `5FC248F380A623BEF2D83C960FFBEC14F59B58A60C3846165D90F400384FA191`
-- model binding: `28705DB131283F57853578076830DBCADE2E90695198B289A5BD6645C2CC1DA4`
-- prompt manifest: `DE05F68970B7E4DDE86990335C3621C88C36FB880C86591FC207131ACF164CC4`
-- randomisation manifest: `6878648FBB56E03F2BA7EECA6AD17FAB8760203F115CAA515CD3736CAB7D3947`
-- experimental-unit manifest: `73DD340957D5850FE059E07F25DAFB84101E9E72C03B3245C5009D07DB6F82BF`
-- blind-ID mapping: `CB6AB22AA185E45FF085C89104086743DA26262274BE053ECF40768646A9D498`
-- PRE-workspace manifest: `209FA8ADA0282569B43A4A626DE3750853671CAC268CA5D5A19DC388ED980456`
-- original restricted launcher: `6D1DECCD2DB3B29D32D736C5930D0724669B500324CA53BEBA7175BC33B33687`
-- pre-model readiness audit: `5C1D8B7C4332D50EC3B51C335C1DE90321FB5598D15587C49A25FAAA07B7D99D`
-- preregistration manifest: `808253DC67896B108BA1B94EE3F9E8243A22BFA02738D3F95D36AA25658F0447`
-- preregistration package: `132C3D38170518458FFC8D2F81E458420AFDAE5E2F7CF14FD80F17D2372997B3`
-
-The randomisation seed, schedule, blind mapping and hidden verifier remain sealed.
-
-## Runtime-access falsification and repair history
-
-The original Item-61 v2 lock was accepted with:
-
-- manifest: `A1D0B4837228E7A2F115FCB6E8A6D8A65930FA88BC031D600382C69A1E492094`
-- package: `A48928533D173C9AEEF31CA9CDFE92D884788A6A3482D9D7B646C6696C8F53F8`
-
-The first fresh Item-62 live preflight later proved that the restricted identity could authenticate but could not execute the coordinator-profile Codex runtime. Windows returned `Access is denied` before any task model process started.
-
-That event did not contaminate Item 62 but empirically falsified Item-61 execution readiness. Item 61 was therefore reopened and the v2 lock preserved as historical evidence.
-
-Public falsification evidence:
-
-- `results/public/subject-b-p2-item61-runtime-access-falsification-v2.json`
-- `results/public/subject-b-p2-item61-runtime-access-falsification-v2.md`
-
 ## Item 61 v3 runtime repair — accepted
 
-The repair provisioned the exact Codex runtime under:
+The exact Codex runtime was isolated under:
 
 `C:\Kyntic\ras-p2-experimental-runtime-v2`
 
-Accepted runtime facts:
+Accepted facts:
 
 - exact CLI: `codex-cli 0.153.0-alpha.5`
-- exact target model: `gpt-5.6-luna`
+- exact model: `gpt-5.6-luna`
 - restricted identity: `DESKTOP-BFTREBH\ras-p2-experimental`
 - administrator: **FALSE**
 - elevated: **FALSE**
 - runtime depends on coordinator-profile paths: **FALSE**
-- protected private root denied: **TRUE**
-- protected coordinator root denied: **TRUE**
-- protected coordinator Codex home denied: **TRUE**
-- experimental workspace access: **PASS**
-- prompts/randomisation/schedule/blind mapping/PRE workspaces/model changed: **FALSE**
-- scheduled Item-62 units with model activity during repair: **0**
-- Item-62 accepted units: **0**
-- hidden verifier runs: **0**
-- correctness adjudications: **0**
-- plaintext credentials in artifacts/templates/public drafts: **0**
+- protected private/coordinator roots remain denied
+- experimental workspace remains usable
 
 Accepted v3 identities:
 
@@ -150,34 +87,71 @@ Accepted v3 identities:
 - execution-lock contents manifest: `C774396F9F56DD94CFE0194E2916F891CF5D9CF6DD29D63F6E97AE48A9FBFC73`
 - execution-lock package: `908CCB709B08379E616EF62C04B996DB7A526ED91BB66E73491CDE3D8C377D99`
 
-All v3 SHA-256 values are 64 characters, repeat matches are true and package internal bindings validate.
+The earlier v2 execution lock and runtime-access falsification remain preserved as history.
 
-Public v3 evidence:
+## Item 62 execution — accepted
 
-- `results/public/subject-b-p2-execution-lock-v3.json`
-- `results/public/subject-b-p2-execution-lock-v3.md`
+The fresh locked 24-run P2 block completed with all outputs frozen before any correctness adjudication.
 
-The v3 lock supersedes v2 for execution. The falsification history and v2 lock remain preserved.
+Accepted execution facts:
 
-## Active Item 62
+- scheduled units: **24**
+- final frozen unit records: **24**
+- model-active units: **24**
+- workspace gates passed: **24/24**
+- schedule order changed: **FALSE**
+- unscheduled executions: **0**
+- model substitutions: **0**
+- A chains: **3**
+- A new T01 sessions: **3**
+- A expected resumes: **9**
+- A successful resumes: **9**
+- A cross-repetition session reuse: **0**
+- B fresh sessions: **12**
+- B resumes: **0**
+- generated code carry: **FALSE**
+- pre-model infrastructure retries: **3**
+- post-model quality retries: **0**
+- best-of-N: **FALSE**
+- human rescue: **FALSE**
+- hidden verifier runs during execution: **0**
+- correctness adjudications during execution: **0**
+- condition mapping remained sealed: **TRUE**
 
-Execute the exact locked 24-run experiment using the accepted isolated runtime.
+The UAC/sandbox defect was repaired under the frozen recovery rule: seven already model-active units were preserved and never rerun; subsequent failed slot-8 attempts were pre-model only and were retried legally after switching to the supported `unelevated` sandbox configuration.
 
-Absolute rules:
+Accepted Item-62 identities:
 
-- use the frozen private schedule and blind mapping exactly;
-- do not regenerate schedule, blind IDs, prompts, workspaces or model binding;
-- task-solving processes run only as `DESKTOP-BFTREBH\ras-p2-experimental`;
-- runtime executable is the accepted isolated runtime under `C:\Kyntic\ras-p2-experimental-runtime-v2`;
-- exact model `gpt-5.6-luna`; no silent substitute;
-- 1800-second timeout per unit;
-- fresh exact PRE workspace every unit;
-- Condition A carries session/reasoning continuity only, never generated code;
-- Condition B sessions remain fresh;
-- once genuine model activity occurs, that unit has consumed its one attempt;
-- retry only frozen-policy permitted pre-model infrastructure failures;
-- no best-of-N, human rescue or post-model quality retry;
-- no hidden correctness verifier or partial correctness adjudication until all 24 outputs are frozen;
-- contaminated historical execution remains quarantined and unused.
+- execution manifest: `334EFF9B6F85AE92766DEC6EF3AEF562F62E97C2DCC8E09C80E6BE5743F1FDBC`
+- output-freeze manifest: `2A27C6110E99D712D99D1680B58F568512301B866A78E802C5D79D933414BC4E`
+- execution package: `31898756356B676CB76F7D67596DE206B902659B5E8D58E5A4620250F55607C1`
 
-Item 62 completes only after all 24 locked units have been attempted under the frozen rules and their output states/evidence are frozen without hidden correctness inspection.
+All Item-62 hashes repeat and package internal bindings validate.
+
+Public evidence:
+
+- `results/public/subject-b-p2-item62-output-freeze-v3.json`
+- `results/public/subject-b-p2-item62-output-freeze-v3.md`
+
+## Contaminated historical attempt
+
+The earlier same-user contaminated Item-62 attempt remains permanently excluded. Never reuse or inspect its session, code, candidate, output, correctness, schedule, blind mapping or execution lock.
+
+## Active Item 63
+
+Blind-adjudicate the 24 already-frozen Item-62 outputs only.
+
+Rules:
+
+- do not execute or modify any experimental unit;
+- do not regenerate outputs, prompts, schedule, workspaces, sessions or model state;
+- use the frozen private semantic verifier package and the frozen blind IDs/mapping;
+- score all 24 frozen candidates blind before unblinding condition labels;
+- preserve per-candidate verifier evidence and deterministic behaviour vectors;
+- do not allow condition knowledge to influence scoring;
+- after all 24 blinded adjudications are frozen, unseal the condition mapping exactly once for matched analysis;
+- analyse the 12 matched task × repetition units under the preregistered/frozen methodology;
+- distinguish correctness from resource telemetry;
+- report agreements/disagreements, behaviour totals and any task/repetition structure needed by the frozen analysis;
+- use bounded claims only;
+- do not begin Item 64 publication work until coordinator acceptance of Item 63.
