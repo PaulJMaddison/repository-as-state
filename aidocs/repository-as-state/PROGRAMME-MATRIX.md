@@ -68,10 +68,10 @@ Legend: ✅ complete · 🟡 active · ⬜ pending
 | 56 | P1 public-safe results, README, evidence roadmap and claims register published | ✅ |
 | 57 | P2 candidate inventory / anti-cherry-picking / complexity / telemetry design completed | ✅ |
 | 58 | P2 recommended Level-2 design accepted: 5 tasks × 3 reps × 2 conditions = 30 runs | ✅ |
-| 59 | Repair and re-freeze exact P2 five-task selection/contracts after accepted contract-to-history audit | 🟡 |
-| 60 | Implement and qualify P2 semantic hidden verifiers for all five tasks | ⬜ |
+| 59 | Re-audit all 10 P2 candidates under original eligibility rules; repair and re-freeze execution-authoritative selection/contracts | 🟡 |
+| 60 | Implement and qualify P2 semantic hidden verifiers for final selected tasks | ⬜ |
 | 61 | Freeze P2 final preregistration/runtime/prompts/randomisation/execution lock | ⬜ |
-| 62 | Execute 30-run P2 same-repository replication | ⬜ |
+| 62 | Execute accepted P2 same-repository replication | ⬜ |
 | 63 | Blind-adjudicate and scientifically interpret P2 | ⬜ |
 | 64 | Publish Level-2 P2 evidence and update paper claims/evidence | ⬜ |
 | 65 | Select Subject C and perform cross-repository / Level-3 replication | ⬜ |
@@ -98,17 +98,44 @@ Private audit SHA256:
 
 `4A57493EC8B70732C5AFABC71F055153DA423867F32564233FBD1EF59A17D5F5`
 
-Repeat match: **TRUE**.
+Exact contract defects:
 
-Because five exact frozen behaviours fail the required historical PRE→POST behavioural-delta condition, the previous completion of item 59 is withdrawn and item 59 is reopened for exact methodology-controlled contract repair.
+`P2_T01_B01`, `P2_T01_B02`, `P2_T01_B03`, `P2_T01_B04`, `P2_T02_B02`.
 
-The nine valid behaviours and four oracle-mapping-defect behaviours are not invalidated. Item 60 must not resume until the five contract defects are repaired, all final behaviours re-audited PRE=false/POST=true, and a new superseding item-59 freeze is accepted.
+## Accepted item-59 repair blocker
+
+The exact repair attempt returned `VALID_TERMINAL_B` with zero build/test/compiler commands and zero P2 experimental runs.
+
+Private blocker SHA256:
+
+`667E9CA48B9FF69F7548C1CB0916A2C93240470E29C218452191E3005E458668`
+
+It proved that the existing five-task contract freeze cannot be repaired as written by simply replacing those five behaviours. No v2 curation/refreeze was created.
+
+Important coordinator distinction:
+
+- C06/T01 has all four historical behaviours classified as contract defects and must undergo eligibility review.
+- C07/T02 has one defective behaviour but two already accepted genuine deltas; it is **not automatically ineligible**.
+- C08 and C09 have valid governing deltas.
+- C10 has valid disclosed behaviours with verifier-seam mapping defects only.
+
+The original selection rule was **all eligible candidates in the historical inventory window, ordered by POST date then commit ID**. Therefore no ad-hoc replacement candidate is permitted.
+
+Item 59 now requires a complete C01–C10 eligibility re-audit under the original criteria. Previously excluded candidates may enter only if their original exclusion is objectively shown to have been incorrect under those same criteria.
+
+## Conditional item-58 rule
+
+Item 58 remains complete while the full eligibility re-audit is pending.
+
+- If corrected eligible total = **5**, item 58 remains complete and item 59 may repair/re-freeze the five-task state.
+- If corrected eligible total ≠ **5**, item 58 is reopened for a transparent Level-2 design repair; item 59 cannot be completed first.
+- Do not force five tasks, increase repetitions, or otherwise preserve 30 runs post hoc.
 
 ## Absolute P2 repair/verifier rule
 
-No `dotnet build`, `dotnet test`, `dotnet restore`, compiler, project build/test, solution build/test or probe compilation may be used as contract or verifier qualification evidence in this stage.
+No `dotnet build`, `dotnet test`, `dotnet restore`, compiler, project build/test, solution build/test or probe compilation may be used as contract, eligibility or verifier qualification evidence in this stage.
 
-No P2 experimental model run may occur before item 59 is re-frozen and item 60 subsequently completes.
+No P2 experimental model run may occur before the corrected item-59 state and subsequent item-60 verifier qualification are accepted.
 
 ## Count rule
 
