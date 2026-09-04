@@ -2,7 +2,7 @@
 
 Authoritative normalized ledger established 2026-09-03.
 
-Current status: **60 complete / 67 total**. Item **61 active — restricted Codex runtime-access repair and superseding execution relock**. Item **62 blocked until that repair is accepted**.
+Current status: **61 complete / 67 total**. Item **62 active — fresh locked post-isolation 24-run P2 execution using the accepted isolated runtime and v3 execution lock**.
 
 Legend: ✅ complete · 🟡 active · ⬜ pending/blocked
 
@@ -68,8 +68,8 @@ Legend: ✅ complete · 🟡 active · ⬜ pending/blocked
 | 58 | Repair and freeze P2 Level-2 design from corrected four-task corpus: 4 × 3 × 2 = 24 runs | ✅ |
 | 59 | Freeze corrected four-task P2 selection and neutral disclosed contracts | ✅ |
 | 60 | Implement/qualify P2 semantic hidden verifiers and prove hard hidden-material isolation against actual restricted experimental identity | ✅ |
-| 61 | Freeze fresh post-repair P2 preregistration/runtime/prompts/randomisation/public binding/execution lock | 🟡 |
-| 62 | Execute fresh accepted 24-run P2 same-repository replication | ⬜ |
+| 61 | Freeze fresh post-repair P2 preregistration/runtime/prompts/randomisation/public binding/execution lock | ✅ |
+| 62 | Execute fresh accepted 24-run P2 same-repository replication | 🟡 |
 | 63 | Blind-adjudicate and scientifically interpret P2 | ⬜ |
 | 64 | Publish Level-2 P2 evidence and update paper claims/evidence | ⬜ |
 | 65 | Select Subject C and perform cross-repository / Level-3 replication | ⬜ |
@@ -78,16 +78,16 @@ Legend: ✅ complete · 🟡 active · ⬜ pending/blocked
 
 ## Current count
 
-- Complete: **60**
-- Active: **1** (`#61`, runtime-access repair and superseding relock)
-- Blocked/pending after active item: **6**
+- Complete: **61**
+- Active: **1** (`#62`, fresh locked 24-run P2 execution)
+- Pending after active item: **5**
 - Total: **67**
 
-## Why Item 61 reopened
+## Item 61 falsification and v3 repair history
 
-The first live Item-62 preflight proved that the restricted non-admin identity could authenticate but could not execute the frozen Codex runtime: Windows returned `Access is denied` before any model process started.
+The first live Item-62 preflight proved the accepted v2 execution-readiness assumption incomplete: the restricted identity authenticated but Windows denied execution of the coordinator-profile Codex runtime before any model process started.
 
-This did not consume an experimental attempt and did not contaminate Item 62:
+No experimental attempt was consumed and Item 62 remained scientifically clean:
 
 - fresh scheduled units with model activity: **0/24**
 - fresh accepted units: **0**
@@ -95,20 +95,30 @@ This did not consume an experimental attempt and did not contaminate Item 62:
 - correctness adjudications: **0**
 - Item 62 executed: **false**
 
-However, it empirically falsified the Item-61 execution-readiness claim. The previous execution lock is preserved as historical evidence but superseded for runtime readiness.
+Item 61 was reopened under the programme count rule. The v2 lock was preserved as historical evidence.
+
+The repair provisioned an isolated experimental runtime at `C:\Kyntic\ras-p2-experimental-runtime-v2` for `DESKTOP-BFTREBH\ras-p2-experimental`, retaining exact `codex-cli 0.153.0-alpha.5` and exact model `gpt-5.6-luna` while preserving protected-root denial.
+
+Accepted v3 lock identities:
+
+- manifest: `A0A8D89CDC226EE5619C9AA0BE80F936EC84B6218EA14E84F992B650699844DD`
+- contents manifest: `C774396F9F56DD94CFE0194E2916F891CF5D9CF6DD29D63F6E97AE48A9FBFC73`
+- package: `908CCB709B08379E616EF62C04B996DB7A526ED91BB66E73491CDE3D8C377D99`
+
+All repeat hashes and package bindings passed. Prompts, PRE states, model, randomisation, schedule and blind mapping remained unchanged. The v3 lock supersedes v2 for execution only; falsification history remains visible.
 
 Public evidence:
 
 - `results/public/subject-b-p2-item61-runtime-access-falsification-v2.json`
 - `results/public/subject-b-p2-item61-runtime-access-falsification-v2.md`
+- `results/public/subject-b-p2-execution-lock-v3.json`
+- `results/public/subject-b-p2-execution-lock-v3.md`
 
-## Repair rule
+## Item 62 execution rule
 
-Repair only runtime accessibility. Do not change task selection, prompts, PRE states, model, randomisation, schedule, blind IDs/mapping, timeout, retry discipline or blindness.
+Execute the exact frozen 24-run P2 experiment using the accepted isolated runtime and existing sealed schedule/blind mapping.
 
-The preferred repair is an isolated experimental-readable Codex runtime under an experimental runtime root, not weakening ACLs on coordinator/private roots. The repaired runtime must be live-tested under `DESKTOP-BFTREBH\ras-p2-experimental` with zero scheduled task-model executions, while the private-material deny boundary is re-proved.
-
-After a fresh zero-model execution lock is accepted, Item 61 returns to ✅ and Item 62 resumes.
+Task-solving processes run only as `DESKTOP-BFTREBH\ras-p2-experimental`. Exact model `gpt-5.6-luna`. Fresh PRE workspace per unit. A uses exactly three persistent reasoning/session chains and no code carry; B uses 12 fresh sessions. Repetitions are replications, not retries. Once genuine model activity occurs, that unit is consumed. No quality reruns, best-of-N or human rescue. All 24 outputs must freeze before hidden correctness adjudication.
 
 ## Count rule
 
