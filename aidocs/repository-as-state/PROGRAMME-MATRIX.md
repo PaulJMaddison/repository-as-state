@@ -2,7 +2,7 @@
 
 Authoritative normalized ledger established 2026-09-03.
 
-Current status: **59 complete / 67 total**. Item **60 active (reopened)**.
+Current status: **60 complete / 67 total**. Item **61 active (fresh post-repair preregistration)**.
 
 Legend: ✅ complete · 🟡 active · ⬜ pending/blocked
 
@@ -67,8 +67,8 @@ Legend: ✅ complete · 🟡 active · ⬜ pending/blocked
 | 57 | P2 candidate inventory / anti-cherry-picking / complexity / telemetry design completed | ✅ |
 | 58 | Repair and freeze P2 Level-2 design from corrected four-task corpus: 4 × 3 × 2 = 24 runs | ✅ |
 | 59 | Freeze corrected four-task P2 selection and neutral disclosed contracts | ✅ |
-| 60 | Implement/qualify P2 semantic hidden verifiers **and prove hidden-material isolation against actual experimental identity** | 🟡 |
-| 61 | Freeze fresh post-repair P2 preregistration/runtime/prompts/randomisation/execution lock | ⬜ |
+| 60 | Implement/qualify P2 semantic hidden verifiers and prove hard hidden-material isolation against actual restricted experimental identity | ✅ |
+| 61 | Freeze fresh post-repair P2 preregistration/runtime/prompts/randomisation/public binding/execution lock | 🟡 |
 | 62 | Execute fresh accepted 24-run P2 same-repository replication | ⬜ |
 | 63 | Blind-adjudicate and scientifically interpret P2 | ⬜ |
 | 64 | Publish Level-2 P2 evidence and update paper claims/evidence | ⬜ |
@@ -78,55 +78,61 @@ Legend: ✅ complete · 🟡 active · ⬜ pending/blocked
 
 ## Current count
 
-- Complete: **59**
-- Active: **1** (`#60`, reopened isolation gate)
-- Blocked/pending after active item: **7**
+- Complete: **60**
+- Active: **1** (`#61`, fresh post-repair preregistration/execution lock)
+- Blocked/pending after active item: **6**
 - Total: **67**
 
-## Why item 60 reopened
+## Why item 60 was reopened and is now restored
 
-The original item-60 semantic verifier qualification remains technically accepted: 13/13 governing behaviours implemented, 13/13 negative controls detected, 13/13 alternate-valid controls accepted, no false-positive decoys, deterministic historical qualification, and no build/test/compiler correctness dependency.
+The original item-60 semantic verifier qualification remained technically sound: 13/13 governing behaviours implemented, 13/13 negative controls detected, 13/13 alternate-valid controls accepted, no false-positive decoys, deterministic historical qualification, and no build/test/compiler correctness dependency.
 
-However item 60 also froze the claim that the experimental task-solving identity could not access hidden verifier material. During the first item-62 unit with genuine model activity, that identity successfully read private hidden-verifier/qualification material. This directly falsifies the isolation gate.
+The first live item-62 invocation then falsified the separate isolation claim because the experimental process shared the coordinator Windows identity and could read private methodology by absolute path. The contaminated execution was stopped with zero accepted units and zero hidden-verifier adjudications.
 
-Therefore:
+The repair introduced and live-qualified a separate non-administrator Windows experimental identity. The restricted identity is denied access to private methodology, the coordinator research repository, coordinator Codex profile, sealed methodology roots and contaminated execution evidence while retaining normal read/write access to a separate experimental workspace.
 
-- item 60 reopens for isolation only;
-- item 61 is invalidated downstream because its execution lock bound the false isolation claim;
-- item 62 cannot continue under the old preregistration;
-- the contaminated attempt is excluded from scientific evidence and cannot be selectively retried.
+Accepted isolation qualification:
 
-## Item-62 blocker state
+- forbidden access probes: **14/14 denied**
+- private bytes returned: **0**
+- absolute-path private reads: **0/6 succeeded**
+- private directory-enumeration attempts: **0/5 succeeded**
+- positive workspace probes: **8/8 passed**
+- tool child more privileged than experimental parent: **false**
+- privileged filesystem broker bypass: **false**
+- semantic verifier bytes changed: **false**
+- model completions during repair: **0**
 
-Worker terminal:
+Accepted repair package identities:
 
-`VALID_TERMINAL_B_ITEM62_EXECUTION_METHODOLOGY_BLOCKER`
+- root-cause audit: `8F27A0F784505F7EDE229E5D8B230CC756DA9743C9B2CD9F06AAE9A59AD480BF`
+- experimental-identity manifest: `9E1F6C394542F40807F195C9A93A697A7DB9079D68A8B92450EAE9C2CB2BAA6B`
+- negative-access probes: `AD6A2F4CB49CE68A9DDF95063461C338FFC79A6F0AF07CE144A6A428BB19069A`
+- positive-workspace probes: `3C12BC74661D01B48E33BA5A0FCD7B3802CED763543D167FF82C080BBC052775`
+- process-token audit: `7A03DBF35EDF8200A92CF109FC239BA29D8936C4FF3662503BAF27CB77E5927C`
+- isolation qualification summary: `2B0DF0851AC5FBEDBCBA04A1BE450F5C8C5587FEB7C089BEF22A5223A4047DA7`
+- isolation freeze: `9CD6FE3E1F2B204864B6973B115831411CD911EF4363A5F1139DBFBE795AE266`
+- isolation package: `CF652E017FE9E84B95EB671087537294C1953611B2D705BD74BFB55791FB5895`
+
+## Contaminated item-62 attempt
+
+The contaminated attempt remains historical methodology evidence only:
 
 - accepted experimental units completed: **0**
 - units with genuine model activity: **1**
-- units not executed: **23**
 - hidden verifier runs: **0**
-- partial correctness adjudications: **0**
-- correctness-related private information exposed to experimental session: **TRUE**
+- correctness adjudications: **0**
 - event-log SHA-256: `CB8CB6A38424A4D8BFADDAFCCB943BF600775F727A00B9FD7EC51DB03026CBCA`
 - partial-candidate manifest SHA-256: `7E72A6004BA07C43A61765E84CC6A3A43CAB445B0945516587DDCF03B0DA31D3`
 
-Public-safe blocker evidence:
+It is quarantined, cannot be selectively retried, and cannot influence correctness analysis or the future schedule.
 
-- `results/public/subject-b-p2-item62-hidden-material-isolation-blocker-v1.json`
-- `results/public/subject-b-p2-item62-hidden-material-isolation-blocker-v1.md`
+## Item 61 reset rule
 
-## Next valid path
+The old item-61 lock remains superseded. Item 61 must be recreated fresh after the accepted isolation repair.
 
-1. Preserve item-59 contracts and item-60 verifier semantics unchanged.
-2. Repair OS/runtime hidden-material isolation.
-3. Prove denial using the **actual experimental identity/process**, not only static ACL inspection.
-4. Freeze an item-60 isolation-repair package.
-5. Create a fresh item-61 preregistration/public binding/execution lock.
-6. Reset the experiment to zero accepted units and execute a newly committed 24-run instance.
-
-No model output or correctness-related information from the contaminated attempt may influence prompts, task selection, model choice, repetition count, conditions, or the new schedule.
+The fresh item-61 package must bind the repaired isolation identities, use fresh source-only PRE workspaces under the dedicated experimental workspace root, preserve the 4×3×2 causal design, use the restricted experimental identity, and create a new deterministic randomisation instance derived only from pre-execution frozen identities. A new public preregistration commitment must exist before a new final zero-model execution lock is accepted.
 
 ## Count rule
 
-An item becomes ✅ only after coordinator acceptance of its complete evidence package. Later empirical falsification can reopen an earlier item and invalidate downstream locks; that is intentional scientific bookkeeping, not count drift.
+An item becomes ✅ only after coordinator acceptance of its complete evidence package. Later empirical falsification can reopen an earlier item and invalidate downstream locks; once the falsified gate is genuinely repaired and accepted, the ledger can advance again without hiding the falsification history.
