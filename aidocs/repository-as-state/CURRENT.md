@@ -1,13 +1,12 @@
 # Repository-as-State — CURRENT
 
-Updated: 2026-09-04 15:37 Europe/London
+Updated: 2026-09-04 15:58 Europe/London
 
 ## Programme status
 
-- Authoritative progress ledger: **60/67 complete**.
-- Items 58, 59 and 60 are **COMPLETE**.
-- **Item 61 is REOPENED and ACTIVE — repair restricted Codex runtime accessibility and create a superseding execution lock.**
-- **Item 62 is BLOCKED.**
+- Authoritative progress ledger: **61/67 complete**.
+- Items 58, 59, 60 and 61 are **COMPLETE**.
+- **Item 62 is ACTIVE — execute the fresh locked post-isolation 24-run P2 replication using the accepted isolated runtime and v3 execution lock.**
 - Items 63–67 remain pending.
 - Fresh accepted P2 experimental units: **0**.
 - Fresh scheduled P2 units with genuine model activity: **0/24**.
@@ -24,7 +23,7 @@ Updated: 2026-09-04 15:37 Europe/London
 - The unit of progress is validated repository state, not accumulated agent conversation.
 - Repository-as-State is not repository-as-prompt.
 
-## Frozen P2 design remains unchanged
+## Frozen P2 design
 
 - `P2V2_T01 = C07`
 - `P2V2_T02 = C08`
@@ -69,11 +68,11 @@ Dedicated experimental identity:
 
 `DESKTOP-BFTREBH\ras-p2-experimental`
 
-It remains separate from the coordinator identity and non-Administrator. Protected private/coordinator roots must remain inaccessible while the experimental workspace remains usable.
+It is separate from the coordinator identity, non-Administrator and non-elevated. Protected private/coordinator roots remain inaccessible while the experimental workspace and isolated runtime remain usable.
 
 ## Contaminated historical Item-62 attempt
 
-The superseded same-user Item-62 attempt remains permanently excluded from evidence:
+The superseded same-user attempt remains permanently excluded:
 
 - accepted units: **0**
 - units with genuine model activity: **1**
@@ -88,9 +87,7 @@ Evidence:
 
 Never reuse its session, candidate, schedule, blind mapping, execution lock or correctness.
 
-## Fresh Item-61 Phase A — still authoritative
-
-The fresh Phase-A experimental choices remain frozen and unchanged:
+## Fresh Phase-A commitments — unchanged
 
 - runtime manifest: `5FC248F380A623BEF2D83C960FFBEC14F59B58A60C3846165D90F400384FA191`
 - model binding: `28705DB131283F57853578076830DBCADE2E90695198B289A5BD6645C2CC1DA4`
@@ -99,74 +96,88 @@ The fresh Phase-A experimental choices remain frozen and unchanged:
 - experimental-unit manifest: `73DD340957D5850FE059E07F25DAFB84101E9E72C03B3245C5009D07DB6F82BF`
 - blind-ID mapping: `CB6AB22AA185E45FF085C89104086743DA26262274BE053ECF40768646A9D498`
 - PRE-workspace manifest: `209FA8ADA0282569B43A4A626DE3750853671CAC268CA5D5A19DC388ED980456`
-- original restricted execution launcher: `6D1DECCD2DB3B29D32D736C5930D0724669B500324CA53BEBA7175BC33B33687`
+- original restricted launcher: `6D1DECCD2DB3B29D32D736C5930D0724669B500324CA53BEBA7175BC33B33687`
 - pre-model readiness audit: `5C1D8B7C4332D50EC3B51C335C1DE90321FB5598D15587C49A25FAAA07B7D99D`
 - preregistration manifest: `808253DC67896B108BA1B94EE3F9E8243A22BFA02738D3F95D36AA25658F0447`
 - preregistration package: `132C3D38170518458FFC8D2F81E458420AFDAE5E2F7CF14FD80F17D2372997B3`
 
 The randomisation seed, schedule, blind mapping and hidden verifier remain sealed.
 
-The earlier coordinator transcription correction to the public model-binding commitment remains historical and resolved; private Phase-A bytes were never changed.
+## Runtime-access falsification and repair history
 
-## Superseded Item-61 execution lock
-
-The previous zero-model Phase-B lock was accepted with:
+The original Item-61 v2 lock was accepted with:
 
 - manifest: `A1D0B4837228E7A2F115FCB6E8A6D8A65930FA88BC031D600382C69A1E492094`
 - package: `A48928533D173C9AEEF31CA9CDFE92D884788A6A3482D9D7B646C6696C8F53F8`
 
-It is now **preserved as historical evidence but superseded for execution-readiness**.
+The first fresh Item-62 live preflight later proved that the restricted identity could authenticate but could not execute the coordinator-profile Codex runtime. Windows returned `Access is denied` before any task model process started.
 
-## Live runtime-access falsification
+That event did not contaminate Item 62 but empirically falsified Item-61 execution readiness. Item 61 was therefore reopened and the v2 lock preserved as historical evidence.
 
-During the first fresh Item-62 live preflight, before any scheduled task-model activity, the restricted credential was validated and the experimental identity remained non-admin, but Windows denied execution of the frozen Codex executable under that identity.
-
-Worker terminal:
-
-`BLOCKED_PRE_MODEL_RESTRICTED_CODEX_EXECUTABLE_ACCESS_DENIED`
-
-Observed state:
-
-- required public HEAD: `69de3dc9577e38058f0b8c084e669e3d15e2e742`
-- public repository modified by worker: **FALSE**
-- restricted credential valid: **TRUE**
-- restricted identity non-admin: **TRUE**
-- frozen Codex executable runnable as restricted identity: **FALSE — Access denied before model process start**
-- scheduled units with model activity: **0/24**
-- accepted fresh units: **0**
-- hidden verifier runs: **0**
-- correctness adjudications: **0**
-- experimental attempt consumed: **FALSE**
-- Item 62 executed: **FALSE**
-
-Public evidence:
+Public falsification evidence:
 
 - `results/public/subject-b-p2-item61-runtime-access-falsification-v2.json`
 - `results/public/subject-b-p2-item61-runtime-access-falsification-v2.md`
 
-Scientific ruling:
+## Item 61 v3 runtime repair — accepted
 
-- this is **not** experimental contamination;
-- it **does** falsify the accepted Item-61 live execution-readiness claim;
-- Item 61 is reopened;
-- Item 62 is blocked;
-- Phase-A experimental choices remain frozen and must not be regenerated.
+The repair provisioned the exact Codex runtime under:
 
-## Active next gate
+`C:\Kyntic\ras-p2-experimental-runtime-v2`
 
-Repair only the restricted Codex runtime-access boundary.
+Accepted runtime facts:
 
-The repair must:
+- exact CLI: `codex-cli 0.153.0-alpha.5`
+- exact target model: `gpt-5.6-luna`
+- restricted identity: `DESKTOP-BFTREBH\ras-p2-experimental`
+- administrator: **FALSE**
+- elevated: **FALSE**
+- runtime depends on coordinator-profile paths: **FALSE**
+- protected private root denied: **TRUE**
+- protected coordinator root denied: **TRUE**
+- protected coordinator Codex home denied: **TRUE**
+- experimental workspace access: **PASS**
+- prompts/randomisation/schedule/blind mapping/PRE workspaces/model changed: **FALSE**
+- scheduled Item-62 units with model activity during repair: **0**
+- Item-62 accepted units: **0**
+- hidden verifier runs: **0**
+- correctness adjudications: **0**
+- plaintext credentials in artifacts/templates/public drafts: **0**
 
-- identify the exact current Codex executable/runtime path and ACL/access cause;
-- make the exact required Codex runtime executable by `DESKTOP-BFTREBH\ras-p2-experimental` without granting access to protected coordinator/private roots;
-- prefer an isolated experimental runtime installation/copy under an experimental-readable root over weakening coordinator-root ACLs;
-- prove executable/runtime bytes and exact Codex CLI/model identity;
-- prove the restricted identity can launch the runtime;
-- preserve the hard private-material deny boundary;
-- preserve all prompts, task selection, PRE states, model choice, randomisation, schedule, blind IDs/mapping, timeout, retry discipline and full-block blindness;
-- execute **zero scheduled Item-62 task units** during repair;
-- create a fresh superseding Item-61 execution-readiness qualification and zero-model execution lock;
-- produce public-safe drafts for coordinator publication.
+Accepted v3 identities:
 
-Only after coordinator acceptance/publication of the superseding execution lock may Item 61 return to complete and Item 62 become active again.
+- execution-lock manifest: `A0A8D89CDC226EE5619C9AA0BE80F936EC84B6218EA14E84F992B650699844DD`
+- execution-lock contents manifest: `C774396F9F56DD94CFE0194E2916F891CF5D9CF6DD29D63F6E97AE48A9FBFC73`
+- execution-lock package: `908CCB709B08379E616EF62C04B996DB7A526ED91BB66E73491CDE3D8C377D99`
+
+All v3 SHA-256 values are 64 characters, repeat matches are true and package internal bindings validate.
+
+Public v3 evidence:
+
+- `results/public/subject-b-p2-execution-lock-v3.json`
+- `results/public/subject-b-p2-execution-lock-v3.md`
+
+The v3 lock supersedes v2 for execution. The falsification history and v2 lock remain preserved.
+
+## Active Item 62
+
+Execute the exact locked 24-run experiment using the accepted isolated runtime.
+
+Absolute rules:
+
+- use the frozen private schedule and blind mapping exactly;
+- do not regenerate schedule, blind IDs, prompts, workspaces or model binding;
+- task-solving processes run only as `DESKTOP-BFTREBH\ras-p2-experimental`;
+- runtime executable is the accepted isolated runtime under `C:\Kyntic\ras-p2-experimental-runtime-v2`;
+- exact model `gpt-5.6-luna`; no silent substitute;
+- 1800-second timeout per unit;
+- fresh exact PRE workspace every unit;
+- Condition A carries session/reasoning continuity only, never generated code;
+- Condition B sessions remain fresh;
+- once genuine model activity occurs, that unit has consumed its one attempt;
+- retry only frozen-policy permitted pre-model infrastructure failures;
+- no best-of-N, human rescue or post-model quality retry;
+- no hidden correctness verifier or partial correctness adjudication until all 24 outputs are frozen;
+- contaminated historical execution remains quarantined and unused.
+
+Item 62 completes only after all 24 locked units have been attempted under the frozen rules and their output states/evidence are frozen without hidden correctness inspection.
