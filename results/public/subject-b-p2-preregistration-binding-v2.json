@@ -1,6 +1,6 @@
 {
   "schema_version": "subject-b-p2-preregistration-binding-v2",
-  "status": "PUBLIC_PREREGISTRATION_V2_BINDING_PUBLISHED",
+  "status": "PUBLIC_PREREGISTRATION_V2_BINDING_CORRECTED_AND_REPUBLISHED",
   "supersedes_execution_authority_of": "subject-b-p2-preregistration-binding-v1",
   "supersession_reason": "The first live item-62 attempt falsified the old same-user hidden-material isolation assumption. The old execution instance is permanently abandoned; this v2 binding commits a fresh post-isolation preregistration before any new P2 task-solving model activity.",
   "programme_state": {
@@ -18,7 +18,8 @@
   "coordinator_provenance": {
     "public_branch": "research/p0-subject-b-corpus-preregistration",
     "pre_binding_head": "6728caf881b3ba0aed7fab9a71706ed6ddfd2484",
-    "phase_a_terminal": "VALID_TERMINAL_A_ITEM61_POST_ISOLATION_PHASE_A_READY_FOR_PUBLIC_BINDING"
+    "phase_a_terminal": "VALID_TERMINAL_A_ITEM61_POST_ISOLATION_PHASE_A_READY_FOR_PUBLIC_BINDING",
+    "phase_b_correction_terminal": "VALID_TERMINAL_B_ITEM61_PHASE_B_PUBLIC_PHASE_A_MODEL_BINDING_MISMATCH"
   },
   "design": {
     "tasks": 4,
@@ -54,7 +55,7 @@
   },
   "phase_a_commitments": {
     "runtime_manifest_sha256": "5FC248F380A623BEF2D83C960FFBEC14F59B58A60C3846165D90F400384FA191",
-    "model_binding_sha256": "28705DB131283F57853578076830DBCADE2E90695198B289A5BD6645C2CC1DA",
+    "model_binding_sha256": "28705DB131283F57853578076830DBCADE2E90695198B289A5BD6645C2CC1DA4",
     "prompt_manifest_sha256": "DE05F68970B7E4DDE86990335C3621C88C36FB880C86591FC207131ACF164CC4",
     "randomisation_manifest_sha256": "6878648FBB56E03F2BA7EECA6AD17FAB8760203F115CAA515CD3736CAB7D3947",
     "experimental_unit_manifest_sha256": "73DD340957D5850FE059E07F25DAFB84101E9E72C03B3245C5009D07DB6F82BF",
@@ -113,5 +114,25 @@
     "correctness_results_published": false,
     "credentials_published": false
   },
-  "next_gate": "ITEM61_PHASE_B_FINAL_ZERO_MODEL_EXECUTION_LOCK_AGAINST_PUBLIC_V2_BINDING"
+  "correction": {
+    "reason": "The first Phase-B integrity audit found that the coordinator-published v2 model_binding_sha256 had been truncated by one hexadecimal character during publication. The private Phase-A model-binding artifact remained unchanged and hashes to the 64-character value recorded here.",
+    "pre_correction_public_head": "cd43146f5e27ace334c1ef30ab3ce3d154bbe924",
+    "pre_correction_json_blob_sha": "04c3019dc427b794cd025b8e5d23a5fc7e6a5c62",
+    "pre_correction_md_blob_sha": "f6d0a70acf0e7ef27954049a11c54034c8891d05",
+    "incorrect_public_model_binding_sha256": "28705DB131283F57853578076830DBCADE2E90695198B289A5BD6645C2CC1DA",
+    "incorrect_public_hash_length": 63,
+    "correct_phase_a_model_binding_sha256": "28705DB131283F57853578076830DBCADE2E90695198B289A5BD6645C2CC1DA4",
+    "correct_hash_length": 64,
+    "private_phase_a_execution_authoritative_bytes_changed": false,
+    "prompts_changed": false,
+    "randomisation_changed": false,
+    "schedule_changed": false,
+    "blind_mapping_changed": false,
+    "model_changed": false,
+    "timeout_changed": false,
+    "fresh_model_completions_generated": 0,
+    "fresh_p2_accepted_experimental_units": 0,
+    "p2_correctness_adjudications": 0
+  },
+  "next_gate": "ITEM61_PHASE_B_FINAL_ZERO_MODEL_EXECUTION_LOCK_AGAINST_CORRECTED_PUBLIC_V2_BINDING"
 }
