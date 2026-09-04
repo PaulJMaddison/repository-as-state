@@ -1,6 +1,6 @@
 # Subject-B P2 preregistration binding v1
 
-Status: **public Phase-A preregistration commitment published; item 61 is not yet complete.**
+Status: **public preregistration commitment corrected and republished; item 61 is not yet complete.**
 
 This record commits the corrected Subject-B P2 experiment before any P2 task-solving model activity.
 
@@ -22,8 +22,11 @@ This record commits the corrected Subject-B P2 experiment before any P2 task-sol
 
 - exact model target: `gpt-5.6-luna`
 - Codex CLI: `0.153.0-alpha.5`
-- Codex config SHA-256: `4FC602F42CA6974BFF0AC13AA4D06FF8FA0831790398F05D55EEFBCB66239674`
+- execution-relevant effective Codex configuration SHA-256: `8249A208C5DED9B173BBC6B22B8EA6E1A11AB8E29BFF4B7B006A396BF8FA0093`
+- Phase-A runtime-manifest SHA-256: `4FC602F42CA6974BFF0AC13AA4D06FF8FA0831790398F05D55EEFBCB66239674`
 - run timeout: 1800 seconds
+
+The effective configuration identity above is the canonical execution-relevant configuration frozen inside `P2V2-RUNTIME-MANIFEST-v1.json`; it is deliberately distinguished from the raw `config.toml` file hash.
 
 Phase A established exact-model availability using local runtime/provider metadata without generating a model completion.
 
@@ -41,6 +44,32 @@ Phase A established exact-model availability using local runtime/provider metada
 
 The randomisation seed, private execution order, blind-to-condition mapping and hidden-verifier implementation remain sealed. This public record binds their frozen private manifests without revealing them before adjudication.
 
+## Correction history
+
+The original Phase-A publication commit was:
+
+`7ebb0705d78a52b4144107a323ea240fe31567e6`
+
+with JSON blob:
+
+`8b7355db2db8f519f2cd4096b1801ee14e325f74`.
+
+A Phase-B integrity check proved that the original public `codex_config_sha256` field incorrectly contained:
+
+`4FC602F42CA6974BFF0AC13AA4D06FF8FA0831790398F05D55EEFBCB66239674`
+
+which is the SHA-256 of `P2V2-RUNTIME-MANIFEST-v1.json`, not the effective Codex configuration identity embedded in that manifest.
+
+The correct frozen execution-relevant effective configuration identity is:
+
+`8249A208C5DED9B173BBC6B22B8EA6E1A11AB8E29BFF4B7B006A396BF8FA0093`.
+
+For audit completeness, Phase B also observed the then-current raw `C:\Users\pm\.codex\config.toml` file hash as:
+
+`B321C224F46DCE5C01F500AD813D626D34513738F446644450D0A4D1DF16DF1E`.
+
+No substantive experimental choice changed during this correction. The private Phase-A preregistration manifest/package, prompts, randomisation, schedule, blind mapping, model and timeout remain unchanged. P2 experimental runs remained zero.
+
 ## Frozen execution discipline
 
 - repetitions are independent replications, not retries
@@ -53,9 +82,7 @@ The randomisation seed, private execution order, blind-to-condition mapping and 
 - no partial hidden adjudication before all 24 output freezes exist
 - hidden verifier remains private and inaccessible to the experimental agent
 
-## Zero-model gate at publication
-
-At the Phase-A freeze:
+## Zero-model gate at correction publication
 
 - P2 experimental agent runs: **0**
 - P2 task-solving model invoked: **false**
@@ -63,4 +90,4 @@ At the Phase-A freeze:
 - P2 executed: **false**
 - hidden verifier experimental adjudications: **0**
 
-The next step is item-61 Phase B: verify this public binding, revalidate the frozen private package and create the final zero-model execution lock. Only after coordinator acceptance of that lock may item 62 begin.
+The next step is item-61 Phase B: validate this corrected public binding against the unchanged private Phase-A package and create the final zero-model execution lock. Only after coordinator acceptance of that lock may item 62 begin.
