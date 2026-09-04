@@ -2,9 +2,9 @@
 
 Authoritative normalized ledger established 2026-09-03.
 
-Current status: **58 complete / 67 total**. Item **59 active**.
+Current status: **57 complete / 67 total**. Item **58 active**.
 
-The earlier ~48/67 and ~58/67 counts were working conversational estimates. This file is now the durable numbered ledger to prevent future count drift. Future progress updates should change explicit item statuses here rather than recalculate from grouped summaries.
+The earlier ~48/67 and ~58/67 counts were working conversational estimates. This file is the durable numbered ledger to prevent future count drift. Future progress updates change explicit item statuses here rather than recalculate from grouped summaries.
 
 Legend: ✅ complete · 🟡 active · ⬜ pending
 
@@ -67,8 +67,8 @@ Legend: ✅ complete · 🟡 active · ⬜ pending
 | 55 | P1 scientific interpretation completed | ✅ |
 | 56 | P1 public-safe results, README, evidence roadmap and claims register published | ✅ |
 | 57 | P2 candidate inventory / anti-cherry-picking / complexity / telemetry design completed | ✅ |
-| 58 | P2 recommended Level-2 design accepted: 5 tasks × 3 reps × 2 conditions = 30 runs | ✅ |
-| 59 | Re-audit all 10 P2 candidates under original eligibility rules; repair and re-freeze execution-authoritative selection/contracts | 🟡 |
+| 58 | Repair and freeze P2 recommended Level-2 design after corrected eligibility corpus reduced to four tasks | 🟡 |
+| 59 | Freeze corrected P2 task selection and neutral contracts from accepted item-58 design | ⬜ |
 | 60 | Implement and qualify P2 semantic hidden verifiers for final selected tasks | ⬜ |
 | 61 | Freeze P2 final preregistration/runtime/prompts/randomisation/execution lock | ⬜ |
 | 62 | Execute accepted P2 same-repository replication | ⬜ |
@@ -80,23 +80,35 @@ Legend: ✅ complete · 🟡 active · ⬜ pending
 
 ## Current count
 
-- Complete: **58**
-- Active: **1** (`#59`)
-- Pending after active item: **8**
+- Complete: **57**
+- Active: **1** (`#58`)
+- Pending after active item: **9**
 - Total: **67**
 
-## Accepted P2 contract-to-history adjudication — 2026-09-04
+## Historical item-58 design — now superseded pending repair
 
-The no-build/no-test/no-compile audit of the previously frozen 18 P2 governing behaviours completed with:
+The previously accepted design was:
+
+- 5 tasks
+- 3 repetitions
+- 2 conditions
+- 30 planned runs
+- complexity: 3 LOW / 2 MEDIUM / 0 HIGH
+
+That design was accepted before the later contract-to-history falsification work exposed a task-eligibility error.
+
+## Accepted P2 contract-to-history adjudication
+
+Private audit SHA256:
+
+`4A57493EC8B70732C5AFABC71F055153DA423867F32564233FBD1EF59A17D5F5`
+
+Result:
 
 - valid behavioural deltas: **9**
 - oracle-mapping defects: **4**
 - frozen contract defects: **5**
 - unresolved: **0**
-
-Private audit SHA256:
-
-`4A57493EC8B70732C5AFABC71F055153DA423867F32564233FBD1EF59A17D5F5`
 
 Exact contract defects:
 
@@ -104,38 +116,73 @@ Exact contract defects:
 
 ## Accepted item-59 repair blocker
 
-The exact repair attempt returned `VALID_TERMINAL_B` with zero build/test/compiler commands and zero P2 experimental runs.
-
 Private blocker SHA256:
 
 `667E9CA48B9FF69F7548C1CB0916A2C93240470E29C218452191E3005E458668`
 
-It proved that the existing five-task contract freeze cannot be repaired as written by simply replacing those five behaviours. No v2 curation/refreeze was created.
+The exact repair worker used zero build/test/compiler commands and zero P2 experimental runs. It proved that the historical five-task freeze could not be repaired as written without eligibility/design review.
 
-Important coordinator distinction:
+## Accepted ten-candidate eligibility re-audit v2
 
-- C06/T01 has all four historical behaviours classified as contract defects and must undergo eligibility review.
-- C07/T02 has one defective behaviour but two already accepted genuine deltas; it is **not automatically ineligible**.
-- C08 and C09 have valid governing deltas.
-- C10 has valid disclosed behaviours with verifier-seam mapping defects only.
+Terminal state:
 
-The original selection rule was **all eligible candidates in the historical inventory window, ordered by POST date then commit ID**. Therefore no ad-hoc replacement candidate is permitted.
+`VALID_TERMINAL_B_ITEM58_REOPEN_REQUIRED`
 
-Item 59 now requires a complete C01–C10 eligibility re-audit under the original criteria. Previously excluded candidates may enter only if their original exclusion is objectively shown to have been incorrect under those same criteria.
+Private re-audit SHA256:
 
-## Conditional item-58 rule
+`D55B610B6E2FFB1B032137F30C348FEFE9EF3542321720090C6690885D749E41`
 
-Item 58 remains complete while the full eligibility re-audit is pending.
+Repeat match: **TRUE**.
 
-- If corrected eligible total = **5**, item 58 remains complete and item 59 may repair/re-freeze the five-task state.
-- If corrected eligible total ≠ **5**, item 58 is reopened for a transparent Level-2 design repair; item 59 cannot be completed first.
-- Do not force five tasks, increase repetitions, or otherwise preserve 30 runs post hoc.
+All ten candidates were re-audited using the original pre-existing criteria. The PRE=false / POST=true behavioural-delta requirement was confirmed as explicit or logically required, not added post hoc.
 
-## Absolute P2 repair/verifier rule
+Corrected eligible set:
 
-No `dotnet build`, `dotnet test`, `dotnet restore`, compiler, project build/test, solution build/test or probe compilation may be used as contract, eligibility or verifier qualification evidence in this stage.
+`C07, C08, C09, C10`
 
-No P2 experimental model run may occur before the corrected item-59 state and subsequent item-60 verifier qualification are accepted.
+Corrected eligible total: **4**.
+
+Corrected excluded set:
+
+`C01, C02, C03, C04, C05, C06`
+
+Only C06 changes classification: historically eligible → corrected ineligible.
+
+C07 remains eligible with two genuine behaviours after `P2_T02_B02` is removed as an over-curated non-delta. C08, C09 and C10 remain eligible.
+
+Corrected complexity:
+
+- LOW: **3**
+- MEDIUM: **1**
+- HIGH: **0**
+
+Corrected governing behaviours: **13**.
+
+All retained behaviours satisfy PRE=false / POST=true. Undisclosed governing requirements: **0**. Fairness audits: **PASS**.
+
+Anti-cherry-picking checks all pass:
+
+- outcome-based eligibility decisions: 0
+- model-performance information used: false
+- verifier ease used as criterion: false
+- desired sample size used as criterion: false
+- desired complexity balance used as criterion: false
+- ad-hoc replacements: 0
+- post-hoc slot filling: false
+
+## Item-58 consequence
+
+Because the objective eligible corpus contains four tasks and the original rule selected all eligible candidates, the historical five-task design is no longer valid. Item 58 is therefore reopened and the complete count decreases from 58 to **57**.
+
+The natural repair candidate is 4 tasks × 3 repetitions × 2 conditions = **24 runs**, preserving the pre-existing repetition count and A/B treatment structure. This is not yet frozen; the active item-58 work must formally validate and bind it.
+
+Do not add a fifth task or change repetitions merely to recreate 30 runs.
+
+## Absolute P2 design/contract/verifier rule
+
+No `dotnet build`, `dotnet test`, `dotnet restore`, compiler, project build/test, solution build/test or probe compilation may be used as design, contract, eligibility or verifier qualification evidence in this stage.
+
+No P2 experimental model run may occur before the repaired item-58 design, item-59 contract freeze and item-60 verifier qualification are accepted.
 
 ## Count rule
 
