@@ -1,0 +1,49 @@
+{
+  "schema_version": "subject-b-p2-item61-runtime-access-falsification-v2",
+  "status": "ITEM61_REOPENED_RUNTIME_ACCESS_FALSIFICATION",
+  "observed_during": "ITEM62_PRE_MODEL_LIVE_EXECUTION_PREFLIGHT",
+  "worker_terminal": "BLOCKED_PRE_MODEL_RESTRICTED_CODEX_EXECUTABLE_ACCESS_DENIED",
+  "public_repository": {
+    "expected_head": "69de3dc9577e38058f0b8c084e669e3d15e2e742",
+    "observed_head": "69de3dc9577e38058f0b8c084e669e3d15e2e742",
+    "modified_by_worker": false
+  },
+  "falsified_claim": "The accepted Item-61 execution lock had treated the restricted launcher/runtime as ready for live Item-62 task-model execution. Live pre-model execution proved the restricted identity could not execute the frozen Codex executable.",
+  "observed_runtime_facts": {
+    "restricted_credential_valid": true,
+    "experimental_identity": "DESKTOP-BFTREBH\\ras-p2-experimental",
+    "experimental_identity_is_administrator": false,
+    "restricted_codex_executable_launch_result": "ACCESS_DENIED_BEFORE_MODEL_PROCESS_START",
+    "target_model_process_started": false
+  },
+  "scientific_state": {
+    "fresh_scheduled_units_with_model_activity": 0,
+    "fresh_accepted_experimental_units": 0,
+    "hidden_verifier_runs_against_fresh_candidates": 0,
+    "correctness_adjudications": 0,
+    "item62_executed": false,
+    "experimental_attempt_consumed": false,
+    "contamination_introduced": false
+  },
+  "ruling": {
+    "item61_complete": false,
+    "item61_status": "ACTIVE_RUNTIME_ACCESS_REPAIR_AND_RELOCK",
+    "item62_status": "BLOCKED",
+    "authoritative_complete_count": 60,
+    "total_items": 67,
+    "previous_execution_lock_preserved_as_historical_evidence": true,
+    "previous_execution_lock_execution_readiness_superseded": true,
+    "phase_a_experimental_choices_may_change": false,
+    "schedule_may_change": false,
+    "blind_mapping_may_change": false,
+    "prompts_may_change": false,
+    "model_may_change": false
+  },
+  "repair_boundary": {
+    "goal": "Make the exact frozen Codex runtime executable under the restricted experimental identity without granting access to protected coordinator/private roots, then requalify and create a superseding zero-model execution lock.",
+    "must_preserve_hard_isolation": true,
+    "must_not_start_item62_during_repair": true,
+    "must_not_expose_sealed_schedule_or_blind_mapping": true,
+    "must_not_publish_credentials": true
+  }
+}
