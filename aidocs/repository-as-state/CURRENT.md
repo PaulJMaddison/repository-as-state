@@ -1,6 +1,6 @@
 # Repository-as-State — CURRENT
 
-Updated: 2026-09-04 11:09 Europe/London
+Updated: 2026-09-04 11:36 Europe/London
 
 ## Programme status
 
@@ -8,11 +8,11 @@ Updated: 2026-09-04 11:09 Europe/London
 - Item 58 is **COMPLETE**: corrected Subject-B P2 Level-2 design frozen at **4 tasks × 3 repetitions × 2 conditions = 24 runs**.
 - Item 59 is **COMPLETE**: corrected four-task execution-authoritative selection and neutral disclosed contracts are frozen.
 - Item 60 is **COMPLETE**: source-only semantic hidden verifiers for all 13 final behaviours are implemented, qualified and privately frozen.
-- **Item 61 is ACTIVE**: freeze final P2 preregistration, exact model/runtime/prompts/randomisation/execution lock with zero P2 task-solving model runs.
+- **Item 61 is ACTIVE — Phase A accepted/publicly bound; Phase B final zero-model execution lock remains.**
 - P2 experimental agent runs: **0**.
 - P2 task-solving model invoked: **FALSE**.
 - P2 executed: **FALSE**.
-- P2 preregistered: **FALSE** until item 61 is accepted.
+- P2 preregistered: **FALSE** until the final item-61 execution lock is accepted; the Phase-A public preregistration commitment now exists.
 - P0 rerun: **FALSE**.
 - P1 rerun: **FALSE**.
 
@@ -139,33 +139,73 @@ Public-safe evidence:
 - `results/public/subject-b-p2-semantic-verifier-qualification-v1.md`
 - `results/public/subject-b-p2-semantic-verifier-qualification-v1.json`
 
-## Item 61 active gate
+## Item 61 Phase A — accepted and publicly bound
 
-Freeze the final execution-authoritative P2 preregistration and execution lock before any task-solving model invocation.
+Phase-A terminal:
 
-Item 61 must bind at minimum:
+`VALID_TERMINAL_A_ITEM61_PHASE_A_READY_FOR_PUBLIC_BINDING`
 
-- exact accepted item-58 design and item-59/item-60 package identities;
-- exact model identity `gpt-5.6-luna`; if unavailable, stop for methodology review and do not silently substitute;
-- exact Codex CLI/runtime/toolchain identity;
-- neutral prompt bytes derived only from the item-59 disclosed task contracts;
-- prompt equality across A/B except for continuity mechanism outside the prompt;
-- three independent persistent A chains in chronological task order;
-- 12 independent fresh B sessions;
-- random seed and final interleaving chosen and frozen before model activity while preserving chronological order within each A chain;
-- fresh exact PRE workspace for every run;
-- generated code never carries between runs or tasks;
-- timeout and retry discipline;
-- durable resource telemetry;
-- full-block blindness and output-freeze rules;
-- hidden verifier isolation and adjudication boundary;
-- execution lock/public binding/final zero-model gate.
+Accepted pre-model state:
 
-Item 61 must perform **zero P2 task-solving model runs**. No hidden correctness result may be exposed.
+- exact model target: `gpt-5.6-luna`
+- exact model availability established from local provider/runtime metadata without a completion
+- Codex CLI: `0.153.0-alpha.5`
+- Codex config SHA-256: `4FC602F42CA6974BFF0AC13AA4D06FF8FA0831790398F05D55EEFBCB66239674`
+- canonical prompt files: 4; same-task bytes identical across A/B/repetitions; hidden requirements: 0
+- isolated PRE workspaces: 24/24
+- FUTURE_HISTORY_LEAK_GATE: 24/24 pass
+- generated-code carry: false
+- deterministic randomisation/schedule frozen before model activity
+- blind IDs: 24; condition/task not revealed
+- run timeout: 1800 seconds
+- full-block blindness retained
+- pre-model readiness: pass
+- model completions generated: 0
+- experimental runs: 0
+
+Phase-A private commitment identities:
+
+- runtime manifest: `4FC602F42CA6974BFF0AC13AA4D06FF8FA0831790398F05D55EEFBCB66239674`
+- model binding: `5F50ED53B7627253DF5814CA3FE157E52E45B1D21514B9C7D00953A56F398397`
+- prompt manifest: `36EE1B1FC458D37821F1805B6E0FEC9AAC12C0BB4A0E1754CFDA22E11E7A2879`
+- randomisation manifest: `CEC19FC3891F516F5AB57C47DC28BC427BB8B366A5D80C2FC7B359C975FA1428`
+- experimental-unit manifest: `FD47BCF1A81066CF3DD80C240B5C5A1B62D177A1A831B66848FC86D068CE9681`
+- blind-ID mapping: `A100F2AA35CBFDB59CC6D5FBD6AB0B7CDFFF83577AB81952F25812DAEA8F09FE`
+- PRE-workspace manifest: `C059081C3228C72644E546A14833F339CF9E9211C12037C0196D8C819CF670E3`
+- execution-command templates: `38435B615C38264DF1E888159FB7F830CEE0B0956CD5125DA469AC6DB1B9B8F4`
+- pre-model readiness audit: `DF99C3B064C7FD3D6E857BA1C15F92A959BAAA23A886819EB3B239B70E24259B`
+- preregistration manifest: `221E19675EFAFB37E96FA4950D178BE729C27D16D3B4C955D4DBCBABA2DFCF48`
+- preregistration package: `86EAF3411A89D45F3563D7CD64411C0F9927FC5CE5815DB4ECFBA7B0C6DC5F59`
+
+Public preregistration binding:
+
+- publication commit: `7ebb0705d78a52b4144107a323ea240fe31567e6`
+- JSON blob SHA: `8b7355db2db8f519f2cd4096b1801ee14e325f74`
+- `results/public/subject-b-p2-preregistration-binding-v1.json`
+- `results/public/subject-b-p2-preregistration-binding-v1.md`
+
+The public binding does **not** reveal the private schedule, randomisation seed, blind-condition mapping or hidden verifier implementation.
+
+## Item 61 Phase B active gate
+
+Create the final zero-model execution lock downstream of the public preregistration commitment.
+
+Phase B must:
+
+- verify the public-binding commit/blob and prove it binds the already-frozen Phase-A package;
+- verify item-58/59/60 and Phase-A private identities remain unchanged;
+- re-run only non-model readiness/integrity checks;
+- prove exact model/runtime availability has not drifted without generating a completion;
+- prove 24 PRE workspaces and hidden-verifier isolation remain valid;
+- bind the public commitment, private preregistration package and final pre-execution zero-model state into an execution-lock manifest/package;
+- perform a final zero-model gate;
+- make no task-solving model invocation.
+
+Only after coordinator acceptance of Phase B does item 61 become complete and item 62 become active.
 
 ## Remaining gates
 
-61. Freeze P2 final preregistration/runtime/prompts/randomisation/execution lock — **ACTIVE**.
+61. Freeze P2 final preregistration/runtime/prompts/randomisation/execution lock — **ACTIVE (Phase B)**.
 62. Execute accepted 24-run P2 same-repository replication.
 63. Blind-adjudicate and scientifically interpret P2.
 64. Publish Level-2 P2 evidence and update paper claims/evidence.
@@ -175,4 +215,4 @@ Item 61 must perform **zero P2 task-solving model runs**. No hidden correctness 
 
 ## Coordinator/Codex rule
 
-Persist authoritative state; reconstruct computation. Items 58–60 are now frozen. Item 61 must freeze the execution protocol before any experimental model activity and must stop rather than silently substituting the model or changing the accepted treatment structure.
+Persist authoritative state; reconstruct computation. Phase A is now publicly committed. Phase B must only seal the already-frozen protocol into the final execution lock; it must not change model, prompts, tasks, schedule, timeout, treatment definitions or any correctness boundary.
