@@ -1,12 +1,13 @@
 # Repository-as-State — CURRENT
 
-Updated: 2026-09-04 03:28 Europe/London
+Updated: 2026-09-04 09:19 Europe/London
 
 ## Programme status
 
 - Authoritative progress ledger: **58/67 complete**.
-- **Item 59 is ACTIVE again:** repair the exact five frozen P2 contract defects identified by the accepted contract-to-history adjudication, then re-freeze the task contracts.
-- Item 60 is blocked until item 59 is re-completed.
+- **Item 59 is ACTIVE:** the previous five-task selection/contract freeze cannot be repaired as written and now requires a full ten-candidate eligibility re-audit under the original frozen selection criteria.
+- Item 60 is **BLOCKED** until item 59 is re-completed.
+- Item 58 remains complete **for now**. It is reopened only if the corrected eligibility audit proves that the accepted five-task Level-2 design no longer has five eligible tasks.
 - P2 experimental agent runs: **0**.
 - P2 task-solving model invoked: **FALSE**.
 - P2 executed: **FALSE**.
@@ -16,7 +17,7 @@ Updated: 2026-09-04 03:28 Europe/London
 
 ## Absolute methodology rule
 
-**NO BUILD, TEST, RESTORE OR COMPILER EXECUTION IS PERMITTED IN THE CURRENT P2 CONTRACT-REPAIR / VERIFIER-QUALIFICATION WORK.**
+**NO BUILD, TEST, RESTORE OR COMPILER EXECUTION IS PERMITTED IN THE CURRENT P2 CONTRACT / ELIGIBILITY / VERIFIER WORK.**
 
 Do not use whole-solution, targeted-project, minimal-project, probe or candidate build/test/compile outcomes as corpus, contract or verifier evidence.
 
@@ -41,17 +42,20 @@ P1 result:
 
 P1 remains complete and immutable.
 
-## P2 accepted Level-2 design
+## P2 historical Level-2 design state
+
+Historical design:
 
 - 10 historical candidates inventoried
-- 5 objectively eligible/selected under the frozen rule
+- 5 originally classified eligible and therefore selected
+- selection rule: **all eligible candidates in the historical inventory window, ordered by POST date then commit ID**
 - 0 substitutions
 - 0 outcome-based exclusions
-- complexity: 3 LOW / 2 MEDIUM / 0 HIGH
+- historical complexity: 3 LOW / 2 MEDIUM / 0 HIGH
 - repetitions: 3
-- planned A runs: 15
-- planned B runs: 15
-- planned total: 30
+- historical planned A runs: 15
+- historical planned B runs: 15
+- historical planned total: 30
 - full-block blindness
 - descriptive replication; no formal non-inferiority claim
 
@@ -67,7 +71,7 @@ Historical private curation package:
 
 `5832646A66A37E7F47F124796EEE4E289F72584424E37E2E600970FDC929F6A6`
 
-These identities remain immutable historical evidence, but the item-59 contract freeze is **not execution-authoritative until repaired and re-frozen**.
+These identities remain immutable historical evidence. The old item-59 freeze is not execution-authoritative.
 
 | Task | Candidate | PRE | POST | Complexity | Historical behaviour count |
 |---|---|---|---|---|---:|
@@ -79,71 +83,110 @@ These identities remain immutable historical evidence, but the item-59 contract 
 
 ## Accepted contract-to-history adjudication
 
-The no-build/no-test/no-compile adjudication is accepted as a genuine methodology result.
-
-Terminal state:
-
-`VALID_TERMINAL_B`
-
-Counts:
-
-- governing behaviours audited: **18**
-- valid behavioural deltas: **9**
-- oracle-mapping defects: **4**
-- frozen contract defects: **5**
-- unresolved: **0**
-
 Private adjudication artifact SHA256:
 
 `4A57493EC8B70732C5AFABC71F055153DA423867F32564233FBD1EF59A17D5F5`
 
 Repeat-hash verification: **TRUE**.
 
-Public-safe records:
+Accepted counts:
+
+- 18 governing behaviours audited
+- 9 valid behavioural deltas
+- 4 oracle-mapping defects
+- 5 frozen contract defects
+- 0 unresolved
+
+Exact frozen contract defects:
+
+- `P2_T01_B01`
+- `P2_T01_B02`
+- `P2_T01_B03`
+- `P2_T01_B04`
+- `P2_T02_B02`
+
+Exact oracle-mapping defects whose disclosed contracts remain valid:
+
+- `P2_T05_B01`
+- `P2_T05_B02`
+- `P2_T05_B03`
+- `P2_T05_B04`
+
+Exact valid behavioural deltas:
+
+- `P2_T02_B01`
+- `P2_T02_B03`
+- `P2_T03_B01`
+- `P2_T03_B02`
+- `P2_T03_B03`
+- `P2_T04_B01`
+- `P2_T04_B02`
+- `P2_T04_B03`
+- `P2_T04_B04`
+
+Public-safe adjudication:
 
 - `results/public/subject-b-p2-contract-to-history-adjudication-v1.md`
 - `results/public/subject-b-p2-contract-to-history-adjudication-v1.json`
 
-### Consequence
+## Accepted item-59 contract-repair blocker
 
-Item 59 is genuinely reopened because five exact frozen governing behaviours do not satisfy the required historical PRE→POST behavioural-delta condition.
+The exact repair worker obeyed the no-build/no-test/no-compile protocol and returned `VALID_TERMINAL_B`.
 
-This does **not** invalidate all 18 behaviours:
+Private blocker record SHA256:
 
-- 9 are valid behavioural deltas;
-- 4 are verifier/oracle seam-mapping defects only;
-- exactly 5 require contract repair.
+`667E9CA48B9FF69F7548C1CB0916A2C93240470E29C218452191E3005E458668`
 
-The pasted terminal summary did not expose the five private behaviour IDs. The next privileged worker must read the immutable private adjudication package and repair exactly those identified IDs. Do not infer or invent them from the public summary.
+It established:
 
-## Item-59 repair rules
+- the current five-task freeze cannot be repaired **as written** simply by rewriting the five defective behaviours;
+- all four historical T01/C06 behaviours are contract defects;
+- T02/C07 has one defective behaviour (`P2_T02_B02`) but two already accepted genuine deltas (`P2_T02_B01`, `P2_T02_B03`);
+- no repaired behaviour was fabricated;
+- no v2 curation package or item-59 refreeze was created;
+- task substitutions: 0;
+- outcome-based exclusions/reselection: 0;
+- build/test/compiler commands: 0;
+- P2 experimental runs: 0.
 
-1. Read the private audit identified by SHA256 `4A57493...` and extract the exact five `FROZEN_CONTRACT_DEFECT` behaviour IDs and their evidence.
-2. Preserve the nine valid behavioural deltas unchanged.
-3. Preserve the four oracle-mapping-defect behaviours unchanged as disclosed contracts; their verifier seams are repaired later in item 60.
-4. Repair only the five defective disclosed behaviours/mappings/spec statements required by the audit.
-5. Do not silently substitute a new task or candidate.
-6. Do not use outcome-based selection or hindsight about likely model success/failure.
-7. If an exact defective behaviour can be corrected to the actual disclosed historical PRE→POST requirement within the same selected task, do that and document the provenance.
-8. If a selected task cannot yield a valid disclosed behavioural contract without changing the historical task identity, stop for coordinator methodology review rather than substituting another task.
-9. Re-run the contract-to-history audit over all final behaviours after repair. Require PRE=false / POST=true for every final governing behaviour.
-10. Freeze new superseding item-59 curation/selection-contract identities. Preserve the old hashes as historical superseded evidence; never overwrite history.
-11. No experimental P2 model runs.
-12. No build/test/restore/compiler commands.
+Public-safe records:
 
-## Verifier history retained
+- `results/public/subject-b-p2-item59-contract-repair-blocker-v2.md`
+- `results/public/subject-b-p2-item59-contract-repair-blocker-v2.json`
 
-- fixture-only oracle: rejected;
-- build-based stops: rejected;
-- no-build structural oracle: useful for revealing mapping/contract issues but not a completed verifier package;
-- contract-to-history adjudication: accepted and now authoritative for item-59 repair.
+## Coordinator ruling
+
+Do **not** infer from the repair blocker that both C06 and C07 must automatically be discarded.
+
+- **C06/T01:** because all four curated behaviours failed the historical-delta requirement, its eligibility is now in serious doubt. The next audit must determine whether the historical work package has any legitimate disclosed PRE=false / POST=true governing behaviour under the original criteria. If not, C06 is ineligible.
+- **C07/T02:** do not discard it merely because B02 was over-curated. B01 and B03 are already adjudicated as valid deltas. The next audit must determine whether the original eligibility criteria allow a task with a complete fair two-behaviour contract; if yes, C07 remains eligible with B02 removed rather than inventing a replacement requirement.
+- **C08/C09:** their current governing behaviours were adjudicated as valid behavioural deltas.
+- **C10:** its four disclosed behaviours remain valid; only the future verifier seam was mapped incorrectly.
+
+The historical selection rule selected **all eligible candidates**, not a ranked top five. Therefore there is no legitimate automatic “next candidate”.
+
+The next step is a **complete C01–C10 eligibility re-audit under the original frozen criteria**. The five previously excluded candidates must be rechecked under exactly the same criteria. An originally excluded candidate may enter only if its original exclusion is objectively shown to have been wrong; it must not be used as a convenient replacement for C06/C07.
+
+### Design consequence rule
+
+- If the corrected eligible set contains **five tasks**, preserve item 58 and complete a new item-59 selection/contract freeze from that corrected set.
+- If the corrected eligible set contains **not five tasks**, do not force the sample back to five. Item 58 must then be reopened for a transparent Level-2 design repair before item 59 can complete.
+- Do not increase repetitions, add replacements, or otherwise preserve 30 runs post hoc without a separate accepted item-58 methodology decision.
+
+## Active next work package
+
+Run a no-build/no-test/no-compile **full ten-candidate P2 eligibility re-audit** using the original inventory window, eligibility rules, anti-cherry-picking rule and historical requirement evidence.
+
+The worker must first establish whether the required PRE=false / POST=true disclosed behavioural-delta condition was already explicit or logically required by the accepted design. It must not silently add a new eligibility criterion after seeing the defects. If making that condition an eligibility criterion would itself be a new methodological rule rather than clarification of the existing one, stop for coordinator review.
+
+Then reclassify C01–C10 and apply the frozen selection rule mechanically: all corrected eligible candidates, ordered by POST date then commit ID.
 
 ## Remaining gates
 
-59. Repair and re-freeze exact P2 five-task neutral contracts after accepted contract-to-history audit — **ACTIVE**.
+59. Re-audit all ten P2 candidates under the original eligibility rule and repair/re-freeze the execution-authoritative task selection/contracts — **ACTIVE**.
 60. Implement and qualify genuine P2 semantic hidden verifiers — **BLOCKED pending #59**.
 61. Freeze P2 final preregistration/runtime/prompts/randomisation/execution lock.
-62. Execute 30-run P2 same-repository replication.
+62. Execute the accepted P2 same-repository replication design.
 63. Blind-adjudicate and scientifically interpret P2.
 64. Publish Level-2 P2 evidence and update paper claims/evidence.
 65. Select Subject C and perform cross-repository / Level-3 replication.
@@ -152,4 +195,4 @@ The pasted terminal summary did not expose the five private behaviour IDs. The n
 
 ## Coordinator/Codex rule
 
-Do not force progress by weakening a frozen requirement or substituting a different task. Repair the exact identified contract defects transparently, re-audit, re-freeze, and only then resume verifier qualification.
+No ad-hoc substitution. No post-hoc balancing. No build/test/compile evidence. Reconstruct the objective eligibility rule from the pre-existing design evidence, audit all ten candidates, and let the corrected eligible set determine whether item 58 remains valid.
