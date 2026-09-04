@@ -1,0 +1,20 @@
+{
+  "study": "Subject-B P2",
+  "stage": "contract-to-history adjudication",
+  "terminal_state": "VALID_TERMINAL_B",
+  "governing_behaviours_audited": 18,
+  "valid_behavioural_delta_count": 9,
+  "oracle_mapping_defect_count": 4,
+  "frozen_contract_defect_count": 5,
+  "unresolved_count": 0,
+  "private_audit_sha256": "4A57493EC8B70732C5AFABC71F055153DA423867F32564233FBD1EF59A17D5F5",
+  "private_audit_repeat_match": true,
+  "p2_experimental_agent_runs": 0,
+  "p2_executed": false,
+  "programme_consequence": {
+    "item_59_reopened": true,
+    "item_60_blocked_pending_item_59_refreeze": true,
+    "silent_task_substitution_allowed": false,
+    "outcome_based_reselection_allowed": false
+  }
+}
