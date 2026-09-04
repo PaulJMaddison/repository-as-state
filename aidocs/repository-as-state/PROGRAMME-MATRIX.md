@@ -2,9 +2,9 @@
 
 Authoritative normalized ledger established 2026-09-03.
 
-Current status: **61 complete / 67 total**. Item **62 active**.
+Current status: **59 complete / 67 total**. Item **60 active (reopened)**.
 
-Legend: ✅ complete · 🟡 active · ⬜ pending
+Legend: ✅ complete · 🟡 active · ⬜ pending/blocked
 
 | # | Item | Status |
 |---:|---|:---:|
@@ -67,9 +67,9 @@ Legend: ✅ complete · 🟡 active · ⬜ pending
 | 57 | P2 candidate inventory / anti-cherry-picking / complexity / telemetry design completed | ✅ |
 | 58 | Repair and freeze P2 Level-2 design from corrected four-task corpus: 4 × 3 × 2 = 24 runs | ✅ |
 | 59 | Freeze corrected four-task P2 selection and neutral disclosed contracts | ✅ |
-| 60 | Implement and qualify P2 semantic hidden verifiers for final selected tasks | ✅ |
-| 61 | Freeze P2 final preregistration/runtime/prompts/randomisation/execution lock | ✅ |
-| 62 | Execute accepted 24-run P2 same-repository replication | 🟡 |
+| 60 | Implement/qualify P2 semantic hidden verifiers **and prove hidden-material isolation against actual experimental identity** | 🟡 |
+| 61 | Freeze fresh post-repair P2 preregistration/runtime/prompts/randomisation/execution lock | ⬜ |
+| 62 | Execute fresh accepted 24-run P2 same-repository replication | ⬜ |
 | 63 | Blind-adjudicate and scientifically interpret P2 | ⬜ |
 | 64 | Publish Level-2 P2 evidence and update paper claims/evidence | ⬜ |
 | 65 | Select Subject C and perform cross-repository / Level-3 replication | ⬜ |
@@ -78,47 +78,55 @@ Legend: ✅ complete · 🟡 active · ⬜ pending
 
 ## Current count
 
-- Complete: **61**
-- Active: **1** (`#62`)
-- Pending after active item: **5**
+- Complete: **59**
+- Active: **1** (`#60`, reopened isolation gate)
+- Blocked/pending after active item: **7**
 - Total: **67**
 
-## Authoritative P2 design
+## Why item 60 reopened
 
-- final candidates: `C07,C08,C09,C10`
-- final behaviours: **13** (`2 + 3 + 4 + 4`)
-- design: **4 × 3 × 2 = 24 runs**
-- matched task×repetition units: **12**
-- complexity: **3 LOW / 1 MEDIUM / 0 HIGH**
-- exact model: `gpt-5.6-luna`
-- exact Codex CLI: `0.153.0-alpha.5`
-- timeout: 1800 seconds
-- full-block blindness: all 24 outputs before hidden adjudication
+The original item-60 semantic verifier qualification remains technically accepted: 13/13 governing behaviours implemented, 13/13 negative controls detected, 13/13 alternate-valid controls accepted, no false-positive decoys, deterministic historical qualification, and no build/test/compiler correctness dependency.
 
-## Accepted item-61 execution lock
+However item 60 also froze the claim that the experimental task-solving identity could not access hidden verifier material. During the first item-62 unit with genuine model activity, that identity successfully read private hidden-verifier/qualification material. This directly falsifies the isolation gate.
 
-Corrected public preregistration commitment:
+Therefore:
 
-- two-file commit: `a3da5fb11df577034ef364c4790deb170ef37f77`
-- corrected JSON blob: `e4f8419238c336833ee5aec306f0734406091ada`
-- effective Codex configuration identity: `8249A208C5DED9B173BBC6B22B8EA6E1A11AB8E29BFF4B7B006A396BF8FA0093`
-- runtime-manifest SHA-256: `4FC602F42CA6974BFF0AC13AA4D06FF8FA0831790398F05D55EEFBCB66239674`
+- item 60 reopens for isolation only;
+- item 61 is invalidated downstream because its execution lock bound the false isolation claim;
+- item 62 cannot continue under the old preregistration;
+- the contaminated attempt is excluded from scientific evidence and cannot be selectively retried.
 
-Execution-lock identities:
+## Item-62 blocker state
 
-- public-binding audit: `D02218A1206BF2C7B2CC4730523D48E99EF02E949C608FB9CCA160DD8D747E41`
-- Phase-A integrity audit: `816388AC58FE331CC3924F4DE21F051410B22419A6B514FB04DD4658A78284FC`
-- final zero-model gate: `8344F950C7AF7820C088C2761194FDAA6F0F4780D9590F397B5B644E3063DFF3`
-- execution-lock manifest: `3E3760D3B57C2BBA4D62B45B154C84633A44DB13025E618E66CE061C92924E9E`
-- execution-lock freeze: `9FC8D4B6011BF5A7CDD5C956C0E08D105890AD345577A0A06488A1AA1F424890`
-- execution-lock package: `CD8E28A9CAECEFF95B666FD19BD7CB64D19D71F93401CCEBA1C5DC60520AA3C6`
+Worker terminal:
 
-All execution-lock identities are 64-character SHA-256 values with repeat matches; package internal bindings validate. At freeze: model completions 0, P2 experimental runs 0, P2 task-solving model invoked false, P2 executed false, hidden-verifier experimental adjudications 0.
+`VALID_TERMINAL_B_ITEM62_EXECUTION_METHODOLOGY_BLOCKER`
 
-## Item 62 gate
+- accepted experimental units completed: **0**
+- units with genuine model activity: **1**
+- units not executed: **23**
+- hidden verifier runs: **0**
+- partial correctness adjudications: **0**
+- correctness-related private information exposed to experimental session: **TRUE**
+- event-log SHA-256: `CB8CB6A38424A4D8BFADDAFCCB943BF600775F727A00B9FD7EC51DB03026CBCA`
+- partial-candidate manifest SHA-256: `7E72A6004BA07C43A61765E84CC6A3A43CAB445B0945516587DDCF03B0DA31D3`
 
-Execute the already-frozen 24-unit schedule exactly. No schedule, prompt, model, timeout, retry, workspace, session-treatment or verifier-boundary change is allowed. Every output must be frozen before any hidden correctness adjudication.
+Public-safe blocker evidence:
+
+- `results/public/subject-b-p2-item62-hidden-material-isolation-blocker-v1.json`
+- `results/public/subject-b-p2-item62-hidden-material-isolation-blocker-v1.md`
+
+## Next valid path
+
+1. Preserve item-59 contracts and item-60 verifier semantics unchanged.
+2. Repair OS/runtime hidden-material isolation.
+3. Prove denial using the **actual experimental identity/process**, not only static ACL inspection.
+4. Freeze an item-60 isolation-repair package.
+5. Create a fresh item-61 preregistration/public binding/execution lock.
+6. Reset the experiment to zero accepted units and execute a newly committed 24-run instance.
+
+No model output or correctness-related information from the contaminated attempt may influence prompts, task selection, model choice, repetition count, conditions, or the new schedule.
 
 ## Count rule
 
-An item becomes ✅ only after coordinator acceptance of its complete evidence package. Later pre-execution falsification may reopen an earlier item; that is expected scientific bookkeeping rather than count drift.
+An item becomes ✅ only after coordinator acceptance of its complete evidence package. Later empirical falsification can reopen an earlier item and invalidate downstream locks; that is intentional scientific bookkeeping, not count drift.
