@@ -1,0 +1,32 @@
+{
+  "experiment": "P2",
+  "subject": "SearchForCars",
+  "stage": "level2_design_impact_v2",
+  "status": "ITEM58_REOPEN_REQUIRED",
+  "historical_design": {
+    "tasks": 5,
+    "repetitions": 3,
+    "conditions": 2,
+    "planned_runs": 30,
+    "complexity": {"LOW": 3, "MEDIUM": 2, "HIGH": 0}
+  },
+  "corrected_eligible_set": ["C07", "C08", "C09", "C10"],
+  "corrected_eligible_total": 4,
+  "corrected_complexity": {"LOW": 3, "MEDIUM": 1, "HIGH": 0},
+  "classification_change": {
+    "candidate_id": "C06",
+    "from": "ELIGIBLE",
+    "to": "INELIGIBLE"
+  },
+  "governing_behaviours_in_corrected_set": 13,
+  "historical_five_task_design_still_valid": false,
+  "item58_reopen_required": true,
+  "item59_refreeze_ready": false,
+  "design_repair_not_yet_frozen": true,
+  "new_repetition_count_selected": false,
+  "new_run_total_selected": false,
+  "anti_post_hoc_rule": "Do not add tasks or alter repetition count merely to recreate the historical 30-run total.",
+  "p2_experimental_agent_runs": 0,
+  "p2_executed": false,
+  "p2_preregistered": false
+}
