@@ -2,7 +2,7 @@
 
 Authoritative normalized ledger established 2026-09-03.
 
-Current status: **61 complete / 67 total**. Item **62 active — fresh locked post-isolation 24-run P2 execution using the accepted isolated runtime and v3 execution lock**.
+Current status: **62 complete / 67 total**. Item **63 active — blind-adjudicate and scientifically interpret the frozen 24-run P2 result**.
 
 Legend: ✅ complete · 🟡 active · ⬜ pending/blocked
 
@@ -69,8 +69,8 @@ Legend: ✅ complete · 🟡 active · ⬜ pending/blocked
 | 59 | Freeze corrected four-task P2 selection and neutral disclosed contracts | ✅ |
 | 60 | Implement/qualify P2 semantic hidden verifiers and prove hard hidden-material isolation against actual restricted experimental identity | ✅ |
 | 61 | Freeze fresh post-repair P2 preregistration/runtime/prompts/randomisation/public binding/execution lock | ✅ |
-| 62 | Execute fresh accepted 24-run P2 same-repository replication | 🟡 |
-| 63 | Blind-adjudicate and scientifically interpret P2 | ⬜ |
+| 62 | Execute fresh accepted 24-run P2 same-repository replication | ✅ |
+| 63 | Blind-adjudicate and scientifically interpret P2 | 🟡 |
 | 64 | Publish Level-2 P2 evidence and update paper claims/evidence | ⬜ |
 | 65 | Select Subject C and perform cross-repository / Level-3 replication | ⬜ |
 | 66 | Final hostile review, statistical/claims/limitations and reproducibility audit | ⬜ |
@@ -78,47 +78,49 @@ Legend: ✅ complete · 🟡 active · ⬜ pending/blocked
 
 ## Current count
 
-- Complete: **61**
-- Active: **1** (`#62`, fresh locked 24-run P2 execution)
-- Pending after active item: **5**
+- Complete: **62**
+- Active: **1** (`#63`, P2 blind adjudication and scientific interpretation)
+- Pending after active item: **4**
 - Total: **67**
 
-## Item 61 falsification and v3 repair history
+## Item 62 accepted execution state
 
-The first live Item-62 preflight proved the accepted v2 execution-readiness assumption incomplete: the restricted identity authenticated but Windows denied execution of the coordinator-profile Codex runtime before any model process started.
+The fresh locked P2 execution completed all 24 scheduled units under the accepted isolated runtime and exact model.
 
-No experimental attempt was consumed and Item 62 remained scientifically clean:
+- 24/24 final frozen unit records
+- 24/24 workspace gates passed
+- 24 model-active units
+- zero unscheduled executions
+- zero schedule reorder
+- 3 A persistent-session chains
+- 3 A T01 new sessions
+- 9/9 required A resumes
+- zero cross-repetition A session reuse
+- 12 fresh B sessions
+- zero B resumes
+- no generated code carry
+- 3 permitted pre-model infrastructure retries
+- zero post-model quality retries
+- zero best-of-N
+- zero human rescue
+- zero hidden verifier runs during Item 62
+- zero correctness adjudications during Item 62
+- condition mapping remained sealed through output freeze
 
-- fresh scheduled units with model activity: **0/24**
-- fresh accepted units: **0**
-- hidden verifier runs: **0**
-- correctness adjudications: **0**
-- Item 62 executed: **false**
+Accepted identities:
 
-Item 61 was reopened under the programme count rule. The v2 lock was preserved as historical evidence.
-
-The repair provisioned an isolated experimental runtime at `C:\Kyntic\ras-p2-experimental-runtime-v2` for `DESKTOP-BFTREBH\ras-p2-experimental`, retaining exact `codex-cli 0.153.0-alpha.5` and exact model `gpt-5.6-luna` while preserving protected-root denial.
-
-Accepted v3 lock identities:
-
-- manifest: `A0A8D89CDC226EE5619C9AA0BE80F936EC84B6218EA14E84F992B650699844DD`
-- contents manifest: `C774396F9F56DD94CFE0194E2916F891CF5D9CF6DD29D63F6E97AE48A9FBFC73`
-- package: `908CCB709B08379E616EF62C04B996DB7A526ED91BB66E73491CDE3D8C377D99`
-
-All repeat hashes and package bindings passed. Prompts, PRE states, model, randomisation, schedule and blind mapping remained unchanged. The v3 lock supersedes v2 for execution only; falsification history remains visible.
+- execution manifest: `334EFF9B6F85AE92766DEC6EF3AEF562F62E97C2DCC8E09C80E6BE5743F1FDBC`
+- output-freeze manifest: `2A27C6110E99D712D99D1680B58F568512301B866A78E802C5D79D933414BC4E`
+- execution package: `31898756356B676CB76F7D67596DE206B902659B5E8D58E5A4620250F55607C1`
 
 Public evidence:
 
-- `results/public/subject-b-p2-item61-runtime-access-falsification-v2.json`
-- `results/public/subject-b-p2-item61-runtime-access-falsification-v2.md`
-- `results/public/subject-b-p2-execution-lock-v3.json`
-- `results/public/subject-b-p2-execution-lock-v3.md`
+- `results/public/subject-b-p2-item62-output-freeze-v3.json`
+- `results/public/subject-b-p2-item62-output-freeze-v3.md`
 
-## Item 62 execution rule
+## Item 63 rule
 
-Execute the exact frozen 24-run P2 experiment using the accepted isolated runtime and existing sealed schedule/blind mapping.
-
-Task-solving processes run only as `DESKTOP-BFTREBH\ras-p2-experimental`. Exact model `gpt-5.6-luna`. Fresh PRE workspace per unit. A uses exactly three persistent reasoning/session chains and no code carry; B uses 12 fresh sessions. Repetitions are replications, not retries. Once genuine model activity occurs, that unit is consumed. No quality reruns, best-of-N or human rescue. All 24 outputs must freeze before hidden correctness adjudication.
+Score all 24 frozen outputs using the already-qualified hidden semantic verifier while candidates remain identified only by blind IDs. Freeze all 24 blinded adjudications before unsealing the condition mapping. Then perform the frozen matched task × repetition analysis across 12 paired units and produce bounded scientific interpretation. Do not rerun or alter any candidate. Keep correctness and resource telemetry separate.
 
 ## Count rule
 
