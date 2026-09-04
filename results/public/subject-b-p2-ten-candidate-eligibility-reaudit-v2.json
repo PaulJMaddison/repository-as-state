@@ -1,0 +1,50 @@
+{
+  "experiment": "P2",
+  "subject": "SearchForCars",
+  "stage": "ten_candidate_eligibility_reaudit_v2",
+  "status": "ACCEPTED_ITEM58_REOPEN_REQUIRED",
+  "audit_scope": "C01-C10 under the original pre-existing eligibility and anti-cherry-picking rules",
+  "pre_post_delta_eligibility_status": "EXPLICIT_OR_LOGICALLY_REQUIRED",
+  "candidate_total": 10,
+  "historical_eligible_total": 5,
+  "corrected_eligible_total": 4,
+  "corrected_excluded_total": 6,
+  "corrected_eligible_candidate_ids": ["C07", "C08", "C09", "C10"],
+  "corrected_excluded_candidate_ids": ["C01", "C02", "C03", "C04", "C05", "C06"],
+  "classification_changes": [
+    {
+      "candidate_id": "C06",
+      "historical": "ELIGIBLE",
+      "corrected": "INELIGIBLE",
+      "reason": "No legitimate disclosed governing behaviour remains that demonstrates the required observable PRE-to-POST behavioural change under the original eligibility rule."
+    }
+  ],
+  "c07_contract_consequence": {
+    "candidate_id": "C07",
+    "eligibility": "ELIGIBLE",
+    "valid_governing_behaviour_count": 2,
+    "removed_behaviour": "P2_T02_B02",
+    "removed_behaviour_status": "OVER_CURATED_NON_DELTA"
+  },
+  "corrected_selected_task_order": ["C07", "C08", "C09", "C10"],
+  "final_selected_task_total": 4,
+  "final_total_governing_behaviours": 13,
+  "all_final_behaviours_pre_false_post_true": true,
+  "undisclosed_governing_requirements_total": 0,
+  "all_task_fairness_audits_pass": true,
+  "outcome_based_eligibility_decisions": 0,
+  "model_performance_information_used": false,
+  "verifier_ease_used_as_eligibility_criterion": false,
+  "desired_sample_size_used_as_eligibility_criterion": false,
+  "desired_complexity_balance_used_as_eligibility_criterion": false,
+  "ad_hoc_replacement_tasks": 0,
+  "post_hoc_slot_filling": false,
+  "private_eligibility_reaudit_v2_sha256": "D55B610B6E2FFB1B032137F30C348FEFE9EF3542321720090C6690885D749E41",
+  "private_repeat_hash_match": true,
+  "p2_experimental_agent_runs": 0,
+  "p2_task_solving_model_invoked": false,
+  "p2_executed": false,
+  "p2_preregistered": false,
+  "p0_rerun": false,
+  "p1_rerun": false
+}
