@@ -1,0 +1,76 @@
+{
+  "status": "ITEM62_ACCEPTED_OUTPUTS_FROZEN_READY_FOR_BLIND_ADJUDICATION",
+  "programme_item": 62,
+  "design": {
+    "scheduled_units": 24,
+    "final_frozen_unit_records": 24,
+    "workspace_gates_pass": 24,
+    "schedule_order_changed": false,
+    "unscheduled_executions": 0,
+    "model_active_units": 24,
+    "run_timeout_seconds": 1800
+  },
+  "runtime": {
+    "codex_cli": "codex-cli 0.153.0-alpha.5",
+    "target_model": "gpt-5.6-luna",
+    "model_substitutions": 0,
+    "experimental_identity": "DESKTOP-BFTREBH\\ras-p2-experimental",
+    "administrator": false,
+    "elevated": false
+  },
+  "session_integrity": {
+    "a_chain_total": 3,
+    "a_new_t01_sessions": 3,
+    "a_expected_resumes": 9,
+    "a_resume_pass": 9,
+    "a_cross_repetition_session_reuse": 0,
+    "b_fresh_sessions": 12,
+    "b_resume_count": 0,
+    "generated_code_carry": false
+  },
+  "retry_and_blindness": {
+    "premodel_infrastructure_retries": 3,
+    "post_model_quality_retries": 0,
+    "best_of_n_selection": false,
+    "human_rescue": false,
+    "repetitions_are_retries": false,
+    "full_block_blindness": true,
+    "hidden_verifier_runs": 0,
+    "correctness_adjudications": 0,
+    "condition_mapping_remained_sealed": true
+  },
+  "quarantine": {
+    "contaminated_execution_reused": false,
+    "contaminated_session_reused": false,
+    "contaminated_code_reused": false,
+    "contaminated_correctness_inspected": false
+  },
+  "credentials": {
+    "plaintext_credentials_in_artifacts": 0,
+    "plaintext_credentials_in_command_templates": 0,
+    "plaintext_credentials_in_public_drafts": 0
+  },
+  "commitments": {
+    "item61_v3_lock_manifest_sha256": "A0A8D89CDC226EE5619C9AA0BE80F936EC84B6218EA14E84F992B650699844DD",
+    "item61_v3_lock_package_sha256": "908CCB709B08379E616EF62C04B996DB7A526ED91BB66E73491CDE3D8C377D99",
+    "item62_execution_manifest_sha256": "334EFF9B6F85AE92766DEC6EF3AEF562F62E97C2DCC8E09C80E6BE5743F1FDBC",
+    "item62_output_freeze_manifest_sha256": "2A27C6110E99D712D99D1680B58F568512301B866A78E802C5D79D933414BC4E",
+    "item62_execution_package_sha256": "31898756356B676CB76F7D67596DE206B902659B5E8D58E5A4620250F55607C1",
+    "all_sha256_lengths_64": true,
+    "all_sha256_repeat_matches": true,
+    "package_internal_bindings_valid": true
+  },
+  "sealed_material": {
+    "randomisation_seed_published": false,
+    "private_schedule_published": false,
+    "blind_to_condition_mapping_published": false,
+    "hidden_verifier_published": false,
+    "correctness_results_published": false
+  },
+  "scientific_state": {
+    "item62_complete": true,
+    "item63_allowed_to_start": true,
+    "p0_rerun": false,
+    "p1_rerun": false
+  }
+}
