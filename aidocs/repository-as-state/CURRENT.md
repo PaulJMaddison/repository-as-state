@@ -1,17 +1,17 @@
 # Repository-as-State — CURRENT
 
-Updated: 2026-09-04 16:29 Europe/London
+Updated: 2026-09-04 16:46 Europe/London
 
 ## Programme status
 
 - Authoritative progress ledger: **62/67 complete**.
 - Items 58, 59, 60, 61 and 62 are **COMPLETE**.
-- **Item 63 is ACTIVE — blind-adjudicate all 24 frozen P2 outputs and produce the scientific interpretation.**
+- **Item 63 is ACTIVE — recover the blind adjudication after quarantining the invalid first Stage-A attempt, then scientifically interpret the 24 frozen P2 outputs.**
 - Items 64–67 remain pending.
 - Fresh accepted P2 experimental units: **24**.
 - Fresh scheduled P2 units with genuine model activity: **24/24**.
-- Fresh P2 correctness adjudications completed so far: **0**.
-- Hidden verifier executions against fresh P2 candidates completed so far: **0**.
+- Accepted Item-63 blinded correctness adjudications: **0/24**.
+- Real sealed-verifier diagnostic executions during the invalid Item-63 attempt: **1**, quarantined and not accepted as a blind adjudication.
 - P2 fresh execution completed: **TRUE**.
 - P2 output freeze completed: **TRUE**.
 - P0 rerun: **FALSE**.
@@ -66,9 +66,7 @@ Item 60 isolation:
 
 ## Item 61 v3 runtime repair — accepted
 
-The exact Codex runtime was isolated under:
-
-`C:\Kyntic\ras-p2-experimental-runtime-v2`
+The exact Codex runtime was isolated under `C:\Kyntic\ras-p2-experimental-runtime-v2`.
 
 Accepted facts:
 
@@ -133,25 +131,45 @@ Public evidence:
 - `results/public/subject-b-p2-item62-output-freeze-v3.json`
 - `results/public/subject-b-p2-item62-output-freeze-v3.md`
 
-## Contaminated historical attempt
+## Item 63 first attempt — invalid and quarantined
+
+The first Item-63 Stage-A worker used coordinator-side placeholder verifier entrypoints for its initial 24 calls. Those calls produced no correctness adjudication output and are not accepted as blinded adjudications.
+
+The worker then unblinded the mapping before discovering the path mismatch and made one diagnostic call to the real sealed verifier. That diagnostic call occurred after condition information was available, so it is quarantined and cannot be accepted as a blind Stage-A adjudication.
+
+The Item-62 experiment remains intact:
+
+- frozen candidates modified: **0**
+- frozen candidates rerun: **0**
+- task-solving model runs during Item 63: **0**
+- accepted blind adjudications from failed attempt: **0**
+- real diagnostic verifier calls: **1**, excluded
+
+Public falsification evidence:
+
+- `results/public/subject-b-p2-item63-blind-adjudication-falsification-v1.json`
+- `results/public/subject-b-p2-item63-blind-adjudication-falsification-v1.md`
+
+## Active Item 63 recovery
+
+Preserve and quarantine the entire failed Item-63 attempt. Do not reuse its Stage-A records, unblinding analysis or diagnostic correctness output.
+
+Recovery rules:
+
+- do not execute, regenerate or modify any Item-62 experimental unit;
+- use the unchanged 24 frozen candidates and unchanged sealed qualified semantic verifier;
+- construct a neutral blind-ID-only adjudication bundle with candidate locations/names that reveal no A/B condition, repetition-condition mapping or condition-named workspace path;
+- run accepted Stage A through a scoring process whose accessible inputs exclude the blind-to-condition mapping and condition labels;
+- the scoring process may know blind ID and task only;
+- freeze exactly 24 accepted blinded adjudication records before any accepted unblinding;
+- the previous diagnostic verifier result is excluded even if numerically identical to the fresh blind result;
+- document the real verifier execution count transparently: the quarantined diagnostic call plus the accepted blind calls;
+- after the fresh Stage-A package is frozen, perform one accepted unblinding and matched analysis from those frozen records only;
+- analyse the 12 matched task × repetition units under the frozen methodology;
+- keep resource telemetry separate from correctness;
+- use bounded claims only;
+- do not begin Item 64 until coordinator acceptance of Item 63.
+
+## Contaminated historical Item-62 attempt
 
 The earlier same-user contaminated Item-62 attempt remains permanently excluded. Never reuse or inspect its session, code, candidate, output, correctness, schedule, blind mapping or execution lock.
-
-## Active Item 63
-
-Blind-adjudicate the 24 already-frozen Item-62 outputs only.
-
-Rules:
-
-- do not execute or modify any experimental unit;
-- do not regenerate outputs, prompts, schedule, workspaces, sessions or model state;
-- use the frozen private semantic verifier package and the frozen blind IDs/mapping;
-- score all 24 frozen candidates blind before unblinding condition labels;
-- preserve per-candidate verifier evidence and deterministic behaviour vectors;
-- do not allow condition knowledge to influence scoring;
-- after all 24 blinded adjudications are frozen, unseal the condition mapping exactly once for matched analysis;
-- analyse the 12 matched task × repetition units under the preregistered/frozen methodology;
-- distinguish correctness from resource telemetry;
-- report agreements/disagreements, behaviour totals and any task/repetition structure needed by the frozen analysis;
-- use bounded claims only;
-- do not begin Item 64 publication work until coordinator acceptance of Item 63.
