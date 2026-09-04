@@ -1,12 +1,12 @@
 # Repository-as-State — CURRENT
 
-Updated: 2026-09-03 23:58 Europe/London
+Updated: 2026-09-04 03:28 Europe/London
 
 ## Programme status
 
-- Authoritative progress ledger: **59/67 complete**.
-- **Item 60 is ACTIVE but paused for contract-to-history adjudication.**
-- Item 59 is **not reopened yet**.
+- Authoritative progress ledger: **58/67 complete**.
+- **Item 59 is ACTIVE again:** repair the exact five frozen P2 contract defects identified by the accepted contract-to-history adjudication, then re-freeze the task contracts.
+- Item 60 is blocked until item 59 is re-completed.
 - P2 experimental agent runs: **0**.
 - P2 task-solving model invoked: **FALSE**.
 - P2 executed: **FALSE**.
@@ -14,13 +14,13 @@ Updated: 2026-09-03 23:58 Europe/London
 - P0 rerun: **FALSE**.
 - P1 rerun: **FALSE**.
 
-## Absolute item-60 methodology rule
+## Absolute methodology rule
 
-**NO BUILD, TEST, RESTORE OR COMPILER EXECUTION IS PERMITTED AS PART OF P2 VERIFIER QUALIFICATION.**
+**NO BUILD, TEST, RESTORE OR COMPILER EXECUTION IS PERMITTED IN THE CURRENT P2 CONTRACT-REPAIR / VERIFIER-QUALIFICATION WORK.**
 
-Forbidden includes full-solution, targeted-project, minimal-project, probe and candidate builds/tests/compilation. Compilation/test-runner success or failure is not PRE/POST qualification evidence.
+Do not use whole-solution, targeted-project, minimal-project, probe or candidate build/test/compile outcomes as corpus, contract or verifier evidence.
 
-Item 60 is semantic hidden-verifier qualification against frozen repository state.
+The experimental unit remains validated work-package behavioural state, not whole-repository greenness.
 
 ## Immutable P1 state
 
@@ -41,10 +41,10 @@ P1 result:
 
 P1 remains complete and immutable.
 
-## P2 accepted design
+## P2 accepted Level-2 design
 
 - 10 historical candidates inventoried
-- 5 objectively eligible/selected
+- 5 objectively eligible/selected under the frozen rule
 - 0 substitutions
 - 0 outcome-based exclusions
 - complexity: 3 LOW / 2 MEDIUM / 0 HIGH
@@ -59,15 +59,17 @@ Design-input manifest:
 
 `D65E88E8A49114554DBF9C911144BF998172FDD494757AEB6F4491EB9C1F88AF`
 
-Task-selection freeze:
+Historical task-selection freeze:
 
 `829CD09A84616C5282AFAED1FB4EDA168BE238E344E02EC8AE54A8C11D6ADE94`
 
-Private curation package:
+Historical private curation package:
 
 `5832646A66A37E7F47F124796EEE4E289F72584424E37E2E600970FDC929F6A6`
 
-| Task | Candidate | PRE | POST | Complexity | Behaviours |
+These identities remain immutable historical evidence, but the item-59 contract freeze is **not execution-authoritative until repaired and re-frozen**.
+
+| Task | Candidate | PRE | POST | Complexity | Historical behaviour count |
 |---|---|---|---|---|---:|
 | P2_T01 | C06 | `a120b02abf4dd2bef11ae621d7283282159622f3` | `ddb2d79c65342e8585ef5aefe966e7b2e70b9406` | MEDIUM | 4 |
 | P2_T02 | C07 | `5941869627443548a9042d900b1a4ffeda58dacb` | `c265580ac53a4e85a164a7f62a5b90f3ecf04cfe` | MEDIUM | 3 |
@@ -75,85 +77,71 @@ Private curation package:
 | P2_T04 | C09 | `c3b813d14973c28ed3bc063c2440224b26dc2a87` | `d7199f391983eb94bb48d8524915245898831a3a` | LOW | 4 |
 | P2_T05 | C10 | `e9eb063944d604ec0c4cf6b3534f5db87fff82c0` | `a64a727d1ce22dfb851419e46958f08014a48b04` | LOW | 4 |
 
-## Item 60 history
+## Accepted contract-to-history adjudication
 
-### Fixture-only oracle
+The no-build/no-test/no-compile adjudication is accepted as a genuine methodology result.
 
-Rejected. It encoded expected semantic state instead of deriving observations from frozen candidate state.
+Terminal state:
 
-### Build-based stops
+`VALID_TERMINAL_B`
 
-Rejected. Build/test activity is outside item 60.
+Counts:
 
-### No-build structural-oracle attempt — current state
+- governing behaviours audited: **18**
+- valid behavioural deltas: **9**
+- oracle-mapping defects: **4**
+- frozen contract defects: **5**
+- unresolved: **0**
 
-The latest worker obeyed the corrected protocol:
+Private adjudication artifact SHA256:
 
-- build commands executed: 0
-- test commands executed: 0
-- compiler commands executed: 0
-- experimental runs: 0
+`4A57493EC8B70732C5AFABC71F055153DA423867F32564233FBD1EF59A17D5F5`
 
-It built a structural source-derived oracle and then returned Terminal B claiming PRE/POST materialisation inconsistency because some files were byte-identical across PRE and POST.
+Repeat-hash verification: **TRUE**.
 
-That Terminal-B diagnosis is **NOT YET ACCEPTED**.
+Public-safe records:
 
-Coordinator verification against authoritative Git history shows:
+- `results/public/subject-b-p2-contract-to-history-adjudication-v1.md`
+- `results/public/subject-b-p2-contract-to-history-adjudication-v1.json`
 
-### P2_T05 / C10
+### Consequence
 
-POST `a64a727d...` is `Implement cross-instance acquisition host leases`.
+Item 59 is genuinely reopened because five exact frozen governing behaviours do not satisfy the required historical PRE→POST behavioural-delta condition.
 
-The only changed production file is:
+This does **not** invalidate all 18 behaviours:
 
-`src/SearchForCars.Infrastructure/AcquisitionSourceRepositories.cs`
+- 9 are valid behavioural deltas;
+- 4 are verifier/oracle seam-mapping defects only;
+- exactly 5 require contract repair.
 
-The POST adds real in-memory and PostgreSQL implementations of `TryAcquireHostLeaseAsync` and `ReleaseHostLeaseAsync`.
+The pasted terminal summary did not expose the five private behaviour IDs. The next privileged worker must read the immutable private adjudication package and repair exactly those identified IDs. Do not infer or invent them from the public summary.
 
-Therefore `src/SearchForCars.Application/AcquisitionAbstractions.cs` being byte-identical PRE/POST is **expected** and is not a materialisation defect. If the structural oracle treated interface equality as failure, that is an **oracle/behaviour-seam mapping defect**.
+## Item-59 repair rules
 
-### P2_T01 / C06
+1. Read the private audit identified by SHA256 `4A57493...` and extract the exact five `FROZEN_CONTRACT_DEFECT` behaviour IDs and their evidence.
+2. Preserve the nine valid behavioural deltas unchanged.
+3. Preserve the four oracle-mapping-defect behaviours unchanged as disclosed contracts; their verifier seams are repaired later in item 60.
+4. Repair only the five defective disclosed behaviours/mappings/spec statements required by the audit.
+5. Do not silently substitute a new task or candidate.
+6. Do not use outcome-based selection or hindsight about likely model success/failure.
+7. If an exact defective behaviour can be corrected to the actual disclosed historical PRE→POST requirement within the same selected task, do that and document the provenance.
+8. If a selected task cannot yield a valid disclosed behavioural contract without changing the historical task identity, stop for coordinator methodology review rather than substituting another task.
+9. Re-run the contract-to-history audit over all final behaviours after repair. Require PRE=false / POST=true for every final governing behaviour.
+10. Freeze new superseding item-59 curation/selection-contract identities. Preserve the old hashes as historical superseded evidence; never overwrite history.
+11. No experimental P2 model runs.
+12. No build/test/restore/compiler commands.
 
-PRE→POST `a120b02... -> ddb2d79...` changes:
+## Verifier history retained
 
-- `Dockerfile`
-- `src/SearchForCars.Infrastructure/TraderSubscriptionRepositories.cs`
-- `src/SearchForCars.Web/TraderEndpoints.cs`
-- regression/security/readiness test files
-
-It does **not** change `src/SearchForCars.Web/Program.cs` or `SellerReportService.cs`.
-
-Therefore those files being byte-identical in correctly materialised PRE/POST states is not itself corruption.
-
-However, this creates a genuine methodology question: if any of the frozen four T01 governing behaviours claim a behavioural delta in unchanged/pre-existing production semantics (for example production-startup refusal already present in PRE), then the frozen T01 contract may violate the P2 eligibility rule `PRE lacks behaviour; POST contains behaviour`.
-
-We must distinguish:
-
-1. **oracle mapping defect** — verifier inspected the wrong seam/file while the frozen behaviour is valid elsewhere in the actual POST delta; from
-2. **frozen contract defect** — the disclosed governing behaviour was already satisfied by PRE or is not introduced by the selected POST.
-
-Do not reopen item 59 until this adjudication is complete.
-
-## Active next work package
-
-Run a **NO-BUILD CONTRACT-TO-HISTORY ADJUDICATION** across all five P2 tasks, with special focus on T01 and T05.
-
-For every one of the 18 frozen governing behaviours, read the exact frozen statement and requirement mapping, then compare it to the authoritative PRE/POST Git objects and classify:
-
-- VALID_BEHAVIOURAL_DELTA — PRE lacks governed semantic property; POST introduces/satisfies it;
-- ORACLE_MAPPING_DEFECT — frozen behaviour is valid but previous verifier inspected the wrong semantic seam;
-- FROZEN_CONTRACT_DEFECT — frozen behaviour was already satisfied by PRE, is absent from POST, or is otherwise not a valid PRE→POST behavioural delta;
-- UNRESOLVED — evidence genuinely insufficient.
-
-No build/test/restore/compiler commands. No experimental model. No frozen artifact mutation during adjudication.
-
-If all 18 behaviours are VALID_BEHAVIOURAL_DELTA or ORACLE_MAPPING_DEFECT, item 59 remains complete and item 60 resumes with corrected semantic seams.
-
-If any behaviour is FROZEN_CONTRACT_DEFECT, then and only then reopen item 59 for methodology-controlled re-curation/selection repair.
+- fixture-only oracle: rejected;
+- build-based stops: rejected;
+- no-build structural oracle: useful for revealing mapping/contract issues but not a completed verifier package;
+- contract-to-history adjudication: accepted and now authoritative for item-59 repair.
 
 ## Remaining gates
 
-60. Implement and qualify genuine P2 semantic hidden verifiers — **ACTIVE / adjudication substep**.
+59. Repair and re-freeze exact P2 five-task neutral contracts after accepted contract-to-history audit — **ACTIVE**.
+60. Implement and qualify genuine P2 semantic hidden verifiers — **BLOCKED pending #59**.
 61. Freeze P2 final preregistration/runtime/prompts/randomisation/execution lock.
 62. Execute 30-run P2 same-repository replication.
 63. Blind-adjudicate and scientifically interpret P2.
@@ -164,4 +152,4 @@ If any behaviour is FROZEN_CONTRACT_DEFECT, then and only then reopen item 59 fo
 
 ## Coordinator/Codex rule
 
-Never reintroduce build/test/compile activity into item 60. A file being unchanged across PRE/POST is not automatically a defect; adjudicate against the actual frozen behaviour and actual historical delta.
+Do not force progress by weakening a frozen requirement or substituting a different task. Repair the exact identified contract defects transparently, re-audit, re-freeze, and only then resume verifier qualification.
