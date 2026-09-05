@@ -1,6 +1,16 @@
 # Item 64 claim-consistency audit
 
-This audit covers the public Level-2 P2 publication and the paper/evidence surfaces aligned to the coordinator-accepted P1 and P2 results.
+This audit covers the public Level-2 P2 publication and the paper/evidence surfaces aligned to the coordinator-accepted P0, P1 and P2 research state.
+
+## Authoritative empirical status
+
+P0 was executed exactly once and classified `MIXED_METHODOLOGY_AND_MODEL_FAILURE`. Its A/B correctness outcome is not treated as causally interpretable and P0 is not rerun.
+
+P1 observed equal non-zero performance: 18/30 behaviours in each condition, with 30 matched agreements and no disagreements.
+
+P2 observed equal zero performance: 0/39 behaviours in each condition, with 39 matched agreements, no disagreements, and 0/12 candidate-level overall passes per condition. P2 is explicitly floor-limited and is not evidence of successful behavioural preservation, equivalence, non-inferiority, or repository-state sufficiency.
+
+P1 and P2 are not pooled.
 
 ## Inventory classification
 
@@ -62,8 +72,34 @@ Other tracked source, runtime, test, figure, bibliography, and unrelated histori
 
 ## Claim changes
 
-The claims register now records P2 as a bounded empirical claim with an explicit floor-effect status. The paper now distinguishes P1's equal non-zero result from P2's equal-zero result, does not pool them, and states that neither establishes equivalence, non-inferiority, universal repository sufficiency, or cost superiority. The P2 recovery history and denominator repair are retained as methodological evidence.
+The claims register records P2 as a bounded empirical claim with an explicit floor-effect status. The paper distinguishes P1's equal non-zero result from P2's equal-zero result, does not pool them, and states that neither establishes equivalence, non-inferiority, universal repository sufficiency, or cost superiority. The P2 recovery history and denominator repair are retained as methodological evidence.
+
+## Coordinator review correction
+
+The first Item-64 draft worker correctly aligned the P1/P2 result language but missed stale P0 status in active publication surfaces. Coordinator review found four direct contradictions:
+
+- root `README.md` said P0 had not been executed;
+- `paper/README.md` said P0 had not been executed and was not ready;
+- `paper/experiment-plan.md` presented pre-run P0 state as current state;
+- `paper/sections/11-results.tex` said P0 had not been executed.
+
+`paper/sections/10-experimental-method.tex` also used pre-run tense without clearly identifying P0 as historical.
+
+All were repaired on the Item-64 draft before coordinator acceptance. Active publication wording now states that P0 ran exactly once, was classified `MIXED_METHODOLOGY_AND_MODEL_FAILURE`, supplies no causal A/B correctness result, and must not be rerun. Pre-run protocol material retained for provenance is explicitly labelled historical.
+
+This correction is itself part of the Item-64 audit record rather than being hidden.
+
+## Final claim-risk state
+
+- unsupported active overclaims: **0**;
+- stale active P0 execution-status claims: **0**;
+- stale P1 numeric claims: **0**;
+- stale P2 numeric claims: **0**;
+- P1/P2 contradictions: **0**;
+- public/private protocol exposures introduced by Item 64: **0**.
+
+Remaining scientific limitations are substantive rather than editorial: P0 is methodology/model failure evidence, formal equivalence and non-inferiority remain unestablished, P2 is floor-limited, generalisation beyond Subject-B remains unestablished, and resource/cost superiority remains unestablished.
 
 ## Validation requirements
 
-The final worker validation must report JSON parsing, Markdown/link sanity, stale-number scans, overclaim scans, P1/P2 contradiction scans, public/private protocol exposure scans, `git diff --check`, and a manual diff review. Only public documentation/evidence files may be changed.
+The accepted Item-64 state must preserve valid JSON, clean documentation diffs, correct P0/P1/P2 numeric/status statements, bounded claim language, public/private separation, and documentation-only changes. No experimental execution is part of Item 64.
