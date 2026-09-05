@@ -1,6 +1,6 @@
 # Repository-as-State — CURRENT
 
-Updated: 2026-09-06 00:10 Europe/London
+Updated: 2026-09-06 00:20 Europe/London
 
 ## Programme status
 
@@ -12,7 +12,7 @@ Updated: 2026-09-06 00:10 Europe/London
 - P1 rerun: **FALSE**.
 - P2 task rerun: **FALSE**.
 
-Current Item-65 substage: **65F — zero-model Subject-C workspace-access/materialisation root-cause qualification**.
+Current Item-65 substage: **65G — fresh Subject-C preregistration/execution lock**.
 
 ## Core framing
 
@@ -117,7 +117,7 @@ Accepted verifier qualification:
 - implementation-independence: **PASS**
 - project build/test/compiler used for qualification: **FALSE**
 
-### Accepted 65C — preregistration/execution lock
+### Accepted 65C — first preregistration/execution lock
 
 Execution-lock package:
 
@@ -131,7 +131,7 @@ Runtime binding:
 
 - model: `gpt-5.6-luna`
 - CLI: `codex-cli 0.153.0-alpha.5`
-- restricted identity: `DESKTOP-BFTREBH\ras-p2-experimental`
+- restricted identity: private experimental identity
 - administrator: **FALSE**
 - elevated: **FALSE**
 - 18 blind IDs/workspaces/scheduled units frozen
@@ -146,7 +146,7 @@ Sequence:
 1. Slot 1 became model-active and was consumed by `401_UNAUTHORIZED_MISSING_AUTHENTICATION` before a completion.
 2. Authentication under the restricted account was repaired successfully using normal ChatGPT login.
 3. Slot 2 became model-active but source-state access failed with `EXPERIMENTAL_WORKSPACE_ACCESS_DENIED`; source state remained unchanged.
-4. Coordinator authorised one zero-model compatibility repair using the previously successful runtime mode `sandbox = "unelevated"`, because Phase C had not frozen a contradictory sandbox setting.
+4. Coordinator authorised one zero-model compatibility repair using the previously successful `sandbox = "unelevated"` runtime mode, because Phase C had not frozen a contradictory sandbox setting.
 5. Isolation/private-root denial remained intact.
 6. Slot 3 became model-active but source reads still failed with `EXPERIMENTAL_WORKSPACE_ACCESS_DENIED`.
 7. Slots 1–3 were never rerun.
@@ -170,9 +170,6 @@ Accepted blocker facts:
 - preregistered units: **18**
 - consumed units: **3**
 - not started: **15**
-- authentication repair succeeded: **TRUE**
-- `unelevated` repair applied: **TRUE**
-- `unelevated` repair resolved workspace access: **FALSE**
 - project builds: **0**
 - compiler/typechecker runs: **0**
 - project/public tests: **0**
@@ -186,30 +183,54 @@ Accepted blocker facts:
 
 Do not resume or repair this failed execution block into a result.
 
-## ACTIVE NOW — 65F workspace-access/materialisation qualification
+### Accepted 65F — workspace-access/materialisation root-cause qualification
 
-The next scientific task is zero-model diagnosis and qualification of the future Subject-C workspace materialisation/ACL path.
+65F was a zero-model filesystem/security qualification. It did not run a Subject-C task-solving model, project build/compiler/tests/lint, hidden verifier against model output or correctness adjudication, and it did not modify the failed execution workspaces.
 
-Current working hypothesis from the blocked evidence: the failure is likely in workspace ACL/materialisation rather than the model or semantic verifier. Directory metadata can be enumerated while actual source-file reads remain denied even after `unelevated` sandbox configuration.
+Accepted root cause:
 
-Required 65F work:
+`COPIED_SOURCE_FILES_HAVE_PROTECTED_EMPTY_DACL_AND_MISSING_CODEX_SANDBOX_PRINCIPAL_INHERITANCE`
 
-- compare failed Subject-C workspace parent/file ACLs with the accepted successful Subject-B P2 execution path;
-- identify whether the cause is copied ACLs, inheritance, owner, deny ACEs, missing sandbox principal/group access, integrity level, or another filesystem/security property;
-- reproduce the problem only in a disposable fixture root;
-- define the minimum future materialisation repair;
-- prove restricted read/create/modify/delete access on a disposable source-like tree;
+The failed Subject-C materialisation path was compared with the accepted successful Subject-B P2 path. Disposable fixtures proved the minimum repaired ACL/materialisation method: the restricted non-admin identity could read/create/modify/delete within the repaired disposable workspace while protected private roots remained denied.
+
+Accepted 65F private package commitment:
+
+`8b586ce8ff7821033b5b354f6a7c2ecf6a2e6860b6e79a9acdc4bbe76ffdb1a3`
+
+Public evidence:
+
+- `results/public/subject-c-level3-workspace-access-qualification-v1.json`
+- `results/public/subject-c-level3-workspace-access-qualification-v1.md`
+
+An additional disposable `codex sandbox` wrapper probe did not execute its harmless command. That does not invalidate the filesystem root-cause qualification, but it creates a mandatory 65G readiness gate: **before a fresh execution lock can permit model-active execution, the exact intended restricted runtime path must pass a zero-model source read/write access proof against the newly materialised workspaces.** If that exact-runtime gate cannot be qualified, stop; do not start 65H.
+
+## ACTIVE NOW — 65G fresh preregistration/execution lock
+
+The next scientific task is to create an entirely new Subject-C preregistration/execution block.
+
+65G must:
+
+- preserve the accepted 65A/65B task contracts and semantic verifier unchanged;
+- never resume the failed first execution block;
+- create a **fresh** schedule, randomisation seed, blind mapping, workspaces and execution state;
+- use fresh workspace materialisation with the accepted 65F ACL repair;
 - preserve non-admin/non-elevated execution and all protected private-root denials;
+- include a final zero-model exact-runtime workspace access gate before the lock permits any task model activity;
 - invoke **no task-solving model**;
 - run **no project build/compiler/tests/lint**;
-- do not modify the failed execution workspaces.
+- create no correctness result and perform no adjudication.
 
-Only if 65F passes may the programme create a **new** Subject-C execution preregistration/lock. The old block remains historical falsification evidence.
+Only after coordinator acceptance of the complete fresh 65G lock may 65H begin.
 
 ## Remaining Item-65 path
 
-- **65F ACTIVE:** zero-model workspace access/root-cause qualification
-- **65G PENDING:** fresh Subject-C preregistration, schedule, blind mapping, workspaces and execution lock
+- **65A COMPLETE:** selection/design
+- **65B COMPLETE:** task contracts/verifier
+- **65C COMPLETE:** first preregistration/execution lock
+- **65D COMPLETE:** first locked execution infrastructure falsification
+- **65E COMPLETE:** failed-block evidence freeze/publication
+- **65F COMPLETE:** zero-model workspace access/root-cause qualification
+- **65G ACTIVE:** fresh Subject-C preregistration, schedule, blind mapping, workspaces and execution lock
 - **65H PENDING:** fresh execution and complete output freeze
 - **65I PENDING:** blind semantic adjudication and bounded interpretation
 - **65J PENDING:** Level-3 publication/claim alignment
