@@ -1,6 +1,6 @@
 # Evidence roadmap — What would convince a sceptic?
 
-This roadmap prevents one successful pilot from being promoted into a general validation claim.
+This roadmap prevents bounded results from being promoted into a general validation claim.
 
 ## Current controlled evidence — Subject-B P1
 
@@ -16,6 +16,21 @@ Public-safe result record:
 - `results/public/subject-b-p1-results-v1.json`
 
 Historical preregistration state: `d95e2cdc47f8082a805fa2d5b09cdb272cf977ef`.
+
+## Current controlled evidence — Subject-B P2 Level 2
+
+The accepted P2 recovery is a four-task, three-repetition, two-condition same-repository block with 24 executions and 12 matched task-by-repetition pairs. It evaluated 13 governing behaviours per repetition and therefore 39 behaviour observations per condition.
+
+Both conditions satisfied **0/39** behaviours and failed **39/39**. The matched vectors had **39 agreements and 0 disagreements**; candidate-level overall verifier passes were **0/12** in both conditions. The first Item-63 adjudication attempt remains quarantined: its 24 placeholder calls produced no valid adjudications, its premature unblinding invalidated the attempt, and one later sealed-verifier diagnostic result was excluded. The accepted recovery completed 24 fresh blinded sealed-verifier adjudications, froze them before unblinding, and repaired the denominator in derived reporting without changing the frozen records.
+
+This is a **floor-effect result**. It detects no A/B behavioural difference under this design, but it does not demonstrate successful behavioural preservation, equivalence, non-inferiority, or repository-state sufficiency. P1 and P2 are not pooled. P1 observed equal non-zero performance; P2 observed equal zero performance and therefore provides no positive replication of P1's successful behavioural-preservation observation.
+
+Public-safe Level-2 evidence:
+
+- `results/public/subject-b-p2-level2-evidence-v1.md`
+- `results/public/subject-b-p2-level2-evidence-v1.json`
+- `results/public/subject-b-p2-item63-results-v2.md`
+- `results/public/subject-b-p2-item63-results-v2.json`
 
 ## Level 0 — Observed workflow motivation
 
@@ -75,7 +90,7 @@ What it can support:
 Remaining weakness:
 - private subject and author/repository bias.
 
-**Current status: not achieved. P2 should target this level before any formal same-repository equivalence/non-inferiority claim is considered.**
+**Current status: achieved for the bounded Subject-B P2 execution and analysis, but floor-limited.** The result supports a documented same-repository observation, not a positive preservation claim or a formal equivalence/non-inferiority claim.
 
 ## Level 3 — Multiple repositories and task classes
 
@@ -109,7 +124,7 @@ Design:
 Why it matters:
 - successful continuation would provide stronger evidence that continuity resides in external project state rather than a provider/model-specific session representation.
 
-This is not part of P1.
+This is not part of P1 or the current Subject-B P2 same-repository result.
 
 ## Level 6 — Independent external replication
 

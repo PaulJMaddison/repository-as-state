@@ -1,17 +1,21 @@
 \section{Results}
 \label{sec:results}
 
-\textbf{P0 has not yet been executed. Controlled empirical results are not available.}
+P0 has not been executed. The controlled results below are the bounded Subject-B P1 and P2 records; neither is a general validation of Repository-as-State.
 
-There are currently no measured RRI values, reconstruction-cost measurements, condition effects, confidence intervals, statistical tests, model comparisons, or empirical cost savings to report. The practical workflow that motivated RaS is \textbf{OBSERVED} motivation and must not be interpreted as controlled evidence.
+\subsection{Subject-B P1}
 
-\begin{center}
-\fbox{\parbox{0.82\textwidth}{
-\centering
-\textbf{PLACEHOLDER --- NO EMPIRICAL DATA.}\\[1mm]
-This section will be populated only from versioned experimental protocols and publication-safe evidence after P0 and subsequent studies are executed.
-}}
-\end{center}
+P1 compared persistent-session and fresh-session conditions across three matched tasks. Condition A and Condition B each satisfied 18/30 governing behaviours. The matched vectors had 30 agreements and 0 disagreements; both conditions passed two of the three tasks. This is bounded positive evidence for the narrow P1 observation that fresh reconstruction matched persistent-session correctness in this sample. It is not an equivalence, non-inferiority, universal sufficiency, or resource-cost claim.
+
+\subsection{Subject-B P2 Level 2}
+
+P2 used four tasks, three repetitions, two conditions, 24 executions and 12 matched task-by-repetition pairs. The four task contracts define 13 governing behaviours, giving 39 behaviour observations per condition. Both conditions satisfied 0/39 and failed 39/39. The matched vectors had 39 agreements and 0 disagreements, and candidate-level overall verifier passes were 0/12 in both conditions.
+
+The P2 result is a floor effect. No behavioural correctness difference was observed between the persistent-session and fresh-session conditions in P2, but because both conditions were at the floor, P2 does not demonstrate successful behavioural preservation by either condition and cannot by itself be interpreted as evidence of behavioural equivalence or repository-state sufficiency. P1 and P2 are not pooled.
+
+The first Item-63 adjudication attempt is preserved as invalid history: 24 placeholder calls produced zero valid adjudications, premature unblinding occurred, and one later sealed-verifier diagnostic result was excluded. The accepted recovery used 24 fresh blinded sealed-verifier adjudications, froze them before unblinding, and repaired only a derived denominator error. No P2 task-model or verifier reruns were added.
+
+Resource/reconstruction telemetry remains separate and descriptive; it does not establish a cost or speed advantage.
 
 Future results should report, at minimum, subject or public repository identifier, pinned starting revision, task sequence, condition, model/runtime version, reset depth, hidden-verifier outcome, state-reconstruction score, reconstruction telemetry, total task telemetry, retries, intervention flags, and sanitisation status.
 

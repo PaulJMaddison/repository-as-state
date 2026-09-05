@@ -18,7 +18,7 @@ When resuming the work, read in this order:
 - Codex is primarily used for local/private implementation, execution, verifier qualification and evidence generation.
 - P0 is immutable and must never be rerun.
 - P1 is complete, adjudicated, interpreted and publicly recorded; it must never be silently rerun or amended.
-- P2 is a new preregistered replication programme; repetitions are independent observations, not retries.
+- P2 is a completed, accepted Level-2 same-repository replication with a documented floor-effect result; repetitions were independent observations, not retries.
 - Hidden verifier source/oracle implementation must not be copied into public `aidocs`.
 - A verifier may be hidden. A requirement may not be hidden.
 - Do not upgrade bounded empirical results into equivalence, non-inferiority, universal repository sufficiency, cost superiority, security or tiering claims without the required evidence.

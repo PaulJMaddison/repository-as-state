@@ -13,9 +13,9 @@ A hostile pre-experiment audit has narrowed the novelty and strengthened the exp
 
 **Internal decision:** GO_WITH_REQUIRED_PROTOCOL_CHANGES  
 **P0 execution readiness:** NOT YET READY  
-**Controlled empirical RaS evidence:** NONE
+**Controlled empirical evidence:** BOUNDED SUBJECT-B P1/P2 RESULTS PUBLISHED
 
-The audit does **not** conclude that RaS is validated. It concludes that a narrower post-acceptance reasoning-state-disposal hypothesis is specific and falsifiable enough to justify P0 preparation if the required causal/isolation gates are implemented.
+The audit does **not** conclude that RaS is validated. Subject-B P1 provides bounded equal non-zero performance; Subject-B P2 provides a bounded equal-zero floor-effect result. Neither establishes equivalence, non-inferiority, universal repository sufficiency, or generalisation.
 
 Key audit documents:
 
@@ -58,9 +58,7 @@ RRI, tiered execution, repository retrieval, sequential coding evaluation, Git-b
 
 ## Evidence status
 
-**P0 has not been executed.**
-
-The Results section contains no invented measurements. Positive controlled empirical RaS claims remain zero.
+**P0 has not been executed.** P1 and P2 are reported as bounded Subject-B evidence in the Results section. Positive evidence for successful P2 behavioural preservation remains absent because both P2 conditions were at the correctness floor.
 
 ## Build
 

@@ -107,6 +107,8 @@ P1 is supportive with limitations for the narrow proposition tested: fresh recon
 
 P1 does not establish universal equivalence, formal non-inferiority, universal repository sufficiency, or a resource-cost advantage. Replication on more tasks and independent repositories is required.
 
-Current next step:
+Current evidence status:
 
-`DESIGN_AND_PREREGISTER_P2_REPLICATION`
+Subject-B P2 has now completed as a preregistered Level-2 same-repository replication. It observed 0/39 satisfied behaviours in both conditions, 39 matched agreements and no disagreements. This floor effect does not provide positive evidence of successful behavioural preservation; the public Level-2 synthesis is recorded in `results/public/subject-b-p2-level2-evidence-v1.md`.
+
+The next external-validity step is independent cross-repository replication, particularly Subject C.

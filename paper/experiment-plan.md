@@ -204,21 +204,24 @@ Not allowed:
 ## Later experiments
 
 ### P1 — Repeated same-repository runs
-Estimate stochastic variation and paired A/B effects.
+Completed for Subject-B as a bounded three-task controlled study: 18/30 versus 18/30, with 30 matched agreements and no disagreements. It remains supportive-with-limitations and does not establish equivalence or non-inferiority.
 
-### P2 — Multi-repository replication
-Public unrelated repositories, languages, architectures, task classes and dependency widths.
+### P2 — Level-2 same-repository replication
+Completed for Subject-B as four tasks × three repetitions × two conditions. Both conditions satisfied 0/39 behaviours, with 39 matched agreements and no disagreements, a floor effect that provides no positive evidence of successful behavioural preservation. P1 and P2 are not pooled.
 
-### P3 — Semantic-state ablation
+### P3 — Multi-repository replication
+Independent repositories, languages, architectures, task classes and dependency widths; Subject C is required for this external-validity step.
+
+### P4 — Semantic-state ablation
 Small causal ablations of durable artefact classes.
 
-### P4 — Tiered execution
+### P5 — Tiered execution
 Separate executor-capability/economic study.
 
-### P5 — Reconstruction scaling
+### P6 — Reconstruction scaling
 Vary repository mass and dependency width; compare retrieval strategies.
 
-### P6 — Cross-model continuity
+### P7 — Cross-model continuity
 M_A creates accepted state; M_B resumes without predecessor model-native state.
 
 ## Decision gates

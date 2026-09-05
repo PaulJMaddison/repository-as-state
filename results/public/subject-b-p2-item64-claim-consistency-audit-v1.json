@@ -1,0 +1,86 @@
+{
+  "schema": "subject-b-p2-item64-claim-consistency-audit-v1",
+  "item": 64,
+  "scope": "public Level-2 P2 publication and claim alignment",
+  "authoritative_p2_result": "0/39 versus 0/39, 39 agreements, 0 disagreements, 0/12 overall passes per condition",
+  "inventory_artifact": "results/public/subject-b-p2-item64-claim-consistency-audit-v1.md",
+  "files_changed": [
+    "README.md",
+    "aidocs/repository-as-state/README.md",
+    "experiments/P1/README.md",
+    "paper/README.md",
+    "paper/claims-register.md",
+    "paper/evidence-roadmap.md",
+    "paper/experiment-plan.md",
+    "paper/sections/06-repository-sufficiency.tex",
+    "paper/sections/10-experimental-method.tex",
+    "paper/sections/11-results.tex",
+    "paper/sections/12-threats-to-validity.tex",
+    "paper/sections/13-discussion.tex",
+    "paper/sections/16-conclusion.tex",
+    "results/public/subject-b-p2-level2-evidence-v1.json",
+    "results/public/subject-b-p2-level2-evidence-v1.md",
+    "results/public/subject-b-p2-item64-claim-consistency-audit-v1.json",
+    "results/public/subject-b-p2-item64-claim-consistency-audit-v1.md"
+  ],
+  "files_reviewed_no_change": [
+    "results/public/subject-b-p1-results-v1.json",
+    "results/public/subject-b-p1-results-v1.md",
+    "results/public/subject-b-p2-item62-output-freeze-v3.json",
+    "results/public/subject-b-p2-item62-output-freeze-v3.md",
+    "results/public/subject-b-p2-item63-results-v2.json",
+    "results/public/subject-b-p2-item63-results-v2.md",
+    "results/public/subject-b-p2-item63-blind-adjudication-falsification-v1.json",
+    "results/public/subject-b-p2-item63-blind-adjudication-falsification-v1.md",
+    "results/public/subject-b-p2-semantic-verifier-qualification-v1.json",
+    "experiments/P1/protocol-v1.md",
+    "experiments/P1/preregistration-v1.yaml",
+    "paper/sections/01-introduction.tex",
+    "paper/sections/02-agent-continuity-problem.tex",
+    "paper/sections/03-repository-as-state.tex",
+    "paper/sections/04-transactional-reasoning.tex",
+    "paper/sections/05-tiered-execution.tex",
+    "paper/sections/07-cost-model.tex",
+    "paper/sections/08-executable-memory.tex",
+    "paper/sections/09-security.tex",
+    "paper/sections/14-related-work.tex",
+    "paper/sections/15-future-work.tex",
+    "paper/sections/17-externalising-engineering-continuity.tex",
+    "paper/sections/18-durable-documentation.tex",
+    "paper/sections/19-repository-resumability.tex",
+    "paper/sections/20-repository-agent-state-scalability.tex",
+    "paper/sections/21-authoritative-state-principle.tex",
+    "paper/validation-audit.md"
+  ],
+  "files_not_relevant": ["other tracked source, runtime, test, figure, bibliography, and unrelated historical handoff files"],
+  "claims_weakened": [
+    "P1/P2 evidence is explicitly bounded to Subject-B and its declared samples.",
+    "P2 is explicitly described as a floor effect rather than successful preservation.",
+    "No observed A/B difference is separated from equivalence, non-inferiority, and repository sufficiency.",
+    "Resource evidence remains descriptive and separate from correctness."
+  ],
+  "claims_clarified": [
+    "P1 equal non-zero performance versus P2 equal zero performance.",
+    "P2 denominator is 39 observations per condition.",
+    "Subject C remains necessary for cross-repository replication."
+  ],
+  "contradictions_removed": [
+    "stale statements that controlled empirical evidence was absent",
+    "stale statements that P2 was merely a future multi-repository design",
+    "stale statements that the Results section contained no empirical data",
+    "stale statements that Level 2 had not been achieved"
+  ],
+  "unresolved_claim_risks": [
+    "P0 remains unexecuted and its methodology text is retained as historical protocol material.",
+    "Formal equivalence and non-inferiority remain unestablished.",
+    "Generalisation beyond Subject-B remains unestablished.",
+    "Resource/cost superiority remains unestablished."
+  ],
+  "prohibited_overclaim_scan": {
+    "unsupported_active_overclaims": 0,
+    "stale_p1_numeric_claims": 0,
+    "stale_p2_numeric_claims": 0,
+    "p1_p2_contradictions": 0,
+    "public_private_protocol_exposures": 0
+  }
+}

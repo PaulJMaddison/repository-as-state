@@ -20,9 +20,11 @@ This research is published under Paul Maddison's name and is not presented as re
 
 ## Status
 
-**CONTROLLED EMPIRICAL EVIDENCE STATUS: NOT YET AVAILABLE.**
+**CONTROLLED EMPIRICAL EVIDENCE STATUS: BOUNDED SUBJECT-B P1/P2 EVIDENCE AVAILABLE.**
 
-P0 — the Forced-State-Reset Pilot — has not yet been executed. The repository currently contains theory, formal models, an experimental protocol foundation, a preregistration template, initial research tooling, and a publication-oriented manuscript draft. It does **not** contain evidence that RaS has been empirically validated.
+P0 — the original Forced-State-Reset Pilot — has not been executed. Subject-B P1 observed equal non-zero behavioural performance (18/30 versus 18/30; 30 matched agreements). Subject-B P2, a four-task, three-repetition Level-2 block, observed equal zero performance (0/39 versus 0/39; 39 agreements and no disagreements), a floor effect that provides no positive evidence of successful behavioural preservation by either condition. These are bounded results, not proof of equivalence, universal repository sufficiency, or general validation.
+
+See the [P1 result](results/public/subject-b-p1-results-v1.md), the [P2 Level-2 evidence summary](results/public/subject-b-p2-level2-evidence-v1.md), and the [paper](paper/).
 
 ## Architecture
 
