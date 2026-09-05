@@ -1,21 +1,22 @@
 # Repository-as-State — CURRENT
 
-Updated: 2026-09-04 16:46 Europe/London
+Updated: 2026-09-05 18:15 Europe/London
 
 ## Programme status
 
-- Authoritative progress ledger: **62/67 complete**.
-- Items 58, 59, 60, 61 and 62 are **COMPLETE**.
-- **Item 63 is ACTIVE — recover the blind adjudication after quarantining the invalid first Stage-A attempt, then scientifically interpret the 24 frozen P2 outputs.**
-- Items 64–67 remain pending.
+- Authoritative progress ledger: **63/67 complete**.
+- Items 58, 59, 60, 61, 62 and 63 are **COMPLETE**.
+- **Item 64 is ACTIVE — publish the Level-2 P2 evidence and update the paper claims/evidence to reflect the accepted floor-effect result.**
+- Items 65–67 remain pending.
 - Fresh accepted P2 experimental units: **24**.
 - Fresh scheduled P2 units with genuine model activity: **24/24**.
-- Accepted Item-63 blinded correctness adjudications: **0/24**.
-- Real sealed-verifier diagnostic executions during the invalid Item-63 attempt: **1**, quarantined and not accepted as a blind adjudication.
+- Accepted Item-63 blinded correctness adjudications: **24/24**.
 - P2 fresh execution completed: **TRUE**.
 - P2 output freeze completed: **TRUE**.
+- P2 blind adjudication completed: **TRUE**.
 - P0 rerun: **FALSE**.
 - P1 rerun: **FALSE**.
+- P2 task rerun: **FALSE**.
 
 ## Core framing
 
@@ -124,51 +125,84 @@ Accepted Item-62 identities:
 - output-freeze manifest: `2A27C6110E99D712D99D1680B58F568512301B866A78E802C5D79D933414BC4E`
 - execution package: `31898756356B676CB76F7D67596DE206B902659B5E8D58E5A4620250F55607C1`
 
-All Item-62 hashes repeat and package internal bindings validate.
-
 Public evidence:
 
 - `results/public/subject-b-p2-item62-output-freeze-v3.json`
 - `results/public/subject-b-p2-item62-output-freeze-v3.md`
 
-## Item 63 first attempt — invalid and quarantined
+## Item 63 blind adjudication and scientific interpretation — accepted
 
-The first Item-63 Stage-A worker used coordinator-side placeholder verifier entrypoints for its initial 24 calls. Those calls produced no correctness adjudication output and are not accepted as blinded adjudications.
+The first Item-63 Stage-A attempt remains permanently quarantined. Its 24 coordinator-side placeholder calls produced no valid adjudication output, and its one real sealed-verifier diagnostic call occurred after premature unblinding and is excluded from accepted correctness evidence.
 
-The worker then unblinded the mapping before discovering the path mismatch and made one diagnostic call to the real sealed verifier. That diagnostic call occurred after condition information was available, so it is quarantined and cannot be accepted as a blind Stage-A adjudication.
+The accepted recovery used a new neutral blind-ID-only candidate bundle and the unchanged qualified semantic verifier package.
 
-The Item-62 experiment remains intact:
+Accepted recovery integrity:
 
-- frozen candidates modified: **0**
-- frozen candidates rerun: **0**
-- task-solving model runs during Item 63: **0**
-- accepted blind adjudications from failed attempt: **0**
-- real diagnostic verifier calls: **1**, excluded
+- frozen Item-62 candidates: **24**
+- candidates rerun: **0**
+- candidates modified: **0**
+- accepted blind adjudications: **24/24**
+- unique blind IDs: **24**
+- accepted recovery real-verifier runs: **24**
+- quarantined real-verifier diagnostic runs: **1**
+- total real sealed-verifier executions across Item 63: **25**
+- condition information used during accepted Stage-A scoring: **FALSE**
+- accepted Stage A frozen before accepted unblinding: **TRUE**
+- additional task-model runs during Item 63: **0**
+- verifier changed: **FALSE**
 
-Public falsification evidence:
+A derived denominator defect was found after the first recovery report. It was repaired using the already-frozen Stage-A records and accepted unblinding only; no verifier/model/candidate rerun occurred and all frozen Stage-A evidence remained byte-identical.
 
+### Accepted P2 correctness result
+
+- behaviour observations per condition: **39**
+- Condition A behaviours satisfied: **0/39**
+- Condition B behaviours satisfied: **0/39**
+- Condition A behaviours failed: **39/39**
+- Condition B behaviours failed: **39/39**
+- matched behaviour agreements: **39**
+- matched behaviour disagreements: **0**
+- disagreements favouring A: **0**
+- disagreements favouring B: **0**
+- Condition A candidate overall passes: **0/12**
+- Condition B candidate overall passes: **0/12**
+
+Scientific interpretation:
+
+> No behavioural correctness difference was observed between the persistent-session and fresh-session conditions in P2: both conditions satisfied 0 of 39 evaluated behaviour observations, with 39 matched agreements and no disagreements.
+
+This is a **floor-effect result**. It does not demonstrate successful behavioural preservation by either condition and cannot by itself be interpreted as evidence of behavioural equivalence or repository-state sufficiency.
+
+P1 remains contextual and is not pooled into P2. P1 observed A=18/30 and B=18/30 with 30 agreements and 0 disagreements. P2 observed equal zero behavioural performance, so P2 provides no positive evidence that either condition successfully solved the four Level-2 tasks.
+
+Accepted Item-63 identities:
+
+- recovery blind manifest: `CD181156AA2CAC4B38ADDBFCD88674CDF48248D9FA7C3A386C09239CB2648822`
+- recovery Stage-A package: `1EBE21C62D8CCB2814FC42D14E4F9B698079110AE793CD3659164F0FC99D991D`
+- matched analysis: `8D22F6B75421F8263C8E9DA065CE31761F7527D4DD1035F357F925E6D2629F33`
+- scientific interpretation: `8983393D51B3BDD53162B610D98C1BADD7C4157E08E02DE72B1541E2E36E9A1B`
+- final package: `EECB0F2682B376D5BB0EC856D63164081B0F7C41B9332E5C359F5047A9B85681`
+
+Public evidence:
+
+- `results/public/subject-b-p2-item63-results-v2.json`
+- `results/public/subject-b-p2-item63-results-v2.md`
 - `results/public/subject-b-p2-item63-blind-adjudication-falsification-v1.json`
 - `results/public/subject-b-p2-item63-blind-adjudication-falsification-v1.md`
 
-## Active Item 63 recovery
+## Active Item 64
 
-Preserve and quarantine the entire failed Item-63 attempt. Do not reuse its Stage-A records, unblinding analysis or diagnostic correctness output.
+Publish the complete Level-2 P2 evidence narrative and update the research paper/evidence/claims surfaces so they accurately represent both P1 and P2.
 
-Recovery rules:
+Required claim discipline:
 
-- do not execute, regenerate or modify any Item-62 experimental unit;
-- use the unchanged 24 frozen candidates and unchanged sealed qualified semantic verifier;
-- construct a neutral blind-ID-only adjudication bundle with candidate locations/names that reveal no A/B condition, repetition-condition mapping or condition-named workspace path;
-- run accepted Stage A through a scoring process whose accessible inputs exclude the blind-to-condition mapping and condition labels;
-- the scoring process may know blind ID and task only;
-- freeze exactly 24 accepted blinded adjudication records before any accepted unblinding;
-- the previous diagnostic verifier result is excluded even if numerically identical to the fresh blind result;
-- document the real verifier execution count transparently: the quarantined diagnostic call plus the accepted blind calls;
-- after the fresh Stage-A package is frozen, perform one accepted unblinding and matched analysis from those frozen records only;
-- analyse the 12 matched task × repetition units under the frozen methodology;
-- keep resource telemetry separate from correctness;
-- use bounded claims only;
-- do not begin Item 64 until coordinator acceptance of Item 63.
+- retain the P1 bounded result exactly;
+- retain the P2 floor-effect result exactly;
+- do not describe P2 as equivalence, non-inferiority, successful preservation, or proof of Repository-as-State sufficiency;
+- distinguish `no observed A/B difference` from `successful task performance`;
+- preserve the Item-63 recovery/falsification history;
+- keep resource claims separate from correctness claims;
+- do not begin Subject C / Item 65 until Item 64 is coordinator-accepted.
 
 ## Contaminated historical Item-62 attempt
 
