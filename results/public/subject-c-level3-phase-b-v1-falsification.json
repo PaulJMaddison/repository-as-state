@@ -1,0 +1,19 @@
+{
+  "status": "HISTORICAL_FALSIFICATION",
+  "programme_item": 65,
+  "phase": "SUBJECT_C_PHASE_B_V1",
+  "coordinator_accepted": false,
+  "experimental_task_model_runs": 0,
+  "model_outputs_generated": 0,
+  "accepted_correctness_adjudications": 0,
+  "reasons": [
+    "The first Phase-B prompt incorrectly allowed tooling/build-test ambiguity. A disposable package/dependency diagnostic was later quarantined and was never used as correctness or methodological evidence.",
+    "More importantly, the v1 semantic verifier was too coupled to historical implementation shape and exact source/symbol patterns, so implementation independence was not sufficiently demonstrated."
+  ],
+  "rejected_phase_b_package_sha256": "845ce7922223a9bc8f456131babe75060d5a27db9372a5447f898edd85217616",
+  "rejected_verifier_package_sha256": "f85bbd1c3bcd69ca5d6f82cf1f83bbc8754b88cdfca1b8af4b7a72c6bd937ba1",
+  "superseded_by": {
+    "phase_b_v2_package_sha256": "ee2c288203cf1e36c368624e9efb18ffe0983d29aa89f698eeddef350081fadf",
+    "semantic_verifier_v2_package_sha256": "18aa90e28afbf1f36d2aa909417cb436279ddf20fc8c99e516ae25f42f25c0cd"
+  }
+}
