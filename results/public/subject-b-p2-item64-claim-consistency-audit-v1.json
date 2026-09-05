@@ -2,6 +2,7 @@
   "schema": "subject-b-p2-item64-claim-consistency-audit-v1",
   "item": 64,
   "scope": "public Level-2 P2 publication and claim alignment",
+  "authoritative_p0_status": "executed exactly once; MIXED_METHODOLOGY_AND_MODEL_FAILURE; A/B correctness not causally interpretable; no rerun",
   "authoritative_p2_result": "0/39 versus 0/39, 39 agreements, 0 disagreements, 0/12 overall passes per condition",
   "inventory_artifact": "results/public/subject-b-p2-item64-claim-consistency-audit-v1.md",
   "files_changed": [
@@ -52,7 +53,9 @@
     "paper/sections/21-authoritative-state-principle.tex",
     "paper/validation-audit.md"
   ],
-  "files_not_relevant": ["other tracked source, runtime, test, figure, bibliography, and unrelated historical handoff files"],
+  "files_not_relevant": [
+    "other tracked source, runtime, test, figure, bibliography, and unrelated historical handoff files"
+  ],
   "claims_weakened": [
     "P1/P2 evidence is explicitly bounded to Subject-B and its declared samples.",
     "P2 is explicitly described as a floor effect rather than successful preservation.",
@@ -60,24 +63,40 @@
     "Resource evidence remains descriptive and separate from correctness."
   ],
   "claims_clarified": [
+    "P0 executed once and is classified MIXED_METHODOLOGY_AND_MODEL_FAILURE; it is not an unexecuted future pilot.",
+    "P0 A/B correctness is not causally interpretable and P0 is not rerun.",
     "P1 equal non-zero performance versus P2 equal zero performance.",
     "P2 denominator is 39 observations per condition.",
     "Subject C remains necessary for cross-repository replication."
   ],
+  "coordinator_review_corrections": {
+    "stale_p0_status_surfaces_found": 4,
+    "surfaces": [
+      "README.md",
+      "paper/README.md",
+      "paper/experiment-plan.md",
+      "paper/sections/11-results.tex"
+    ],
+    "additional_method_tense_clarification": "paper/sections/10-experimental-method.tex",
+    "correction": "Active publication wording now states that P0 ran exactly once, was classified MIXED_METHODOLOGY_AND_MODEL_FAILURE, provides no causal A/B correctness evidence, and must not be rerun. Historical pre-run protocol snapshots are explicitly labelled historical.",
+    "resolved_before_item64_acceptance": true
+  },
   "contradictions_removed": [
     "stale statements that controlled empirical evidence was absent",
     "stale statements that P2 was merely a future multi-repository design",
     "stale statements that the Results section contained no empirical data",
-    "stale statements that Level 2 had not been achieved"
+    "stale statements that Level 2 had not been achieved",
+    "stale active statements that P0 had not been executed or was still awaiting readiness"
   ],
   "unresolved_claim_risks": [
-    "P0 remains unexecuted and its methodology text is retained as historical protocol material.",
+    "P0 remains a mixed methodology/model failure and cannot support causal A/B correctness claims.",
     "Formal equivalence and non-inferiority remain unestablished.",
     "Generalisation beyond Subject-B remains unestablished.",
     "Resource/cost superiority remains unestablished."
   ],
   "prohibited_overclaim_scan": {
     "unsupported_active_overclaims": 0,
+    "stale_active_p0_status_claims": 0,
     "stale_p1_numeric_claims": 0,
     "stale_p2_numeric_claims": 0,
     "p1_p2_contradictions": 0,
