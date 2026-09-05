@@ -1,260 +1,228 @@
 # Repository-as-State — CURRENT
 
-Updated: 2026-09-05 18:57 Europe/London
+Updated: 2026-09-06 00:10 Europe/London
 
 ## Programme status
 
 - Authoritative progress ledger: **64/67 complete**.
-- Items 58, 59, 60, 61, 62, 63 and 64 are **COMPLETE**.
-- **Item 65 is ACTIVE — select Subject C and perform the cross-repository / Level-3 replication.**
+- Items **1–64 are COMPLETE**.
+- **Item 65 is ACTIVE.**
 - Items 66–67 remain pending.
-- Fresh accepted P2 experimental units: **24**.
-- Fresh scheduled P2 units with genuine model activity: **24/24**.
-- Accepted Item-63 blinded correctness adjudications: **24/24**.
-- P2 fresh execution completed: **TRUE**.
-- P2 output freeze completed: **TRUE**.
-- P2 blind adjudication completed: **TRUE**.
-- Item-64 Level-2 publication/claim alignment accepted: **TRUE**.
 - P0 rerun: **FALSE**.
 - P1 rerun: **FALSE**.
 - P2 task rerun: **FALSE**.
+
+Current Item-65 substage: **65F — zero-model Subject-C workspace-access/materialisation root-cause qualification**.
 
 ## Core framing
 
 - Persist authoritative state; reconstruct computation.
 - Do not allow ephemeral state to become authoritative state.
-- The unit of progress is validated repository state, not accumulated agent conversation.
-- Repository-as-State is not repository-as-prompt.
+- Unit of progress = validated repository state, not accumulated agent conversation.
+- Repository-as-State != repository-as-prompt.
+- The hypothesis is not that conversation has no effect. The question is whether persistent conversation state is necessary for behavioural software correctness when sufficient authoritative state can be reconstructed externally.
+- Do not claim equivalence or non-inferiority unless explicitly designed for it.
 
-## P0 historical status
+## Historical experimental state
 
-P0 was executed exactly once and classified `MIXED_METHODOLOGY_AND_MODEL_FAILURE`.
+### P0
 
-- P0 causal A/B correctness claims: **REJECTED**.
-- P0 rerun: **PROHIBITED**.
-- P0 remains methodology/falsification evidence, not a controlled correctness result.
+Executed exactly once and classified:
 
-Item 64 corrected stale active publication surfaces that still described P0 as unexecuted. Historical pre-run protocol snapshots remain preserved but are now explicitly labelled historical where needed.
+`MIXED_METHODOLOGY_AND_MODEL_FAILURE`
 
-## Frozen P2 design
+- causal A/B correctness claims: **REJECTED**
+- rerun: **PROHIBITED**
+- retained as methodology/falsification evidence
 
-- `P2V2_T01 = C07`
-- `P2V2_T02 = C08`
-- `P2V2_T03 = C09`
-- `P2V2_T04 = C10`
-- governing behaviours: **13**
-- design: **4 tasks × 3 repetitions × 2 conditions = 24 runs**
-- matched unit: task × repetition
-- Condition A: three independent persistent-session chains, each `T01 → T02 → T03 → T04`, fresh PRE workspace per task, reasoning/session continuity only
-- Condition B: 12 fresh independent sessions
-- repetitions are replications, not retries
-- no best-of-N
-- no human rescue
-- no post-model quality retry
-- full-block blindness through Item 62
-- resource telemetry separate from correctness
+### P1
 
-## Accepted upstream identities
+Accepted Subject-B P1 result:
 
-Item 58:
+- Condition A persistent: **18/30 behaviours**
+- Condition B fresh: **18/30 behaviours**
+- matched agreements: **30**
+- disagreements: **0**
 
-- design freeze: `782ADD46591FCCDCABB796D25DC3BE71B03627FCC082372B1FD018875DE1248A`
-- design package: `C5124105BD1701A2336211776AF1E3D7E1ED98270665ABAA39910385B81C41F3`
+Safe wording: no behavioural correctness difference was observed between persistent-session and fresh-session conditions in these three matched tasks.
 
-Item 59:
+### P2
 
-- item-59 freeze: `FE254B6786D9F800674B88576A99336EA118784481FD8252CC76BEE8F102A9E9`
-- curation package: `FC6CFDAEF1B5599FE2242C88B1B82985D423F4F64732497F65FAFD3BFAD8C867`
+Accepted Subject-B P2 result:
 
-Item 60 semantic:
+- Condition A satisfied: **0/39 behaviours**
+- Condition B satisfied: **0/39 behaviours**
+- matched agreements: **39**
+- disagreements: **0**
+- overall candidate passes: **0/12 per condition**
 
-- semantic verifier freeze: `EF4DEAFBD34E3411C316241AB02A1F19C14A852031B722BAB75CC8DAB97553E1`
-- semantic verifier package: `D3C77EDE2D3B41716035F0EEB5977F69898D97C46D9015E4C74C61EA244FDD48`
+This is a floor-effect result. It does not positively demonstrate successful behavioural preservation, equivalence or repository-state sufficiency. P1 and P2 are not pooled.
 
-Item 60 isolation:
+## Critical build/test rule
 
-- isolation freeze: `9CD6FE3E1F2B204864B6973B115831411CD911EF4363A5F1139DBFBE795AE266`
-- isolation package: `CF652E017FE9E84B95EB671087537294C1953611B2D705BD74BFB55791FB5895`
+Semantic correctness is **not** determined by project build/compiler/public test execution.
 
-## Item 61 v3 runtime repair — accepted
+For Subject C, unless a different methodology is preregistered before experimentation:
 
-The exact Codex runtime was isolated under `C:\Kyntic\ras-p2-experimental-runtime-v2`.
+- project build for correctness: **PROHIBITED**
+- project compiler/typechecker for correctness: **PROHIBITED**
+- project/public tests for correctness: **PROHIBITED**
+- lint for correctness: **PROHIBITED**
 
-Accepted facts:
+Correctness is determined by the accepted implementation-independent source/state semantic verifier.
 
-- exact CLI: `codex-cli 0.153.0-alpha.5`
-- exact model: `gpt-5.6-luna`
+## Item 65 — Subject C / Level-3 replication
+
+### Accepted 65A — selection/design
+
+Subject C was independently selected under a frozen anti-cherry-picking protocol.
+
+Accepted Phase-A package:
+
+`6b54c793b07c706362f82efa7a64dd59276b059dd12aa583b43e99f78aa26373`
+
+Design:
+
+- tasks: **3** (`SC_T01`, `SC_T02`, `SC_T03`)
+- repetitions per condition: **3**
+- conditions: **2**
+- planned runs: **18**
+- matched task × repetition units: **9**
+- governing behaviours: **10**
+- Condition A: three persistent-session chains `T01 -> T02 -> T03`, with fresh PRE source state per task and reasoning/session continuity only
+- Condition B: nine fresh independent sessions
+- generated-code carry between tasks: **FALSE**
+
+### Accepted 65B — task contracts and semantic verifier
+
+Phase-B v1 is rejected methodology history because its verifier was too coupled to historical implementation shape and the original phase also contained quarantined tooling/build ambiguity.
+
+Accepted Phase-B v2 package:
+
+`ee2c288203cf1e36c368624e9efb18ffe0983d29aa89f698eeddef350081fadf`
+
+Accepted semantic-verifier v2 package:
+
+`18aa90e28afbf1f36d2aa909417cb436279ddf20fc8c99e516ae25f42f25c0cd`
+
+Accepted verifier qualification:
+
+- governing behaviours: **10**
+- historical PRE expected failures: **PASS**
+- historical POST expected passes: **PASS**
+- negative controls: **10/10 detected**
+- alternate-valid witnesses: **10/10 accepted**
+- false-positive controls: **10/10 rejected**
+- exact historical private helper/substring requirements: **0**
+- implementation-independence: **PASS**
+- project build/test/compiler used for qualification: **FALSE**
+
+### Accepted 65C — preregistration/execution lock
+
+Execution-lock package:
+
+`9538cc1b9af91b732127d08085a7f2211f37f15fd5bd091d8b03a2493f770afe`
+
+Frozen execution source HEAD:
+
+`84e68b18c8c58d5576d6f726a51524d3e676758f`
+
+Runtime binding:
+
+- model: `gpt-5.6-luna`
+- CLI: `codex-cli 0.153.0-alpha.5`
 - restricted identity: `DESKTOP-BFTREBH\ras-p2-experimental`
 - administrator: **FALSE**
 - elevated: **FALSE**
-- runtime depends on coordinator-profile paths: **FALSE**
-- protected private/coordinator roots remain denied
-- experimental workspace remains usable
+- 18 blind IDs/workspaces/scheduled units frozen
+- output freeze required before correctness adjudication
 
-Accepted v3 identities:
+### Accepted 65D/65E — first execution blocked and evidence frozen
 
-- execution-lock manifest: `A0A8D89CDC226EE5619C9AA0BE80F936EC84B6218EA14E84F992B650699844DD`
-- execution-lock contents manifest: `C774396F9F56DD94CFE0194E2916F891CF5D9CF6DD29D63F6E97AE48A9FBFC73`
-- execution-lock package: `908CCB709B08379E616EF62C04B996DB7A526ED91BB66E73491CDE3D8C377D99`
+The first locked Subject-C execution block is permanently closed and **cannot produce a correctness result**.
 
-The earlier v2 execution lock and runtime-access falsification remain preserved as history.
+Sequence:
 
-## Item 62 execution — accepted
+1. Slot 1 became model-active and was consumed by `401_UNAUTHORIZED_MISSING_AUTHENTICATION` before a completion.
+2. Authentication under the restricted account was repaired successfully using normal ChatGPT login.
+3. Slot 2 became model-active but source-state access failed with `EXPERIMENTAL_WORKSPACE_ACCESS_DENIED`; source state remained unchanged.
+4. Coordinator authorised one zero-model compatibility repair using the previously successful runtime mode `sandbox = "unelevated"`, because Phase C had not frozen a contradictory sandbox setting.
+5. Isolation/private-root denial remained intact.
+6. Slot 3 became model-active but source reads still failed with `EXPERIMENTAL_WORKSPACE_ACCESS_DENIED`.
+7. Slots 1–3 were never rerun.
+8. Slots 4–18 were never started.
 
-The fresh locked 24-run P2 block completed with all outputs frozen before any correctness adjudication.
+Accepted classification:
 
-Accepted execution facts:
+`EXECUTION_ENVIRONMENT_BLOCKED_AFTER_MODEL_ACTIVITY`
 
-- scheduled units: **24**
-- final frozen unit records: **24**
-- model-active units: **24**
-- workspace gates passed: **24/24**
-- schedule order changed: **FALSE**
-- unscheduled executions: **0**
-- model substitutions: **0**
-- A chains: **3**
-- A new T01 sessions: **3**
-- A expected resumes: **9**
-- A successful resumes: **9**
-- A cross-repetition session reuse: **0**
-- B fresh sessions: **12**
-- B resumes: **0**
-- generated code carry: **FALSE**
-- pre-model infrastructure retries: **3**
-- post-model quality retries: **0**
-- best-of-N: **FALSE**
-- human rescue: **FALSE**
-- hidden verifier runs during execution: **0**
-- correctness adjudications during execution: **0**
-- condition mapping remained sealed: **TRUE**
+Accepted blocker package:
 
-The UAC/sandbox defect was repaired under the frozen recovery rule: seven already model-active units were preserved and never rerun; subsequent failed slot-8 attempts were pre-model only and were retried legally after switching to the supported `unelevated` sandbox configuration.
-
-Accepted Item-62 identities:
-
-- execution manifest: `334EFF9B6F85AE92766DEC6EF3AEF562F62E97C2DCC8E09C80E6BE5743F1FDBC`
-- output-freeze manifest: `2A27C6110E99D712D99D1680B58F568512301B866A78E802C5D79D933414BC4E`
-- execution package: `31898756356B676CB76F7D67596DE206B902659B5E8D58E5A4620250F55607C1`
+`a5d534f4599454c5504ea7b8d20d7dc7982bc5b25e5e8d2f441a613eae9cae0c`
 
 Public evidence:
 
-- `results/public/subject-b-p2-item62-output-freeze-v3.json`
-- `results/public/subject-b-p2-item62-output-freeze-v3.md`
+- `results/public/subject-c-level3-execution-blocker-v1.json`
+- `results/public/subject-c-level3-execution-blocker-v1.md`
 
-## Item 63 blind adjudication and scientific interpretation — accepted
+Accepted blocker facts:
 
-The first Item-63 Stage-A attempt remains permanently quarantined. Its 24 coordinator-side placeholder calls produced no valid adjudication output, and its one real sealed-verifier diagnostic call occurred after premature unblinding and is excluded from accepted correctness evidence.
+- preregistered units: **18**
+- consumed units: **3**
+- not started: **15**
+- authentication repair succeeded: **TRUE**
+- `unelevated` repair applied: **TRUE**
+- `unelevated` repair resolved workspace access: **FALSE**
+- project builds: **0**
+- compiler/typechecker runs: **0**
+- project/public tests: **0**
+- lint: **0**
+- hidden verifier runs against model output: **0**
+- correctness adjudications: **0**
+- correctness inspected: **FALSE**
+- Subject-C correctness result available: **FALSE**
+- blind adjudication allowed on failed block: **FALSE**
+- A/B comparison allowed on failed block: **FALSE**
 
-The accepted recovery used a new neutral blind-ID-only candidate bundle and the unchanged qualified semantic verifier package.
+Do not resume or repair this failed execution block into a result.
 
-Accepted recovery integrity:
+## ACTIVE NOW — 65F workspace-access/materialisation qualification
 
-- frozen Item-62 candidates: **24**
-- candidates rerun: **0**
-- candidates modified: **0**
-- accepted blind adjudications: **24/24**
-- unique blind IDs: **24**
-- accepted recovery real-verifier runs: **24**
-- quarantined real-verifier diagnostic runs: **1**
-- total real sealed-verifier executions across Item 63: **25**
-- condition information used during accepted Stage-A scoring: **FALSE**
-- accepted Stage A frozen before accepted unblinding: **TRUE**
-- additional task-model runs during Item 63: **0**
-- verifier changed: **FALSE**
+The next scientific task is zero-model diagnosis and qualification of the future Subject-C workspace materialisation/ACL path.
 
-A derived denominator defect was found after the first recovery report. It was repaired using the already-frozen Stage-A records and accepted unblinding only; no verifier/model/candidate rerun occurred and all frozen Stage-A evidence remained byte-identical.
+Current working hypothesis from the blocked evidence: the failure is likely in workspace ACL/materialisation rather than the model or semantic verifier. Directory metadata can be enumerated while actual source-file reads remain denied even after `unelevated` sandbox configuration.
 
-### Accepted P2 correctness result
+Required 65F work:
 
-- behaviour observations per condition: **39**
-- Condition A behaviours satisfied: **0/39**
-- Condition B behaviours satisfied: **0/39**
-- Condition A behaviours failed: **39/39**
-- Condition B behaviours failed: **39/39**
-- matched behaviour agreements: **39**
-- matched behaviour disagreements: **0**
-- disagreements favouring A: **0**
-- disagreements favouring B: **0**
-- Condition A candidate overall passes: **0/12**
-- Condition B candidate overall passes: **0/12**
+- compare failed Subject-C workspace parent/file ACLs with the accepted successful Subject-B P2 execution path;
+- identify whether the cause is copied ACLs, inheritance, owner, deny ACEs, missing sandbox principal/group access, integrity level, or another filesystem/security property;
+- reproduce the problem only in a disposable fixture root;
+- define the minimum future materialisation repair;
+- prove restricted read/create/modify/delete access on a disposable source-like tree;
+- preserve non-admin/non-elevated execution and all protected private-root denials;
+- invoke **no task-solving model**;
+- run **no project build/compiler/tests/lint**;
+- do not modify the failed execution workspaces.
 
-Scientific interpretation:
+Only if 65F passes may the programme create a **new** Subject-C execution preregistration/lock. The old block remains historical falsification evidence.
 
-> No behavioural correctness difference was observed between the persistent-session and fresh-session conditions in P2: both conditions satisfied 0 of 39 evaluated behaviour observations, with 39 matched agreements and no disagreements.
+## Remaining Item-65 path
 
-This is a **floor-effect result**. It does not demonstrate successful behavioural preservation by either condition and cannot by itself be interpreted as evidence of behavioural equivalence or repository-state sufficiency.
+- **65F ACTIVE:** zero-model workspace access/root-cause qualification
+- **65G PENDING:** fresh Subject-C preregistration, schedule, blind mapping, workspaces and execution lock
+- **65H PENDING:** fresh execution and complete output freeze
+- **65I PENDING:** blind semantic adjudication and bounded interpretation
+- **65J PENDING:** Level-3 publication/claim alignment
 
-P1 remains contextual and is not pooled into P2. P1 observed A=18/30 and B=18/30 with 30 agreements and 0 disagreements. P2 observed equal zero behavioural performance, so P2 provides no positive evidence that either condition successfully solved the four Level-2 tasks.
+Item 65 becomes complete only after the valid Level-3 replication has been executed, adjudicated and published/claim-aligned.
 
-Accepted Item-63 identities:
+## Programme after Item 65
 
-- recovery blind manifest: `CD181156AA2CAC4B38ADDBFCD88674CDF48248D9FA7C3A386C09239CB2648822`
-- recovery Stage-A package: `1EBE21C62D8CCB2814FC42D14E4F9B698079110AE793CD3659164F0FC99D991D`
-- matched analysis: `8D22F6B75421F8263C8E9DA065CE31761F7527D4DD1035F357F925E6D2629F33`
-- scientific interpretation: `8983393D51B3BDD53162B610D98C1BADD7C4157E08E02DE72B1541E2E36E9A1B`
-- final package: `EECB0F2682B376D5BB0EC856D63164081B0F7C41B9332E5C359F5047A9B85681`
+- Item 66: final hostile review, statistical/claims/limitations and reproducibility audit
+- Item 67: final paper + reproducibility package + submission-ready release
 
-Public evidence:
+## Separate follow-up
 
-- `results/public/subject-b-p2-item63-results-v2.json`
-- `results/public/subject-b-p2-item63-results-v2.md`
-- `results/public/subject-b-p2-item63-blind-adjudication-falsification-v1.json`
-- `results/public/subject-b-p2-item63-blind-adjudication-falsification-v1.md`
+`aidocs/repository-as-state/FOLLOWUP-CHATGPT-DIRECT-TO-REPO.md`
 
-## Item 64 Level-2 publication and claim alignment — accepted
-
-The Item-64 worker produced a documentation/public-evidence-only draft branch and did not alter experimental evidence. Coordinator review found stale P0 execution-status wording in the draft, repaired it on the draft branch, recorded the correction in the Item-64 audit, then fast-forwarded the reviewed state into the authoritative branch.
-
-Accepted Item-64 facts:
-
-- publication/public-evidence files changed: **17**
-- source/runtime/test/experimental files changed: **0**
-- P1 result preserved: **18/30 vs 18/30; 30 agreements; 0 disagreements**
-- P2 result preserved: **0/39 vs 0/39; 39 agreements; 0 disagreements; 0/12 overall passes per condition**
-- P2 floor effect explicit: **TRUE**
-- P1/P2 pooled: **FALSE**
-- equivalence claim added: **FALSE**
-- non-inferiority claim added: **FALSE**
-- successful-P2-preservation claim added: **FALSE**
-- Item-63 falsification/recovery history preserved: **TRUE**
-- stale active P0 execution-status claims after coordinator correction: **0**
-- P0/P1/P2 experimental executions added during Item 64: **0**
-
-Accepted publication state before ledger advancement:
-
-- reviewed Item-64 draft head: `0cdcf28350c30789bbdf840ffa7ecd1b9036e8a3`
-
-Public Item-64 evidence:
-
-- `results/public/subject-b-p2-level2-evidence-v1.json`
-- `results/public/subject-b-p2-level2-evidence-v1.md`
-- `results/public/subject-b-p2-item64-claim-consistency-audit-v1.json`
-- `results/public/subject-b-p2-item64-claim-consistency-audit-v1.md`
-
-## Active Item 65 — Subject C / Level-3 cross-repository replication
-
-Item 65 is the first external-validity replication beyond Subject B/SearchForCars.
-
-The opening phase MUST be zero-model and anti-cherry-picking. Do not run a Subject-C task-solving model until the coordinator has accepted a public-safe Subject-C selection/design/preregistration boundary.
-
-Required opening principles:
-
-- select an independent repository, not another SearchForCars slice;
-- predefine and record repository eligibility before outcome inspection;
-- avoid selecting a repository because its tasks are known to suit the hypothesis;
-- prefer a real historical sequence with recoverable accepted PRE/POST boundaries and genuine dependent engineering work;
-- freeze candidate inventory and selection method before choosing the final task chain where possible;
-- prove future-history isolation and private-material separation before model execution;
-- use neutral disclosed task contracts and hidden semantic verification with negative and alternate-valid controls;
-- keep persistent-session vs fresh-session treatment as the causal contrast;
-- keep task success/correctness separate from resource telemetry;
-- preserve no-human-rescue, no best-of-N and no quality-retry discipline;
-- treat repetitions as replications, not retries;
-- do not use P1/P2 results to tune Subject-C selection or outcome thresholds;
-- do not claim generalisation until Subject C has actually completed and been adjudicated.
-
-The first Item-65 worker should perform repository/corpus discovery, eligibility/anti-cherry-picking design, task-chain feasibility and a zero-model Level-3 design proposal only. It must not execute the experimental task-solving model.
-
-## Contaminated historical Item-62 attempt
-
-The earlier same-user contaminated Item-62 attempt remains permanently excluded. Never reuse or inspect its session, code, candidate, output, correctness, schedule, blind mapping or execution lock.
+After the current experiment/tooling blocker work, fix and verify ChatGPT direct-to-repo end-to-end. This is separate from the experiment and must not be mixed into Subject-C evidence.
