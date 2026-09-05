@@ -22,7 +22,7 @@ This research is published under Paul Maddison's name and is not presented as re
 
 **CONTROLLED EMPIRICAL EVIDENCE STATUS: BOUNDED SUBJECT-B P1/P2 EVIDENCE AVAILABLE.**
 
-P0 — the original Forced-State-Reset Pilot — has not been executed. Subject-B P1 observed equal non-zero behavioural performance (18/30 versus 18/30; 30 matched agreements). Subject-B P2, a four-task, three-repetition Level-2 block, observed equal zero performance (0/39 versus 0/39; 39 agreements and no disagreements), a floor effect that provides no positive evidence of successful behavioural preservation by either condition. These are bounded results, not proof of equivalence, universal repository sufficiency, or general validation.
+P0 — the original Forced-State-Reset methodology pilot — was executed exactly once and classified `MIXED_METHODOLOGY_AND_MODEL_FAILURE`; its A/B correctness outcome is not treated as causally interpretable and P0 is not rerun. Subject-B P1 observed equal non-zero behavioural performance (18/30 versus 18/30; 30 matched agreements). Subject-B P2, a four-task, three-repetition Level-2 block, observed equal zero performance (0/39 versus 0/39; 39 agreements and no disagreements), a floor effect that provides no positive evidence of successful behavioural preservation by either condition. These are bounded results, not proof of equivalence, universal repository sufficiency, or general validation.
 
 See the [P1 result](results/public/subject-b-p1-results-v1.md), the [P2 Level-2 evidence summary](results/public/subject-b-p2-level2-evidence-v1.md), and the [paper](paper/).
 
@@ -86,11 +86,11 @@ The research question is whether the second quantity can be lower over sufficien
 
 ## Research roadmap
 
-- **P0:** forced-state-reset pilot on a private subject with public sanitised aggregates.
-- **P1:** replicated tasks across multiple repositories and controlled persistence/reset conditions.
-- **P2:** semantic-state ablations to identify which repository artefacts carry continuity.
-- **P3:** tiered-execution experiments separating high-capability reasoning from constrained execution workers.
-- **P4:** cross-model and cross-repository replication with reconstruction-cost scaling analysis.
+- **P0:** completed once as a methodology pilot; classified `MIXED_METHODOLOGY_AND_MODEL_FAILURE`, with no causal A/B correctness claim and no rerun.
+- **P1:** completed Subject-B controlled three-task study; 18/30 behaviours in each condition with 30 matched agreements and no disagreements.
+- **P2:** completed Subject-B Level-2 same-repository replication; 0/39 behaviours in each condition with 39 matched agreements and no disagreements, explicitly floor-limited.
+- **Next:** Subject C cross-repository replication to test external validity beyond SearchForCars/Subject B.
+- **Later:** semantic-state ablation, tiered-execution, reconstruction-scaling, and cross-model continuity studies.
 
 See [docs/](docs/), [paper/](paper/), and [experiments/P0/](experiments/P0/).
 
