@@ -2,11 +2,11 @@
 
 ## P0 — Forced-State-Reset Methodology Pilot
 
-**Status: NOT EXECUTED.**
-**Execution readiness: NOT YET READY.**
-**Audit decision: GO_WITH_REQUIRED_PROTOCOL_CHANGES.**
+**Current status: EXECUTED EXACTLY ONCE; IMMUTABLE.**
+**Accepted classification: `MIXED_METHODOLOGY_AND_MODEL_FAILURE`.**
+**Causal A/B correctness interpretation: REJECTED.**
 
-P0 is an initial case study whose purpose is to determine whether the treatment can be isolated, leakage prevented, reconstruction measured, and dependent-task continuation adjudicated. It cannot establish general superiority or population-level non-inferiority.
+P0 was the initial methodology case study. It was executed once, exposed both methodology and model/runtime problems, and is retained as falsification/history rather than rerun. The protocol text below documents the design that governed that historical pilot and the controls that later informed P1/P2. P0 cannot establish general superiority or population-level non-inferiority.
 
 ## Primary causal treatment
 
@@ -201,6 +201,8 @@ Not allowed:
 - GENERAL SUPERIORITY
 - PROVIDER-INFRASTRUCTURE SAVING
 
+The accepted post-run classification is `MIXED_METHODOLOGY_AND_MODEL_FAILURE`, and the P0 A/B correctness outcome is not used as causal evidence.
+
 ## Later experiments
 
 ### P1 — Repeated same-repository runs
@@ -224,9 +226,9 @@ Vary repository mass and dependency width; compare retrieval strategies.
 ### P7 — Cross-model continuity
 M_A creates accepted state; M_B resumes without predecessor model-native state.
 
-## Decision gates
+## Historical P0 decision gates
 
-Do not run P0 until all readiness items in experiments/P0/readiness-checklist.md are frozen and auditable.
+Before the single P0 run, readiness items in `experiments/P0/readiness-checklist.md` were required to be frozen and auditable. P0 is now immutable and must not be rerun.
 
 Do not make behavioural continuity claims if A/B treatment isolation is not demonstrated.
 
@@ -234,34 +236,36 @@ Do not make economic claims without reconstruction/retry costs.
 
 Do not make security, serving or generalisation claims from P0.
 
-## P0 corpus-selection status — 2026-09-02
+## Historical P0 corpus-selection snapshot — 2026-09-02
 
-Corpus curation is complete under the hostile-audit controls.
+The following section records the pre-run corpus-selection state at that date. It is historical, not the current programme status.
+
+Corpus curation was complete under the hostile-audit controls.
 
 - public subject: `PRIVATE_SUBJECT_A`;
 - 38 candidate transitions considered in a bounded programme frozen before task selection;
 - five genuinely sequential task units selected;
 - neutral task specifications canonicalised and committed by SHA-256 only;
 - five credible accepted boundaries identified;
-- all selected tasks are designed for deterministic local verification and exclude cloud/live-model/credential dependencies;
+- all selected tasks were designed for deterministic local verification and exclude cloud/live-model/credential dependencies;
 - Condition C disabled with `NO_DEFENSIBLE_ABLATION`;
-- tiered execution remains deferred;
+- tiered execution remained deferred;
 - FUTURE_HISTORY_LEAK_GATE v0.1.0 implemented and synthetically validated;
-- task-specific hidden-verifier behavioural requirements frozen privately; implementation not yet built;
-- model/runtime freeze still pending.
+- task-specific hidden-verifier behavioural requirements frozen privately; implementation was not yet built at this snapshot;
+- model/runtime freeze was still pending at this snapshot.
 
 The private repository identity, exact historical commits, private paths, task text, solution history, curation notes, and task-specific verifier details are not stored in this public repository.
 
-Because model/runtime identity, resource limits, telemetry, cache/network policy, and cross-session-memory controls remain unresolved:
+At this historical snapshot:
 
 `P0_PREREGISTRATION_FROZEN=false`
 
 `P0_PROTOCOL_READY_FOR_MODEL_FREEZE=true`
 
-No experimental agent has been run.
+No experimental agent had yet been run at that snapshot. P0 was subsequently executed exactly once and is not rerun.
+
 ## Fixed cross-condition state progression
 
-To preserve causal identifiability, P0 does **not** let A and B produce different repository states for the next task. For each task, both conditions receive independently materialised copies of the same frozen historical accepted pre-state. Experimental outputs are adjudicated and recorded, but the next task advances to the next frozen historical accepted boundary.
+To preserve causal identifiability, P0 did **not** let A and B produce different repository states for the next task. For each task, both conditions received independently materialised copies of the same frozen historical accepted pre-state. Experimental outputs were adjudicated and recorded, but the next task advanced to the next frozen historical accepted boundary.
 
-This preserves byte-identical repository state across A/B. It also creates a declared limitation: Condition A may retain reasoning about a materially equivalent prior implementation that differs from the next frozen historical boundary. Stable runtime instructions must state that the rematerialised repository is authoritative.
-
+This preserved byte-identical repository state across A/B. It also created a declared limitation: Condition A could retain reasoning about a materially equivalent prior implementation that differed from the next frozen historical boundary. Stable runtime instructions stated that the rematerialised repository was authoritative.
