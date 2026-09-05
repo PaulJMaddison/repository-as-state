@@ -3,11 +3,13 @@
 
 The central experiment deliberately removes predecessor reasoning-session continuity after an \emph{accepted} engineering transition and tests whether a fresh reasoner can continue a dependent programme from the same durable project state.
 
+P0 was the original methodology pilot. It was executed exactly once and classified \texttt{MIXED\_METHODOLOGY\_AND\_MODEL\_FAILURE}; its A/B correctness outcome is not treated as causally interpretable and the pilot is not rerun. The P0 protocol below is retained as historical method context and as the foundation from which the corrected P1/P2 controls were developed.
+
 The publication record now includes two bounded Subject-B results. P1 is the methodology-corrected three-task controlled study; P2 is the accepted Level-2 same-repository replication with four tasks, three repetitions, two conditions and 12 matched task-by-repetition pairs. Their results are reported separately and are not pooled. The P2 analysis preserves the distinction between no observed A/B difference and successful task performance: both P2 conditions reached the correctness floor.
 
 \subsection{Causal target}
 
-The primary P0 comparison is:
+The historical primary P0 comparison was:
 
 \paragraph{A --- Persistent-history control.}
 The high-capability reasoner has access to the predecessor conversation/session history relevant to the task chain.
@@ -17,7 +19,7 @@ A fresh high-capability reasoning session receives no predecessor conversation, 
 
 The intended A/B treatment is \textbf{availability of predecessor reasoning-session history}. Everything else that can materially affect the outcome must be matched or explicitly measured.
 
-Condition C, semantic-state ablation, is exploratory and should remove only a small preregistered information class. Tiered execution D is deferred beyond the primary P0 because changing executor capability would confound the continuity intervention.
+Condition C, semantic-state ablation, was exploratory and should remove only a small preregistered information class. Tiered execution D was deferred beyond the primary P0 because changing executor capability would confound the continuity intervention.
 
 \subsection{Canonical task-boundary materialisation}
 
@@ -66,7 +68,7 @@ Information legitimately present in $R_t$ at the cutoff is allowed even if helpf
 
 Historical tasks can leak through future commit messages, issue edits, branch names, changelogs, TODOs, generated documentation, future tests, or hidden patch files. Corpus preparation must audit these channels.
 
-To reduce retrospective cherry-picking, P0 must define before runs:
+To reduce retrospective cherry-picking, P0 was required to define before runs:
 \begin{itemize}
     \item a candidate historical time/window or other reproducible sampling frame;
     \item explicit inclusion and exclusion criteria;
@@ -109,19 +111,19 @@ Excluded and repeated runs remain auditable.
 
 \subsection{P0 interpretation}
 
-P0 is a methodology pilot/initial case study, likely involving roughly five dependent tasks. It is not powered to establish general superiority or non-inferiority. Before running it, the preregistration must allow only:
+P0 was a methodology pilot/initial case study and was not powered to establish general superiority or non-inferiority. Its preregistration allowed only:
 \begin{itemize}
     \item \textbf{METHODOLOGY FAILURE};
     \item \textbf{EVIDENCE AGAINST RaS};
     \item \textbf{MIXED / CONDITIONAL PILOT EVIDENCE};
     \item \textbf{SUPPORTIVE PILOT EVIDENCE}.
 \end{itemize}
-“Proven” is not an allowed P0 interpretation.
+“Proven” was not an allowed P0 interpretation. The accepted post-run classification is \texttt{MIXED\_METHODOLOGY\_AND\_MODEL\_FAILURE}; P0 therefore remains historical falsification/methodology evidence rather than causal A/B correctness evidence.
 
 \subsection{Outcome and telemetry}
 
-Primary behavioural reporting should compare matched A/B verifier outcomes task-by-task and by depth. Also report complete-sequence success. RRI remains descriptive for B. The reconstruction probe and resource vector in Sections~\ref{sec:resumability} and~\ref{sec:cost} provide mechanism and efficiency information.
+Primary behavioural reporting compares matched A/B verifier outcomes task-by-task and by depth and also reports complete-sequence success. RRI remains descriptive for B. The reconstruction probe and resource vector in Sections~\ref{sec:resumability} and~\ref{sec:cost} provide mechanism and efficiency information.
 
-P0 should capture reconstruction and total input/output tokens, files/bytes read, searches, model/tool calls, elapsed times, retries, cache counters where exposed, and human/intervention flags. Classification rules must be frozen before outcomes.
+Controlled studies should capture reconstruction and total input/output tokens, files/bytes read, searches, model/tool calls, elapsed times, retries, cache counters where exposed, and human/intervention flags. Classification rules must be frozen before outcomes.
 
 Only after repeated tasks/runs exist should confirmatory work preregister a non-inferiority/equivalence margin, confidence intervals, dependence-aware analysis, multiplicity handling, and statistical power.
