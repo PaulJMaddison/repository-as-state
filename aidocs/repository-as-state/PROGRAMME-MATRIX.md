@@ -2,7 +2,7 @@
 
 Authoritative normalized ledger established 2026-09-03.
 
-Current status: **62 complete / 67 total**. Item **63 active — blind-adjudicate and scientifically interpret the frozen 24-run P2 result**.
+Current status: **63 complete / 67 total**. Item **64 active — publish Level-2 P2 evidence and update paper claims/evidence**.
 
 Legend: ✅ complete · 🟡 active · ⬜ pending/blocked
 
@@ -70,57 +70,56 @@ Legend: ✅ complete · 🟡 active · ⬜ pending/blocked
 | 60 | Implement/qualify P2 semantic hidden verifiers and prove hard hidden-material isolation against actual restricted experimental identity | ✅ |
 | 61 | Freeze fresh post-repair P2 preregistration/runtime/prompts/randomisation/public binding/execution lock | ✅ |
 | 62 | Execute fresh accepted 24-run P2 same-repository replication | ✅ |
-| 63 | Blind-adjudicate and scientifically interpret P2 | 🟡 |
-| 64 | Publish Level-2 P2 evidence and update paper claims/evidence | ⬜ |
+| 63 | Blind-adjudicate and scientifically interpret P2 | ✅ |
+| 64 | Publish Level-2 P2 evidence and update paper claims/evidence | 🟡 |
 | 65 | Select Subject C and perform cross-repository / Level-3 replication | ⬜ |
 | 66 | Final hostile review, statistical/claims/limitations and reproducibility audit | ⬜ |
 | 67 | Final paper + reproducibility package + submission-ready release | ⬜ |
 
 ## Current count
 
-- Complete: **62**
-- Active: **1** (`#63`, P2 blind adjudication and scientific interpretation)
-- Pending after active item: **4**
+- Complete: **63**
+- Active: **1** (`#64`, publish Level-2 P2 evidence and update paper claims/evidence)
+- Pending after active item: **3**
 - Total: **67**
 
-## Item 62 accepted execution state
+## Item 63 accepted result
 
-The fresh locked P2 execution completed all 24 scheduled units under the accepted isolated runtime and exact model.
+The accepted recovery blind-adjudicated all 24 frozen Item-62 candidates using the unchanged qualified semantic verifier. The accepted Stage-A package was frozen before accepted unblinding. No Item-62 candidate was rerun or modified.
 
-- 24/24 final frozen unit records
-- 24/24 workspace gates passed
-- 24 model-active units
-- zero unscheduled executions
-- zero schedule reorder
-- 3 A persistent-session chains
-- 3 A T01 new sessions
-- 9/9 required A resumes
-- zero cross-repetition A session reuse
-- 12 fresh B sessions
-- zero B resumes
-- no generated code carry
-- 3 permitted pre-model infrastructure retries
-- zero post-model quality retries
-- zero best-of-N
-- zero human rescue
-- zero hidden verifier runs during Item 62
-- zero correctness adjudications during Item 62
-- condition mapping remained sealed through output freeze
+Accepted P2 result:
 
-Accepted identities:
+- 39 behaviour observations per condition
+- Condition A persistent-session: **0/39** behaviours satisfied
+- Condition B fresh-session: **0/39** behaviours satisfied
+- matched agreements: **39**
+- matched disagreements: **0**
+- disagreements favouring A: **0**
+- disagreements favouring B: **0**
+- candidate overall passes: **0/12 A, 0/12 B**
 
-- execution manifest: `334EFF9B6F85AE92766DEC6EF3AEF562F62E97C2DCC8E09C80E6BE5743F1FDBC`
-- output-freeze manifest: `2A27C6110E99D712D99D1680B58F568512301B866A78E802C5D79D933414BC4E`
-- execution package: `31898756356B676CB76F7D67596DE206B902659B5E8D58E5A4620250F55607C1`
+This is a floor-effect result. It shows no observed correctness difference between conditions in this bounded P2 design, but it does not demonstrate successful behavioural preservation by either condition and cannot by itself establish equivalence, non-inferiority or Repository-as-State sufficiency.
+
+P1 remains contextual and is not pooled: A=18/30, B=18/30, 30 agreements, 0 disagreements.
+
+Accepted Item-63 identities:
+
+- recovery blind manifest: `CD181156AA2CAC4B38ADDBFCD88674CDF48248D9FA7C3A386C09239CB2648822`
+- recovery Stage-A package: `1EBE21C62D8CCB2814FC42D14E4F9B698079110AE793CD3659164F0FC99D991D`
+- matched analysis: `8D22F6B75421F8263C8E9DA065CE31761F7527D4DD1035F357F925E6D2629F33`
+- scientific interpretation: `8983393D51B3BDD53162B610D98C1BADD7C4157E08E02DE72B1541E2E36E9A1B`
+- final package: `EECB0F2682B376D5BB0EC856D63164081B0F7C41B9332E5C359F5047A9B85681`
 
 Public evidence:
 
-- `results/public/subject-b-p2-item62-output-freeze-v3.json`
-- `results/public/subject-b-p2-item62-output-freeze-v3.md`
+- `results/public/subject-b-p2-item63-results-v2.json`
+- `results/public/subject-b-p2-item63-results-v2.md`
+- `results/public/subject-b-p2-item63-blind-adjudication-falsification-v1.json`
+- `results/public/subject-b-p2-item63-blind-adjudication-falsification-v1.md`
 
-## Item 63 rule
+## Item 64 rule
 
-Score all 24 frozen outputs using the already-qualified hidden semantic verifier while candidates remain identified only by blind IDs. Freeze all 24 blinded adjudications before unsealing the condition mapping. Then perform the frozen matched task × repetition analysis across 12 paired units and produce bounded scientific interpretation. Do not rerun or alter any candidate. Keep correctness and resource telemetry separate.
+Update the public Level-2 evidence and paper/claims surfaces without changing the accepted empirical result. Preserve the distinction between `no observed A/B difference` and `successful task performance`; preserve the P2 floor effect; preserve the failed Item-63 attempt and recovery history; keep P1 and P2 separate; keep resource and correctness claims separate. Do not start Item 65 until coordinator acceptance of Item 64.
 
 ## Count rule
 
