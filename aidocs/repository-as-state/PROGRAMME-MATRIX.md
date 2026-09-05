@@ -2,7 +2,7 @@
 
 Authoritative normalized ledger established 2026-09-03.
 
-Current status: **64 complete / 67 total**. Item **65 active — Subject C selected and qualified; first locked execution blocked by workspace-access infrastructure; zero-model workspace-access qualification is now active**.
+Current status: **64 complete / 67 total**. Item **65 active — Subject C selected and qualified; first locked execution permanently blocked and frozen; workspace-access root cause qualified; fresh preregistration/execution lock now active**.
 
 Legend: ✅ complete · 🟡 active · ⬜ pending/blocked
 
@@ -91,26 +91,26 @@ The detailed Item-65 substages below do **not** alter the 67-item top-level coun
 |---|---|:---:|
 | 65A | Anti-cherry-picking repository discovery, Subject C selection and Level-3 design | ✅ |
 | 65B | Freeze neutral task contracts and qualify implementation-independent semantic verifier | ✅ |
-| 65C | Final zero-model preregistration, randomisation, blindness, 18 PRE workspaces and execution lock | ✅ |
+| 65C | First zero-model preregistration, randomisation, blindness, 18 PRE workspaces and execution lock | ✅ |
 | 65D | First locked Subject-C execution attempt and infrastructure falsification | ✅ |
 | 65E | Freeze/publish blocked-execution evidence: 3 consumed, 15 never started, no correctness result | ✅ |
-| 65F | Zero-model workspace-access / materialisation root-cause qualification | 🟡 |
-| 65G | If 65F passes: create an entirely fresh Subject-C execution preregistration/lock; never resume the failed block | ⬜ |
+| 65F | Zero-model workspace-access / materialisation root-cause qualification | ✅ |
+| 65G | Create an entirely fresh Subject-C execution preregistration/lock; never resume the failed block | 🟡 |
 | 65H | Execute fresh Subject-C block and freeze all outputs before adjudication | ⬜ |
 | 65I | Blind semantic adjudication and bounded scientific interpretation | ⬜ |
 | 65J | Publish Level-3 evidence and align claims/limitations | ⬜ |
 
 ### Item 65 accepted state so far
 
-Subject C was selected independently under the frozen anti-cherry-picking protocol. Phase A selection/design, Phase-B v2 implementation-independent verifier qualification and Phase-C preregistration/execution lock were accepted before task execution.
+Subject C was selected independently under the frozen anti-cherry-picking protocol. Phase A selection/design and Phase-B v2 implementation-independent verifier qualification remain accepted and authoritative.
 
 Accepted bindings:
 
 - Phase-A package: `6b54c793b07c706362f82efa7a64dd59276b059dd12aa583b43e99f78aa26373`
 - Phase-B v2 package: `ee2c288203cf1e36c368624e9efb18ffe0983d29aa89f698eeddef350081fadf`
 - semantic-verifier v2 package: `18aa90e28afbf1f36d2aa909417cb436279ddf20fc8c99e516ae25f42f25c0cd`
-- Phase-C execution-lock package: `9538cc1b9af91b732127d08085a7f2211f37f15fd5bd091d8b03a2493f770afe`
-- frozen execution source HEAD: `84e68b18c8c58d5576d6f726a51524d3e676758f`
+- first Phase-C execution-lock package: `9538cc1b9af91b732127d08085a7f2211f37f15fd5bd091d8b03a2493f770afe`
+- frozen first execution source HEAD: `84e68b18c8c58d5576d6f726a51524d3e676758f`
 - design: **3 tasks × 3 repetitions × 2 conditions = 18 scheduled units**
 - matched units: **9**
 - governing behaviours: **10**
@@ -144,15 +144,43 @@ Scientific consequence:
 
 The failed 18-run block is permanently closed. It must never be resumed or repaired into a result.
 
-## Active Item 65 boundary — 65F
+### Accepted 65F workspace-access qualification
 
-The current work is **zero-model workspace-access/materialisation qualification**.
+Zero-model comparison against the accepted successful Subject-B P2 materialisation path identified the root cause:
 
-Goal: determine why the restricted identity could enumerate Subject-C workspaces but source-file reads remained denied, compare the failed Subject-C materialisation with the successful Subject-B P2 workspace/ACL path, and prove a corrected future materialisation method in a disposable diagnostic root without weakening private-root isolation.
+`COPIED_SOURCE_FILES_HAVE_PROTECTED_EMPTY_DACL_AND_MISSING_CODEX_SANDBOX_PRINCIPAL_INHERITANCE`
 
-No Subject-C task-solving model may run during 65F. No project build, compiler/typechecker, tests or lint may be used. The failed execution workspaces must remain unchanged.
+Disposable fixtures proved a repaired materialisation/ACL method under the restricted non-admin identity, including read/create/modify/delete access to the repaired workspace while protected private roots remained denied. The failed execution workspaces were unchanged, no consumed unit was rerun, and no task model/build/compiler/tests/lint/verifier/adjudication ran.
 
-Only if 65F passes may Item 65 proceed to 65G, which must create a **new preregistration, new schedule/blind mapping/workspaces and new execution lock**. The failed block is historical falsification evidence only.
+Accepted 65F private package commitment:
+
+`8b586ce8ff7821033b5b354f6a7c2ecf6a2e6860b6e79a9acdc4bbe76ffdb1a3`
+
+Public evidence:
+
+- `results/public/subject-c-level3-workspace-access-qualification-v1.json`
+- `results/public/subject-c-level3-workspace-access-qualification-v1.md`
+
+A disposable `codex sandbox` wrapper probe did not execute its harmless command. This is retained as a tooling limitation, not converted into a task outcome. Consequently, 65G has a mandatory final zero-model exact-runtime workspace-access gate against the new materialised workspaces. If that gate does not pass, 65H is prohibited.
+
+## Active Item 65 boundary — 65G
+
+Create a completely fresh Subject-C preregistration/execution lock.
+
+Required properties:
+
+- accepted 65A/65B task contracts and verifier remain unchanged;
+- no reuse or resumption of the failed first execution block;
+- fresh randomisation seed, schedule, blind IDs, workspaces and execution state;
+- fresh workspaces materialised with the accepted 65F ACL repair;
+- restricted non-admin/non-elevated identity preserved;
+- all protected private-root denials preserved;
+- final **zero-model exact-runtime read/write readiness proof** against the fresh workspaces before any model-active execution is permitted;
+- no task-solving model during 65G;
+- no project build/compiler/typechecker/tests/lint;
+- no correctness adjudication.
+
+Only coordinator acceptance of the complete fresh lock may allow 65H to start.
 
 ## Count rule
 
