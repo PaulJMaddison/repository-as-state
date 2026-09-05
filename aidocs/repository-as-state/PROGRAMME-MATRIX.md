@@ -2,7 +2,7 @@
 
 Authoritative normalized ledger established 2026-09-03.
 
-Current status: **64 complete / 67 total**. Item **65 active — Subject C selected and qualified; first locked execution permanently blocked and frozen; workspace-access root cause qualified; fresh preregistration/execution lock now active**.
+Current status: **64 complete / 67 total**. Item **65 active — Subject C selected and qualified; first locked execution permanently blocked and frozen; workspace-access root cause qualified; fresh 65G state prepared but exact-runtime permission-profile readiness remains blocked pre-model**.
 
 Legend: ✅ complete · 🟡 active · ⬜ pending/blocked
 
@@ -95,7 +95,7 @@ The detailed Item-65 substages below do **not** alter the 67-item top-level coun
 | 65D | First locked Subject-C execution attempt and infrastructure falsification | ✅ |
 | 65E | Freeze/publish blocked-execution evidence: 3 consumed, 15 never started, no correctness result | ✅ |
 | 65F | Zero-model workspace-access / materialisation root-cause qualification | ✅ |
-| 65G | Create an entirely fresh Subject-C execution preregistration/lock; never resume the failed block | 🟡 |
+| 65G | Fresh Subject-C state + exact-runtime readiness + execution lock; currently in zero-model permission-profile repair/qualification | 🟡 |
 | 65H | Execute fresh Subject-C block and freeze all outputs before adjudication | ⬜ |
 | 65I | Blind semantic adjudication and bounded scientific interpretation | ⬜ |
 | 65J | Publish Level-3 evidence and align claims/limitations | ⬜ |
@@ -161,26 +161,54 @@ Public evidence:
 - `results/public/subject-c-level3-workspace-access-qualification-v1.json`
 - `results/public/subject-c-level3-workspace-access-qualification-v1.md`
 
-A disposable `codex sandbox` wrapper probe did not execute its harmless command. This is retained as a tooling limitation, not converted into a task outcome. Consequently, 65G has a mandatory final zero-model exact-runtime workspace-access gate against the new materialised workspaces. If that gate does not pass, 65H is prohibited.
+### 65G fresh state prepared; exact-runtime gate blocked pre-model
 
-## Active Item 65 boundary — 65G
+The 65G worker prepared a completely fresh state without task-model activity:
 
-Create a completely fresh Subject-C preregistration/execution lock.
+- fresh schedule units: **18**
+- fresh blind IDs: **18**
+- fresh PRE workspaces: **18**
+- failed first block resumed: **FALSE**
+- old failed workspaces modified: **FALSE**
+- old schedule/blind/execution state/session reused: **FALSE**
+- consumed-unit reruns: **0**
+
+The mandatory zero-model exact-runtime gate then failed before lock creation. The exact Codex runtime reached the sandbox wrapper, but the harmless payload did not execute: the wrapper required a permission profile and the attempted named `workspace-write` profile had no corresponding permissions definition in the restricted experimental configuration.
+
+Accepted pre-model blocker classification:
+
+`CODEX_SANDBOX_PERMISSION_PROFILE_CONFIGURATION_NOT_QUALIFIED`
+
+Private 65G blocker package commitment:
+
+`72e071fbb861d1d09c186bf6281261c39ce31115966f3c1ba924ff1c45c4b480`
+
+Public evidence:
+
+- `results/public/subject-c-level3-65g-runtime-readiness-blocker-v1.json`
+- `results/public/subject-c-level3-65g-runtime-readiness-blocker-v1.md`
+
+No task-solving model, model completion, build/compiler/typechecker, project/public test, lint or correctness adjudication occurred. No execution lock exists. 65H remains prohibited.
+
+## Active Item 65 boundary — 65G-R1
+
+Repair and qualify the exact restricted-runtime permission-profile path **zero-model**.
 
 Required properties:
 
-- accepted 65A/65B task contracts and verifier remain unchanged;
-- no reuse or resumption of the failed first execution block;
-- fresh randomisation seed, schedule, blind IDs, workspaces and execution state;
-- fresh workspaces materialised with the accepted 65F ACL repair;
-- restricted non-admin/non-elevated identity preserved;
-- all protected private-root denials preserved;
-- final **zero-model exact-runtime read/write readiness proof** against the fresh workspaces before any model-active execution is permitted;
-- no task-solving model during 65G;
+- preserve accepted 65A/65B contracts and verifier unchanged;
+- preserve the permanently closed failed block unchanged;
+- preserve the fresh 65G schedule, blind mapping and PRE workspace state unless evidence proves regeneration is necessary;
+- inspect the exact installed CLI help/config schema and accepted successful P2 runtime path;
+- prefer a built-in permission profile supported by the exact CLI over inventing a custom named profile;
+- make only the minimum restricted-runtime configuration change needed for a harmless exact-runtime read/create/modify/delete probe;
+- preserve non-admin/non-elevated execution and all protected private-root denials;
+- no task-solving model;
 - no project build/compiler/typechecker/tests/lint;
-- no correctness adjudication.
+- no correctness adjudication;
+- do not create or start 65H.
 
-Only coordinator acceptance of the complete fresh lock may allow 65H to start.
+If the gate passes, freeze a repair/qualification package for coordinator acceptance. The subsequent coordinator step can then complete the fresh 65G execution lock.
 
 ## Count rule
 
