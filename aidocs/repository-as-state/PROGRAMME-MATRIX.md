@@ -2,7 +2,7 @@
 
 Authoritative normalized ledger established 2026-09-03.
 
-Current status: **63 complete / 67 total**. Item **64 active — publish Level-2 P2 evidence and update paper claims/evidence**.
+Current status: **64 complete / 67 total**. Item **65 active — select Subject C and perform cross-repository / Level-3 replication**.
 
 Legend: ✅ complete · 🟡 active · ⬜ pending/blocked
 
@@ -71,55 +71,64 @@ Legend: ✅ complete · 🟡 active · ⬜ pending/blocked
 | 61 | Freeze fresh post-repair P2 preregistration/runtime/prompts/randomisation/public binding/execution lock | ✅ |
 | 62 | Execute fresh accepted 24-run P2 same-repository replication | ✅ |
 | 63 | Blind-adjudicate and scientifically interpret P2 | ✅ |
-| 64 | Publish Level-2 P2 evidence and update paper claims/evidence | 🟡 |
-| 65 | Select Subject C and perform cross-repository / Level-3 replication | ⬜ |
+| 64 | Publish Level-2 P2 evidence and update paper claims/evidence | ✅ |
+| 65 | Select Subject C and perform cross-repository / Level-3 replication | 🟡 |
 | 66 | Final hostile review, statistical/claims/limitations and reproducibility audit | ⬜ |
 | 67 | Final paper + reproducibility package + submission-ready release | ⬜ |
 
 ## Current count
 
-- Complete: **63**
-- Active: **1** (`#64`, publish Level-2 P2 evidence and update paper claims/evidence)
-- Pending after active item: **3**
+- Complete: **64**
+- Active: **1** (`#65`, Subject C / Level-3 cross-repository replication)
+- Pending after active item: **2**
 - Total: **67**
 
-## Item 63 accepted result
+## Item 64 accepted publication state
 
-The accepted recovery blind-adjudicated all 24 frozen Item-62 candidates using the unchanged qualified semantic verifier. The accepted Stage-A package was frozen before accepted unblinding. No Item-62 candidate was rerun or modified.
+Item 64 published the complete Subject-B Level-2 evidence and aligned active paper/claim surfaces to the accepted P0/P1/P2 state without changing experimental evidence.
 
-Accepted P2 result:
+Accepted facts:
 
-- 39 behaviour observations per condition
-- Condition A persistent-session: **0/39** behaviours satisfied
-- Condition B fresh-session: **0/39** behaviours satisfied
-- matched agreements: **39**
-- matched disagreements: **0**
-- disagreements favouring A: **0**
-- disagreements favouring B: **0**
-- candidate overall passes: **0/12 A, 0/12 B**
+- publication/public-evidence files changed: **17**
+- source/runtime/test/experimental files changed: **0**
+- P0 current status: executed once; `MIXED_METHODOLOGY_AND_MODEL_FAILURE`; causal A/B correctness rejected; no rerun
+- P1: **18/30 vs 18/30**, 30 matched agreements, 0 disagreements
+- P2: **0/39 vs 0/39**, 39 matched agreements, 0 disagreements, 0/12 overall passes per condition
+- P2 floor effect explicit: **TRUE**
+- P1/P2 pooled: **FALSE**
+- equivalence/non-inferiority claim: **FALSE**
+- successful P2 preservation claim: **FALSE**
+- Item-63 falsification and recovery history preserved: **TRUE**
+- stale active P0 status contradictions found during coordinator review: **4**
+- those contradictions repaired before acceptance: **TRUE**
+- experimental/model/verifier executions added by Item 64: **0**
 
-This is a floor-effect result. It shows no observed correctness difference between conditions in this bounded P2 design, but it does not demonstrate successful behavioural preservation by either condition and cannot by itself establish equivalence, non-inferiority or Repository-as-State sufficiency.
+Reviewed Item-64 publication head before ledger advancement:
 
-P1 remains contextual and is not pooled: A=18/30, B=18/30, 30 agreements, 0 disagreements.
-
-Accepted Item-63 identities:
-
-- recovery blind manifest: `CD181156AA2CAC4B38ADDBFCD88674CDF48248D9FA7C3A386C09239CB2648822`
-- recovery Stage-A package: `1EBE21C62D8CCB2814FC42D14E4F9B698079110AE793CD3659164F0FC99D991D`
-- matched analysis: `8D22F6B75421F8263C8E9DA065CE31761F7527D4DD1035F357F925E6D2629F33`
-- scientific interpretation: `8983393D51B3BDD53162B610D98C1BADD7C4157E08E02DE72B1541E2E36E9A1B`
-- final package: `EECB0F2682B376D5BB0EC856D63164081B0F7C41B9332E5C359F5047A9B85681`
+`0cdcf28350c30789bbdf840ffa7ecd1b9036e8a3`
 
 Public evidence:
 
-- `results/public/subject-b-p2-item63-results-v2.json`
-- `results/public/subject-b-p2-item63-results-v2.md`
-- `results/public/subject-b-p2-item63-blind-adjudication-falsification-v1.json`
-- `results/public/subject-b-p2-item63-blind-adjudication-falsification-v1.md`
+- `results/public/subject-b-p2-level2-evidence-v1.json`
+- `results/public/subject-b-p2-level2-evidence-v1.md`
+- `results/public/subject-b-p2-item64-claim-consistency-audit-v1.json`
+- `results/public/subject-b-p2-item64-claim-consistency-audit-v1.md`
 
-## Item 64 rule
+## Item 65 opening rule
 
-Update the public Level-2 evidence and paper/claims surfaces without changing the accepted empirical result. Preserve the distinction between `no observed A/B difference` and `successful task performance`; preserve the P2 floor effect; preserve the failed Item-63 attempt and recovery history; keep P1 and P2 separate; keep resource and correctness claims separate. Do not start Item 65 until coordinator acceptance of Item 64.
+Subject C is the first cross-repository external-validity replication. The opening phase is zero-model.
+
+Before any Subject-C task-solving execution:
+
+1. define repository eligibility and anti-cherry-picking rules;
+2. inventory candidate repositories/corpora without using outcome knowledge to favour the hypothesis;
+3. select an independent repository with recoverable historical accepted boundaries and genuine sequential dependency;
+4. prove a feasible task chain and PRE/POST recovery path;
+5. define a Level-3 design that preserves the persistent-session vs fresh-session causal treatment;
+6. define hidden semantic-verifier qualification, future-history isolation, retry/no-rescue and blindness requirements;
+7. prepare public-safe selection/design evidence for coordinator acceptance.
+
+Do not execute Subject-C task-solving models until this boundary is accepted.
 
 ## Count rule
 
