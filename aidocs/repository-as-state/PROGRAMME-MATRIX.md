@@ -2,7 +2,7 @@
 
 Authoritative normalized ledger established 2026-09-03.
 
-Current status: **64 complete / 67 total**. Item **65 active — select Subject C and perform cross-repository / Level-3 replication**.
+Current status: **64 complete / 67 total**. Item **65 active — Subject C selected and qualified; first locked execution blocked by workspace-access infrastructure; zero-model workspace-access qualification is now active**.
 
 Legend: ✅ complete · 🟡 active · ⬜ pending/blocked
 
@@ -83,53 +83,77 @@ Legend: ✅ complete · 🟡 active · ⬜ pending/blocked
 - Pending after active item: **2**
 - Total: **67**
 
-## Item 64 accepted publication state
+The detailed Item-65 substages below do **not** alter the 67-item top-level count.
 
-Item 64 published the complete Subject-B Level-2 evidence and aligned active paper/claim surfaces to the accepted P0/P1/P2 state without changing experimental evidence.
+## Item 65 detailed submatrix
 
-Accepted facts:
+| Substage | Work | Status |
+|---|---|:---:|
+| 65A | Anti-cherry-picking repository discovery, Subject C selection and Level-3 design | ✅ |
+| 65B | Freeze neutral task contracts and qualify implementation-independent semantic verifier | ✅ |
+| 65C | Final zero-model preregistration, randomisation, blindness, 18 PRE workspaces and execution lock | ✅ |
+| 65D | First locked Subject-C execution attempt and infrastructure falsification | ✅ |
+| 65E | Freeze/publish blocked-execution evidence: 3 consumed, 15 never started, no correctness result | ✅ |
+| 65F | Zero-model workspace-access / materialisation root-cause qualification | 🟡 |
+| 65G | If 65F passes: create an entirely fresh Subject-C execution preregistration/lock; never resume the failed block | ⬜ |
+| 65H | Execute fresh Subject-C block and freeze all outputs before adjudication | ⬜ |
+| 65I | Blind semantic adjudication and bounded scientific interpretation | ⬜ |
+| 65J | Publish Level-3 evidence and align claims/limitations | ⬜ |
 
-- publication/public-evidence files changed: **17**
-- source/runtime/test/experimental files changed: **0**
-- P0 current status: executed once; `MIXED_METHODOLOGY_AND_MODEL_FAILURE`; causal A/B correctness rejected; no rerun
-- P1: **18/30 vs 18/30**, 30 matched agreements, 0 disagreements
-- P2: **0/39 vs 0/39**, 39 matched agreements, 0 disagreements, 0/12 overall passes per condition
-- P2 floor effect explicit: **TRUE**
-- P1/P2 pooled: **FALSE**
-- equivalence/non-inferiority claim: **FALSE**
-- successful P2 preservation claim: **FALSE**
-- Item-63 falsification and recovery history preserved: **TRUE**
-- stale active P0 status contradictions found during coordinator review: **4**
-- those contradictions repaired before acceptance: **TRUE**
-- experimental/model/verifier executions added by Item 64: **0**
+### Item 65 accepted state so far
 
-Reviewed Item-64 publication head before ledger advancement:
+Subject C was selected independently under the frozen anti-cherry-picking protocol. Phase A selection/design, Phase-B v2 implementation-independent verifier qualification and Phase-C preregistration/execution lock were accepted before task execution.
 
-`0cdcf28350c30789bbdf840ffa7ecd1b9036e8a3`
+Accepted bindings:
 
-Public evidence:
+- Phase-A package: `6b54c793b07c706362f82efa7a64dd59276b059dd12aa583b43e99f78aa26373`
+- Phase-B v2 package: `ee2c288203cf1e36c368624e9efb18ffe0983d29aa89f698eeddef350081fadf`
+- semantic-verifier v2 package: `18aa90e28afbf1f36d2aa909417cb436279ddf20fc8c99e516ae25f42f25c0cd`
+- Phase-C execution-lock package: `9538cc1b9af91b732127d08085a7f2211f37f15fd5bd091d8b03a2493f770afe`
+- frozen execution source HEAD: `84e68b18c8c58d5576d6f726a51524d3e676758f`
+- design: **3 tasks × 3 repetitions × 2 conditions = 18 scheduled units**
+- matched units: **9**
+- governing behaviours: **10**
 
-- `results/public/subject-b-p2-level2-evidence-v1.json`
-- `results/public/subject-b-p2-level2-evidence-v1.md`
-- `results/public/subject-b-p2-item64-claim-consistency-audit-v1.json`
-- `results/public/subject-b-p2-item64-claim-consistency-audit-v1.md`
+The first locked execution block did **not** produce a correctness result. Slot 1 became model-active and was consumed by a 401 authentication failure. Authentication was repaired. Slot 2 became model-active but could not read the experimental workspace. The coordinator authorised one zero-model compatibility repair using the previously accepted `sandbox = "unelevated"` runtime mode; Slot 3 then became model-active and hit the same workspace access failure. Slots 1–3 were never rerun and Slots 4–18 were never started.
 
-## Item 65 opening rule
+Accepted blocked-execution classification:
 
-Subject C is the first cross-repository external-validity replication. The opening phase is zero-model.
+`EXECUTION_ENVIRONMENT_BLOCKED_AFTER_MODEL_ACTIVITY`
 
-Before any Subject-C task-solving execution:
+Accepted blocker package:
 
-1. define repository eligibility and anti-cherry-picking rules;
-2. inventory candidate repositories/corpora without using outcome knowledge to favour the hypothesis;
-3. select an independent repository with recoverable historical accepted boundaries and genuine sequential dependency;
-4. prove a feasible task chain and PRE/POST recovery path;
-5. define a Level-3 design that preserves the persistent-session vs fresh-session causal treatment;
-6. define hidden semantic-verifier qualification, future-history isolation, retry/no-rescue and blindness requirements;
-7. prepare public-safe selection/design evidence for coordinator acceptance.
+`a5d534f4599454c5504ea7b8d20d7dc7982bc5b25e5e8d2f441a613eae9cae0c`
 
-Do not execute Subject-C task-solving models until this boundary is accepted.
+Public blocker evidence:
+
+- `results/public/subject-c-level3-execution-blocker-v1.json`
+- `results/public/subject-c-level3-execution-blocker-v1.md`
+
+Scientific consequence:
+
+- preregistered units: **18**
+- consumed units: **3**
+- not-started units: **15**
+- builds/compiler/tests/lint: **0**
+- hidden verifier runs against model output: **0**
+- correctness adjudications: **0**
+- Subject-C correctness result available: **FALSE**
+- blind adjudication allowed on this block: **FALSE**
+- A/B comparison allowed on this block: **FALSE**
+
+The failed 18-run block is permanently closed. It must never be resumed or repaired into a result.
+
+## Active Item 65 boundary — 65F
+
+The current work is **zero-model workspace-access/materialisation qualification**.
+
+Goal: determine why the restricted identity could enumerate Subject-C workspaces but source-file reads remained denied, compare the failed Subject-C materialisation with the successful Subject-B P2 workspace/ACL path, and prove a corrected future materialisation method in a disposable diagnostic root without weakening private-root isolation.
+
+No Subject-C task-solving model may run during 65F. No project build, compiler/typechecker, tests or lint may be used. The failed execution workspaces must remain unchanged.
+
+Only if 65F passes may Item 65 proceed to 65G, which must create a **new preregistration, new schedule/blind mapping/workspaces and new execution lock**. The failed block is historical falsification evidence only.
 
 ## Count rule
 
-An item becomes ✅ only after coordinator acceptance of its complete evidence package. Later empirical falsification can reopen an earlier item and invalidate downstream locks; once the falsified gate is genuinely repaired and accepted, the ledger can advance again without hiding the falsification history.
+An item becomes ✅ only after coordinator acceptance of its complete evidence package. Substages inside Item 65 do not increment the top-level count. Later empirical falsification can invalidate a downstream execution lock; repair must preserve the falsification history and may not transform consumed attempts into retries.
