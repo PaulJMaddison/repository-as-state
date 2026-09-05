@@ -1,19 +1,20 @@
 # Repository-as-State — CURRENT
 
-Updated: 2026-09-05 18:15 Europe/London
+Updated: 2026-09-05 18:57 Europe/London
 
 ## Programme status
 
-- Authoritative progress ledger: **63/67 complete**.
-- Items 58, 59, 60, 61, 62 and 63 are **COMPLETE**.
-- **Item 64 is ACTIVE — publish the Level-2 P2 evidence and update the paper claims/evidence to reflect the accepted floor-effect result.**
-- Items 65–67 remain pending.
+- Authoritative progress ledger: **64/67 complete**.
+- Items 58, 59, 60, 61, 62, 63 and 64 are **COMPLETE**.
+- **Item 65 is ACTIVE — select Subject C and perform the cross-repository / Level-3 replication.**
+- Items 66–67 remain pending.
 - Fresh accepted P2 experimental units: **24**.
 - Fresh scheduled P2 units with genuine model activity: **24/24**.
 - Accepted Item-63 blinded correctness adjudications: **24/24**.
 - P2 fresh execution completed: **TRUE**.
 - P2 output freeze completed: **TRUE**.
 - P2 blind adjudication completed: **TRUE**.
+- Item-64 Level-2 publication/claim alignment accepted: **TRUE**.
 - P0 rerun: **FALSE**.
 - P1 rerun: **FALSE**.
 - P2 task rerun: **FALSE**.
@@ -24,6 +25,16 @@ Updated: 2026-09-05 18:15 Europe/London
 - Do not allow ephemeral state to become authoritative state.
 - The unit of progress is validated repository state, not accumulated agent conversation.
 - Repository-as-State is not repository-as-prompt.
+
+## P0 historical status
+
+P0 was executed exactly once and classified `MIXED_METHODOLOGY_AND_MODEL_FAILURE`.
+
+- P0 causal A/B correctness claims: **REJECTED**.
+- P0 rerun: **PROHIBITED**.
+- P0 remains methodology/falsification evidence, not a controlled correctness result.
+
+Item 64 corrected stale active publication surfaces that still described P0 as unexecuted. Historical pre-run protocol snapshots remain preserved but are now explicitly labelled historical where needed.
 
 ## Frozen P2 design
 
@@ -190,19 +201,59 @@ Public evidence:
 - `results/public/subject-b-p2-item63-blind-adjudication-falsification-v1.json`
 - `results/public/subject-b-p2-item63-blind-adjudication-falsification-v1.md`
 
-## Active Item 64
+## Item 64 Level-2 publication and claim alignment — accepted
 
-Publish the complete Level-2 P2 evidence narrative and update the research paper/evidence/claims surfaces so they accurately represent both P1 and P2.
+The Item-64 worker produced a documentation/public-evidence-only draft branch and did not alter experimental evidence. Coordinator review found stale P0 execution-status wording in the draft, repaired it on the draft branch, recorded the correction in the Item-64 audit, then fast-forwarded the reviewed state into the authoritative branch.
 
-Required claim discipline:
+Accepted Item-64 facts:
 
-- retain the P1 bounded result exactly;
-- retain the P2 floor-effect result exactly;
-- do not describe P2 as equivalence, non-inferiority, successful preservation, or proof of Repository-as-State sufficiency;
-- distinguish `no observed A/B difference` from `successful task performance`;
-- preserve the Item-63 recovery/falsification history;
-- keep resource claims separate from correctness claims;
-- do not begin Subject C / Item 65 until Item 64 is coordinator-accepted.
+- publication/public-evidence files changed: **17**
+- source/runtime/test/experimental files changed: **0**
+- P1 result preserved: **18/30 vs 18/30; 30 agreements; 0 disagreements**
+- P2 result preserved: **0/39 vs 0/39; 39 agreements; 0 disagreements; 0/12 overall passes per condition**
+- P2 floor effect explicit: **TRUE**
+- P1/P2 pooled: **FALSE**
+- equivalence claim added: **FALSE**
+- non-inferiority claim added: **FALSE**
+- successful-P2-preservation claim added: **FALSE**
+- Item-63 falsification/recovery history preserved: **TRUE**
+- stale active P0 execution-status claims after coordinator correction: **0**
+- P0/P1/P2 experimental executions added during Item 64: **0**
+
+Accepted publication state before ledger advancement:
+
+- reviewed Item-64 draft head: `0cdcf28350c30789bbdf840ffa7ecd1b9036e8a3`
+
+Public Item-64 evidence:
+
+- `results/public/subject-b-p2-level2-evidence-v1.json`
+- `results/public/subject-b-p2-level2-evidence-v1.md`
+- `results/public/subject-b-p2-item64-claim-consistency-audit-v1.json`
+- `results/public/subject-b-p2-item64-claim-consistency-audit-v1.md`
+
+## Active Item 65 — Subject C / Level-3 cross-repository replication
+
+Item 65 is the first external-validity replication beyond Subject B/SearchForCars.
+
+The opening phase MUST be zero-model and anti-cherry-picking. Do not run a Subject-C task-solving model until the coordinator has accepted a public-safe Subject-C selection/design/preregistration boundary.
+
+Required opening principles:
+
+- select an independent repository, not another SearchForCars slice;
+- predefine and record repository eligibility before outcome inspection;
+- avoid selecting a repository because its tasks are known to suit the hypothesis;
+- prefer a real historical sequence with recoverable accepted PRE/POST boundaries and genuine dependent engineering work;
+- freeze candidate inventory and selection method before choosing the final task chain where possible;
+- prove future-history isolation and private-material separation before model execution;
+- use neutral disclosed task contracts and hidden semantic verification with negative and alternate-valid controls;
+- keep persistent-session vs fresh-session treatment as the causal contrast;
+- keep task success/correctness separate from resource telemetry;
+- preserve no-human-rescue, no best-of-N and no quality-retry discipline;
+- treat repetitions as replications, not retries;
+- do not use P1/P2 results to tune Subject-C selection or outcome thresholds;
+- do not claim generalisation until Subject C has actually completed and been adjudicated.
+
+The first Item-65 worker should perform repository/corpus discovery, eligibility/anti-cherry-picking design, task-chain feasibility and a zero-model Level-3 design proposal only. It must not execute the experimental task-solving model.
 
 ## Contaminated historical Item-62 attempt
 
