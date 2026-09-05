@@ -1,6 +1,6 @@
 # Repository-as-State — CURRENT
 
-Updated: 2026-09-06 00:20 Europe/London
+Updated: 2026-09-06 00:41 Europe/London
 
 ## Programme status
 
@@ -12,7 +12,7 @@ Updated: 2026-09-06 00:20 Europe/London
 - P1 rerun: **FALSE**.
 - P2 task rerun: **FALSE**.
 
-Current Item-65 substage: **65G — fresh Subject-C preregistration/execution lock**.
+Current Item-65 substage: **65G-R1 — zero-model exact-runtime permission-profile repair/qualification before fresh execution-lock acceptance**.
 
 ## Core framing
 
@@ -22,6 +22,10 @@ Current Item-65 substage: **65G — fresh Subject-C preregistration/execution lo
 - Repository-as-State != repository-as-prompt.
 - The hypothesis is not that conversation has no effect. The question is whether persistent conversation state is necessary for behavioural software correctness when sufficient authoritative state can be reconstructed externally.
 - Do not claim equivalence or non-inferiority unless explicitly designed for it.
+
+Paper origin/motivation:
+
+- `aidocs/repository-as-state/PAPER-FRAMING-ORIGIN-AND-MOTIVATION.md`
 
 ## Historical experimental state
 
@@ -202,25 +206,64 @@ Public evidence:
 - `results/public/subject-c-level3-workspace-access-qualification-v1.json`
 - `results/public/subject-c-level3-workspace-access-qualification-v1.md`
 
-An additional disposable `codex sandbox` wrapper probe did not execute its harmless command. That does not invalidate the filesystem root-cause qualification, but it creates a mandatory 65G readiness gate: **before a fresh execution lock can permit model-active execution, the exact intended restricted runtime path must pass a zero-model source read/write access proof against the newly materialised workspaces.** If that exact-runtime gate cannot be qualified, stop; do not start 65H.
+### 65G pre-model exact-runtime readiness blocker — accepted history
 
-## ACTIVE NOW — 65G fresh preregistration/execution lock
+65G prepared an uncontaminated fresh state:
 
-The next scientific task is to create an entirely new Subject-C preregistration/execution block.
+- fresh scheduled units: **18**
+- fresh blind IDs: **18**
+- fresh PRE workspaces: **18**
+- failed first block resumed: **FALSE**
+- consumed-unit reruns: **0**
+- task-model invocations: **0**
+- model completions: **0**
+- build/compiler/tests/lint: **0**
+- correctness adjudications: **0**
 
-65G must:
+Its mandatory zero-model exact-runtime workspace-access gate then failed **before execution-lock creation**.
 
-- preserve the accepted 65A/65B task contracts and semantic verifier unchanged;
-- never resume the failed first execution block;
-- create a **fresh** schedule, randomisation seed, blind mapping, workspaces and execution state;
-- use fresh workspace materialisation with the accepted 65F ACL repair;
+The exact restricted Codex runtime reached the sandbox wrapper, but the harmless payload did not execute. The wrapper required a permission profile; the attempted named `workspace-write` profile could not load because the experimental configuration lacked a matching permissions definition.
+
+Classification:
+
+`CODEX_SANDBOX_PERMISSION_PROFILE_CONFIGURATION_NOT_QUALIFIED`
+
+Private 65G blocker package commitment:
+
+`72e071fbb861d1d09c186bf6281261c39ce31115966f3c1ba924ff1c45c4b480`
+
+Public evidence:
+
+- `results/public/subject-c-level3-65g-runtime-readiness-blocker-v1.json`
+- `results/public/subject-c-level3-65g-runtime-readiness-blocker-v1.md`
+
+Scientific consequence:
+
+- fresh execution lock created: **FALSE**
+- 65H allowed: **FALSE**
+- the fresh 65G state is not model-contaminated
+- preserve its schedule/blind mapping/workspaces through zero-model infrastructure repair if byte/state integrity can be proved
+- if the repair requires changing frozen candidate-state inputs, regenerate those inputs before lock acceptance
+
+## ACTIVE NOW — 65G-R1 exact-runtime permission-profile repair/qualification
+
+The immediate task is **not** to run Subject C and **not** to regenerate the fresh state by default.
+
+65G-R1 must:
+
+- invoke no task-solving model;
+- preserve accepted 65A/65B contracts/verifier unchanged;
+- preserve the permanently closed failed block unchanged;
+- prove the existing fresh 65G schedule/blind/workspace state remains unchanged;
+- diagnose the exact `codex sandbox` permission-profile requirements for `codex-cli 0.153.0-alpha.5`;
+- test the built-in workspace permission profile if supported by the exact CLI rather than assuming a named custom profile;
+- compare with the accepted successful P2 runtime/configuration path;
+- make only the minimum restricted-runtime configuration repair required for a harmless zero-model read/create/modify/delete probe;
 - preserve non-admin/non-elevated execution and all protected private-root denials;
-- include a final zero-model exact-runtime workspace access gate before the lock permits any task model activity;
-- invoke **no task-solving model**;
-- run **no project build/compiler/tests/lint**;
-- create no correctness result and perform no adjudication.
+- run no project build/compiler/tests/lint;
+- perform no verifier/correctness adjudication.
 
-Only after coordinator acceptance of the complete fresh 65G lock may 65H begin.
+If the exact-runtime zero-model access gate passes, freeze a repair/qualification package for coordinator review. **Do not start 65H in the same worker.**
 
 ## Remaining Item-65 path
 
@@ -230,7 +273,7 @@ Only after coordinator acceptance of the complete fresh 65G lock may 65H begin.
 - **65D COMPLETE:** first locked execution infrastructure falsification
 - **65E COMPLETE:** failed-block evidence freeze/publication
 - **65F COMPLETE:** zero-model workspace access/root-cause qualification
-- **65G ACTIVE:** fresh Subject-C preregistration, schedule, blind mapping, workspaces and execution lock
+- **65G ACTIVE:** fresh Subject-C state prepared; exact-runtime permission-profile readiness repair/qualification required before lock acceptance
 - **65H PENDING:** fresh execution and complete output freeze
 - **65I PENDING:** blind semantic adjudication and bounded interpretation
 - **65J PENDING:** Level-3 publication/claim alignment
