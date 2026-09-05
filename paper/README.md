@@ -9,13 +9,13 @@ Version: **0.1.0**
 
 ## Audit status
 
-A hostile pre-experiment audit has narrowed the novelty and strengthened the experimental design.
+A hostile pre-experiment audit narrowed the novelty and strengthened the experimental design. P0 subsequently ran exactly once and is retained as an immutable methodology/failure record.
 
-**Internal decision:** GO_WITH_REQUIRED_PROTOCOL_CHANGES  
-**P0 execution readiness:** NOT YET READY  
+**Historical pre-P0 audit decision:** GO_WITH_REQUIRED_PROTOCOL_CHANGES  
+**P0 execution status:** EXECUTED ONCE — `MIXED_METHODOLOGY_AND_MODEL_FAILURE`  
 **Controlled empirical evidence:** BOUNDED SUBJECT-B P1/P2 RESULTS PUBLISHED
 
-The audit does **not** conclude that RaS is validated. Subject-B P1 provides bounded equal non-zero performance; Subject-B P2 provides a bounded equal-zero floor-effect result. Neither establishes equivalence, non-inferiority, universal repository sufficiency, or generalisation.
+P0 does not support a causal A/B correctness interpretation and must not be rerun. The paper does **not** conclude that RaS is validated. Subject-B P1 provides bounded equal non-zero performance; Subject-B P2 provides a bounded equal-zero floor-effect result. Neither establishes equivalence, non-inferiority, universal repository sufficiency, or generalisation.
 
 Key audit documents:
 
@@ -58,7 +58,7 @@ RRI, tiered execution, repository retrieval, sequential coding evaluation, Git-b
 
 ## Evidence status
 
-**P0 has not been executed.** P1 and P2 are reported as bounded Subject-B evidence in the Results section. Positive evidence for successful P2 behavioural preservation remains absent because both P2 conditions were at the correctness floor.
+**P0 was executed exactly once and classified `MIXED_METHODOLOGY_AND_MODEL_FAILURE`; its A/B correctness outcome is not causally interpretable.** P1 and P2 are reported as bounded Subject-B evidence in the Results section. Positive evidence for successful P2 behavioural preservation remains absent because both P2 conditions were at the correctness floor.
 
 ## Build
 
@@ -79,7 +79,7 @@ The paper uses TikZ for conceptual figures.
 
 - Current prior work must be credited even when it weakens novelty.
 - Handoff Debt is not to be dismissed; post-acceptance boundaries are the hypothesis.
-- No P0 run until the readiness checklist is complete.
+- P0 is immutable historical evidence and must not be rerun.
 - Do not infer provider GPU/KV/margin savings from client token counters.
 - Conceptual figures are not empirical data.
 - Public/private boundary remains mandatory.
