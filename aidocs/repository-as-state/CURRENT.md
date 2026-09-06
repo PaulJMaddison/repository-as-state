@@ -1,6 +1,6 @@
 # Repository-as-State — CURRENT
 
-Updated: 2026-09-06 00:41 Europe/London
+Updated: 2026-09-06 — Item 65G-R2 runtime-path methodology repair
 
 ## Programme status
 
@@ -12,7 +12,7 @@ Updated: 2026-09-06 00:41 Europe/London
 - P1 rerun: **FALSE**.
 - P2 task rerun: **FALSE**.
 
-Current Item-65 substage: **65G-R1 — zero-model exact-runtime permission-profile repair/qualification before fresh execution-lock acceptance**.
+Current Item-65 substage: **65G-R2 — decomposed pre-model runtime-readiness qualification, then fresh execution-lock finalisation**.
 
 ## Core framing
 
@@ -206,7 +206,7 @@ Public evidence:
 - `results/public/subject-c-level3-workspace-access-qualification-v1.json`
 - `results/public/subject-c-level3-workspace-access-qualification-v1.md`
 
-### 65G pre-model exact-runtime readiness blocker — accepted history
+### 65G fresh state and first readiness blocker — accepted history
 
 65G prepared an uncontaminated fresh state:
 
@@ -220,13 +220,7 @@ Public evidence:
 - build/compiler/tests/lint: **0**
 - correctness adjudications: **0**
 
-Its mandatory zero-model exact-runtime workspace-access gate then failed **before execution-lock creation**.
-
-The exact restricted Codex runtime reached the sandbox wrapper, but the harmless payload did not execute. The wrapper required a permission profile; the attempted named `workspace-write` profile could not load because the experimental configuration lacked a matching permissions definition.
-
-Classification:
-
-`CODEX_SANDBOX_PERMISSION_PROFILE_CONFIGURATION_NOT_QUALIFIED`
+The original mandatory zero-model readiness attempt stopped before execution-lock creation because the standalone `codex sandbox` wrapper required a permission profile that was not qualified in the experimental configuration.
 
 Private 65G blocker package commitment:
 
@@ -237,33 +231,49 @@ Public evidence:
 - `results/public/subject-c-level3-65g-runtime-readiness-blocker-v1.json`
 - `results/public/subject-c-level3-65g-runtime-readiness-blocker-v1.md`
 
-Scientific consequence:
+### Accepted 65G-R1 runtime-path diagnosis
 
-- fresh execution lock created: **FALSE**
-- 65H allowed: **FALSE**
-- the fresh 65G state is not model-contaminated
-- preserve its schedule/blind mapping/workspaces through zero-model infrastructure repair if byte/state integrity can be proved
-- if the repair requires changing frozen candidate-state inputs, regenerate those inputs before lock acceptance
+Subsequent zero-model diagnosis established that the standalone `codex sandbox` wrapper is **not** the execution path used by accepted Subject-B P2.
 
-## ACTIVE NOW — 65G-R1 exact-runtime permission-profile repair/qualification
+Accepted classification:
 
-The immediate task is **not** to run Subject C and **not** to regenerate the fresh state by default.
+`STANDALONE_CODEX_SANDBOX_WRAPPER_NOT_EQUIVALENT_TO_ACCEPTED_P2_EXECUTION_RUNTIME`
 
-65G-R1 must:
+Facts accepted for the methodology boundary:
 
-- invoke no task-solving model;
-- preserve accepted 65A/65B contracts/verifier unchanged;
-- preserve the permanently closed failed block unchanged;
-- prove the existing fresh 65G schedule/blind/workspace state remains unchanged;
-- diagnose the exact `codex sandbox` permission-profile requirements for `codex-cli 0.153.0-alpha.5`;
-- test the built-in workspace permission profile if supported by the exact CLI rather than assuming a named custom profile;
-- compare with the accepted successful P2 runtime/configuration path;
-- make only the minimum restricted-runtime configuration repair required for a harmless zero-model read/create/modify/delete probe;
-- preserve non-admin/non-elevated execution and all protected private-root denials;
-- run no project build/compiler/tests/lint;
-- perform no verifier/correctness adjudication.
+- the standalone wrapper accepts the managed profile schema but a workspace-only managed profile requires the elevated Windows backend;
+- elevation remains prohibited;
+- accepted P2 did not use the standalone wrapper;
+- accepted P2 used normal `codex exec` under the restricted non-admin identity with `[windows] sandbox = "unelevated"`;
+- a permission/UAC dialog is not the missing step;
+- wrapper failure is not a Subject-C task failure or correctness result;
+- no Subject-C task model or completion ran during this diagnosis;
+- the public repository remained unchanged by the worker;
+- the fresh 65G state remains pre-model and may be preserved if its integrity is revalidated.
 
-If the exact-runtime zero-model access gate passes, freeze a repair/qualification package for coordinator review. **Do not start 65H in the same worker.**
+Public diagnosis:
+
+- `results/public/subject-c-level3-65g-runtime-path-diagnosis-v1.json`
+- `results/public/subject-c-level3-65g-runtime-path-diagnosis-v1.md`
+
+The prior requirement that the standalone `codex sandbox` wrapper itself perform an “exact-runtime zero-model” gate is **retired** because it is not equivalent to the accepted experimental execution runtime.
+
+## ACTIVE NOW — 65G-R2 decomposed pre-model runtime-readiness qualification
+
+65G-R2 must replace the impossible/non-equivalent wrapper gate with a decomposed readiness proof **before any fresh Subject-C task-model activity and before execution-lock acceptance**.
+
+Required proof:
+
+1. **Runtime equivalence binding:** prove the fresh Subject-C launcher/runtime/configuration uses the same relevant execution path as accepted P2: normal `codex exec`, exact intended CLI/model binding, restricted non-admin identity and `[windows] sandbox = "unelevated"`.
+2. **Zero-model workspace access:** under that same restricted identity, independently prove read/create/modify/delete access to representative fresh Subject-C workspaces without modifying candidate source bytes.
+3. **Protected-root denial:** under that identity, independently prove Phase A/B/C private roots, private source material, hidden verifier and coordinator repository remain inaccessible according to the filesystem security boundary.
+4. **Fresh-state integrity:** prove schedule, blind mapping, PRE workspace manifest, PRE source bytes and execution state remain unchanged/uncontaminated.
+
+This is an explicit pre-lock methodology repair made before any model-active run in the fresh 65G block. It must not use Subject-C outcomes or correctness information.
+
+If all four components pass, freeze a 65G-R2 qualification package and allow a separate zero-model worker to finalise the fresh execution lock. **Do not start 65H in the same worker.**
+
+If any component fails, stop; do not run a task model to resolve it.
 
 ## Remaining Item-65 path
 
@@ -273,7 +283,7 @@ If the exact-runtime zero-model access gate passes, freeze a repair/qualificatio
 - **65D COMPLETE:** first locked execution infrastructure falsification
 - **65E COMPLETE:** failed-block evidence freeze/publication
 - **65F COMPLETE:** zero-model workspace access/root-cause qualification
-- **65G ACTIVE:** fresh Subject-C state prepared; exact-runtime permission-profile readiness repair/qualification required before lock acceptance
+- **65G ACTIVE:** fresh state prepared; decomposed runtime-readiness qualification and fresh lock finalisation remain
 - **65H PENDING:** fresh execution and complete output freeze
 - **65I PENDING:** blind semantic adjudication and bounded interpretation
 - **65J PENDING:** Level-3 publication/claim alignment
