@@ -1,0 +1,55 @@
+{
+  "schema_version": "subject-c-level3-65g-runtime-path-diagnosis-v1",
+  "status": "COORDINATOR_ACCEPTED_PREMODEL_RUNTIME_PATH_DIAGNOSIS",
+  "programme_state": {
+    "complete": 64,
+    "total": 67,
+    "active_item": 65,
+    "active_substage": "65G-R2",
+    "item65_complete": false,
+    "item66_allowed": false
+  },
+  "classification": "STANDALONE_CODEX_SANDBOX_WRAPPER_NOT_EQUIVALENT_TO_ACCEPTED_P2_EXECUTION_RUNTIME",
+  "accepted_facts": {
+    "fresh_65g_state_prepared": true,
+    "fresh_schedule_units": 18,
+    "fresh_blind_ids": 18,
+    "fresh_pre_workspaces": 18,
+    "fresh_execution_lock_created": false,
+    "subject_c_task_model_runs": 0,
+    "subject_c_model_completions": 0,
+    "correctness_adjudications": 0,
+    "project_build_compiler_test_lint_runs": 0,
+    "failed_first_block_resumed": false,
+    "consumed_unit_reruns": 0,
+    "public_repository_modified_by_worker": false,
+    "standalone_codex_sandbox_profile_schema_accepted": true,
+    "standalone_codex_sandbox_workspace_only_profile_requires_elevated_backend": true,
+    "elevated_backend_allowed": false,
+    "accepted_p2_used_standalone_codex_sandbox_wrapper": false,
+    "accepted_p2_runtime_path": "normal codex exec under the restricted non-admin identity with [windows] sandbox = unelevated",
+    "permission_dialog_required": false,
+    "wrapper_failure_is_subject_c_task_failure": false,
+    "wrapper_failure_is_correctness_result": false
+  },
+  "methodology_repair": {
+    "old_gate": "standalone codex sandbox wrapper must perform exact-runtime zero-model workspace read/write",
+    "old_gate_status": "RETIRED_AS_NON_EQUIVALENT_TO_ACTUAL_ACCEPTED_EXECUTION_PATH",
+    "replacement_gate": [
+      "bind the fresh Subject-C launcher/runtime/configuration to the accepted successful P2 non-elevated codex exec path",
+      "prove zero-model read/create/modify/delete access to representative fresh Subject-C workspaces under the same restricted identity",
+      "prove protected/private roots remain denied under that same identity through the filesystem security boundary",
+      "prove fresh schedule, blind mapping, PRE source bytes and execution state remain unchanged/uncontaminated"
+    ],
+    "replacement_gate_must_pass_before_lock": true,
+    "task_model_activity_before_lock_allowed": false,
+    "65h_allowed_before_replacement_gate_and_lock": false
+  },
+  "scientific_consequence": {
+    "fresh_65g_state_can_be_preserved_if_integrity_revalidated": true,
+    "fresh_state_regeneration_required_by_this_diagnosis": false,
+    "subject_c_correctness_result_available": false,
+    "blind_adjudication_allowed": false,
+    "ab_comparison_allowed": false
+  }
+}
